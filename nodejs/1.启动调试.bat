@@ -1,0 +1,1 @@
+node-inspector --web-port 8889 --debug-port 5858

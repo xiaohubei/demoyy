@@ -1,0 +1,88 @@
+﻿.Collectiontitle {
+  margin: 0;
+  height: 35px;
+  line-height: 35px;
+  font-size: 13px;
+  color: #999;
+  text-indent: 15px;
+  background-color: #fff;
+}
+div[data-page="myCollection"] .product-list li {
+  position: relative;
+}
+div[data-page="myCollection"] .product-list li.dateClass {
+  font-size: 13px;
+  color: #999999;
+}
+div[data-page="myCollection"] .product-list li .upimgdiv {
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+}
+div[data-page="myCollection"] .product-list li .item-text {
+  font-size: 13px;
+  color: #505050;
+  word-break: break-all;
+}
+div[data-page="myCollection"] .product-list li .price {
+  margin-top: 12px;
+  color: #ef524d;
+  font-weight: normal;
+}
+div[data-page="myCollection"] .product-list li .myCollectionCart,
+div[data-page="myCollection"] .product-list li .del-coll {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 23px;
+  height: 23px;
+  background-image: url(../img/icon/del-coll.png);
+  background-size: 23px 23px;
+}
+div[data-page="myCollection"] .product-list li .myCollectionCart {
+  background-image: url(../img/icon/cart-coll.png);
+  right: 55px;
+}
+div[data-page="myCollection"] .product-list li:after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  left: 4px;
+  right: 4px;
+  bottom: 0;
+  top: auto;
+  background: #EEEEEE;
+}
+.del-price {
+  text-decoration: line-through;
+  font-weight: normal;
+  color: #999;
+  font-size: 13px;
+  margin-left: 5px;
+}
+.history-label {
+  padding-left: 0 !important;
+  padding-right: 10px;
+}
+.col-50.go-cart,
+.col-50.now-buy {
+  color: #fff;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: normal;
+}
+.col-50.go-cart {
+  background-color: #f6c762;
+}
+.col-50.now-buy {
+  background-color: #ef524d;
+}
+div[data-page="myCollection"] .dateClass {
+  padding: 0 15px;
+  border: none;
+  font-size: 17px;
+  padding-top: 8px;
+}
+/*# sourceMappingURL=myCollection_M.css.map */

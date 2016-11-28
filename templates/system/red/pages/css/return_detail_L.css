@@ -1,0 +1,194 @@
+﻿/*整体布局*/
+.return_details {
+  margin: 0px auto;
+  overflow: hidden;
+  padding-top: 20px;
+}
+.returnProductDetail {
+    background-color: #fff7f8;
+    height: 135px; 
+    margin-top: 20px;
+}
+.returnProductImg {
+    margin-top:20px;
+}
+.returnStateTitle{
+  border-left: 3px solid #ef524d; 
+  font-size: 14px;
+  padding-left: 3px;
+      height: 15px;
+    line-height: 15px;
+}
+.returnProductContent {
+    text-align:left;
+    vertical-align:middle
+}
+.returnEvaluation {
+
+}
+.returnEvaluationTitle {
+    margin-top:20px;
+    font-size: 14px;
+    padding-left: 3px;
+    border-left: 3px solid #ef524d;
+}
+.returnEvaluationTitle:before{
+
+}
+.returnEvaluationTitleQuestion {
+    height: 60px;
+    line-height: 60px;
+    margin-top: 10px;
+    padding-left: 30px;
+    background-color: #fbfbfb;
+}
+.returnEvaluationBtn {
+    text-align:center;
+    vertical-align:middle;
+    margin-left:50px;
+}
+.satisfactionBtn,
+.noNatisfactionBtn {
+    background-color: #f6f5f5;
+    padding: 5px 10px;
+    border: 1px solid #e8e8e8;
+    cursor:pointer;
+    color: #706e6e
+}
+.satisfactionBtn{
+  border-color: #ecd8da;
+  background-color: #fceced;
+  color: #ef524d;
+  margin-right: 30px;
+}
+
+.satisfactionBtnChange {
+  cursor:not-allowed;
+}
+.noNatisfactionBtnChange {
+    cursor:not-allowed;
+}
+.returnProductMessage {
+    border: 1px solid #e6e6e6;
+    text-align: left;
+    vertical-align:middle;
+    width: 100%;
+    float: left;
+    border-bottom: none;
+    margin-bottom: 20px;
+}
+.returnProductMessage .col-md-2{
+  text-align: center;
+   border-right:1px solid #e6e6e6;
+}
+.returnProductMessage .col-md-2,
+.returnProductMessage .col-md-10{
+  border-bottom: 1px solid #e6e6e6; 
+  height: 45px;
+  line-height: 45px;
+}
+.returnProductMessage .col-md-10{
+
+}
+/*动态图开始*/
+.stepflexes {
+  width: 847px;
+  text-align: center;
+  margin: auto;
+  display: block;
+  margin-left: 100px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.stepflexes:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.first .doing {
+  border-top-color: #7abd54;
+  color:#7abd54;
+}
+.first .done {
+  border-top-color: #caecb6;
+  color:#caecb6;
+}
+.normal .doing {
+  border-top-color: #7abd54;
+  color:#7abd54;
+}
+.normal .done {
+  border-top-color: #caecb6;
+  color:#caecb6;
+}
+.normal .doing {
+  border-top-color: #7abd54;
+  color:#7abd54;
+}
+.normal .done {
+  border-top-color: #caecb6;
+  color:#caecb6;
+}
+.stepflexes dl {
+  float: left;
+  position: relative;
+  width: 140px;
+  top: -5px;
+  border-top: 5px solid #ccc;
+}
+.s-num1 {
+  background-position: -23px 0;
+}
+.s-num2 {
+  background-position: -23px 0;
+}
+.s-num3 {
+  background-position: -23px 0;
+}
+.s-num {
+  position: relative;
+  margin: -15px auto 0;
+  color: #fff;
+  font-weight: 700;
+  width: 23px;
+  height: 23px;
+  background-image: url(http://misc.360buyimg.com/user/myjd-2015/css/i/step2013.png);
+  line-height: 23px;
+}
+.doing .s-text {
+  color: #7abd54;
+}
+.s-text {
+  color: #ccc;
+}
+
+user agent stylesheets, strike, del {
+  text-decoration: line-through;
+}
+.last .s-num {
+  background-position: -68px 0;
+}
+
+      .first.doing {
+            border-top-color: #7abd54;
+            color: #7abd54;
+        }
+
+        .first.done {
+            border-top-color: #caecb6;
+            color: #caecb6;
+        }
+       
+        
+        .s-text {
+            color: #ccc;
+        }
+        .s-text1 {
+            color: #7abd54;
+        }
+        .s-num1 {
+            background-position: -23px 0;
+        }
+/*动态图结束*/

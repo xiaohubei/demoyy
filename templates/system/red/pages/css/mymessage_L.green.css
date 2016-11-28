@@ -1,0 +1,153 @@
+.setting_header {
+  padding-top: 20px;
+}
+.main_setting {
+  text-align: right;
+  line-height: 30px;
+  height: 30px;
+  background: url(../images/pc/main_setting.png) no-repeat 89% center;
+  color: #b3b3b3;
+  float: right;
+  padding-right: 28px;
+  position: relative;
+  top: 2px;
+}
+.mymessage {
+  font-size: 16px;
+  line-height: 30px;
+  color: #333333;
+  height: 30px;
+}
+.main_tabs {
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e6e6e6;
+  background-color: #fafafa;
+  height: 48px;
+}
+.main_tabs ul li {
+  width: 100px;
+  height: 48px;
+  line-height: 48px;
+  float: left;
+  text-align: center;
+  font-size: 14px;
+}
+.main_tabs1 {
+  margin-top: 5px;
+  padding: 0px;
+}
+.main_tabs1 li {
+  font-size: 14px;
+  float: left;
+  width: 85px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background: url(../images/pc/bg-gray-line.png) no-repeat right center;
+}
+.main_tabs1 li:last-child {
+  background-image: no-repeat;
+}
+.main_content {
+  padding: 0px;
+}
+.content_header {
+  height: 25px;
+  vertical-align: middle;
+  background: url(../images/pc/message-list-bg.png) no-repeat left center;
+  position: relative;
+  left: -31px;
+  padding-left: 35px;
+  top: -3px;
+  color: #6d6c6c;
+}
+.main_date {
+  text-align: center;
+  display: inline-block;
+}
+.main_hr {
+  background-color: #E5E5E5;
+  height: 3px;
+  margin-top: 7px;
+}
+input[type=checkbox] {
+  position: relative;
+  top: 2px;
+  border-radius: 0px;
+  background-color: #fff;
+}
+.main_time,
+.main_type {
+  margin-left: 10px;
+}
+.contentbox {
+  background-color: #FAFAFA;
+  margin-top: 10px;
+  border: 1px solid #f7f4f4;
+  padding: 15px 0;
+  float: left;
+  width: 97%;
+}
+.contentbox_title {
+  font-size: 14px;
+  color: #333;
+}
+.contentbox_main {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #706d6d;
+}
+.contentDiv {
+  padding: 0;
+  min-height: 500px;
+  margin: 20px 0;
+}
+.contentFooter {
+  margin-bottom: 10px;
+  padding-right: 0px;
+  display: none;
+}
+.contentFooter .contentFooter_l {
+  margin-left: 18px;
+}
+.contentFooter button {
+  margin-left: 60px;
+}
+.main_unit {
+  float: left;
+  width: 100%;
+  margin-left: 20px;
+  position: relative;
+  border-left: 4px solid #eeeeee;
+  padding-left: 20px;
+  padding-bottom: 45px;
+}
+.main_unit:last-child {
+  padding-bottom: 0px;
+}
+.thisPage {
+  color: red;
+}
+.main_tabsOnhover {
+  color: #28c4b2;
+  background-color: #FFFFFF;
+  border: 1px solid #e6e6e6;
+  border-top: 2px solid #28c4b2;
+  margin-top: -1px;
+  border-bottom: none;
+}
+.main_tabs1Onhover {
+  color: #28c4b2;
+  background-color: #FFFFFF;
+}
+.contentFooter .markToRead_btn,
+.contentFooter .delete_btn {
+  margin-left: 15px;
+  border: 1px solid #ededed;
+  background-color: #fff;
+  height: 30px;
+  line-height: 29px;
+  padding: 0 12px;
+}

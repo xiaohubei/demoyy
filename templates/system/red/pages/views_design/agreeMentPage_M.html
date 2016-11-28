@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="agreeMent" class="page no-toolbar no-tabbar" data-controller="AgreeMentViewController">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="link back"><i class="icon icon-back-gray"></i></a>
+                    </div>
+                    <div class="center">注册协议</div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="content-block-title">注册即表示已接受以下协议：</div>
+                <div class="list-block">
+                    <ul class="agm-Container"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../js/agreeMent_M.js"]);%>
+</body>
+</html>

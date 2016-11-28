@@ -1,0 +1,73 @@
+﻿.myconsulting {
+    padding-top: 20px;
+}
+
+.myconsulting_content {
+    background-color: #fff;
+    margin-top: 20px;
+    min-height: 280px;
+    margin-bottom: 25px;
+    font-size: 12px;
+}
+
+.myconsulting table {
+    text-align: center;
+    color: #666;
+    margin-top: 15px;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 15px;
+}
+
+.myconsulting table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.myconsulting table th {
+    text-align: center;
+    background-color: #fafafa;
+    height: 40px;
+    font-weight: normal;
+}
+
+.myconsulting table td {
+    border-right: 1px solid #e6e6e6;
+    padding: 15px;
+}
+
+.imageBox img {
+    height: 80px;
+    max-width: 120px;
+}
+
+.myconsulting table td a {
+    color: #666;
+}
+
+.tableConsulting,
+.tableConsultingBack {
+    text-align: left;
+    padding-left: 5px;
+}
+
+.tableConsulting span {
+    padding: 0
+}
+
+.consultingbackbox {
+    padding: 0px;
+}
+
+.consultingbacktime,
+.tableConsulting span.consultingTime {
+    text-align: right;
+    padding-right: 10px;
+}
+
+p.tableConsulting {
+    padding-bottom: 10px;
+}
+
+p.tableConsultingBack {
+    padding-top: 10px;
+}
+

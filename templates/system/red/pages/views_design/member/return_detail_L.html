@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "退货详情");%></title>
+    <%=includeLinks(view, ["../../css/return_detail_L.less"]);%>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="ReturnDetailViewController">
+        <header></header>
+        <div class="row">
+            <div class="col-xs-2">
+                <member_nav></member_nav>
+            </div>
+            <div class="return_details col-xs-10 main" id="returnDetail"></div>
+        </div>
+        <footer></footer>
+        <script id="returnDetailsTpl" type="text/html">
+            <#if(value){#>
+                <div class="container returnProductDetail">
+                    <div class=" returnProductImg">
+                        <div class="col-xs-2">
+                            <img class="returnProductImage" style="width:100px;height:100px;" src="<#=adjustImgSrc(value.oProductAlbum.imgUrl)#>" />
+                        </div>
+                        <div class="col-xs-10  returnProductContent">
+                            <div><span>订单号</span><span style="margin-left:10px;"><#=value.cOrderNo#></span></div>
+                            <br />
+                            <div><span>商品名称</span><span style="margin-left:10px;"><#=value.cProductName#></span></div>
+                            <br />
+                            <div><#=value.cSpecDescription#></div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <div class="returnStateTitle"><span>退货状态</span></div>
+                    <div  class="stepflex five">
+						<#for(var j = 0; j<returnStep.length; j++){#>
+							<#var clz=j==0?"first":(j==returnStep.length-1?"last":"normal");#>
+							<dl class="<#=clz#> " id="returnStep<#=j+1#>">
+								<dt class="s-num"><#=j+1#></dt>
+								<dd class="s-text"><#=returnStep[j].cName#></dd>
+                                <#if(j == returnStep.length -1){#>
+                                    <dd class="s-smalltext end"><#=returnStep[j].dCreated#></dd>
+                                <#}else{#>
+                                    <dd class="s-smalltext"><#=returnStep[j].dCreated#></dd>
+                                <#}#>
+							</dl>
+						<#}#>
+                    </div>
+                </div>
+                <div class="container returnEvaluation">
+                    <h3 class="returnEvaluationTitle">退货申请评价</h3>
+                    <div class="returnEvaluationTitleQuestion">
+                        <div class="pull-left">
+                            <span>您对本次退货满意吗</span>
+                        </div>
+                        <div class="pull-left returnEvaluationBtn " id="returnEvaluationBtn">
+                            <span class="satisfactionBtn satisfactionBtnChange" data-ifeedback="1">满意</span>&nbsp;
+                            <span class="noNatisfactionBtn satisfactionBtnChange" data-ifeedback="0">不满意</span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="returnProductMessage">
+                    <div class="col-xs-12">
+                        <div class=" col-xs-2">申请单号</div>
+                        <div class="col-xs-10"><#=value.cSaleReturnNo#></div>
+                        <div class="col-xs-2">申请类型</div>
+                        <div class="col-xs-10"><#=value.returnType#></div>
+                        <div class="col-xs-2">申请原因</div>
+                        <div class="col-xs-10"><#=value.reason#></div>
+                        <#if(!value.cOpposeMemo && value.cDeliveryCorpName){#>
+                            <div class="col-xs-2">退货物流</div>
+                            <div class="col-xs-10 expressinfo"  id="expressinfo">
+                                <span>物流公司：<#=value.cDeliveryCorpName#></span>
+                                <span>物流单号：<#=value.cLogisticsNo#></span>
+                                <ul class="expressinfoDetail" id="expressinfoDetail"></ul>
+                            </div>
+                        <#}else if(value.cOpposeMemo){#>
+                            <div class="col-xs-2"> 驳回理由</div>
+                            <div class="col-xs-10"><#=value.cOpposeMemo#></div>
+                        <#}#>
+                        <div class="col-xs-2">退货金额</div>
+                        <div class="col-xs-10"><span class="redcolor"> ￥ <#=value.fReturnMoney.toFixed(2)#></span> &nbsp &nbsp
+                            <#if(value.returnStatus == "ENDSALERETURN"){#>
+                                <span>已退到您的支付账户</span>
+                            <#}#>
+                        </div>
+                        <div class="orderremark">
+		                    <label for="orderRemark" class="col-xs-2 control-label">退单备注</label>
+		                    <div class="col-xs-4 m-t-10">
+		                        <textarea class="form-control" rows="3" cols="20" id="orderRemark"><#=value.cRemark#></textarea>
+		                   		<span class="tip m-t-10"><strong>温馨提示：货到付款时,请填写银行卡卡号、开户行、开户名称</strong><br/>（请填写少于255字）</span>
+		                    </div>
+		                    <div class="col-xs-3 ">
+		                        <input type="button" id="postRemark" class="btn btn-default" value="提交备注" />
+		                    </div>
+		                </div>
+                    </div>
+                </div>
+            <#}else{#>
+                <div class="item-single  item-item" style="height:100px;text-align:center;">
+                    <span style="margin-top:30px;">啊偶，没有相应的退货信息</span>
+                </div>
+            <#}#>
+        </script>
+        <script id="expressinfoTpl" type="text/html">
+            <#if(typeof(data) != "object"){#>
+                <li style="color:red;"><#=data#></li>
+            <#}else{#>
+                <#for(var j = 0; j<data.length; j++){#>
+                    <li><time><#=data[j].time #></time> &nbsp &nbsp<span><#=data[j].context#></span></li>
+                <#}#>
+            <#}#>
+        </script>
+    </div>
+    <%=includeScripts(view, ["../../js/return_detail_L.js"]);%>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

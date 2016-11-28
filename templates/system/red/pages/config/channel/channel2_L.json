@@ -1,0 +1,265 @@
+{
+	"view": {
+		"$": {
+			"name": "homeView",
+			"title": "U商城",
+			"controller": "HomeViewController",
+			"width": "auto"
+		},
+		"widget": [
+			{
+				"$": {
+					"name": "main_slide_1A",
+					"type": "main_slide"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "height",
+							"value": "315"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "main_slide_12",
+					"type": "main_slide"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "height",
+							"value": "465"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "navigation_1i",
+					"type": "navigation"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "height",
+							"value": "315"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "index_goods_1e",
+					"type": "index_goods"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "advertisement"
+						}
+					},
+					{
+						"$": {
+							"key": "choosegoods",
+							"value": 0
+						}
+					},
+					{
+						"$": {
+							"key": "colspan"
+						}
+					},
+					{
+						"$": {
+							"key": "rows",
+							"value": "2"
+						}
+					},
+					{
+						"$": {
+							"key": "cols",
+							"value": "4"
+						}
+					},
+					{
+						"$": {
+							"key": "texttag",
+							"value": "销售价"
+						}
+					},
+					{
+						"$": {
+							"key": "show_market",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "show_star",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "isCurrentClass"
+						}
+					},
+					{
+						"$": {
+							"key": "displayMode"
+						}
+					},
+					{
+						"$": {
+							"key": "goodClass",
+							"value": "points"
+						}
+					},
+					{
+						"$": {
+							"key": "filter"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "type_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "saleprice",
+									"valuefrom": "",
+									"valueto": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "keyword",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "categoryid",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "brand_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "tag_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "salepoints",
+									"valuefrom": "",
+									"valueto": ""
+								}
+							}
+						]
+					},
+					{
+						"$": {
+							"key": "order"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "iSales30",
+									"direction": "desc"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "coupon_1467084810109",
+					"type": "coupon"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "height",
+							"value": "120"
+						}
+					},
+					{
+						"$": {
+							"key": "configData"
+						},
+						"item": [
+							{
+								"$": {
+									"background": "#00ff00",
+									"iorder": 1,
+									"couponid": 781,
+									"title": "立减99",
+									"type": 0,
+									"startAmount": 321,
+									"reduceAmount": 99,
+									"expireStartDate": "2016-06-08 00:00:00.000",
+									"expireEndDate": "2016-07-08 00:00:00.000",
+									"$$hashKey": "object:69"
+								}
+							},
+							{
+								"$": {
+									"background": "http://umalltest.yonyouup.com/photo/carousel/21/547273c3-974f-4e02-8988-9efcf66294af.png",
+									"iorder": 2,
+									"couponid": 771,
+									"title": "送优惠券",
+									"type": 1,
+									"startAmount": 100,
+									"reduceAmount": 560,
+									"expireStartDate": "2016-06-01 00:00:00.000",
+									"expireEndDate": "2016-06-30 00:00:00.000",
+									"$$hashKey": "object:158"
+								}
+							},
+							{
+								"$": {
+									"background": "#0000ff",
+									"iorder": 3,
+									"couponid": 780,
+									"title": "优惠30元",
+									"type": 0,
+									"startAmount": 234,
+									"reduceAmount": 30,
+									"expireStartDate": "2016-06-08 00:00:00.000",
+									"expireEndDate": "2016-07-08 00:00:00.000",
+									"$$hashKey": "object:32"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "notices_1467084812469",
+					"type": "notices"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "height",
+							"value": "315"
+						}
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <%=includeLinks(view, ["../../css/mymessage_M.less"]);%>
+</head>
+<body>
+    <div>
+        <div class="pages navbar-through">
+            <div data-page="messageSetting" class="page  no-tabbar no-toolbar" data-controller="MessageSettingController">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left"><a href="#" class="link back"><i class="icon icon-back-gray"></i></a></div>
+                        <div class="center">
+                            消息设置
+                        </div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+                <div class="page-content m-t-0">
+                    <form id="my-form" class="list-block"></form>
+                </div>
+                <script type="text/template7" id="messageSettingTpl">
+                    {{#each data}}
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">{{typename}}</div>
+                                    <div class="item-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {{#each subMessageTypes}}
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">{{typename}}</div>
+                                    <div class="item-input">
+                                        <label class="label-switch">
+                                            <input type="checkbox" name="switch" {{#if isUsed}}checked=true{{/if}}>
+                                            <div class="checkbox" data-type={{type}} data-id={{id}}></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/each}}
+                </script>
+            </div>
+        </div>
+        <%=includeScripts(view, ["../../js/messageSetting_M.js"])%>
+    </div>
+</body>
+
+</html>

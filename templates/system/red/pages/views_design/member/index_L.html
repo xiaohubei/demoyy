@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title><%=resetTitle(view, "会员中心");%></title>
+    <%=includeLinks(view, ["../../css/member_L.less"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="MemberViewController">
+	    <header></header>
+		<div class="row">
+            <div class="col-xs-2 member_navbar">
+           		<member_nav></member_nav>
+            </div>
+			<div class="col-xs-10 member-center main">
+				<div class="member-info col-xs-12  ">
+					<div class="member-account col-xs-5 p-0">
+						<a href="member/my_information" target="_blank">
+                            <img id="memberPortrait" class="member-portrait fl" alt="">
+						</a>
+						<ul class="fl" id="memberinfo">
+							<li><p class="member-name"></p></li>
+							<li><p class="member-rank"><span ></span></p></li>
+						</ul>
+					</div>
+					<div class="member-ordertip  col-xs-3 ">
+						<ul class=" " id="orderstatus">
+							<li class="col-xs-6 p-0"  data-status="PAYMONEY">
+								<img src="/templates/system/red/pages/images/pc/PAYMONEY.png" alt="" />
+
+								<a href="javascript:;"><p data-status="PAYMONEY">待付款 <span class="font-red">0</span></p></a>
+							</li>
+							<li class="col-xs-6 p-0"  data-status="DELIVERGOODS">
+								<img src="/templates/system/red/pages/images/pc/DELIVERGOODS.png" alt="" />
+
+								<a href="javascript:;"><p data-status="DELIVERGOODS">待发货 <span class="font-red">0</span></p></a>
+							</li>
+							<li class="col-xs-6 p-0" data-status="TAKEDELIVERY">
+								<img src="/templates/system/red/pages/images/pc/TAKEDELIVERY.png" alt="" />
+
+								<a href="javascript:;"><p data-status="TAKEDELIVERY">待收货 <span class="font-red">0</span></p></a>
+							</li>
+							<li class="col-xs-6 p-0" data-status="UNREMARK">
+								<a href="member/myevaluation" target="_blank">
+								<img src="/templates/system/red/pages/images/pc/evaluate.png" alt="" />
+
+								<p data-status="UNREMARK">待评价 <span class="font-red">0</span></p></a>
+							</li>
+						</ul>
+					</div>
+					<div class="member-assert  col-xs-4 ">
+						<h3>我的资产</h3>
+						<ul id="memberassert">
+							<li class="clearfix">
+								<a href="member/myintegral" target="_blank">
+									<div class="myscore fl"><span>积分</span></div>
+									<div class="fr">
+										<span class="assertscore font-red">0</span><span>分</span>
+									</div>
+								</a>
+							 </li>
+							<li>
+								<a href="member/mycoupon" target="_blank">
+									<div class="mydiscount fl"><span>优惠券</span></div>
+									<div class="fr">
+										<span class=" assertdiscount font-red">0</span><span>张</span>
+									</div>
+								</a>
+							 </li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="member-orderlist">
+					<ul class="order-tab" id="orderListsHeader">
+						<li class="active" data-status="">
+							<span class="orderlist-status">全部订单</span>
+							<span class="orderlist-num" id="allorderlist">0</span>
+						</li>
+						<li data-status="PAYMONEY">
+							<span class="orderlist-status">待付款</span>
+							<span class="orderlist-num">0</span>
+						</li>
+						<li data-status="DELIVERGOODS">
+							<span class="orderlist-status">待发货</span>
+							<span class="orderlist-num">0</span>
+						</li>
+						<li data-status="TAKEDELIVERY">
+							<span class="orderlist-status">待收货</span>
+							<span class="orderlist-num">0</span>
+						</li>
+					</ul>
+					<ul class="order-content container-fluid orderlist" id="orderlist">
+					</ul>
+					<div class="pagenation" id="pagenation"></div>
+				</div>
+			</div>
+		</div>
+		<footer></footer>
+		<script id="orderListTpl" type="text/html">
+			<#for(var i=0;i<orderlist.length;i++){#>
+				<#var order=orderlist[i];#>
+				<li>
+					<a class="col-xs-1 member-img" href="/detail?goods_id=<#=order.oOrderDetails[0].iProductId#>" target="_blank">
+						<img src="<#=adjustImgSrc(order.oOrderDetails[0].DefaultImage)#>" alt="订单图片">
+					</a>
+					<div class="order-status col-xs-4">
+						<p class="current-status"><#=order.cOrderNo#></p>
+						<p><time><#=order.dConfirmDate#></time></p>
+						<p class="current-num">共<span><#=order.oOrderDetails.length#></span>件商品</p>
+					</div>
+					<#if( order.cNextStatus == 'PAYMONEY'){#>
+						<div class="order-paystatus col-xs-2">待付款</div>
+					<#}else if( order.cNextStatus == 'DELIVERGOODS'){#>
+						<div class="order-paystatus col-xs-2">待发货</div>
+					<#}else if( order.cNextStatus == 'TAKEDELIVERY'){#>
+						<div class="order-paystatus col-xs-2">待收货</div>
+					<#}else if( order.cNextStatus == 'ENDORDER'){#>
+						<div class="order-paystatus col-xs-2">订单完成</div>
+					<#}else if( order.cNextStatus == 'CLOSEORDER'){#>
+						<#if(order.isHandleClose == 3){#>
+							<div class="order-paystatus col-xs-2">订单取消</div>
+						<#}else if(order.isHandleClose != 0){#>
+							<div class="order-paystatus col-xs-2">订单关闭</div>
+						<#}#>
+					<#}#>
+					<#if(order.oOrderDetails[0].productAttribute == 2){#>
+						<div class="order-price col-xs-2"><#=order.pointNum#>积分</div>
+					<#}else{#>
+						<div class="order-price col-xs-2">￥<#=order.fPayMoney.toFixed(2)#></div>
+					<#}#>
+					<#if(order.cNextStatus == 'PAYMONEY'){#>
+						<div class="order-operate-orange col-xs-3" style="text-align:right;" >
+							<a href="submit_message?order_id=<#=order.cOrderNo#>" target="_blank">立即付款
+							</a>
+						</div>
+					<#}else if(order.cNextStatus == 'DELIVERGOODS'){#>
+					<#}else if(order.cNextStatus == 'TAKEDELIVERY'){#>
+						<div class="order-operate-white col-xs-3 confrimOrder" data-cOrderNo="<#=order.cOrderNo#>"  style="text-align:right;" >
+							<a href="javascript:;">确认收货
+							</a>
+						</div>
+					<#}else if(order.cNextStatus == 'ENDORDER'){#>
+						<div class="order-operate-white col-xs-3 " data-cOrderNo="<#=order.cOrderNo#>"  style="text-align:right;" >
+						</div>
+					<#}else if(order.cNextStatus == 'UNREMARK'){#>
+						<div class="order-operate-white col-xs-3"  style="text-align:right;"  >
+						</div>
+					<#}else{#>
+						<div class="order-operate-orange col-xs-3"  style="text-align:right;"  ></div>
+					<#}#>
+				</li>
+			<#}#>
+		</script>
+	</div>
+    <%=includeScripts(view, ["@root/jquery/jquery.page.js","@root/bootstrap/js/bootstrap.js","@root/js/modal.js","../../js/member_L.js"]);%>
+	<script>
+		cb.init();
+	</script>
+</body>
+</html>

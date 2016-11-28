@@ -1,0 +1,10 @@
+﻿{
+	"zh-CN": {
+		"links": [
+			{ "text": "站内消息", "href": "/member/mymessage","className":"" },
+			{ "text": "会员中心", "href": "/member","className":"" },
+			{ "text": "手机材易购", "href": "#" ,"className":"cygqrcode"},
+			{ "text": "帮助中心", "href": "/helpcenter/classification?typeId=-1&wigetType=帮助中心" ,"className":""}
+		]
+	}
+}

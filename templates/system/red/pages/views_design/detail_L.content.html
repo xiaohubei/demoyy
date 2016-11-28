@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div class="col-xs-2" style="margin-top:-25px;">
+        <%=includeWidget(view.widgets["sales_charts"]);%>
+    </div>
+    <div class="product-details col-xs-10">
+        <div class="clearfix detail_mainBottom">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-second" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">商品详情</a></li>
+                <li role="presentation" class="productParameter"><a href="#product-parameter" aria-controls="product-parameter" role="tab" data-toggle="tab">详细参数</a></li>
+                <li role="presentation" id="profile1" name="profile1"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">商品评论</a></li>
+                <li role="presentation"><a href="#consulting" aria-controls="consulting" role="tab" data-toggle="tab">购买咨询</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content panes-second">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <div class='extend-attributy clearfix'>	
+                    </div>
+                    <div id="cDescription"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="product-parameter">
+                    <div class="parameter-detail"></div>
+                    <p class="parameter-detailP"></p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="profile" name="profile">
+                    <div id="i-comment">
+                        <h2>商品评价</h2>
+                        <div class="rate col-xs-6">
+                            <strong><span class="percentValue">100</span><span class="percentSymbol">%</span></strong>
+                            <br> <span style="color:#999">好评度</span>
+                        </div>
+                        <div class="percent">
+                            <dl>
+                                <dt>好评<span>(100%)</span></dt>
+                                <dd class="d1"> <div></div></dd>
+                            </dl>
+                            <dl>
+                                <dt>中评<span>(0%)</span></dt>
+                                <dd class="d1"><div> </div></dd>
+                            </dl>
+                            <dl>
+                                <dt>差评<span>(0%)</span></dt>
+                                <dd class="d1"><div> </div></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="coment_nav">
+                        <ul class='coment_ul'>
+                            <li>全部评论<span class="allComments">(0)</span></li>
+                            <li>好评<span class="star3">(0)</span></li>
+                            <li>中评<span class="star2">(0)</span></li>
+                            <li>差评<span class="star1">(0)</span></li>
+                        </ul>
+                    </div>
+                    <table class="commentsTable" border="0" cellpadding="0">
+                        <tr class="tHead">
+                            <th class="col-xs-5">评价心得</th>
+                            <th class="col-xs-2">顾客满意度</th>
+                            <th class="col-xs-3">购买型号</th>
+                            <th class="col-xs-2">评论者</th>
+                        </tr>
+                    </table>
+                    <div class="detail_noComment">「暂无评价」</div>
+                    <div class="detail_btnGroup">
+                    </div>
+                </div>
+                <div id='consulting' role="tabpanel" class="tab-pane">
+                    <div class="consulting_nav">
+                        <ul class='consulting_ul'>
+                            <li>全部咨询<span class=""></span></li>
+                            <li>商品咨询<span class=""></span></li>
+                            <li>配送咨询<span class=""></span></li>
+                            <li>售后咨询<span class=""></span></li>
+                        </ul>
+                        <div class="consulting_right">
+                            <input type="search" />
+	                        <button class="searchBtn">搜索</button>
+	                        <a href="#publishedConsulting" class="link_published">发表咨询</a>
+                        </div>
+                                
+                    </div>
+                    <ul class="consulting"></ul>
+                    <div class="consultingPagesBtn">
+                    </div>
+                    <div name="publishedConsulting" id="publishedConsulting" class="published">
+                        <h5>发表咨询：</h5>
+                        <ul>
+                            <li id="pointType">
+                                <span>咨询类型：</span>
+                                <input type="radio" value="1" name="pointType">
+                                商品咨询
+                                <input type="radio" value="2" name="pointType">
+                                配送咨询
+                                <input type="radio" value="3" name="pointType">
+                                售后咨询
+                                <label class="radioError">请选择咨询类型</label>
+                            </li>
+                            <li>
+                                <span>咨询内容：</span>
+                                <textarea id="consultationContent" placeholder="请输入要咨询的内容"></textarea>
+                                <label class="textareaError">请输入咨询内容</label>
+                            </li>
+                            <li>
+                                <button>提交</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%if(!view.corp.configs||view.corp.configs.showFootprint){%>
+	<div class="col-xs-12">
+		<%=includeWidget(view.widgets["myhistory"]);%>
+	</div>
+    <%}%>
+    <script id="detail_commentTable" type="text/template">
+        <tr class="tHead">
+            <th class="col-xs-5">评价心得</th>
+            <th class="col-xs-2">顾客满意度</th>
+            <th class="col-xs-3">购买型号</th>
+            <th class="col-xs-2">评论者</th>
+        </tr>
+        <#for(var i=0;i<data.length;i++){#>
+                            <tr class="commentItem">
+                                <td>
+                                    <p class="comment"><#=data[i].cComment#></p>
+                                    <p class="comentTime"><#=data[i].dTime#></p>
+                                    <#if(data[i].cCommentReply){#>                     
+                                       <p class="comment" style='margin-top:8px'>商家回复：<#=data[i].cCommentReply#></p>
+                                       <p class="comentTime"><#=data[i].dTimeReply#></p>
+                                        <#}#>
+                                </td>
+                                <td class="commentStars center"><span class="show_star"></span></td>
+                                <td class="goodsComment center">
+                                    <#for(var j=0;j<data[i].specs.length;j++){#>
+                                         <p style="text-align:center;">
+                                            <span style="color:gray"><#=data[i].specs[j].spec#></span>
+                                            <span>:</span>
+                                            <span><#=data[i].specs[j].itemName#></span>
+                                          </p>
+                                     <#}#>
+                                </td>
+                                <td class="buyerInformation  center">
+                                        <#if(data[i].cMemberName){#>
+                                            <span><#=data[i].cMemberName #></span>
+                                            <#}else{#>
+                                                <span><#=data[i].iMemberId#></span>
+                                            <#}#>
+                                 </td>
+                            </tr>
+            <#}#>
+    </script>
+    <script id="detail_consultingTable" type="text/template">
+                            <#for(var i=0;i<data.length;i++){#>
+                                <#if(data[i].cCommentReply){#> 
+                                <li class="consultingItem">
+                                    <#if(data[i].cMemberName){#>
+                                    <p class="detail_user">网友：<#=data[i].cMemberName#>
+                                        <#}else{#>
+                                        <span>游客</span>
+                                        <#}#>
+                                        <span class="detail_consultingTime"><#=data[i].dTime#></span></p>
+                                    <p>咨询内容：<span class="detail_consultingContent"><#=data[i].cComment#></span></p>
+                                    <p class="detail_answer">
+                                   <span class="detail_consultingReply col-xs-9">
+                                       回复内容：
+                                       <#if(data[i].cCommentReply){#>
+                                           <span><#=data[i].cCommentReply#></span>
+                                       </span>
+                                      <span class="col-xs-3" style="text-align:right"><#=data[i].replyTime#></span>
+                                   <#}else{#>
+                                       <span>无</span>
+                                       </span><span class="col-xs-3" style="text-align:right"></span>
+                                       <#}#>
+                               </p>
+                           </li>
+                                    <#}#>
+            <#}#>
+    </script>
+    <script id="detail-params" type="text/template">
+        <table class="paramsTable" border="0" cellpadding="0" cellspacing="1">
+            <tbody>
+                <tr class="tHead">
+                    <th class="tdTitle" colspan="2">详细参数</th>
+                </tr>
+                <#for(var i=0;i<data.length;i++){#>
+                        <tr>
+                            <td class="tdTitle"><#=data[i].oParameter.cName#></td>
+                            <td><#=data[i].cParamValue#></td>
+                        </tr>
+                        <#}#>
+            </tbody>
+        </table>
+    </script>
+    <script class='extendattrsTpl' type='text/template'>
+		<div class='col-xs-3 realAttrs' title="<#=data.common.cName#>">商品名称：<#=data.common.cName#></div>
+		<div class='col-xs-3 realAttrs' title="<#=data.common.cCode#>">商品编码：<#=data.common.cCode#></div>
+		<div class='col-xs-3 realAttrs' title="<#=data.common.brand_name#>">品牌：<#=data.common.brand_name#></div>
+		<div class='col-xs-3 realAttrs' title="<#=data.common.dOnSaleTime#>">上架时间：<#=data.common.dOnSaleTime#></div>
+		<#for(var i=0;i<data.lsProductProps.length;i++){#>
+			<#if(i<7||i==7&data.lsProductProps.length==8){#>
+              <div class='col-xs-3 realAttrs' title='<#=data.lsProductProps[i].props_value#>'><#=data.lsProductProps[i].typeProps.props_name#>：<#=data.lsProductProps[i].props_value#></div>					
+			<#}else{#>
+			  <div class='col-xs-3 realAttrs hideAttr' title='<#=data.lsProductProps[i].props_value#>'><#=data.lsProductProps[i].typeProps.props_name#>：<#=data.lsProductProps[i].props_value#></div>	
+			<#}#>
+		<#}#>
+		<#if(data.lsProductProps.length>8){#>
+		   <div class='moreAttrs'>更多参数</div>	
+		<#}#>
+    </script>
+</body>
+</html>

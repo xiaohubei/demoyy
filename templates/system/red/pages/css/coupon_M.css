@@ -1,0 +1,199 @@
+[data-page="coupon"] .content-block{
+	margin: 0 auto;
+	padding: 0;
+}
+
+.rebate {
+	background: #EFEFEF;
+    margin-bottom:44px;
+}
+
+[data-page="coupon"] .rebate dl {
+	height: 110px;
+	overflow: hidden;
+	margin-top: 10px;
+	margin-bottom: 0;
+	position: relative;
+}
+.rebate dd.bg-arrow {
+    background-image: url(../img/icon/arrow-right.png) !important;
+    background-position: 93% center  !important;
+    background-repeat: no-repeat  !important;
+    background-size: 8px 14px !important;
+}
+.rebate dl>.icon {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+.rebate dl dt {
+	float: left;
+	width: 40%;
+	height: 100%;
+	position: relative;
+	text-align: center;
+	box-sizing: border-box;
+	padding-top: 25px;
+}
+
+.rebate dl dt:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: -3px;
+	width: 7px;
+	height: 110px;
+	z-index: 3;
+	background: url(../images/pc/rebate-bg.png) no-repeat;
+	background-size: 7px 110px;
+}
+
+.rebate dl dt h3 {
+	font-size: 18px;
+	color: #FFFFFF;
+	font-weight: normal;
+}
+
+.rebate dl dt h3 em {
+	font-size: 12px;
+	font-style: normal;
+}
+
+.rebate dl dt p {
+	margin: 0 auto;
+	font-size: 13px;
+	color: #FFFFFF;
+}
+
+.rebate dl.available dt.col-1 {
+	background-color: #20c2bc;
+}
+.rebate dl.available dt.col-2 {
+	background-color: #ffb32f;
+}
+.rebate dl.available dt.col-3 {
+	background-color: #66beed;
+}
+.rebate dl.unavailable dt {
+	background-color: #cccccc;
+}
+
+.rebate dl .semicircle {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: #efefef;
+	border-radius: 50%;
+	left: -6px;
+	top: 50%;
+	margin-top: -8px;
+}
+
+.rebate dl dd {
+	margin-left: 40%;
+	height: 100%;
+	background-color: #FFFFFF;
+	box-sizing: border-box;
+	padding: 10px;
+	position: relative;
+}
+
+.rebate dl dd .semicircle {
+	right: -6px;
+	left: auto
+}
+
+.rebate dl dd .choose {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(../img/icon/choose-rebate.png) no-repeat left top;
+	width: 30px;
+	height: 30px;
+	background-size: 30px 30px;
+}
+
+.rebate dl dd p {
+	margin: 0;
+}
+
+.rebate-title {
+	font-size: 16px;
+	color: #333333;
+	height: 21px;
+	line-height: 21px;
+}
+.rebate-title span.col-1{
+	color: #38c2aa ;
+}
+.rebate-title span.col-2{
+	color:#ff9334 ;
+}
+.rebate-title span.col-3{
+	color: #13a2f1;
+}
+.rebate-con {
+	font-size: 13px;
+	color: #666666;
+	line-height: 21px;
+	height: 42px;
+	margin-top: 5px !important;
+}
+
+.rebate-con input {
+	display: inline-block;
+	width: 90px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #F9F9F9;
+	border: 1px solid #d7d7d7;
+	border-radius: 3px;
+	font-size: 23px;
+	color: #999;
+	text-align: center;
+	margin: auto 3px;
+}
+
+.rebate-date {
+	font-size: 11px;
+	color: #FF5000;
+	text-align: right;
+}
+
+.rebate-date>span {
+	color: #666666;
+}
+
+.rebate dl.unavailable dd p {
+	color: #999999 !important;
+}
+
+.rebate dl.active dd input {
+	color: #333 !important;
+}
+
+.rebate dl.active dd .choose {
+	background: url(../img/icon/choose-rebate-active.png) no-repeat left top;
+	background-size: 30px 30px;
+}
+
+.rebate + .bottom-bar {
+	bottom: 0px;
+}
+
+.rebate + .bottom-bar .button {
+	background-color: #FF9E06;
+	height: 36px;
+	line-height: 36px;
+}
+
+.rebate + .bottom-bar span {
+	font-size: 14px;
+	color: #666666;
+}
+
+.rebate + .bottom-bar span.sum-rebate {
+	color: #FF5000;
+	font-size: 20px;
+}

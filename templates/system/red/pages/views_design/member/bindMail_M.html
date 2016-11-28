@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="bindMail" class="page no-tabbar no-toolbar" data-controller="bindMailViewController">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="link back"><i class="icon icon-back-gray"></i></a>
+                    </div>
+                    <div class="center">绑定邮箱</div>
+                    <div class="right"></div>
+                </div>
+            </div>
+            <div class="page-content" id="infomation_ul">
+                <div class="list-block all-order m-t-10  m-b-0 changePhonePage-main-container">
+                    <form id="form-changePhonePage">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">
+                                        <span class="required">*</span>绑定手机号
+                                    </div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请输入手机号码" name="phone" value="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">
+                                        <span class="required">*</span>我的邮箱
+                                    </div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请输入邮箱地址" name="Myphone" value="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">
+                                        <span class="required">*</span>手机验证码
+                                    </div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请输入验证码" name="verifyName" id="MyverifyName">
+                                    </div>
+                                    <div class="item-input">
+                                        <input type="button" id="MySecurityCode" style="" class="button  button-code" value="获取短信校验码">
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">
+                                        <span class="required">*</span>验证码
+                                    </div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请输入验证码" name="captcha" id="Mycaptcha">
+                                    </div>
+                                    <div class="item-after">
+                                        <img width="71" class="img-changePhone-verification" src="" id="img-verification">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="content-block-title color-red m-t-10 changePwd-Validatelog"></div>
+                <p class="button-div">
+                    <button class="button button-orange" id="saveMail">立即验证</button>
+                </p>
+            </div>
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <a class="button button-fill bg-green-u p-lr-25 only-one-btn changePwd-btn-save" id="saveMail">保存</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../../js/bindMail_M.js"]);%>
+</body>
+</html>

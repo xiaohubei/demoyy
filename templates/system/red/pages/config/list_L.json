@@ -1,0 +1,11 @@
+{
+	"view": {
+		"$": {
+			"name": "listView",
+			"title": "U商城",
+			"controller": "ListViewController",
+			"width": "auto"
+		},
+		"widget": []
+	}
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+	<div class="pages">
+	    <div data-page="aftersale" class="page no-tabbar" data-controller="aftersaleViewController">
+			<div class="navbar">
+				<div class="navbar-inner">
+				    <div class="left">
+				    	<a href="#" class="back link">
+				    	<i class="icon icon icon-back-gray"></i><span>Back</span></a>
+				    </div>
+				    <div class="center sliding">我的退换货</div>
+				</div>
+	            <div class="subnavbar">
+	                <div id="tabSwitch" class="buttons-row row  myOrderTabNav">
+	                    <a class="button  nav-bar tab-link active" data-filter="" class="tabactive">全部</a>
+	                    <a class="button  nav-bar tab-link" data-filter="SUBMITSALERETURN" >待审批</a>
+	                    <a class="button  nav-bar tab-link" data-filter="CONFIRMSALERETURNORDER" >待退货</a>
+	                    <a class="button  nav-bar tab-link" data-filter="SALERETURNING" >退货中</a>
+	                    <a class="button  nav-bar tab-link" data-filter="ENDSALERETURN" >已完成</a>
+	                    <a class="button  nav-bar tab-link" data-filter="OPPOSESALERETURN" >已驳回</a>
+	                </div>
+	            </div>
+			</div>
+			<div class="page-content infinite-scroll pull-to-refresh-content returnList-container" data-distance="50" data-ptr-distance="55" id="returnList-container">
+			    <div class="pull-to-refresh-layer">
+			      	<div class="pull-to-refresh-arrow"></div>
+			    </div>
+				<div class="col-100" id="returningList" ></div>
+				<script id="returningListTpl" type="text/template7">
+			        {{#each returnList}}
+				    <div class="list-wrap">
+						<ul class="order-list">
+							<li><h4 class="clear"><strong>{{cSaleReturnNo}}</strong><em> {{cStatusName}}</em></h4></li>
+							<li><h4>{{dCreatedTime}} </h4></li>
+							<li>
+								<a href="member/return_detail?cSaleReturnNo={{this.cSaleReturnNo}}">
+									<div class="row">
+										<div class="col-30">
+                                            <img alt="" height="75px" width="75px" src="{{oSaleReturnDetails[0].oProductAlbum.imgUrl}}">
+										</div>
+										<div class="col-50">
+											<div class="title">总金额 :<span class="font-red">￥{{this.oSaleReturnDetails[0].fReturnMoney}} </span> </div>
+											<div class="text"></div>
+										</div>
+										<div class="col-20 pirce">
+											<div>数量(件)  {{this.oSaleReturnDetails[0].fReturnQuantity}}</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<!--<li>
+							    <div class="row">
+									<div class="col-60">
+										<div>总金额 : </div>
+										<div class="font-red"> ￥{{this.oSaleReturnDetails[0].fReturnMoney}}</div>
+									</div>
+									<div class="col-40">
+										<div>数量(件)</div>
+										<div> {{this.oSaleReturnDetails[0].fReturnQuantity}}</div>
+									</div>
+								</div>
+							</li>-->
+							<!--<div class="order-btn clear">
+								<div class="fr" data-cOrderNo="{{this.cOrderNo}}">
+									<a href="member/return_detail?cSaleReturnNo={{this.cSaleReturnNo}}"  class="btn " data-btntype="logistics">查看</a>
+		                        	{{#js_compare "this.cSaleReturnStatus == 'ENDSALERETURN' && this.iFeedBack == '-1'"}}
+		                        	<a class="btn " data-btntype="logistics" href="member/myEvaluation?order_id={{this.cOrderNo}}">评价</a>
+		                       		{{/js_compare}}
+		                       	</div>
+							</div>-->
+						</ul>
+				   	</div>
+				   	{{else}}
+					   <div class="noDataTip">
+	                    	<i class="icon icon-no-order"></i>
+	                    	<p>您还没有相关订单</p>
+	                    	<a href=""  class="gohome button">随便逛逛</a>
+	                    </div>
+				    {{/each}}
+			    </script>
+	        </div>
+	    </div>
+	</div>
+    <%=includeScripts(view, ["../../js/aftersale_M.js"]);%>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

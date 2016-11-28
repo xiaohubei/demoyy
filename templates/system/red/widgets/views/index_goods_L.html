@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../css/index_goods_L.less" rel="Stylesheet" type="text/css" />
+    <script src="../js/index_goods_L.js" type="text/javascript"></script>
+    <resource path="../resource/index_goods_L.json"></resource>
+</head>
+<body>
+    <div class="index_goods" data-name="<%=name%>" data-config="<%=config%>" data-type="IndexGoods">
+        <%if(configs.displayMode!=='rank'){%>
+        <ul class="index_goods_main col-xs-12"></ul>
+        <%}else{%>
+        <div class="hot-list">
+			<div class="hot-list-title">销售排行榜</div>
+			<ul></ul>
+		</div>
+        <%}%>
+        <script type="text/html" id="landscape">
+            <#for(var i=0,len=data.length;i<len;i++){#>
+                <#var value=data[i];#>
+                <li class="col-xs-<#=colspan#>">
+                    <a target="_blank" href="/detail?goods_id=<#=value.pid#>">
+                        <div><img src="<#=adjustImgSrc(value.defaultAlbum)#>" /></div>
+                    </a>
+                    
+                    <div>
+	                    <#if(value.productAttribute==2){#>
+	                        <span class="price" ><#=value.salePoints#> <em>积分</em></span>
+	                    <#}else{#>
+	                        <span class="price">￥<#=value.fSalePrice#></span>
+	                        <#if(value.fMarkPrice){#><del class="markPrice">￥<#=value.fMarkPrice#></del><#}else{#><#}#>
+	                    <#}#>                    	
+                    	
+                    </div>
+                    <div class="product-title">
+                        <a href="/detail?goods_id=<#=value.pid#>" target="_blank" title="<#=value.pName#>">
+                            <#=value.pName#>
+                        </a>
+                    </div>
+                    <div><span class="item-summary">成交量 <em><#=value.iSales#></em>笔</span></div>
+                   
+                </li>
+            <#}#>
+        </script>
+        <script type="text/html" id="portrait">
+            <#for(var i=0,len=data.length;i<len;i++){#>
+                <#var value=data[i];#>
+                <li>
+					<div class="goods-img">
+						<a href="/detail?goods_id=<#=value.pid#>" target="_blank"><img src="<#=adjustImgSrc(value.defaultAlbum)#>"></a>
+					</div>
+
+					<div class="goods-title">
+						<a href="/detail?goods_id=<#=value.pid#>" target="_blank" title="<#=value.pName#>">
+                    <#=value.pName#>
+                </a>
+					</div>
+					<div class="goods-rank">
+						<span class="rank"><em>1</em>热销<#=value.iSales#>件</span>
+	                    <#if(value.productAttribute==2){#>
+	                        <span class="price"><#=value.salePoints#>积分</span>
+	                    <#}else{#>
+	                        <span class="pirce">￥<#=value.fSalePrice#></span>
+	                    <#}#>
+					</div>
+				</li>
+            <#}#>
+        </script>
+    </div>
+</body>
+</html>

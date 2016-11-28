@@ -1,0 +1,251 @@
+
+.tab-page {
+    padding: 0;
+
+    & > .buttons-row {
+        padding: 0 15px;
+        border-bottom: #eeeeee 1px solid;
+
+        .tab-link {
+            -webkit-box-flex: 1;
+            padding-bottom: 1px;
+            width: 100%;
+            text-align: center;
+            height: 38px;
+            line-height: 38px;
+            font-size: 14px;
+            color: #999999;
+
+            &.active {
+                border-bottom: #ef524d 2px solid;
+                padding-bottom: 0;
+                color: #ef524d;
+            }
+        }
+    }
+}
+
+.msg-content {
+    margin: 0;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+.msg-list {
+    min-height:100%;
+    margin-top: 20px;
+    padding-bottom: 44px;
+
+    dl {
+        padding: 10px;
+        margin-top:-10px;
+        display: block;
+        background-color: #fff;
+
+
+        p {
+            margin: 0;
+            line-height: 21px;
+        }
+
+        dt {
+            float: left;
+            width: 70px;
+            min-width: 70px;
+           /* padding-top: 10px;*/
+            vertical-align: middle;
+            position: relative;
+            overflow: hhidden;
+            padding-right:5px;
+            &:after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                top: 5px;
+                right: -12px;
+                z-index: 16;
+                background-image: url(../img/msg-bg.png);
+                background-repeat: no-repeat;
+                background-size: 10px 10px;
+            }
+
+            p {
+                text-align: right;
+                font-size: 12px;
+                color: #b1b1b1;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+
+        dd {
+            margin-left: 95px;
+            position: relative;
+            min-height: 73px;
+            &:before {
+                content: "";
+                position: absolute;
+                top: 15px;
+                left: -14px;
+                width: 1px;
+                height: 100%;
+                background: #E2E2E2;
+                z-index: 15;
+                
+            }
+
+            p.title {
+                font-size: 14px;
+                color: #505050;
+            }
+
+            p.content {
+                font-size: 13px;
+                color: #c4c2c2;
+            }
+        }
+
+        &.unread {
+            p.title {
+                color: #ef524d;
+            }
+        }
+    }
+}
+
+div[data-page="MessageList"] .infinite-scroll-preloader {
+    height: 50px;
+    text-align: center;
+    display: none;
+}
+
+    div[data-page="MessageList"] .infinite-scroll-preloader .preloader {
+        margin-top: 10px;
+    }
+    div[data-page="MessageList"] .right .icon{
+        margin-right: 0;
+    }
+/*消息设置*/
+div[data-page="messageSetting"] {
+
+    form.list-block {
+        margin: 10px 0;
+    }
+
+        form.list-block ul {
+            margin-top: 10px;
+        }
+
+    .label-switch input[type="checkbox"]:checked + .checkbox {
+        background: #ef524d;
+    }
+
+    form.list-block ul li {
+        font-size: 14px;
+        color: #333;
+
+        .item-inner {
+            &:after {
+                left: -5px;
+            }
+        }
+    }
+
+        form.list-block ul li:first-child {
+            font-size: 13px;
+            color: #999999;
+            height: 30px;
+            overflow: hidden;
+
+            .item-inner {
+                min-height: 34px;
+
+                &:after {
+                    height: 0;
+                }
+            }
+        }
+}
+
+.label-switch {
+    float: right;
+}
+
+.label-switch {
+  display: inline-block;
+  vertical-align: middle;
+  width: 44px;
+  border-radius: 24px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+  -ms-flex-item-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+}
+.label-switch .checkbox {
+  width: 44px;
+  border-radius: 24px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 24px;
+  background: #e5e5e5;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+}
+.label-switch .checkbox:before {
+  content: ' ';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 44px;
+  border-radius: 24px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 24px;
+  background: #d4d2d3;
+  z-index: 1;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.label-switch .checkbox:after {
+  content: ' ';
+  height: 22px;
+  width: 22px;
+  border-radius: 15px;
+  background: #fff;
+  position: absolute;
+  z-index: 2;
+  top: 1px;
+  left: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+}
+.label-switch input[type="checkbox"]:checked + .checkbox:after {
+  -webkit-transform: translateX(18px);
+  transform: translateX(18px);
+  top: 1px;
+}

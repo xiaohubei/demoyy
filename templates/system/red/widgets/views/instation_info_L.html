@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="../css/instation_info_L.css" rel="Stylesheet" type="text/css" />
+		<script src="../js/instation_info_L.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div data-name="<%=name%>" data-config="<%=config%>" data-type="Instation_info">
+			<div>
+				<ul></ul>
+				<script type="text/html">
+					<div class="pull-left instation_info">
+						<a href="#" class="list_bg order_r3_c6">
+							<span>消息</span>
+							<span style="padding: 0 4px;color: red">
+								<#=newTotality#>
+							</span>
+							<span class="caret"></span>
+							<div class="userMsgDiv newMsg">
+								<#if (newTotality==0){#>
+									 <h5 class="text-center border_b p-b-10">未读新消息</h5>
+		                             <div class="noMsg text-center colorgray">“没有新消息了”</div>
+		                             <a class="btn-view m-t-15" target="_blank"
+		                               href="/agent/Bulletins/showBulletinPage">查看历史消息</a>
+		                             <h5 class="viewAll text-right p-t-8 p-b-6">
+		                                <a target="_blank" href="/agent/Bulletins/showBulletinPage"> 查看全部 </a>
+		                             </h5>
+								<#}else{#>
+									 <h5 class="text-center border_b p-b-10">
+		                                <a class="pull-left m-l-10 colorgray"
+		                                   href="/agent/Bulletins/showBulletinPage">
+		                                    <i class="glyphicon glyphicon-menu-left"></i>
+		                                </a> 历史消息
+	                           		 </h5>
+	                            	<div class="msg">
+		                                	<#for(var i=0;i<bulletins.length;i++){
+		                                		var value=bulletins[i];
+		                                		#>
+		                                		 <dl class="massageList">
+		                                		<dt>
+		                                       	 <span class="colorgray"><#=value.cTitle#></span>
+		                                    	</dt>
+			                                    <dd >
+			                                    	<#=value.bulletinText#>
+			                                    </dd>
+			                                    <dd><div><a target="_blank" href="javascript:void(0)" data-index="<#=i#>">查看详情</a></div></dd>
+			                                     </dl>
+		                                	<#}#>
+		                               
+	                           		 </div>
+		                            <h5 class="viewAll text-right p-t-8 p-b-6">
+		                                <a target="_blank" href="client/Bulletins/showBulletinPage"> 查看全部 </a>
+		                            </h5>
+								<#}#>
+							</div>
+							
+						</a>
+					</div>
+					<!--<div class="topUserName pull-left m-l-20">
+                        <a href="#" class="list_bg order_r3_c6">
+                            <span>消息</span><span style="padding: 0 4px;color: red" ng-bind="newTotality"></span><span class="caret"></span>
+                        </a>
+                        <div class="userMsgDiv newMsg" ng-if="!(bulletins&&bulletins.length>0)">
+                            <h5 class="text-center border-b p-b-10">未读新消息</h5>
+                            <div class="noMsg text-center colorgray">“没有新消息了”</div>
+                            <a class="btn-view m-t-15" target="_blank"
+                               href="/agent/Bulletins/showBulletinPage">查看历史消息</a>
+                            <h5 class="viewAll text-right p-t-8 p-b-6">
+                                <a target="_blank" href="/agent/Bulletins/showBulletinPage"> 查看全部 </a>
+                            </h5>
+                        </div>
+                        <div class="userMsgDiv newMsg" ng-if="bulletins&&bulletins.length>0">
+                            <h5 class="text-center border-b p-b-10">
+                                <a class="pull-left m-l-10 colorgray"
+                                   href="/agent/Bulletins/showBulletinPage">
+                                    <i class="glyphicon glyphicon-menu-left"></i>
+                                </a> 历史消息
+                            </h5>
+                            <div class="msg">
+                                <dl class="massageList" ng-repeat="bulletin in bulletins">
+                                    <dt>
+                                        <span ng-bind="bulletin.cTitle"></span>
+                                    </dt>
+                                    <dd ng-bind-html="bulletin.bulletinText">
+                                    </dd>
+                                    <dd><div><a ng-click="clickBulletinDetail(bulletin)">查看详情</a></div></dd>
+                                </dl>
+                            </div>
+                            <h5 class="viewAll text-right p-t-8 p-b-6">
+                                <a target="_blank" href="/agent/Bulletins/showBulletinPage"> 查看全部 </a>
+                            </h5>
+                        </div>
+                    </div>-->
+				</script>
+			</div>
+		</div>
+	</body>
+</html>

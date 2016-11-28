@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="../css/friend_links_L.css" />
+		<script src="../js/friend_links_L.js"></script>
+	</head>
+	<body>
+		<div class="friend-links" align="center" data-name="<%=name%>" data-config="<%=config%>" data-type="FriendLinks">
+			<script type="text/html">
+            <#for(var i=0,len=data.length;i<len;i++){#>
+                <#var link=data[i];
+                  if(!link.hidden){
+                #>
+	                <a target="_blank" href="<#=link.linkUrl#>">
+	                        <img src="<#=adjustImgSrc(link.linkPicture)#>" alt="<#=link.linkName#>"/>
+	                </a>
+                <#}#>
+            <#}#>
+        	</script>
+		</div>
+		
+	</body>
+</html>

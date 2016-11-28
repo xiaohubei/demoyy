@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<%=includeLinks(view, ["../css/consulting_M.less"]);%>
+	</head>
+
+	<body>
+		<div>
+			<div class="pages navbar-fixed navbar-through">
+				<div data-page="consulting" class="page  no-tabbar" data-controller="ConsultingController">
+					<div class="navbar card-navbar">
+						<div class="navbar-inner">
+							<div class="left">
+								<a href='#' class="go-back back">
+									<i class="icon icon-back-gray"></i>
+								</a>
+							</div>
+							<div class="center">购买咨询</div>
+							<div class="right">
+							</div>
+						</div>
+						<div class="subnavbar">
+							<div class="row content-block buttons-row nav-condition">
+								<a href="#" class="button active" data-type='1'>全部咨询</a>
+								<a href="#" class="button" data-type='11'>商品咨询</a>
+								<a href="#" class="button" data-type='12'>配送咨询</a>
+								<a href="#" class="button" data-type='13'>售后咨询</a>
+							</div>
+						</div>
+					</div>
+					<div class="page-content product-container infinite-scroll hide-bars-on-scroll pull-to-refresh-content" data-ptr-distance="55" data-distance="50">
+						<div class="pull-to-refresh-layer">
+							<div class="preloader"></div>
+							<div class="pull-to-refresh-arrow"></div>
+						</div>
+						<div class="row list-continer" id="products_list">
+							<div class="list-block media-list consulting-list"></div>
+						</div>
+						<div class="infinite-scroll-preloader hidden">
+							<div class="preloader"></div>
+						</div>
+					</div>
+					<div class="toolbar">
+						<div class="toolbar-inner">
+							<a href='#' class="btn-ok">我要咨询</a>
+						</div>
+					</div>
+					<script type="text/template7" id="consultingList">
+                        {{#if data.length}}
+                         <ul>
+                        {{#if data[0].isAllReplay}}
+                             <div  class="noDataTip"><i class="icon icon-no-consult"></i><p>您的咨询还没有回复，快发个咨询看看</p></div>
+                        {{else}}
+						{{#each data}}
+						{{#if cCommentReply}}
+						<li>
+							<div class="item-content">
+								<div class="item-inner no-border">
+									<div class="item-title-row">
+										<div class="item-title">网友:{{#if cMemberName}}{{cMemberName}}{{else}}游客{{/if}}</div>
+										<div class="item-after">{{dTime}}</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="item-text">
+									<i class="icon icon-myconsult"></i>
+									<span style="color:#505050">我的咨询：{{cComment}}</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="item-text">
+									<i class="icon icon-reply"></i> 
+									<span style="color:#505050">商家回复：{{cCommentReply}}</span>
+								</div>
+							</div>
+						</li>
+						{{/if}}
+						{{/each}}
+                        {{/if}}
+                         </ul>
+                        {{else}}
+                        <div  class="noDataTip"><i class="icon icon-no-consult"></i><p>您还未咨询任何商品，快发个咨询看看</p></div>
+                        {{/if}}
+                           
+					</script>
+				</div>
+			</div>
+		</div>
+		<%=includeScripts(view, ["../js/consulting_M.js"])%>
+	</body>
+
+</html>

@@ -1,0 +1,45 @@
+ .cart-added {
+  padding: 20px 40px;
+  overflow: hidden;
+}
+.cart-added .success {
+  float: left;
+  width: 100%;
+  margin: 30px auto;
+}
+.cart-added .success .success-b {
+  float: left;
+  background: url(../images/pc/icon-msg.png) no-repeat -40px center;
+  padding: 10px;
+  padding-left: 60px;
+}
+.cart-added .success .success-b h3 {
+  color: #ff7400;
+  float: left;
+}
+.cart-added .success #initCart_next_go {
+  overflow: hidden;
+}
+#initCart_next_go .btn-1 {
+  text-decoration: none;
+  background-color: #ff7400;
+  border-radius: 3px;
+  display: block;
+  padding: 10px 30px;
+  color: #fff;
+  font-size: 15px;
+  float: left;
+}
+#initCart_next_go .ml10 {
+  margin-left: 10px;
+  display: block;
+  padding: 12px 0 0 18px;
+  float: left;
+}
+#initCart_next_go .ml10 .ftx-05 {
+  color: #f29003;
+}
+/*收藏按钮*/
+.isCollection {
+  cursor: not-allowed;
+}

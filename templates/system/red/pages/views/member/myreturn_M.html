@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="myreturn" class="page navbar-fixed toolbar-fixed no-tabbar  " data-controller="myReturnController">
+            <div class="searchbar-overlay"></div>
+            <div class="navbar navbarbg">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="back link"><i class="icon icon-back"></i></a>
+                    </div>
+                    <div class="center">
+                        退货申请
+                    </div>
+                </div>
+            </div>
+            <div class="page-content myreturn-container">
+                <div class="col-100 main myreturn">
+                    <div class="productinfo row">
+                        <div class="list-block m-t-0 addr-invoice">
+                            <ul class="myreturn-form">
+                                <li class="type align-top">
+                                    <div class="item-content">
+                                        <div class="item-inner no-border box-vertica">
+                                            <div class="item-title label">退货类型</div>
+                                            <div class="item-input checkdiv returnTypeContent">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner box-vertica  no-border">
+                                            <div class="item-title label">退款原因</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="请选择退款原因" name="cResonType" readonly="readonly" data-id="0">
+                                                <i class="icon icon-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-type="returnCount" class="hide">
+                                    <div class="item-content">
+                                        <div class="item-inner box-vertica  no-border">
+                                            <div class="item-title label">退货数量<span class="reternCountTips">(最多0件)</span></div>
+                                            <div class="item-input">
+                                                <input type="number" placeholder="请输入退货数量" name="cReturnCount">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner box-vertica  no-border">
+                                            <div class="item-title label">退款金额<span class="reternSumTips">(最多0.00)</span></div>
+                                            <div class="item-input">
+                                                <input type="number" placeholder="请输入退款金额" name="cReturnSum">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner box-vertica  no-border">
+                                            <div class="item-title label">退款说明</div>
+                                            <div class="item-input">
+                                                <textarea name="cReturnBreak" rows="4" cols="2" placeholder="亲，写点什么吧~   长度不能超过500字哦"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner box-vertica  no-border">
+                                            <div class="item-title label">上传图片 <span>(单个文件不超过512kb,总文件不超过2M)</span></div>
+                                            <div class="item-input">
+                                                <a href="#" class="img-update btn-update btn-myReturn-upload"> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="toolbar toolbar-important">
+                <div class="toolbar-inner producttoolbar">
+                	<!--提交-->
+                	<a href="#" class=" btn-red btn-return-submit">提交</a>
+                    <!--<div class="btn-div" style="width: 100%;">
+                        <a href="#" class=" btn-red btn-return-submit">提交</a>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="templates/system/red/pages/js/myreturn_M.js" type="text/javascript"></script>
+</body>
+</html>

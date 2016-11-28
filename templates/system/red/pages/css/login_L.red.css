@@ -1,0 +1,645 @@
+ body {
+  padding: 0;
+  margin: 0;
+  background: url(../images/ban.jpg) no-repeat bottom;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  -moz-background-size: cover;
+  font-family: 'Josefin Slab', serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Carter One', cursive;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+label {
+  margin: 0;
+}
+/*-- main --*/
+.content {
+  padding: 4em 0;
+}
+.content h1 {
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+}
+p.footer {
+  text-align: center;
+  color: #fff;
+  font-size: 17px;
+}
+p.footer a {
+  text-decoration: none;
+  color: #000;
+}
+p.footer a:hover {
+  color: #fff;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+}
+.main {
+  margin: 70px auto;
+  width: 60%;
+}
+.profile-left {
+  float: left;
+  width: 45%;
+}
+.profile-middle {
+  float: left;
+  width: 49%;
+  margin: 0 0 0 6%;
+}
+.profile-right {
+  float: right;
+  width: 29%;
+}
+.profile-left form input[type="text"],
+.profile-left form input {
+  outline: none;
+  border: 2px solid #648d9f;
+  padding: 10px 10px 10px 45px;
+  color: #756d6d;
+  font-family: 'Josefin Slab', serif;
+  font-size: 18px;
+  width: 76%;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+.profile-left form input[type="password"] {
+  margin: 0;
+}
+.login {
+  background: #fbfbfb;
+  padding: 26px 30px;
+}
+.profile-left h2 {
+  background: #c81522;
+  padding: 14px 0;
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+  font-family: 'Josefin Slab', serif;
+}
+.profile-left form input[type="submit"] {
+  background: url(../images/submit.png) no-repeat 255px 16px #c81522;
+  padding: 14px 0;
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+  font-family: 'Josefin Slab', serif;
+  border: none;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+}
+.profile-left form input[type="submit"]:hover {
+  background: url(../images/submit.png) no-repeat 255px 16px #000;
+}
+.profile-left form input[type="text"] {
+  background: url(../images/user.png) no-repeat 13px 10px;
+}
+.profile-left form input[type="password"] {
+  background: url(../images/key.png) no-repeat 13px 10px;
+}
+.profile-left form input[type="password"] {
+  background: url(../images/key.png) no-repeat 13px 10px;
+}
+.profile-img {
+  background: url(../images/banner.jpg) no-repeat bottom;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  -moz-background-size: cover;
+  min-height: 310px;
+  padding-top: 30px;
+}
+.login-pic {
+  width: 180px;
+  margin: 0px auto 0;
+  padding: 5px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+.login-pic img{
+  width: 166px;
+  border-radius: 50%;
+
+}
+.profile-img h3 {
+  font-family: 'Josefin Slab', serif;
+  text-align: center;
+  font-weight: 900;
+  font-size: 36px;
+  margin-top: 20px;
+  color: #fff;
+}
+.profile-img p {
+  text-align: center;
+  margin-top: 9px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+ul.content1 {
+  background: #fff;
+}
+li.button a {
+  padding: 14px 20px;
+  margin: 0;
+  display: block;
+  color: #c81522;
+  font-size: 18px;
+  font-weight: 600;
+}
+li.dropdown {
+  background: #484141;
+  font-weight: 100;
+  font-size: 14px;
+}
+li.button {
+  list-style: none;
+  text-align: left;
+}
+li.menu {
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid #d6d6d6;
+  margin: 0;
+}
+li.button a:hover {
+  background: #c81522;
+  text-decoration: none;
+  color: #fff;
+}
+li.button a span {
+  margin-right: 22px;
+}
+.dropdown {
+  display: none;
+  padding: 0;
+  width: 100%;
+}
+.dropdown li {
+  color: #ae9f9f;
+  font-size: 16px;
+}
+.dropdown li a {
+  padding: 12px 0 12px 25px;
+  display: block;
+}
+ul.icon-navigation li a:hover {
+  color: #fff;
+}
+li.menu.info {
+  border-bottom: none;
+}
+ul.icon-navigation {
+  position: relative;
+}
+ul.icon-navigation li a {
+  color: #B5B4B4;
+}
+li.button a span.iconone {
+  background: url(../images/user1.png) no-repeat 0px 0px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-size: 100% !important;
+}
+li.button a span.icontwo {
+  background: url(../images/audio.png) no-repeat 0px 0px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-size: 100% !important;
+}
+li.button a span.iconthree {
+  background: url(../images/internet.png) no-repeat 0px 0px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-size: 100% !important;
+}
+li.button a span.iconfour {
+  background: url(../images/cog.png) no-repeat 0px 0px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-size: 100% !important;
+}
+.twitt-left {
+  float: left;
+  width: 40%;
+  background: #c81522;
+  padding: 4.95%;
+}
+.twitt-right {
+  float: right;
+  width: 40%;
+  background: #c81522;
+  padding: 4.95%;
+}
+.twitt-left h5,
+.twitt-right h5 {
+  color: #fff;
+  font-family: 'Josefin Slab', serif;
+  font-size: 20px;
+  text-align: center;
+}
+.twitt-left p,
+.twitt-right p {
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+}
+.login-left ul li {
+  list-style-type: none;
+  display: block;
+  margin: -7px 0;
+  font-size: 16px;
+}
+.login-left ul li a {
+  padding: 9px 0;
+  display: block;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+.login-left ul li a:hover {
+  opacity: .7;
+}
+.login-left ul li a.fb {
+  background: #3b5998;
+}
+.login-left ul li a.goog {
+  background: #55acee;
+}
+.login-left ul li a.fb i {
+  background: url(../images/fb.png) no-repeat 17px 3px;
+  width: 55px;
+  height: 23px;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+.login-left ul li a.goog i {
+  background: url(../images/twitt.png) no-repeat 0px 5px;
+  width: 40px;
+  height: 23px;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+/*-- responsive media queries --*/
+@media (max-width: 1680px) {
+  body {
+    min-height: 65.8em;
+  }
+  .content {
+    padding: 9em 0;
+  }
+  .main {
+    margin: 100px auto;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 267px 16px #000;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 267px 16px #c81522;
+  }
+}
+@media (max-width: 1600px) {
+  .content {
+    padding: 4em 0;
+  }
+  .main {
+    margin: 60px auto;
+  }
+  body {
+    min-height: 50em;
+  }
+}
+@media (max-width: 1440px) {
+  body {
+    min-height: 56.5em;
+  }
+  .content {
+    padding: 7em 0;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 238px 17px #000;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 238px 17px #c81522;
+  }
+  .profile-img {
+    min-height: 337px;
+  }
+}
+@media (max-width: 1366px) {
+  body {
+    min-height: 48.2em;
+  }
+  .content {
+    padding: 3em 0;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 227px 21px #C1464F;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 227px 21px #c81522;
+  }
+  .content h1 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 1280px) {
+  .profile-left form input[type="text"] {
+    background: url(../images/user.png) no-repeat 13px 9px;
+  }
+  .profile-left form input[type="password"] {
+    background: url(../images/key.png) no-repeat 13px 9px;
+  }
+  body {
+    min-height: 50.2em;
+  }
+  .content {
+    padding: 5em 0;
+  }
+  .profile-img {
+    min-height: 316px;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 214px 17px #000;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 214px 17px #c81522;
+  }
+}
+@media (max-width: 1080px) {
+  .login {
+    padding: 36px 30px;
+  }
+  .profile-img h3 {
+    font-size: 32px;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 187px 17px #000;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 187px 17px #c81522;
+  }
+}
+@media (max-width: 1024px) {
+  .main {
+    width: 65%;
+  }
+  .profile-img {
+    min-height: 312px;
+  }
+}
+@media (max-width: 800px) {
+  .main {
+    width: 83%;
+  }
+  body {
+    min-height: 58.2em;
+  }
+  .content {
+    padding: 9em 0;
+  }
+  .content h1 {
+    font-size: 33px;
+  }
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    width: 73%;
+  }
+}
+@media (max-width: 736px) {
+  .content {
+    padding: 5em 0;
+  }
+  body {
+    min-height: 49.2em;
+  }
+  .profile-img {
+    min-height: 316px;
+  }
+}
+@media (max-width: 667px) {
+  .login {
+    padding: 20px 20px;
+  }
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    width: 71%;
+    background-size: 8% !important;
+  }
+  .profile-left form input[type="password"] {
+    background: url(../images/key.png) no-repeat 13px 11px;
+  }
+  .profile-left h2,
+  .profile-left form input[type="submit"] {
+    font-size: 22px;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 163px 16px #000;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 163px 16px #c81522;
+  }
+  .profile-img h3 {
+    font-size: 28px;
+  }
+  .profile-img {
+    min-height: 283px;
+  }
+}
+@media (max-width: 640px) {
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 152px 16px #c81522;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 152px 16px #000;
+  }
+  .main {
+    width: 86%;
+  }
+  body {
+    min-height: 47.2em;
+  }
+  .twitt-right {
+    padding: 4.9%;
+  }
+  .twitt-left {
+    padding: 4.9%;
+  }
+}
+@media (max-width: 600px) {
+  .profile-middle {
+    margin: 0 0 0 4%;
+  }
+  .profile-left {
+    width: 47%;
+  }
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    padding: 8px 10px 7px 35px;
+  }
+}
+@media (max-width: 568px) {
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    width: 73%;
+  }
+  .profile-img {
+    min-height: 276px;
+  }
+  p.footer {
+    width: 90%;
+    line-height: 1.8em;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 480px) {
+  .main {
+    width: 65%;
+  }
+  .profile-left {
+    width: 100%;
+  }
+  .profile-middle {
+    margin: 0;
+    width: 100%;
+  }
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    width: 81%;
+  }
+  .profile-left form input[type="password"] {
+    background: url(../images/key.png) no-repeat 13px 9px;
+  }
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    background-size: 6% !important;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 188px 16px #000;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 188px 16px #c81522;
+  }
+  .content h1 {
+    font-size: 28px;
+  }
+  .main {
+    margin: 45px auto;
+  }
+  .content {
+    padding: 4em 0;
+  }
+}
+@media (max-width: 414px) {
+  .main {
+    width: 75%;
+  }
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    background-size: 5.5% !important;
+  }
+}
+@media (max-width: 384px) {
+  .content h1 {
+    font-size: 25px;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 174px 16px #c81522;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 174px 16px #000;
+  }
+}
+@media (max-width: 375px) {
+  .main {
+    width: 82%;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 185px 16px #c81522;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 185px 16px #000;
+  }
+  .login-left ul li a.goog i {
+    background: url(../images/twitt.png) no-repeat 0px 5px;
+    width: 29px;
+  }
+  .login-left ul li a.fb i {
+    background: url(../images/fb.png) no-repeat 16px 3px;
+    width: 45px;
+  }
+}
+@media (max-width: 320px) {
+  .content h1 {
+    font-size: 22px;
+  }
+  .content {
+    padding: 3em 0;
+  }
+  .profile-left h2 {
+    padding: 10px 0;
+  }
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    font-size: 16px;
+  }
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    background-size: 6% !important;
+  }
+  .profile-left form input[type="submit"] {
+    background: url(../images/submit.png) no-repeat 163px 11px #c81522;
+    padding: 10px 0;
+  }
+  .profile-left form input[type="submit"]:hover {
+    background: url(../images/submit.png) no-repeat 163px 11px #000;
+  }
+  .main {
+    width: 87%;
+  }
+  .profile-left form input[type="text"],
+  .profile-left form input[type="password"] {
+    width: 77%;
+  }
+  p.footer {
+    font-size: 16px;
+  }
+  .login-left ul li a {
+    font-size: 19px;
+  }
+}
+.login img{
+  vertical-align: bottom;
+}

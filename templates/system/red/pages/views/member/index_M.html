@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>U商城</title>
+</head>
+<body>
+	<div class="pages">
+		<div data-page="user" class="page no-navbar" data-controller="MemberViewController">
+			<div class="page-content">
+				<div class="user-info" id="user-info">
+                    
+				</div>
+				<div class="user-list m-t-0">
+                    <div class="list-block order-nav  m-b-0  m-t-0">
+                        <div id="tabNav">
+                            <a href="member/myorder?status=PAYMONEY" class="my-order tb-pay" data-filter="PAYMONEY">
+                                待付款
+                                <span  class=""></span>
+                            </a>
+                            <a href="member/myorder?status=DELIVERGOODS" class="my-order tb-deliver" data-filter="DELIVERGOODS">
+                                待发货
+                                <span class=""></span>
+                            </a>
+                            <a href="member/myorder?status=TAKEDELIVERY" class="my-order tb-receipt" data-filter="TAKEDELIVERY">
+                                待收货
+                                <span></span>
+                            </a>
+                            <a href="member/myorder?status=UNREMARK" class="my-order tb-confirm" data-filter="UNREMARK">
+                                待评价
+                                <span></span>
+                            </a>
+                            <a href="member/aftersale?status=" class="my-order tb-return" data-filter="ENDORDER">
+                                退款/售后
+                                <span></span>
+                            </a>
+                        </div>
+                        <div class="item-link ">
+                            <div class="item-inner">
+                                <div class="item-title"><i class="icon-myorder"></i> &nbsp我的订单</div>
+                                <div class="item-after user-all-order">
+                                    <a href="member/myorder?status=" class="all-order " data-filter="all">
+                                        查看全部订单
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-block m-t-10 m-b-0 shotcut">
+                        <ul id="shortCut">
+                        </ul>
+                    <script type="text/template7" id="shortCutTpl">
+                        {{#each data}}
+                            <li class="item-list">
+                                <a href="{{link}}">
+                                    <div class="item-img"><i class="icon-{{icon}}"></i> </div>
+                                    <div class="item-title">{{title}}</div>
+                                </a>
+                            </li>
+                        {{/each}}
+                    </script>
+                    </div>
+                    <script type="text/template7" id="tpl-user-info">
+                        <div class="info-left fl">
+                            <a href="member/memberInfor">
+                                {{#if userInfo.cPortrait}}
+                                <img class="avatar lazy" src="{{userInfo.cPortrait}}" onerror="this.onerror = null; this.src = './img/avatar.png'">
+                                {{else}}
+                                <img class="avatar lazy" src="./img/avatar.png">
+                                {{/if}}
+                            </a>
+                            <p class="username">
+                                <span>{{userInfo.cUserName}}</span>
+                                <img class="lazy qrcode" data-src="./img/qrcode.png">
+                            </p>
+                        </div>
+                        <div class="info-right fr">
+                            <a href="member/mymessage"><span class="icon user-message fr"><i class="messageIcon" style="display:none"></i></span></a>
+                            <a href="member/accountSafety"><span class="member-set fr"></span></a>
+                        </div>
+                        <div class="member-level fr ">
+                            <span class="">{{userInfo.cMemberLevelName}}</span>
+                        </div>
+                    </script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="templates/system/red/pages/js/member_M.js" type="text/javascript"></script>
+</body>
+
+</html>

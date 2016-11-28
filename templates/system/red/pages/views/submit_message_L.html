@@ -1,0 +1,492 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>UP-MALL - 收银台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" href="http://umalltest.yonyouup.com/photo/logo/21/6111534a-0d06-41ed-ad9f-decff4fedf96.gif" />
+<link href="bootstrap/css/bootstrap.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/topbar_member_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/topbar_subnav_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/search_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/navigation_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/cart_box_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/onlineCustomer_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/category_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/help_center_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/friend_links_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/site_info_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/pages/css/submit_message_L.css" rel="Stylesheet" type="text/css" />
+    <script src="./bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="SubmitMessageViewController">
+        
+<div class="container up-header">
+<div class="row">
+<div class="pull-left">
+<div data-name="topbar_member" data-type="TopbarMember">
+        <span>欢迎光临 </span>
+        <div style="display:none;">
+            <a href="/login">请登录</a>
+            <span>|</span>
+            <a href="/register">免费注册</a>
+        </div>
+        <div style="display:none;">
+            <span></span>
+            <a>退出</a>
+        </div>
+    </div>
+</div>
+<div class="pull-right">
+<div data-name="topbar_subnav" data-config="" data-type="TopbarSubnav">
+        
+            <span><a href="/member/mymessage">站内消息<em class="quanTips"></em></a></span>
+        
+            <span><a href="/member">会员中心<em class="quanTips"></em></a></span>
+        
+            <span><a href="/helpcenter/classification?typeId=-1&wigetType=帮助中心">帮助中心<em class="quanTips"></em></a></span>
+        
+    </div>
+</div>
+</div>
+</div>
+<div class="container up-searchBox">
+<div class="row">
+<div class="col-xs-3">
+<div data-name="logo" data-type="Logo">
+        <div></div>
+        <script type="text/html">
+            <a href="/"><img src="<#=adjustImgSrc(logoImg)#>" border="0" alt="logo"></a>
+        </script>
+    </div>
+</div>
+<div class="col-xs-6">
+<div data-name="search" data-config="" data-type="Search">
+			<div class="search_box">
+				<div class="search_box_t">
+					<input type="text" />
+					<button>搜索</button>
+				</div>
+				<div class="search_box_b">
+					<span class="key_words">
+	                    <ul class='key-list'>
+	                    </ul>
+                	</span>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id='keylist'>
+        <#for(var i=0;i<hotKey.length;i++){#>
+        	<#if(hotKey[i].targetUrl){#>
+        		<li><a href="<#=hotKey[i].targetUrl#>"><#=hotKey[i].name#></a></li>
+        	<#}else{#>
+        		<li><a href='/list?keyword=<#=hotKey[i].name#>'><#=hotKey[i].name#></a></li>
+        	<#}#>
+        <#}#>
+		</script>
+</div>
+<div class="col-xs-2">
+<div data-name="cart_box" data-config="" data-type="Cart_box">
+			<div class="cart_box" style="overflow: visible;z-index:1000;width:300px;">
+				
+			</div>
+			<script type="text/html">
+                <div style="display:flex;width:100%;">
+                <div class="cart_div" style="width: 120px; margin-top: -15px;margin-right:15px;float:left;"><span class="cart_number">0</span><span>购物车</span></div>
+                <div class="cartBoxPointsDiv" style="width:140px;word-break:break-all;margin-left:10px;float:left;"><a href="/member/myintegral"><span class="cartBoxPoints"></span></a></div>
+                </div>
+				
+				<ul style="height:500px;margin-top:5px;" class="cart_box_list">
+                    <!--全部商品满赠和推广码满赠选择赠品展示开始-->
+                    <#if(allProductGiftPreferDetail.length){#>
+                        <#for(var m=0;m<allProductGiftPreferDetail.length;m++){#>
+                            <#if(allProductGiftPreferDetail[m].allGiftProjectList.length){#>
+                                <#for(var n=0;n<allProductGiftPreferDetail[m].allGiftProjectList.length;n++){#>
+                                    <#var miniCartAllGiftValue=allProductGiftPreferDetail[m].allGiftProjectList[n];#>
+                                      <li class="miniAllGiftActivedProductList" data-iskuid="<#=miniCartAllGiftValue.iSKUId#>" data-icorpid="<#=miniCartAllGiftValue.iCorpId#>" data-iquantity="<#=miniCartAllGiftValue.iQuantity#>" data-iproductid="<#=miniCartAllGiftValue.iProductId#>" data-id="<#=miniCartAllGiftValue.id#>">
+                                            <div class="col-xs-3" style="margin:0;">
+                                                <img src="<#=adjustImgSrc(miniCartAllGiftValue.oSKU.oProduct.DefaultImage)#>" />
+                                            </div>
+                                            <div class="col-xs-5" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:10px 0 0 0;">
+                                                <a href="/detail?goods_id=<#=miniCartAllGiftValue.oSKU.oProduct.id#>"><em class="s-ico">赠品</em><#=miniCartAllGiftValue.oSKU.oProduct.cName#></a>
+                                                <#if(miniCartAllGiftValue.oSKU.lsSkuSpecItems.length){#>
+                                                    <#for(var j=0,len1=miniCartAllGiftValue.oSKU.lsSkuSpecItems.length;j<len1;j++){#>
+                                                        <span><#=miniCartAllGiftValue.oSKU.lsSkuSpecItems[j].oSpec.cName#>:<#=miniCartAllGiftValue.oSKU.lsSkuSpecItems[j].cSpecItemName#></span>
+                                                        <#}#>
+                                                            <#}#>
+                                            </div>
+                                            <div class="col-xs-4" style="margin:10px 0 0 0;">
+                                                <span>0.00x<#=miniCartAllGiftValue.iQuantity#></span>
+                                            </div>
+                                        </li>  
+                                 <#}#>
+                            <#}#>
+                          <#}#>
+                      <#}#>
+                    <!--全部商品满赠和推广码满赠选择赠品展示结束-->
+                    <#for(var i=0,len=list.length;i<len;i++){#>
+                        <#if(list[i][0].oSKU.iStatus == 0 || !list[i][0].packageValid){#>
+                            <#continue;#>
+                        <#}#>
+                        <#for(var k=0,commonLen=list[i].length;k<commonLen;k++){#>
+                            <#if((list[i][k].oSKU.iStatus!="0")&&(list[i][k].packageValid!="0")||(list[i][k].isGiftProduct)){#>
+                                <#var dataKey='';#>
+                                <#if(list[i][k].guid){#>
+                                    <#dataKey=list[i][k].guid+'|';#>
+                                <#}else if(list[i][k].sPackageUUID){#>
+                                    <#dataKey=list[i][k].sPackageUUID+'|'#>
+                                <#}#>
+                                <#dataKey+=list[i][k].iSKUId;#>
+                                <li data-key="<#=dataKey#>" class="catBoxProductItems" data-productAttribute="<#=list[i][k].productAttribute#>">
+                                    <div class="col-xs-3" style="margin:0;">
+                                        <img src="<#=adjustImgSrc(list[i][k].oSKU.oProduct.DefaultImage)#>" />
+                                    </div>
+                                    <div class="col-xs-5" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:10px 0 0 0;">
+                                            <a href="/detail?goods_id=<#=list[i][k].oSKU.oProduct.id#>"><#if(list[i][k].isGiftProduct){#><em class="s-ico">赠品</em><#}else{#><#}#><#=list[i][k].oSKU.oProduct.cName#></a>
+                                        <#if(list[i][k].oSKU.lsSkuSpecItems.length){#>
+                                            <#for(var j=0,len1=list[i][k].oSKU.lsSkuSpecItems.length;j<len1;j++){#>
+                                                <span><#=list[i][k].oSKU.lsSkuSpecItems[j].oSpec.cName#>:<#=list[i][k].oSKU.lsSkuSpecItems[j].cSpecItemName#></span>
+                                            <#}#>
+                                        <#}#>
+                                    </div>
+                                    <div class="col-xs-4" style="margin:10px 0 0 0;">
+                                        <#if(list[i][k].isGiftProduct){#>
+                                            <span>0.00x<#=list[i][k].iQuantity#></span>
+                                            <#}else{#>
+                                                <#if(list[i][k].productAttribute=="1"){#>
+                                                <span><#=formatMoney(list[i][k].fNewSalePrice)#>x<#=list[i][k].iQuantity#></span>
+                                                <#}else if(list[i][k].productAttribute=="2"){#>
+                                                    <span><#=list[i][k].salePoints#>x<#=list[i][k].iQuantity#></span>
+                                                    <#}#>
+                                                <#}#>
+                                        <#if(!list[i][k].bIsMain){#>
+                                            <#if(!list[i][k].isGiftProduct){#>
+                                            <span class="deleteBtn" data-id="<#=list[i][k].id#>" style="cursor:pointer">删除</span>
+                                            <#}#>
+                                        <#}#>
+                                    </div>
+                                </li>
+                            <#}#>
+                        <#}#>
+
+                    <#}#>
+                    <li class="cart_result">
+                        <div>
+                            <#if(list.length){#>
+                                <span class="clear_cart">清空</span>
+                            <#}#>
+                            <a class="settleMent" style="cursor:pointer;">去结算</a>
+                            <span>共<span id="bottomTotalCount"></span>件商品</span>
+                        </div>
+                    </li>
+
+                </ul>
+			</script>
+   	 	</div>
+</div>
+<div class="col-xs-1">
+<div data-name="online_customer" data-config="" data-type="online_customer">
+        <div id="floatTools" class="rides-cs onlineCustomerContent" style="height:246px;">
+
+        </div>
+        <script type="text/html">
+            <div class="floatL">
+                <a id="aFloatTools_Show" class="btnOpen" title="查看在线客服" style="top:20px;display:block" href="javascript:void(0);">展开</a>
+                <a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" style="top:20px;display:none" href="javascript:void(0);">收缩</a>
+            </div>
+            <div id="divFloatToolsView" class="floatR" style="display: none;height:237px;width: 140px;">
+                <div class="cn">
+                    <h3 class="titZx">商城在线客服</h3>
+                    <ul>
+                        <#if(list){#>
+                        <#for(var k=0;k<list.length;k++){#>
+                        <li><span>客服<#=k+1#><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<#=list[k].cContactNum#>&site=qq&menu=yes"><img border="0" style="width:61px;height:16px;" src="http://wpa.qq.com/pa?p=1:<#=list[k].cContactNum#>:10" alt="点击这里给我发消息" title="点击这里给我发消息" /></a></span></li>
+                        <#}#>
+                        <#}else{#>
+                            
+                        <#}#>
+                        <li>
+                            <div class="div_clear"></div>
+                        </li>
+                        <li style="border:none;"><span>电话：<#if(phoneList.length){#><#=phoneList[0].cContactNum#><#}#></span> </li>
+                    </ul>
+                </div>
+            </div>
+        </script>
+    </div>
+</div>
+</div>
+</div>
+<div class="container up-nav-box">
+<div class="row">
+<div class="col-xs-2">
+<div data-name="category" data-config="" data-type="Category">
+			<div class="header">商品分类</div>
+			<ul class="classify">
+				
+			</ul>
+			<script type="text/html">
+				<#for(var i=0,len=list.length;i<len;i++){#>
+					<#var value=list[i];#>
+                    <#var hasChildren=value.hasChildren?'1':'0';#>
+					<li data-id="<#=value.id#>" data-children="<#=hasChildren#>">
+						<a href="/list?categoryid=<#=value.id#>"><#=value.cName#></a>
+						<#if(value.hasChildren){#>
+							<div style="display:none;">
+								<ul class="clearfix">
+									<#for(var j=0,lene=value.lsChildClass.length;j<lene;j++){#>
+										<#var item = value.lsChildClass[j];#>
+										<li><a href="/list?categoryid=<#=item.id#>"><#=item.cName#></a></li>
+									<#}#>
+								</ul>
+							</div>
+						<#}#>
+						
+					</li>
+				<#}#>
+			</script>
+   	 	</div>
+</div>
+<div class="col-xs-10">
+<div data-name="navigation" data-config="" data-type="Navigation">
+			<ul class="nav navbar-left"></ul>
+            <script type="text/html">
+                <#for(var i=0,len=list.length;i<len;i++){#>
+					<#var value=list[i];#>
+					<li>
+						<a href="<#=value.menuurl#>">
+							<#=value.menutitle#>
+						</a>
+					</li>
+				<#}#>
+            </script>
+		</div>
+</div>
+</div>
+</div>
+
+        <div id="payment_mainbody_box" class="w main">
+            <div class="payment_AllWrapInside clearfix">
+                <div class="mainColumn pageMain">
+                    <div class="CartWrap" style="float:none;">
+                        <div id="f_order_pay">
+                            <div id="password_content" class="password_content">
+                                <div class="process">
+                                    <div id="sflex04" class="stepflex ">
+                                        <dl class="first done">
+                                            <dt class="s-num">1</dt>
+                                            <dd class="s-text">我的购物车<s></s><b></b></dd>
+                                        </dl>
+                                        <dl class="normal done">
+                                            <dt class="s-num">2</dt>
+                                            <dd class="s-text">填写核对订单信息<s></s><b></b></dd>
+                                        </dl>
+                                        
+                                        <dl class="last doing">
+                                            <dt class="s-num">3</dt>
+                                            <dd class="s-text">成功提交订单<s></s><b></b></dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="division clearfix order-suces-wrap" id="showOrderDetail">
+                         
+                            </div>
+                        </div>
+
+                        <div id="alipayment">
+                            <div id="body1" style="clear:left">
+                                <dl class="content">
+                                    <dt>网银支付方式：</dt>
+                                    <dd>
+                                        <span class="null-star">*</span>
+                                        <ul class="bank-list">
+                                          
+                                        </ul>
+                                    </dd>
+                                    <dt></dt>
+                                    <dd>
+                                        <span class="btnPayment-sp">
+                                            <button class="btnPayment">确认付款</button>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sideColumn pageSide">  </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="fullbg"></div>
+        <div id="dialog">
+            <div class="up-box w600" style="z-index: 20000; position: fixed; left: 420px; top: 300px;" id="waitpay_online">
+                <div class="up-box-hd">网上支付提示<span class="close_mayer">关闭</span></div>
+                <div class="up-box-bd">
+                    <div class="up-con clearfixx">
+                        <span class="mayer_icon">
+                        </span>
+                        <div class="r-txt">
+                            <p class="ft14">
+                                支付完成前，请不要关闭此支付验证窗口。<br clear="none">
+                                如果没有显示支付网页，网页可能被浏览器拦截，请检查。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="lay-btn">
+                        <button class="btnPaymentFailed">支付失败</button>
+                        <button class="btnPaymentSuccess">支付完成</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+<div class="container border-top-f2">
+<div class="row">
+<div class="col-xs-12">
+<div class="help-center-bar" data-name="help_center" data-config="" data-type="HelpCenter">
+            <div class="col-xs-3 contact">
+                <ul></ul>
+                <script type="text/html">
+	                <li><span><#=phoneNum#></span></li>
+                    <li><img src="<#=adjustImgSrc(WeixinImg)#>" style="width:100px;height:100px;" /></li>
+                    <li><em><#=WeixinDes#></em></li>
+		        </script>
+            </div>
+            <div class="col-xs-9 help-center-content">
+                <ul></ul>
+                <script type="text/html">
+	                <#for(var i=0,len=data.length;i<len;i++){#>
+	                    <#var value=data[i];#>
+                            <#if(data.length == 5){#>
+                                <li class="col-20 guide-item-list">
+                            <#}else if(data.length == 4){#>
+                                <li class="col-25 guide-item-list">
+                            <#}else if(data.length == 3){#>
+                                <li class="col-33 guide-item-list">
+                            <#}else{#>
+                                <li class="col-20 guide-item-list">
+                            <#}#>
+	                		<h3>
+                                <a href="/helpcenter/classification?typeId=<#=value.typeId#>&wigetType=帮助中心"><#=value.articleTypeName#></a>
+	                		</h3>
+	                		<ul>
+	                		    <#for(var j=0,len1=value.articleSingleList.length;j<len1;j++){#>
+                                    <#var articleSingle=value.articleSingleList[j];#>
+                                    <li>
+                                        <a href="/helpcenter/article?typeId=<#=value.typeId#>&articleId=<#=articleSingle.id#>&wigetType=帮助中心" target="_blank"><#=articleSingle.title#></a>
+                                    </li>
+                                <#}#>
+                                <#if(value.childType){#>
+                                    <#for(var m=0;m<value.childType.length;m++){#>
+                                        <#var articlesingle=value.childType[m].articleSingleList;#>
+                                        <#for(var n=0;n<articlesingle.length;n++){#>
+                                            <li>
+                                                <a href="/helpcenter/article?typeId=<#=value.childType[m].typeId#>&articleId=<#=articlesingle[n].id#>&wigetType=帮助中心" target="_blank"><#=articlesingle[n].title#></a>
+                                            </li>
+                                        <#}#>
+                                    <#}#>
+                                <#}#>
+                            </ul>
+		                </li>
+		            <#}#>
+		        </script>
+            </div>
+        </div>
+</div>
+</div>
+</div>
+<div class="container bg-2d">
+<div class="row">
+<div class="col-xs-12">
+<div class="friend-links" align="center" data-name="friend_links" data-config="" data-type="FriendLinks">
+			<script type="text/html">
+            <#for(var i=0,len=data.length;i<len;i++){#>
+                <#var link=data[i];
+                  if(!link.hidden){
+                #>
+	                <a target="_blank" href="<#=link.linkUrl#>">
+	                        <img src="<#=adjustImgSrc(link.linkPicture)#>" alt="<#=link.linkName#>"/>
+	                </a>
+                <#}#>
+            <#}#>
+        	</script>
+		</div>
+</div>
+</div>
+</div>
+<div class="container bg-2d">
+<div class="row">
+<div class="col-xs-12">
+<div class="site-info" align="center" data-name="site_info" data-config="" data-type="SiteInfo">
+			<script type="text/html">
+				<div align="center">
+					<div class="site-info-sitename">
+						<#=siteName#>
+					</div>
+					<div class="site-info-message">
+						<#=bottomMessage#>
+					</div>
+					<div class="site-info-license">
+						<#=licenseNum#>
+					</div>
+				</div>
+			</script>
+		</div>
+</div>
+</div>
+</div>
+
+        <script id="getOrderDetail" type="text/html">
+            <#if(list){#>
+                <#var value=list;#>
+                    <p class="order-sucs flt"></p>
+                    <p class="mt25">
+                        <span class="font16px fontbold ">订单已经成功提交!</span><br>
+                        订单编号：<em class="font14px point"><#=value.cOrderNo#></em>&nbsp;&nbsp;
+                        订单金额:<em class="point" id="span_amount"><#=value.fTotalMoney#></em><br>
+                    </p>
+                    <p style="font-size:12px" class="point">请于订单提交后24小时内付款，否则会被系统取消</p>
+                    <#}else{#>
+                        <div class="item-single  item-item" style="height:100px;text-align:center;">
+                            <span style="margin-top:30px;">啊偶，没找到订单信息</span>
+                        </div>
+                        <#}#>
+        </script>
+        <script id="bankListTpl" type="text/html">
+            <#if(bankList&&bankList.length){#>
+                <#for(var i=0,len=bankList.length;i<len;i++){#>
+                        <#var value=bankList[i];if(!value.isenable){continue;}#>
+                            <li data-type="<#=value.paytypecode#>">
+                                <div style="margin-top: 10px; float: left;"><input type="radio" name="paymentType" value="<#=value.paytypecode#>"></div>
+                                <div class="<#=value.paytypecode#>"></div>
+                            </li>
+                            <#}#>
+                                    <#}#>
+        </script>
+    </div>
+    <script src="jquery/jquery-1.11.3.js" type="text/javascript"></script>
+<script src="js/template-native-debug.js" type="text/javascript"></script>
+<script src="js/cube.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/topbar_member_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/topbar_subnav_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/logo_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/search_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/navigation_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/cart_box_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/online_customer_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/category_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/help_center_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/friend_links_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/site_info_L.js" type="text/javascript"></script>
+<script src="templates/system/red/pages/js/submit_message_L.js" type="text/javascript"></script>
+<script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="js/modal.js" type="text/javascript"></script>
+<script src="js/qrcode.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>U商城</title>
+		<link rel="shortcut icon" href="http://umalltest.yonyouup.com/photo/logo/21/6111534a-0d06-41ed-ad9f-decff4fedf96.gif" />
+<link href="templates/system/red/pages/css/evaluation_M.orange.css" rel="Stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<div>
+			<div class="pages navbar-through">
+				<div data-page="MessageList" class="page no-tabbar no-toolbar" data-controller="MyConsultingController">
+					<div class="navbar">
+						<div class="navbar-inner">
+							<div class="left"><a href="#" class="link back"><i class="icon icon-back-gray"></i></a></div>
+							<div class="center">我的咨询</div>
+							<div class="right"></div>
+						</div>
+					</div>
+					<div class="page-content infinite-scroll">
+						<div class="list-block media-list detail-wrap no-border">
+							<ul class='evaluation-list'>
+							</ul>
+						</div>
+					</div>
+					<script type="text/template7">
+						{{#each data}}
+						 <li class="item-content evaluation-date no-border m-t-10">
+				         
+				          <div class="item-inner no-border">
+				            
+				            <div class="item-title-row">
+					            <time class="item-title">
+					            	{{dTime}}
+					            </time>
+					            <div class="item-after hide"><a href="#" data-id='{{id}}' class='delete-consulting'>删除</a></div>
+					          </div>
+				          </div>
+				        </li>
+						<li>
+							<div class="item-content consultingNum">
+								<div class = "item-media" >
+                                    <img src='{{adjustImgSrc cProductDefaultImg}}' width="75">
+								</div>
+								<div class = "item-inner">
+								 	<div class="item-title-row">
+										<div class = "item-text">{{cProductName}}</div>
+										<!--<div class="item-after"></div>-->
+									</div>
+								<div class="item-subtitle"></div>
+								</div>
+							</div>
+							<div class = "item-content">
+								<div class = "item-text"><i class="icon icon-myconsult"></i> <span style="color:#505050">我的咨询：</span>{{cComment}}</div>
+							</div> 
+							{{#if cCommentReply}}
+							<div class = "item-content">
+								<div class = "item-text"><i class="icon icon-reply"></i> <span style="color:#505050">商家回复：</span>{{cCommentReply}}</div>
+							</div> 
+							{{/if}}
+						</li>
+                        {{else}}
+                         <div  class="noDataTip">
+                    	<i class="icon icon-no-consult"></i>
+                    	<p>您还未咨询任何商品，快发个咨询看看</p>
+                    </div>
+
+						{{/each}}
+					</script>
+				</div>
+			</div>
+			<script src="templates/system/red/pages/js/myconsulting_M.js" type="text/javascript"></script>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+    <%=includeLinks(view, ["../../css/cart_M.css"]);%>
+</head>
+<body>
+    <div>
+        <div class="pages navbar-fixed">
+            <div data-page="cart" class="page cart-page" data-controller="CartViewController">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href="#" class="back link cartBack cartBack">
+                                <i class="icon icon-back-gray"></i>
+                            </a>
+                        </div>
+                        <div class="center">全部货品(<span class="allCartProductCount">0</span>)</div>
+                        <div class="right">
+                            <a href="#" class="btn-editStatue" data-type="edit">
+                                编辑
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content product-container pull-to-refresh-content" data-ptr-distance="2">
+                    <div class="pull-to-refresh-layer">
+                        <!--<div class="preloader"></div>-->
+                        <div class="pull-to-refresh-arrow"></div>
+                    </div>
+                    <div class="list-block media-list m-t-0 cartNew-list" style="min-height:100%;margin-bottom:0px;">
+                        <ul class="cartItemContainer" style="min-height: 100%;"></ul>
+                    </div>
+                     <!-- 加载提示符 -->
+                        <!--<div class="infinite-scroll-preloader">
+   						   <div class="preloader"></div>
+					  </div>-->
+                    <script type="text/template7" id="cartItemTpl">
+                        <!--满赠活动推广码及全部赠品满赠开始-->
+                        {{#if cartList.allProductGiftPreferDetail}}
+                        {{#if cartList.allProductGiftPreferDetail.length}}
+                        {{#each cartList.allProductGiftPreferDetail}}
+                         <div class="allGiftItemList">
+                            {{#if this.item.iGiftPreId}}
+                            {{#if this.prefer}}
+                        <!---满赠活动推广码及全部赠品满赠活动标题开始-->
+                             <div class="item-header">
+                                 {{#if this.isValid}}
+                                  <!--结算时候的参数，如果不是送赠品的全部商品满赠活动，并且满足满赠条件将子活动id传过去-->
+                                   {{#js_compare "this.item.iGiftItemType===1"}}{{else}} <div class="childActivityId" style="display:none;" data-childactivityid="{{this.item.id}}"></div>{{/js_compare}}
+                            {{#js_compare "this.prefer.iGiftType===1"}}
+                                <span class="discountDescContainer"><i class="icon explain"></i>满额送:{{#js_compare "this.item.iGiftItemType===1"}}活动商品购满{{this.item.iConsumerSpending}}元，可领取赠品{{this.item.iGiftNum}}件&gt;{{else}}{{#js_compare "this.item.iGiftItemType===2"}}活动商品购满{{this.item.iConsumerSpending}}元，可领取{{this.item.iGiftNum}}优惠券&gt;{{else}}{{#js_compare "this.item.iGiftItemType===3"}}活动商品购满{{this.item.iConsumerSpending}}元，可领取{{this.item.iGiftNum}}积分&gt;{{else}}活动商品购满{{this.item.iConsumerSpending}}元，可领取{{this.item.iGiftNum}}倍积分&gt;{{/js_compare}}{{/js_compare}}{{/js_compare}}</span>
+                                {{else}}
+                                {{#js_compare "this.prefer.iGiftType===2"}}
+                                <span class="discountDescContainer"><i class="icon explain"></i>满件送:{{#js_compare "this.item.iGiftItemType===1"}}活动商品购满{{this.item.iConsumerSpending}}件，可领取赠品{{this.item.iGiftNum}}件&gt;{{else}}{{#js_compare "this.item.iGiftItemType===2"}}活动商品购满{{this.item.iConsumerSpending}}件，可领取{{this.item.iGiftNum}}优惠券&gt;{{else}}{{#js_compare "this.item.iGiftItemType===3"}}活动商品购满{{this.item.iConsumerSpending}}件，可领取{{this.item.iGiftNum}}积分&gt;{{else}}活动商品购满{{this.item.iConsumerSpending}}件，可领取{{this.item.iGiftNum}}倍积分&gt;{{/js_compare}}{{/js_compare}}{{/js_compare}}</span>
+                                {{else}}
+                                {{#js_compare "this.prefer.iGiftType===3"}}
+                                <span class="discountDescContainer"><i class="icon explain"></i>买就送:{{#js_compare "this.item.iGiftItemType===1"}}可领取赠品{{this.item.iGiftNum}}件&gt;{{else}}{{#js_compare "this.item.iGiftItemType===2"}}可领取{{this.item.iGiftNum}}优惠券&gt;{{else}}{{#js_compare "this.item.iGiftItemType===3"}}可领取{{this.item.iGiftNum}}积分&gt;{{else}}可领取{{this.item.iGiftNum}}倍积分&gt;{{/js_compare}}{{/js_compare}}{{/js_compare}}</span>
+                                {{else}}
+                                
+                                {{/js_compare}}
+                                {{/js_compare}}
+                                {{/js_compare}}
+                            {{else}}
+                           <p> <i class="icon explain"></i>{{#js_compare "this.prefer.iGiftType===1"}}满额送：{{this.prefer.sName}} {{else}}{{#js_compare "this.prefer.iGiftType===2"}}满件送：{{this.prefer.sName}}{{else}}{{#js_compare "this.prefer.iGiftType===3"}}买就送：{{this.prefer.sName}}{{else}}{{/js_compare}}{{/js_compare}}{{/js_compare}}</p>
+                            {{/if}}
+                                  <!--结算时候的参数，如果是送赠品的全部商品满赠活动，并且满赠满赠条件选了赠品将子活动id传过去-->
+                             
+                             {{#js_compare "this.item.iGiftItemType===1"}}
+                             {{#js_compare "this.allGiftProjectList.length===0"}}
+                             {{else}}
+                             <div class="productGiftChildActivityId" data-childactivityid="{{this.item.id}}" style="display:none;"></div>
+                            {{/js_compare}}
+                            {{/js_compare}}
+                            {{#js_compare "this.item.isShowGiftBtn===1"}}
+                                 <p class="viewGiftBtn"   data-igifttype="{{this.prefer.iGiftType}}" data-type="allGift" data-iConsumerSpending="{{this.item.iConsumerSpending}}" data-giftnum="{{this.item.iGiftNum}}" {{#js_compare "this.item.iGiftItemType===1"}} data-giftactiveid="{{this.item.id}}"{{else}}data-giftactiveid="{{this.item.ids}}"{{/js_compare}} data-giftpromotionid="{{this.item.iGiftPreId}}">{{#if this.isValid}}{{#js_compare "this.item.iGiftItemType===1"}}请选择赠品{{else}}查看赠品{{/js_compare}}{{else}}查看赠品{{/if}}<i class="icon explain-r"></i></p>
+                            {{/js_compare}}
+                            </div>
+                        <!---满赠活动推广码及全部赠品满赠活动标题结束-->
+                         <!--已选赠品展示开始-->
+                        {{#if this.allGiftProjectList}}
+                        {{#if this.allGiftProjectList.length}}
+                            {{#each this.allGiftProjectList}}
+                            <div class="selectedGiftList"  data-i-s-k-u-id="{{this.iSKUId}}"   data-i-quantity="{{this.iQuantity}}" data-id="{{this.id}}" data-i-corp-id="{{this.iCorpId}}" data-i-product-id="{{this.iProductId}}">
+                                <label class="label-checkbox item-content">
+                                        <div class="item-media" style="width:90px;">
+                                            <a href="detail?goods_id={{this.iProductId}}">
+                                                <span style="display: inherit;position:absolute;margin-top:0px;"><i class="icon icon-gift"></i></span>
+                                                <img src="{{adjustImgSrc this.oSKU.oProduct.fullDefaultImageUrl}}" style="width: 100%; height: 80px;" class="lazy">
+                                                </a>
+                                            
+                                        </div>
+                                        <div class="item-inner no-border">
+                                            <div class="item-title-row">
+                                                <a href="detail?goods_id={{this.iProductId}}">
+                                                <div class="item-text"><!--<em class="giftico">赠品</em>-->{{this.oSKU.oProduct.cName}}
+                                                    <span class="price" style=" color: #ff5000">￥0.00x{{this.iQuantity}}</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="item-subtitle">
+                                        {{#each this.oSKU.lsSkuSpecItems}}
+                                            {{this.oSpec.cName}}:{{this.cSpecItemName}}
+                                        {{/each}}
+                                        </div>
+                                        </div>   
+                                    </label>
+                            </div>
+                            {{/each}}
+                        {{/if}}
+                        {{/if}}
+                            <!--已选赠品结束-->
+                            {{/if}}
+                            {{/if}}
+                            
+                         </div>
+                        {{/each}}
+                        {{/if}}
+                        {{/if}}
+                        <!--满赠活动推广码及全部赠品满赠结束-->
+                        {{#if cartList.list.length}}
+                        {{#each cartList.list}}
+                        <li class="productItemContent" style="margin-bottom:5px;">
+                            {{#if this[0].lPackageId}}
+                            <div class="setmeal-title commonManager {{#if this[0].isCommonAble}} {{else}}disabled{{/if}}">
+                     		<label class="label-checkbox item-content common-allSelect">
+        					<input type="checkbox" name="common-checkbox" value="Books" class="common-checkbox" {{#if this[0].commonProductAllChecked}}checked="checked"{{/if}}>
+        						<div class="item-media commonCheckboxDiv">
+					                   <i class="icon icon-form-checkbox"></i>
+					                  </div>
+        					<div style="width: 100%;">
+        						<span class="setmeal">套餐</span><span class="color-red2">￥{{this[0].commonProductTotalPrice}}</span>
+        						<i class="icon icon-del icon-common-del" style="float: right;display:none;"></i>
+        						<div class="item-price" style="float: right;  margin-top: -5px;">
+        							<div class="numberManage">
+                                       <i class="icon icon-cart-less commonLess"></i>
+                                        <input type="text" value="{{this[0].iPackageNum}}"  class="editControl commonQuantityInput">
+                                        <i class="icon icon-cart-add commonAdd"></i>
+                                     </div>
+        						</div>
+        					</div>
+                     		</label>
+                     	</div>
+                            {{/if}}
+                            <!--满赠活动标题开始-->
+                             <!--判断是否有满赠促销活动,有显示活动（不是组合并且有促销活动activityId-->
+                            {{#if this[0].activityId}}
+                            {{#if this[0].giftPreferDetail}}
+                             <div class="item-header">
+                                 {{#if this[0].isCheckedFlag}}
+                                
+                            {{#js_compare "this[0].giftPreferDetail.prefer.iGiftType===1"}}
+                                <span class="discountDescContainer"> <i class="icon explain"></i>满额送:{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===1"}}活动商品购满{{this[0].giftPreferDetail.item.iConsumerSpending}}元，可领取赠品{{this[0].giftPreferDetail.item.iGiftNum}}件&gt;{{else}}{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===2"}}活动商品购满{{this[0].giftPreferDetail.item.iConsumerSpending}}元，可领取{{this[0].giftPreferDetail.item.iGiftNum}}优惠券&gt;{{else}}{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===3"}}活动商品购满{{this[0].giftPreferDetail.item.iConsumerSpending}}元，可领取{{this[0].giftPreferDetail.item.iGiftNum}}积分&gt;{{else}}活动商品购满{{this[0].giftPreferDetail.item.iConsumerSpending}}元，可领取{{this[0].giftPreferDetail.item.iGiftNum}}倍积分&gt;{{/js_compare}}{{/js_compare}}{{/js_compare}}</span>
+                                {{else}}
+                                {{#js_compare "this[0].giftPreferDetail.prefer.iGiftType===2"}}
+                                <span class="discountDescContainer"> <i class="icon explain"></i>满件送:{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===1"}}活动商品购满{{this[0].giftPreferDetail.item.iConsumerSpending}}件，可领取赠品{{this[0].giftPreferDetail.item.iGiftNum}}件&gt;{{else}}{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===2"}}活动商品购满{{this[0].giftPreferDetail.item.iConsumerSpending}}件，可领取{{this[0].giftPreferDetail.item.iGiftNum}}优惠券&gt;{{else}}{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===3"}}活动商品购满{{this[0].giftPreferDetail.item.iConsumerSpending}}件，可领取{{this[0].giftPreferDetail.item.iGiftNum}}积分&gt;{{else}}活动商品购满{{this[0].giftPreferDetail.item.iConsumerSpending}}件，可领取{{this[0].giftPreferDetail.item.iGiftNum}}倍积分&gt;{{/js_compare}}{{/js_compare}}{{/js_compare}}</span>
+                                {{else}}
+                                {{#js_compare "this[0].giftPreferDetail.prefer.iGiftType===3"}}
+                                <span class="discountDescContainer"> <i class="icon explain"></i>买就送:{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===1"}}可领取赠品{{this[0].giftPreferDetail.item.iGiftNum}}件&gt;{{else}}{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===2"}}可领取{{this[0].giftPreferDetail.item.iGiftNum}}优惠券&gt;{{else}}{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===3"}}可领取{{this[0].giftPreferDetail.item.iGiftNum}}积分&gt;{{else}}可领取{{this[0].giftPreferDetail.item.iGiftNum}}倍积分&gt;{{/js_compare}}{{/js_compare}}{{/js_compare}}</span>
+                                {{else}}
+                                <span class="discountDescContainer"> <i class="icon explain"></i>买A送A:活动商品购满{{this[0].giftPreferDetail.item.iConsumerSpending}}件，可领取赠品{{this[0].giftPreferDetail.item.iGiftNum}}件&gt;</span>
+                                {{/js_compare}}
+                                {{/js_compare}}
+                                {{/js_compare}}
+                            {{else}}
+                           <p> <i class="icon explain"></i>{{#js_compare "this[0].giftPreferDetail.prefer.iGiftType===1"}}满额送：{{this[0].giftPreferDetail.prefer.sName}} {{else}}{{#js_compare "this[0].giftPreferDetail.prefer.iGiftType===2"}}满件送：{{this[0].giftPreferDetail.prefer.sName}}{{else}}{{#js_compare "this[0].giftPreferDetail.prefer.iGiftType===3"}}买就送：{{this[0].giftPreferDetail.prefer.sName}}{{else}}买A送A：{{this[0].giftPreferDetail.prefer.sName}}{{/js_compare}}{{/js_compare}}{{/js_compare}}</p>
+                            {{/if}}
+                            {{#js_compare "this[0].giftPreferDetail.item.isShowGiftBtn===1"}}
+                                 <p class="viewGiftBtn" data-cartid="{{this[0].id}}" data-iproductid="{{this[0].iProductId}}" data-igifttype="{{this[0].giftPreferDetail.prefer.iGiftType}}" data-iConsumerSpending="{{this[0].giftPreferDetail.item.iConsumerSpending}}" data-giftnum="{{this[0].giftPreferDetail.item.iGiftNum}}" {{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===1"}} data-giftactiveid="{{this[0].giftPreferDetail.item.id}}" {{else}}data-giftactiveid="{{this[0].giftPreferDetail.item.ids}}"{{/js_compare}} data-giftpromotionid="{{this[0].giftPromotionId}}">{{#if this[0].isValid}}{{#if this[0].isCheckedFlag}}{{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===1"}}请选择赠品{{else}}查看赠品{{/js_compare}}{{else}}查看赠品{{/if}}{{else}}查看赠品{{/if}}<i class="icon explain-r"></i></p>
+                            {{/js_compare}}
+                            {{#js_compare "this[0].giftPreferDetail.item.iGiftItemType===-1"}}
+                                <p class="viewGiftBtn" data-cartid="{{this[0].id}}" data-iproductid="{{this[0].iProductId}}" data-igifttype="{{this[0].giftPreferDetail.prefer.iGiftType}}" data-iConsumerSpending="{{this[0].giftPreferDetail.item.iConsumerSpending}}" data-giftnum="{{this[0].giftPreferDetail.item.iGiftNum}}" data-giftactiveid="{{this[0].giftActiveId}}" data-giftpromotionid="{{this[0].giftPromotionId}}">{{#if this[0].isValid}}{{#if this[0].isCheckedFlag}}请选择赠品{{else}}查看赠品{{/if}}{{else}}查看赠品{{/if}}<i class="icon explain-r"></i></p>
+                            {{/js_compare}}
+                            </div>
+                            {{/if}}
+                            {{/if}}
+                            <!--满赠活动标题结束-->
+                            <!--已选赠品展示开始-->
+                            {{#each this}}
+                            {{#if isGiftProduct}}
+                            <div class="selectedGiftList"  data-i-s-k-u-id="{{iSKUId}}"   data-i-quantity="{{iQuantity}}" data-id="{{id}}" data-i-corp-id="{{iCorpId}}" data-i-product-id="{{iProductId}}">
+                                <label class="label-checkbox item-content">
+                                        <div class="item-media" style="width:90px;">
+                                            <a href="detail?goods_id={{iProductId}}">
+                                                <span style="display: inherit; position:absolute;"><i class="icon icon-gift"></i></span>
+                                                <img src="{{adjustImgSrc oSKU.oProduct.fullDefaultImageUrl}}" style="width: 75px; height: 80px;" class="lazy">
+                                                </a>
+                                        </div>
+                                        <div class="item-inner no-border">
+                                            <div class="item-title-row">
+                                                <a href="detail?goods_id={{iProductId}}">
+                                                <div class="item-text"><!--<em class="giftico">赠品</em>-->{{oSKU.oProduct.cName}}
+                                                    <span class="price" style=" color: #ff5000">￥0.00x{{iQuantity}}</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="item-subtitle">
+                                        {{#each oSKU.lsSkuSpecItems}}
+                                            {{oSpec.cName}}:{{cSpecItemName}}
+                                        {{/each}}
+                                        </div>
+                                        </div>   
+                                    </label>
+                            </div>
+                            {{/if}}
+                            {{/each}}
+                            <!--已选赠品结束-->
+                            <ul>
+                             {{#each this}}
+                            {{#if isGiftProduct}}
+                            {{else}}
+                                <li class="singleProductList">
+					            	<label class="label-checkbox item-content cartItemCheckboxLabel">
+								        <input type="checkbox" name="cartItemCheckbox" value="Books" data-realProductAttribute="{{realProductAttribute}}" data-virtualProductAttribute="{{virtualProductAttribute}}" data-productAttribute="{{productAttribute}}"  data-l-package-id="{{lPackageId}}" data-id="{{id}}"   {{#if isChecked}} datachecked="1" checked="checked" {{else}} datachecked="0"{{/if}} >
+								        <div class="item-media singleCartItemCheckBox {{#if oSKU.iStatus}} {{else}}disabled{{/if}} {{#if packageValid}} {{else}}disabled{{/if}} {{#if isCommonAble}} {{else}}disabled{{/if}} {{#if lPackageId}}cartCheckHide{{/if}}">
+                                            <i class="icon icon-form-checkbox"></i> 
+                                        </div>
+                                        <div style="width:93px;" class="item-media {{#if oSKU.iStatus}} {{else}}disabled{{/if}} {{#if packageValid}} {{else}}disabled{{/if}} {{#if isCommonAble}} {{else}}disabled{{/if}}">
+                                            <a href="detail?goods_id={{iProductId}}">
+                                                <img src="{{#if oSKU.oProduct.fullDefaultImageUrl}}{{adjustImgSrc oSKU.oProduct.fullDefaultImageUrl}}{{else}}../../img/nopic.jpg{{/if}}" class="productImage" style="width: 100%; height: 93px;">
+                                            </a>
+                                        </div>
+                                        <div style="background-color: #ffffff;" class="item-inner no-border {{#if oSKU.iStatus}} {{else}}disabled{{/if}} {{#if packageValid}} {{else}}disabled{{/if}} {{#if isCommonAble}} {{else}}disabled{{/if}}">
+                                            <div class="item-title-row">
+                                                <div class="item-title">
+                                                <a href="detail?goods_id={{iProductId}}">
+                                                    <div class="item-text productName" style="height: inherit;">{{oSKU.oProduct.cName}}</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        <div class="item-subtitle">
+                                        {{#each oSKU.lsSkuSpecItems}}
+                                            {{oSpec.cName}}:{{cSpecItemName}}
+                                        {{/each}}
+                                        </div>
+					                    <div class="item-text item-price" style="height: inherit;">
+                                            <span class="price newSingleTotalPrice" style="display:none;">￥{{newSingleTotalPrice}}</span>
+                                            {{#js_compare "this.productAttribute===1"}}
+                                            <!--价格显示规则开始-->
+                                                    {{#if promotion}}
+                                                    <span class="sp-price">￥<span class="newSinglePrice" >{{fNewSalePrice}}</span></span>
+                                                    <a class="color-red">卖家促销</a>
+                                                    {{else}}
+                                                    {{#if secondCompareFlag}}
+                                                    <span class="sp-price" >￥<span class="newSinglePrice" >{{fNewSalePrice}}</span></span>
+                                                    {{#if priceFlag}}
+                                                    <a class="color-red">卖家促销</a>
+                                                    {{else}}
+                                                    {{/if}}
+                                                    {{else}}
+                                                    {{#if thirdCompareFlag}}
+                                                    <span class="sp-price" >￥<span class="newSinglePrice" >{{fNewSalePrice}}</span></span>
+                                                    {{#if priceFlag}}
+
+                                                    {{#if isVirtualProduct}}
+                                                    {{else}}
+                                                    <a class="color-red">卖家降价</a>
+                                                    {{/if}}
+                                                    {{else}}
+                                                    {{/if}}
+
+                                                    {{else}}
+                                                        <span class="sp-price" >￥<span class="newSinglePrice" >{{fNewSalePrice}}</span></span>
+                                                    {{/if}}
+                                                    {{/if}}
+
+                                                    {{/if}}
+                                                    <!--价格显示规则结束-->
+                                            {{else}}
+                                            {{#js_compare "this.productAttribute===2"}}
+                                            <span class="sp-price"> <span class="newSinglePrice" >{{oSKU.salePoints}}</span>&nbsp;积分</span>
+                                            {{else}}
+                                            {{/js_compare}}
+                                            {{/js_compare}}
+					                    	<div class="numberManage" style="float:right;">
+                                                <i class="icon icon-cart-less singleProductLess"></i>
+                                                <input type="text" value="{{iQuantity}}"  data-singleprice="{{fNewSalePrice}}" data-product-attribute="{{productAttribute}}" data-i-s-k-u-id="{{iSKUId}}" data-s-package-u-u-i-d="{{sPackageUUID}}" data-l-package-id="{{lPackageId}}" data-i-package-num="{{iPackageNum}}" data-i-quantity="{{iQuantity}}" data-id="{{id}}" data-i-corp-id="{{iCorpId}}" data-i-product-id="{{iProductId}}" data-b-is-main="{{bIsMain}}" data-l-inventory-count="{{oSKU.lInventoryCount}}" data-name="{{oSKU.oProduct.cName}}" data-can-Purchase-Count="{{canPurchaseCount}}" data-i-Status="{{oSKU.iStatus}}" data-package-Valid="{{packageValid}}" class="editControl singleProductQuantity">
+                                                <i class="icon icon-cart-add singleProductAdd" ></i>
+                                            </div>
+                                           
+					                    </div>
+					                    
+					                     <div class="item-subtitle">
+                                             {{#js_compare "this.productAttribute===1"}}
+                                              <!--价格显示规则开始-->
+                                                    {{#if promotion}}
+                                                    <span class="sp-price" >￥<span class="PreSinglePrice">{{fSalePrice}}</span></span>
+                                                    {{else}}
+                                                    {{#if secondCompareFlag}}
+                                                    <span class="sp-price" >￥<span class="PreSinglePrice">{{fSalePrice}}</span></span>
+                                                    {{else}}
+                                                    {{#if thirdCompareFlag}}
+                                                    <span class="sp-price" >￥<span class="PreSinglePrice">{{fSalePrice}}</span></span>
+                                                    {{else}}
+                                                    {{/if}}
+                                                    {{/if}}
+
+                                                    {{/if}}
+                                                    <!--价格显示规则结束-->
+                                             {{else}}
+                                            {{/js_compare}}
+
+                                             <a class="cart-tips" style="float:right;">{{limitCountTip}}<span style="margin-left: 5px; color: #ef524d;">{{canPurchaseTip}}</span></a>
+                                        </div>
+					                    
+					                </div>
+					                 </label>
+					        </li>
+                                
+                            {{/if}}
+                            {{/each}}
+                             </ul>
+                        </li>
+                        {{/each}}
+                        {{else}}
+                        <div style="width:100%;height:100%;background:#ffffff">
+                             <div class="noDataTip">
+		                    	<i class="icon icon-no-cart"></i>
+		                    	<p>您的购物车里还没有任何东东</p>
+		                    	<a class="button goView">去逛逛</a>
+		                    </div>
+		                    
+                        </div>
+                        {{/if}}
+                    </script>
+                    <!--满赠商品列表弹出层模板开始-->
+                    <script type="text/template7" id="getGiftLists">
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <div class="left" style="font-size:14px;">最多可领取<span class="maxGiftNum">0</span>件，已领取<span class="selectGiftNum">0</span>件</div>
+                                <div class="center"></div>
+                                <div class="right"><p class="p-close" style="height:25px;"><a href="#" class="close-popup"> <i class="icon icon-colse-popup"></i></a></p></div>
+                            </div>
+                            
+                        </div>
+                        <div class="toolbar" style="position: inherit;">
+                            <div class="toolbar-inner">
+                            	 {{#if giftList[0].isGetGiftProduct}}
+                            	<a href="#" class="giftOkBtn btn-red">确定</a>
+                            	{{else}}
+                            	<a href="#" class="giftReturn btn-red">返回</a>
+                            	{{/if}}
+                                
+                            </div>
+                        </div>
+                        <div class="content-block cartGiftLists list-block media-list" >
+                            <ul>
+                            {{#each giftList}}
+                            {{#js_compare "this.item.iGiftItemType===-1"}}
+                            <!--满A送A-->
+                            <div class="content-block-title">满{{this.item.iConsumerSpending}}件送{{this.item.iGiftNum}}件</div>
+                            {{else}}
+                            {{#js_compare "this.iGiftType===1"}}
+                            <div class="content-block-title">满{{this.item.iConsumerSpending}}元送{{this.item.iGiftNum}}件</div>
+                            {{else}}
+                            {{#js_compare "this.iGiftType===2"}}
+                            <div class="content-block-title">满{{this.item.iConsumerSpending}}件送{{this.item.iGiftNum}}件</div>
+                            {{else}}
+                            {{#js_compare "this.iGiftType===3"}}
+                            <div class="content-block-title">买就送{{this.item.iGiftNum}}件</div>
+                            {{/js_compare}}
+                            {{/js_compare}}
+                            {{/js_compare}}
+                            {{/js_compare}}
+                            {{#each this.productList}}
+                            <!--<div style="border-top: 1px solid #f1f1f1;margin-top:10px;"></div>-->
+                            
+                            {{#each this.lsProductSkus}}
+                            <li>
+                            <label class="label-checkbox item-content giftListContent {{#unless hasInventoryCount}}disabled{{/unless}}" {{#if hasInventoryCount}} style="display:inline-flex;width:100%;"{{/if}}>
+                              {{#if ../../isGetGiftProduct}}
+                               <input type="checkbox" name="giftCheckboxInput" class="giftCheckboxInput" {{#if isChecked}} checked="checked" datachecked="1"{{else}} datachecked="0"{{/if}}>
+                                <div class="item-media giftCheckboxDiv">
+                                <i class="icon icon-form-checkbox"></i>
+                                </div>
+                              {{/if}}
+                                <div class="item-media goProductDetailBtn" style="margin-left:10px;" data-id="{{this.iProductId}}">
+                                      <img src="{{adjustImgSrc ../fullDefaultImageUrl}}" style="width:75px;" class="giftImage">
+                                </div>
+                               
+                            <div  class="item-inner no-border">
+                                <div class="item-title-row">
+                                    <div class="item-title">
+                                        <a>
+                                            <div class="item-text giftName" style="height: inherit; text-overflow: ellipsis;">{{../cName}}</div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item-subtitle giftSkuid" data-skuid="{{id}}"> {{skuName}}</div>
+                                <div class="item-text item-price" style="height: auto;">
+                                    <span class="sp-price">￥<span class="newSinglePrice" style="color: #ef524d">0.00</span></span>
+                                    {{#if ../../isGetGiftProduct}}
+                                    <div class="cartGiftQuantityManage" style="float:right;">
+                                        <i class="icon icon-cart-less cartGiftReduce"></i>
+                                        <input type="text" value="1" class="cartGiftQuantity" data-productid={{iProductId}} data-inventorycount="{{lInventoryCount}}">
+                                        <i class="icon icon-cart-add cartGiftAdd"></i>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                               
+                            </div>
+                            </label>
+                            </li>
+                            {{/each}}
+                            {{/each}}
+                            {{/each}}
+                            </ul>
+                        </div>
+                      
+                    </script>
+                    <!--满赠商品列表弹出层模板结束-->
+                </div>
+                <div class="bottom-bar row cart-btn-row">
+                    <label class="label-checkbox item-content box-flex-c ck-allSelect">
+                        <input type="checkbox" name="cartCheckAll" class="cartCheckAll">
+                        <div class="item-media cartCheckAllDiv">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title"></div>
+                        </div>
+                    </label>
+                    <div class="box-flex-c sum-price cart-balance-container">
+                    	  合计:<span class="sum-price-c cartTotalPrice">￥0.00</span><br>
+                        <span class="count cartClassfyAndCount hide">0种0件 </span>
+                        <span class="count cartClassfyAndCount">不含运费</span>
+                    </div>
+                     <a class="button button-fill  editControl cart-btn-submit box-flex-c">立即结算</a>
+                    <a class="button button-fill editControl cart-btn-collection box-flex-c hide">移至收藏</a>
+                    <a class="button button-fill editControl cart-btn-delete box-flex-c hide">删除</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../../js/cart_M.js"]);%>
+</body>
+
+</html>

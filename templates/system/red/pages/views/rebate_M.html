@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+	<link rel="shortcut icon" href="http://umalltest.yonyouup.com/photo/logo/507/6dc1173a-c920-46c5-8ebf-d4a799b4e92e.gif" />
+<link href="templates/system/red/pages/css/rebate_M.css" rel="Stylesheet" type="text/css" />
+<body>
+    <div class="pages">
+        <div data-page="rebate" class="page no-tabbar" data-controller="rebateViewController">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="link back">
+                            <i class="icon icon-back-gray"></i>
+                        </a>
+                    </div>
+                    <div class="center">优惠活动</div>
+                    <div class="right">
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="list-block rebate-list  m-b-0">
+                    <div class="rebateList">
+                        <ul class="rb-listblock-container">
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+               
+            </div>
+             <div class="btn-div">
+                        <a href="#" class="btn-rebate-save btn-red">确定</a>
+                    </div>
+            <script type="text/template7" id="activityListTpl">
+                {{#if fires.length}}
+                <li class="list-group-title">减价活动</li>
+                {{#each fires}}
+                <li class="f5">
+                    <label class="label-checkbox item-content">
+                        <input type="checkbox" name="my-orderCoupon" value="{{id}}" {{#if isSelect}}checked{{/if}}>
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="rebateCon bg-1">
+                            <div class="rebateLeft">
+                                <div class="con">
+                                    <p class="title">满{{consumerSpending}}减{{fireNum}}元{{#if describe}}{{describe}}{{/if}}</p>
+                                    <p>活动时间截止{{pEndDate}}</p>
+                                    <p class="red">参加商品范围 {{pActivityRange}}</p>
+                                </div>
+                            </div>
+                            <div class="rebateRight">
+                                <div class="con">
+                                    <h4>减{{fireNum}}</h4>
+                                    <p>消费满{{consumerSpending}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+                {{/each}} 
+                {{/if}} 
+                {{#if discounts.length}}
+                <li class="list-group-title">打折活动</li>
+                {{#each discounts}}
+                <li class="f5">
+                    <label class="label-checkbox item-content">
+                        <input type="checkbox" name="my-orderCoupon" value="{{id}}" {{#if isSelect}}checked{{/if}}>
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="rebateCon bg-0">
+                            <div class="rebateLeft">
+                                <div class="con">
+                                    <p class="title">满{{consumerSpending}}打{{discountNum}}折</p>
+                                    <p>活动时间截止{{pEndDate}}</p>
+                                    <p class="red">参加商品范围 {{pActivityRange}}</p>
+                                </div>
+                            </div>
+                            <div class="rebateRight">
+                                <div class="con">
+                                    <h4>{{discountNum}}折</h4>
+                                    <p>消费满{{consumerSpending}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+                {{/each}}
+                {{/if}}
+                {{#unless fires.length}}
+                {{#unless discounts.length}}
+                <div class="noDataTip">
+                    <i class="icon icon-no-rebate"></i>
+                    <p>暂无整单优惠信息</p>
+                </div>
+                {{/unless}}
+                {{/unless}}
+            </script>
+            <script type="text/template7" id="expressTpl">
+                <li class="list-group-title">包邮</li>
+                <li>
+                    <label class="label-checkbox item-content" {{#unless isPost}}disabled{{/unless}}>
+                    <!-- Checked by default -->
+                    <input type="radio" name="my-express" value="true" {{#if isPost}}checked{{/if}}>
+                    <div class="item-media">
+                        <i class="icon icon-form-checkbox"></i>
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title">包邮</div>
+                    </div>
+                    </label>
+                </li>
+                <li>
+                    <label class="label-checkbox item-content">
+                        <input type="radio" name="my-express" value="false" {{#unless isPost}}checked{{/unless}}>
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title">不包邮</div>
+                        </div>
+                    </label>
+                </li>
+            </script>
+            <script type="text/template7" id="payTypeTpl">
+                <li class="list-group-title">支付方式</li>
+                {{#each oPayType}}
+                <li>
+                    <label class="label-checkbox item-content">
+                        <!-- Checked by default -->
+                        <input type="radio" name="my-payType" value="{{id}}" {{#if isChecked}}checked{{/if}}>
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-inner start">
+                            <div class="item-media hide">
+                                <i class="icon icon-weixin"></i>
+                            </div>
+                            <div class="item-title m-l-5">{{name}}</div>
+                        </div>
+                    </label>
+                </li>
+                {{/each}}
+            </script>
+            <script type="text/template7">
+                <!--以下是静态示例-->
+                <li>
+                    <label class="label-checkbox item-content">
+                        <!-- Checked by default -->
+                        <input type="radio" name="my-payType" value="FIRSTDELIVER">
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-inner start">
+                            <div class="item-media ">
+                                <i class="icon icon-alipay"></i>
+                            </div>
+                            <div class="item-title m-l-5">支付宝</div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label class="label-checkbox item-content">
+                        <!-- Checked by default -->
+                        <input type="radio" name="my-payType" value="FIRSTDELIVER">
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-inner start">
+                            <div class="item-media ">
+                                <i class="icon icon-weixin"></i>
+                            </div>
+                            <div class="item-title m-l-5">微信支付</div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label class="label-checkbox item-content">
+                        <!-- Checked by default -->
+                        <input type="radio" name="my-payType" value="FIRSTDELIVER">
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-inner start">
+                            <div class="item-media ">
+                                <i class="icon icon-changjt"></i>
+                            </div>
+                            <div class="item-title m-l-5">畅捷支付</div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label class="label-checkbox item-content">
+                        <!-- Checked by default -->
+                        <input type="radio" name="my-payType" value="FIRSTDELIVER">
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+
+                        <div class="item-inner start">
+                            <div class="item-media ">
+                                <i class="icon icon-kafu"></i>
+                            </div>
+                            <div class="item-title m-l-5">货到付款（刷卡）</div>
+                        </div>
+                    </label>
+                </li>
+                <li>
+                    <label class="label-checkbox item-content">
+                        <!-- Checked by default -->
+                        <input type="radio" name="my-payType" value="FIRSTDELIVER">
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+
+                        <div class="item-inner start">
+                            <div class="item-media ">
+                                <i class="icon icon-xianfu"></i>
+                            </div>
+                            <div class="item-title m-l-5">货到付款（现金）</div>
+                        </div>
+                    </label>
+                </li>
+                <!--示例结束-->
+            </script>
+
+        </div>
+    </div>
+    <script src="templates/system/red/pages/js/rebate_M.js" type="text/javascript"></script>
+</body>
+
+</html>

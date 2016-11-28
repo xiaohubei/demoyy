@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>U商城</title>
+	</head>
+	<%=includeLinks(view, ["../css/combileSale_M.css"]);%>
+		<body>
+			<div>
+				<div class="pages">
+					<div data-page="combileSale" class="page no-tabbar navbar-fixed toolbar-fixed" data-controller="CombileSaleController">
+						<div class="navbar card-navbar">
+							<div class="navbar-inner">
+								<div class="left">
+									<a href="#" class="back">
+										<i class="icon left-arrow"></i>
+									</a>
+								</div>
+								<div class="center sliding">
+									优惠搭配
+								</div>
+								<div class="right">
+									<a href="#" class="icon-only">
+										<i class="icon icon-refresh"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="page-content">
+							<div class='taocan'>套餐一</div>
+							<div class="list-block media-list">
+								<ul class='li-content'></ul>
+							</div>
+						</div>
+				        <div class="toolbar">
+        					<div class="toolbar-inner">
+                    			<span class="totalContainer">共:<span class='popup-price'>{{fSalePrice}}</span>元</span>
+                        			<div class="numberManage col-100">
+                        				套数：
+                            			<i class="icon icon-cart-less disabled"></i>
+                            			<input type="text" id="txtProSpecsCount" class="editControl">
+                            			<i class="icon icon-cart-add"></i>
+                        			</div>
+                    			<a href="#" class="button btn-update-sku">确  定</a>
+        					</div>
+      					</div>
+					<script>
+					{{#each data}}
+						 <li>
+      						<div class="item-link item-content">
+      							<input type='checkbox'/>
+        						<div class="item-media">
+        							<img src="{{oDefaultAlbum.cFolder}}m_{{oDefaultAlbum.cImgName}}" width="80">
+    							</div>
+								<div class="item-inner">
+          							<div class="item-title-row">
+            							<div class="item-title">{{cName}}</div>
+            							<div class="item-after">
+            							  <div>{{fSalePrice}}</div>
+            							  <br>
+            							  <del>{{fMarkPrice}}</del>
+            							</div>
+          							</div>
+          							<div class="item-subtitle">
+          								<div class='button' data-id='{{id}}'>
+          									选择商品属性
+          									<i class="icon icon-arrowdow"></i>
+          								</div>
+          								<div class="item-after">
+          									库存: <span>{{lInventoryCount}}</span>
+      									</div>
+          							</div>
+        						</div>
+      						</div>
+  						</li>
+  					{{/each}}
+					</script>
+					<script id='productDealSku'>
+					{{#each data}}
+					<div class="content-block">
+            			<p class="p-close">
+                    		<a href="#" class="close-popup"> <i class="icon icon-colse-popup"></i></a>
+                		</p>
+                		<div class="popup-top">
+                    		<div class="popup-img">
+                        		<img src="{{oDefaultAlbum.cFolder}}lm_{{oDefaultAlbum.cImgName}}" alt="" />
+                    		</div>
+                    	<div class="title-row">
+                        	<div class="title">{{cName}}</div>
+                        	<div class="subtitle">{{cCode}}</div>
+                    	</div>
+                    	<div class="popup-number priceStepContainer">
+                    	</div>
+                	</div>
+                	<div class="popup-content">
+                    	<div class="row popup-attrs">
+                        {{#each lsSpecs}}
+                        	<p>{{cName}}</p>
+                        	<div class="col-100">
+                            	{{#each lsSpecItem}}
+                            	<div class="attrItem" data-id="{{id}}">{{cSpecItemName}}
+                            	</div>
+                        		{{/each}}
+                        	</div>
+                        {{/each}}
+                    	</div>
+                	</div>
+                	<div class="popup-bottom">
+                    	<span class="totalContainer">共:<span class='popup-price'>{{fSalePrice}}</span>元</span>
+                    	<a href="#" class="button btn-update-sku">确  定</a>
+                	</div>
+            		</div>
+            		{{/each}}
+					</script>
+					</div>
+				</div>
+			</div>
+			<%=includeScripts(view, ["../js/combileSale_M.js"]);%>
+		</body>
+</html>

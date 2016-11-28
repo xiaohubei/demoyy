@@ -1,0 +1,202 @@
+/****订单页面布局*/
+.myEvaluation {
+  padding-top: 20px;
+}
+#tabSwitch {
+  margin-left: 0;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.p-0 {
+  padding: 0;
+}
+.space10 {
+  margin-top: 10px;
+}
+.space20 {
+  margin-top: 20px;
+}
+.space50 {
+  margin-top: 50px;
+}
+.changing_or_refunding {
+  width: 877px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+a {
+  cursor: pointer;
+  color: #333;
+}
+.table-bordered > thead > tr > th {
+  font-weight: normal;
+}
+select {
+  width: 70px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  height: 30px;
+  line-height: 30px;
+}
+.changing_or_refunding_tr {
+  width: 100px;
+}
+.changing_or_refunding_td {
+  text-align: center;
+}
+.pager {
+  margin: 0 0;
+  float: right;
+}
+.product_data {
+  margin-top: 150px;
+}
+.prodcutSearch {
+  margin-top: 40px;
+}
+.btnProductSearch {
+  background-color: #F0F8FF;
+}
+.productSearch_Input {
+  width: 50px;
+}
+.table th,
+.table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+.table-bordered > thead > tr > th {
+  border: none;
+  font-size: 14px;
+  color: #494848;
+}
+.kefu {
+  background-image: url("../images/pc/kefu.gif");
+  width: 66px;
+  height: 20px;
+  display: inline-block;
+  margin-left: 10px;
+}
+.textright {
+  text-align: right !important;
+  padding-right: 16px !important ;
+}
+.m-t-10 {
+  margin-top: 10px;
+}
+.m-t-20 {
+  margin-top: 20px;
+}
+.noorder {
+  font-size: 20px;
+  width: 100%;
+  height: 168px;
+  border: 1px solid #CCCCCC;
+  margin-top: 10px;
+  padding-left: 50%;
+  padding-top: 6%;
+}
+.table-bordered,
+.table-bordered > tbody > tr > td {
+  border-color: #E6E6E6;
+}
+.tabbg {
+  cursor: pointer;
+}
+.main_search {
+  margin: 10px 0 0 -40px;
+  font-size: 12px;
+}
+.main_search .form-horizontal {
+  float: left;
+  width: 94%;
+}
+.btn {
+  border-radius: 0;
+}
+.btn .btn-default {
+  background-color: #FAFAFA;
+  border-color: #E6E6E6;
+}
+.ordersearch {
+  margin: 22px 0 0 0;
+  border-radius: 0;
+  background: #28c4b2;
+  color: #fff;
+  border-color: #28c4b2;
+  display: inline-block;
+}
+.main_btn {
+  font-size: 12px;
+}
+.main_btn .btn-default {
+  background: #FAFAFA;
+  border: 1px solid #e6e6e6;
+  color: #5B5B5B;
+  font-size: 12px;
+}
+.ordersearch:hover {
+  background-color: #176f65;
+  border-color: #176f65;
+}
+.orderheaderinfo {
+  padding-left: 28px !important;
+  background: rgba(255, 255, 254, 0.1);
+  text-align: left !important;
+}
+.orderheaderinfo time,
+.orderheaderinfo .orderheader_num {
+  margin-left: 10px;
+  font-size: 12px;
+}
+.orderheaderinfo time {
+  color: #828081;
+}
+.orderheader_num {
+  color: #494848;
+}
+.orderheaderinfo input {
+  vertical-align: top;
+  font-size: 12px;
+}
+.main_search .ordernum {
+  width: 47% !important;
+  float: left;
+}
+.btn-pay {
+  background: #28c4b2;
+  color: #fff;
+  padding: 4px 18px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.btn-pay:hover {
+  background-color: #176f65;
+  color: #fff;
+}
+.table td p {
+  word-break: break-all;
+  text-align: left;
+}
+.main_search .control-label {
+  color: #5b5b5b;
+  font-weight: normal;
+}
+.main_search .form-control {
+  border-radius: 0;
+  border-color: #E6E6E6;
+  box-shadow: none;
+  font-size: 12px;
+}
+#orderList .table-hover > tbody > tr:hover {
+  background: #FAFAFA;
+}

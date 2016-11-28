@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>U商城</title>
+		<%=includeLinks(view, ["../../css/myHistory_M.less"]);%>
+	</head>
+
+	<body>
+		<div>
+			<div class="pages navbar-fixed navbar-through">
+				<div data-page="myHistory" class="page no-tabbar" data-controller="MyHistoryViewController">
+					<div class="navbar card-navbar ">
+						<div class="navbar-inner">
+							<div class="left">
+								<a href="#" class="back link">
+									<i class="icon icon-back-gray"></i>
+								</a>
+							</div>
+							<div class="center">我的足迹</div>
+							<div class="right edit" data-edit="edit">编辑
+							</div>
+						</div>
+					</div>
+					<div class="page-content product-container  pull-to-refresh-content">
+						<div class="pull-to-refresh-layer">
+							<div class="pull-to-refresh-arrow"></div>
+						</div>
+						<div class="row list-continer" id="myCollectionList">
+							<div class="list-block media-list m-t-0 product-list">
+								<ul>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="toolbar hidden">
+						<div class="toolbar-inner ">
+							<label class="label-checkbox item-content hidden all-check">
+                            	<input type="checkbox" name="mycheckbox" class="checkboxAll" data-isgiftcard="false">
+                            	<div class="item-media">
+                            		<i class="icon icon-form-checkbox"></i>
+                            		<span>全选</span>
+                            	</div>
+                      		</label>
+                      		<div class=' row ' style="width: 60%;">
+                      			<div class="col-50 cancel">取消</div>
+								<div class="col-50 delete">删除</div>
+                      		</div>
+						</div>
+					</div>
+					<script type="text/template7" id="myHistoryTpl">
+					{{#each data}}
+					    <li class='dateClass'>
+					    	<label data-val='{{name}}' class="label-checkbox item-content  history-label  hidden date-check">
+                                	<input type="checkbox" name="mycheckbox" data-isgiftcard="false">
+                                	<div class="item-media">
+                                	<i class="icon icon-form-checkbox"></i>
+                                	</div>
+                      		</label>
+					    	{{name}}
+					    </li>
+					    {{#each values}}
+						<li data-id={{id}} class="item-link item-content myHistoryItem" data-pid={{pid}}> 
+                            
+								<label data-val='{{../name}}' class="label-checkbox item-content history-label hidden item-label">
+                                	<input type="checkbox" name="mycheckbox" data-isgiftcard="false">
+                                	<div class="item-media">
+                                	<i class="icon icon-form-checkbox"></i>
+                                	</div>
+                  				</label>
+								<div class="item-media">
+									<div class="upimgdiv">
+                                        <a href="detail?goods_id={{pid}}" class="item-link item-content myHistoryItem" style="width:100%;">
+                                            <img src="{{adjustImgSrc defaultAlbum}}" class="lazy" style="width:75px;height:75px;">
+                                        </a>
+									</div>
+								</div>
+
+								<div class="item-inner">
+									<div class="item-title-row">
+										<a href="detail?goods_id={{pid}}" class="item-link item-content myHistoryItem" style="width:100%;">
+                                            <div class="item-text">{{cName}}</div>
+                                        </a>
+									</div>
+									<div class="item-subtitle price">
+                                        {{#js_compare "this.productAttribute===1"}}
+                                        {{#if isDisplayPrice}}
+									    <span>
+		                        			<em>￥</em>{{fSalePrice}}
+		                        		</span>
+                                        {{#if isShowMarkPrice}}
+										<span class="del-price">
+		                        			<em>￥</em>{{firstViewPrice}}
+		                        		</span>
+                                        {{/if}}
+                                        {{else}}
+                                        <span>
+		                        	  {{priceAreaMessage}}
+		                        		</span>
+                                        {{/if}}
+                                        {{else}}
+                                        {{#if isDisplayPrice}}
+                                        <span>
+		                        		{{salePoints}}<em>&nbsp;积分</em>
+		                        		</span>
+                                        {{else}}
+                                         <span>
+		                        	  {{priceAreaMessage}}
+		                        		</span>
+                                        {{/if}}
+                                       {{/js_compare}}
+		                        		<span class='delete-icon' data-id={{id}}></span>
+									</div>
+								</div>
+                               
+						</li>
+						{{/each}}
+                        {{else}}
+                        <div class="noDataTip">
+                            <i class="icon icon-no-footprint"></i>
+                            <p>您还没有浏览足迹</p>
+                        </div>
+						{{/each}}
+					</script>
+				</div>
+			</div>
+		</div>
+
+		<%=includeScripts(view, ["../../js/myHistory_M.js"]);%>
+	</body>
+
+</html>

@@ -1,0 +1,20 @@
+.label-switch{
+	float: right;
+}
+form.list-block{
+	margin:10px 0;
+}
+form.list-block ul{
+	margin-top: 15px;
+}
+.label-switch input[type="checkbox"]:checked + .checkbox{
+	background: #ef524d;
+}
+form.list-block ul li{
+	font-size: 15px;
+	color: black;
+}
+form.list-block ul li:first-child{
+	font-size: 17px;
+	color: gray;
+}

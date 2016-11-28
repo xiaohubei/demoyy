@@ -1,0 +1,115 @@
+.historyBox li {
+  min-height: 210px;
+  margin-bottom: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.historyBox li:hover {
+  padding: 14px;
+  border: 1px solid #ef5651;
+}
+.historyBox li img {
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+}
+.main-title {
+  float: left;
+  width: 100%;
+  clear: both;
+}
+.main_date {
+  height: 24px;
+}
+.main_date span {
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+}
+.mymessage {
+  font-size: 14px;
+  line-height: 30px;
+  color: #333333;
+  height: 30px;
+}
+.main {
+  padding: 20px 15px;
+}
+.delete-icon {
+  background: #e8e9e9 url('../images/pc/del.png') no-repeat center;
+  height: 28px;
+  width: 28px;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  opacity: 0.5;
+}
+.content_header {
+  height: 25px;
+  vertical-align: middle;
+  background: url(../images/pc/message-list-bg.png) no-repeat left center;
+  position: relative;
+  left: -31px;
+  padding-left: 35px;
+  top: -3px;
+  color: #6d6c6c;
+}
+.main_unit {
+  float: left;
+  width: 100%;
+  margin-left: 20px;
+  position: relative;
+  border-left: 4px solid #eeeeee;
+  padding-left: 20px;
+  padding-bottom: 0px;
+}
+.col-md-12.contentbox {
+  padding-left: 0;
+}
+.title-content {
+  height: 32px;
+  overflow: hidden;
+  margin-bottom: 0;
+  color: #6d6c6c;
+}
+.price-content {
+  color: #ef524d;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.history-class {
+  height: 42px;
+  line-height: 42px;
+  float: left;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0 15px;
+  font-size: 14px;
+  color: #333333;
+  background: #fafafa;
+}
+.classes {
+  height: 26px;
+  font-size: 14px;
+  margin-left: 20px;
+  border: none;
+  background: transparent;
+}
+.delete-btn {
+  float: right;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+  color: #565656;
+  background-image: url(../images/pc/del.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 17px;
+}
+.delete-today {
+  margin-left: 10px;
+  background: #fafafa;
+  box-shadow: none;
+  border: 1px solid #ef5651;
+}

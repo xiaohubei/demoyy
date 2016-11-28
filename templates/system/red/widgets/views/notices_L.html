@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<link href="../css/notices_L.less" rel="Stylesheet" type="text/css" />
+		<script src="../js/notices_L.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div class="news-notice" data-name="<%=name%>" data-config="<%=config%>" data-type="Notices">
+			<div class="notice-titles">
+				<img />
+				<span>网站公告</span>
+			</div>
+			<ul class="notice-content"></ul>
+			<script type="text/html">
+				<#for(var i=0,len=list.length;i<len;i++){#>
+					<#var value=list[i];#>
+						<#var cValue='' ;#>
+							<#if(value.cNoticeType=='URL' ){#>
+								<li class="notice-tree-item">
+									<a href="<#=value.cUrl#>" target="_blank" title="<#=value.cTitle#>">
+										<#=value.cTitle#>
+									</a>
+								</li>
+								<#}else if(value.cNoticeType=='NORMAL' ){#>
+									<li class="notice-tree-item">
+										<a href="/notice_list?id=<#=value.id#>" target="_blank" title="<#=value.cTitle#>">
+											<#=value.cTitle#>
+										</a>
+									</li>
+									<#}#>
+						<#}#>
+			</script>
+		</div>
+	</body>
+
+</html>

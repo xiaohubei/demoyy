@@ -1,0 +1,17 @@
+{
+	"view": {
+		"$": {
+			"name": "detailView",
+			"title": "U商城",
+			"controller": "DetailViewController"
+		},
+		"widget": [
+			{
+				"$": {
+					"name": "path_mapping",
+					"type": "path_mapping"
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="forgetPwd" class="page no-tabbar" data-controller="forgetPwdViewController">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a class="link forgetPwd-back">
+                            <i class="icon icon-backwhite"></i>
+                        </a>
+                    </div>
+                    <div class="center">忘记密码</div>
+                    <div class="right"></div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="forgetPwd step-one  m-t-0">
+                    <div class="list-block m-t-0">
+                        <ul>
+                            <li class="item-content">
+                                <!--<div class="item-media">
+                                    <i class="icon icon-username"></i>
+                                </div>-->
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="text" name="forgetPwd-userName" placeholder="请输入账号/手机号/邮箱" class="input-forgetPwd-userName">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <!--<div class="item-media">
+                                    <i class="icon icon-verification"></i>
+                                </div>-->
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="text" name="verification" placeholder="请输入验证码" class="input-forgetPwd-verification">
+                                    </div>
+                                    <!--<a href="#" class="security"> </a>-->
+                                    <div class="item-after">
+                                    	<img src="../img/security.png" style="width:150px;height:32px;margin-top:-10px;" class="img-forgetPwd-verification" />
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--<div class="login-btuuon">-->
+                    <p>
+                        <a href="#" class="button button-fill new-button submit step-one">下一步</a>
+                    </p>
+                    <!--</div>-->
+                </div>
+                <div class="forgetPwd step-two" style="display:none;">
+                    <div class="content-block-title">选择验证身份方式</div>
+                    <div class="list-block">
+                        <ul class="forgetPwd-validateType">
+                            <li class="item-content checked">
+                                <!--<div class="item-media">
+                                    <i class="icon icon-tel"></i>
+                                </div>-->
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <i class="icon icon-radio"></i>
+                                        <input type="tel" placeholder="手机号" readonly id="input-phone">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content hide">
+                                <!--<div class="item-media">
+                                    <i class="icon icon-email"></i>
+                                </div>-->
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <i class="icon icon-radio"></i>
+                                        <input type="email" placeholder="邮箱" readonly id="input-email">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="item-content">
+                                <!--<div class="item-media">
+                                    <i class="icon icon-verification"></i>
+                                </div>-->
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="text" name="verification" placeholder="请输入校验码" class="input-forgetPwd-DynamicCode">
+                                    </div>
+                                    <a href="#" class="btn-code get-forgetPwd-DynamicCode">获取验证码</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <p>
+                        <a href="#" class="button button-fill new-button submit step-two">下一步</a>
+                    </p>
+                </div>
+                <div class="forgetPwd step-three  m-t-0" style="display:none;">
+                    <div class="list-block m-b-5 m-t-0">
+                        <ul class="forgetPwd-changePwd">
+                            <li class="item-content">
+                                <!--<div class="item-media">
+                                    <i class="icon icon-pwd"></i>
+                                </div>-->
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="password" name="new-pwd" placeholder="请输入新密码" class="forgetPwd-new-pwd">
+                                    </div>
+                                    <!--<span><i class="icon icon-see-pwd-un"></i></span>-->
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <!--<div class="item-media">
+                                    <i class="icon icon-pwd-ok"></i>
+                                </div>-->
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="password" name="reconfirm-pwd" placeholder="请确认新密码" class="forgetPwd-reconfirm-pwd">
+                                    </div>
+                                    <!--<span><i class="icon icon-see-pwd-un"></i></span>-->
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-block-title">密码长度至少6个字符，最多32个字符</div>
+                    <p>
+                        <a href="#" class="button button-fill new-button submit step-three">完成</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../js/forgetPwd_M.js"]);%>
+</body>
+
+</html>

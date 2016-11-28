@@ -1,0 +1,61 @@
+{
+	"view": {
+		"$": {
+			"name": "detailView",
+			"title": "U商城",
+			"controller": "DetailViewController"
+		},
+		"widget": [
+			{
+				"$": {
+					"name": "myhistory",
+					"type": "myhistory"
+				}
+			}, {
+				"$": {
+					"name": "sales_charts",
+					"type": "index_goods"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "isCurrentClass",
+							"value": "true"
+						}
+					},
+					{
+						"$": {
+							"key": "displayMode",
+							"value": "rank"
+						}
+					},
+					{
+						"$": {
+							"key": "cols",
+							"value": "1"
+						}
+					},
+					{
+						"$": {
+							"key": "rows",
+							"value": "6"
+						}
+					},
+					{
+						"$": {
+							"key": "order"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "iSales30",
+									"direction": "desc"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

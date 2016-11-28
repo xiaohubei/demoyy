@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="../js/index_goods_M.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div data-name="<%=name%>" data-config="<%=config%>" data-type="IndexGoods">
+			<ul class="row"></ul>
+			<script type="text/template7">
+				{{#each data}}				
+				<li class="">
+					<div class="card-item">
+						<div class="item-media">
+							<div class="upimgdiv">
+								<a href="detail?goods_id={{this.pid}}">
+									<img {{#if this.defaultAlbum}} {{#if @root.preview}}src{{else}}data-src{{/if}}="{{adjustImgSrc this.defaultAlbum}}" {{else}} src="./img/nopic.jpg" {{/if}} class="lazy lazy-fadeIn" onerror="this.onerror=null;this.src='./img/nopic.jpg'"/>
+								</a>
+							</div>
+						</div>
+						<div class="caption">
+							<p class="p-title" style="visibility: {{this.showname}};">{{this.pName}}</p>
+							<p>
+								<span class="price" style="visibility: {{this.showprice}};">
+									{{#if productAttribute}}									
+										{{this.salePoints}}<em>积分</em>
+									{{else}}
+										{{#if fMarkPrice}}
+											<em>￥</em>{{this.fSalePrice}}
+											<del style="color: #000; font-weight: initial; font-size: 10px;" >￥{{this.fMarkPrice}}</del>
+										{{else}}
+											<em>￥</em>{{this.fSalePrice}}
+										{{/if}}
+									{{/if}}
+								</span>
+								<span class="sale" style="visibility: {{this.showsale}};">已售出:{{this.iSales}}</span>
+							</p>
+						</div>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+	</body>
+
+</html>

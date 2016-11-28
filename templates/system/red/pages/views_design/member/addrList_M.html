@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+    <%=includeLinks(view, ["../../css/addrList.css"]);%>
+</head>
+<body>
+    <div>
+        <div class="pages">
+            <div data-page="addrList" class="page no-tabbar" data-controller="AddressViewController">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href="#" class="link back">
+                                <i class="icon icon-back-gray"></i>
+                            </a>
+                        </div>
+                        <div class="center">
+                            收货地址
+                        </div>
+                        <div class="right btn-addressManage" data-type="edit">
+                            <a href="#">管理</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="list-block media-list confirmList" id="addressContainer"></div>
+                </div>
+                
+                <div class="btn-div  addrNewPage-address-submit">
+                    <a href="member/addr-new?newAddress=false" class="btn-rebate-save btn-red"><i class="icon icon-addr-add"></i> 新增地址</a>
+                </div>
+
+                <script type="text/template7" id="AddressListTemplate">
+                    <ul class="addr-content">
+                        {{#each addressLists}}
+                        <li data-isforbidden="{{isForbidden}}" {{#if bDefault}} class="addrList {{#if isChecked}}checked{{/if}}" {{/if}} {{#if isChecked}} class="checked"{{/if}} >
+                        <div class=" item-content addressList">
+                            <div class="item-inner ">
+                                <div class="item-title">{{cReceiver}}</div>
+                                <div class="item-after">{{cMobile}}</div>
+                                <div class="item-text">
+                                    {{#unless isForbidden}}
+                                    {{#if bDefault}}<span class="default-addr">[默认]</span>{{/if}}
+                                    {{/unless}}
+                                    {{cCountry}}&nbsp;{{cProvince}}&nbsp;{{cCity}}&nbsp;{{cArea}}&nbsp;{{cAddress}}&nbsp;{{cZipCode}}&nbsp;
+                                </div>
+                            </div>
+                            {{#if @root.isSelect}}
+                            <div class="item-media addr-edit">
+                                <i class="icon icon-addr-checked">
+                                </i>
+                            </div>
+                            {{/if}}
+                        </div>
+                        <div class="addr-operate">
+                            <label class="label-checkbox operate-btn-row" data-type="setDefault" data-addid="{{id}}">
+                                {{#if bDefault}}
+                                <input type="radio" name="isDefault" checked="checked">
+                                {{else}}
+                                <input type="radio" name="isDefault">
+                                {{/if}}
+                                <div class="item-media">
+                                    <i class="icon icon-form-checkbox"></i> 设为默认
+                                </div>
+                            </label>
+                            <div class="operate-r">
+                                <a href="#" data-type="edit" class="operate-btn-row" data-addid="{{id}}"> <i class="icon icon-addr-edit2"></i> 编辑</a>
+                                <a href="#" data-type="del" class="operate-btn-row" data-addid="{{id}}"> <i class="icon icon-addr-del"></i> 删除</a>
+                            </div>
+                        </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </script>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../../js/addrList_M.js"]);%>
+</body>
+</html>
+

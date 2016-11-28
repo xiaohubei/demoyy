@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div class="container up-header">
+	<div class="row">
+		<div class="pull-left">
+			<%=includeWidget(view.widgets["topbar_member"]);%>
+		</div>
+		<div class="pull-right">
+			<%=includeWidget(view.widgets["topbar_subnav"]);%>
+		</div>
+	</div>
+</div>
+<div class="container up-searchBox">
+	<div class="row">
+		<div class="col-xs-3">
+			<%=includeWidget(view.widgets["logo"]);%>
+		</div>
+		<div class="col-xs-6">
+			<%=includeWidget(view.widgets["search"]);%>
+		</div>
+		<div class="col-xs-2">
+			<%=includeWidget(view.widgets["cart_box"]);%>
+		</div>
+		<div class="col-xs-1">
+			<%=includeWidget(view.widgets["online_customer"]);%>
+		</div>
+	</div>
+</div>
+<div class="container up-nav-box">
+	<div class="row">
+		<div class="col-xs-2">
+			<%=includeWidget(view.widgets["category"]);%>
+		</div>
+		<div class="col-xs-10">
+			<%=includeWidget(view.widgets["navigation"]);%>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+    <%=includeLinks(view, ["../css/category_M.css"]);%>
+</head>
+<body>
+    <div>
+        <div class="pages">
+            <div data-page="category" class="page  navbar-fixed toolbar-fixed" data-controller="CategoryViewController">
+                <div class="navbar card-navbar">
+                    <div class="navbar-inner">
+                        <div class="center sliding" style="width: 87%;">
+                            <!--<a href="./search" class="link icon-only search-product"  style="width: 100%;">
+                                <div class="input-group-addon"><i class="icon icon-search-red"></i></div>
+                                <input type="text" class="search" placeholder="请输入关键字搜索" readonly="readonly" >
+                            </a>-->
+                            <form style="width: 100%;">
+                                <input type="search" class="search" placeholder="搜索商品" readonly>
+                                <i class="icon icon-voice-gray"></i>
+                            </form>
+
+                            <span id="spanProTitle" class='hid' hidden>历史记录</span>
+                        </div>
+                        <div class="right">
+                            <a href="#" class="icon-only" data-type="scan">
+                                <i class="icon icon-scan-gray"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div id="category_wapper" class="category-tab"></div>
+                    <div class="category-content" style="position:fixed;right:0;top:44px;overflow-y:auto;"></div>
+                </div>
+                <script type="text/template7" id="categoryTitleTemplate">
+                    <ul class="category-list">
+                        {{#each data}}
+                        {{#if @first}}
+                        <li data-id="{{id}}" class="cur"><a class="item-link" href="#">{{cName}}</a></li>
+                        {{else}}
+                        <li data-id="{{id}}"><a class="item-link" href="#">{{cName}}</a></li>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </script>
+                <script type="text/template7" id="categoryTemplate">
+                    <div class="category-hot">
+                        {{#if isLast}}
+                        <ul>
+                            {{#each lsChildClass}}
+                            <li>
+                                <a href="/list?categoryid={{id}}&cName={{cName}}">
+                                    {{#if cfolder}}
+                                    <img src="{{adjustImgSrc cfolder}}s_{{cimgname}}" class="lazy lazy-fadeIn" onerror="this.onerror = null; this.src = './img/m-nopic.jpg'">
+                                    {{else}}
+                                    <img src="./img/m-nopic.jpg" class="lazy lazy-fadeIn">
+                                    {{/if}}
+                                    <span>{{cName}}</span>
+                                </a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{else}}
+                        {{#each lsChildClass}}
+                        {{#unless isLast}}
+                        <p><a href="/list?categoryid={{id}}">{{cName}}</a></p>
+                        {{/unless}}
+                        <ul>
+                            {{#each lsChildClass}}
+                            <li>
+                                <a href="/list?categoryid={{id}}&cName={{cName}}">
+                                    {{#if cfolder}}
+                                    <img src="{{adjustImgSrc cfolder}}s_{{cimgname}}" class="lazy lazy-fadeIn" onerror="this.onerror = null; this.src = './img/m-nopic.jpg'">
+                                    {{else}}
+                                    <img src="./img/m-nopic.jpg" class="lazy lazy-fadeIn">
+                                    {{/if}}
+                                    <span>{{cName}}</span>
+                                </a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/each}}
+                        {{/if}}
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../js/category_M.js"]);%>
+</body>
+</html>

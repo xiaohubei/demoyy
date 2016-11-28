@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "我的消息");%></title>
+    <%=includeLinks(view, ["../../css/mymessage_L.less"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="MyMessageController">
+    <header></header>
+    <div class="row">
+    <div class="col-md-2">
+    <member_nav></member_nav>
+    </div>
+    <div class="col-md-10 setting_header main">
+        <div class="main_title">
+            <div class="col-md-6 mymessage">我的消息</div>
+            <a class="main_setting" href="messagesetting">设置</a>
+        </div>
+        <div class="col-md-12 main_tabs">
+            <ul>
+                <li style="border-left-width: 0px;">新消息</li>
+                <li>已读消息</li>
+            </ul>
+        </div>
+        <div class="col-md-12 main_tabs1">
+            <ul>
+                <li>所有消息</li>
+                <li>订单消息</li>
+                <li>账户消息</li>
+                <li>系统消息</li>
+            </ul>
+        </div>
+        <div class="col-md-12 main_content">
+            <div class="col-md-12 contentDiv"></div>
+            <div class="col-md-12 contentFooter">
+                <div class="col-md-4 contentFooter_l">
+                    <input  type="checkbox" />
+                    <span>全选</span>
+                    <button class="markToRead_btn">标记为已读</button>
+                    <button class="delete_btn">删除</button>
+                </div>
+                <div class="aboutpage pagenation">
+                </div>
+            </div>
+       </div>
+    </div>
+    </div>
+    <footer></footer>
+    </div>
+    <%=includeScripts(view, ["@root/jquery/jquery.page.js","../../js/mymessage_L.js"]);%>
+    <script id="test" type="text/html">
+    <#for (var i=0;i<data.bulletins.length;i++) {#>
+        <div class="main_unit ">
+                  <div class="content_header">
+                    <input  type="checkbox"/>
+                     <div class="main_date"><#=data.bulletins[i].date#></div>
+                    <span class="main_time"><#=data.bulletins[i].time#></span>
+                    <span class="main_type"><#=data.bulletins[i].subMessageType.typename#></span>
+                </div>
+                <div class="col-md-12 contentbox">
+                    <div class="col-md-12 contentbox_title"><#=data.bulletins[i].cTitle#></div>
+                    <div class="col-md-12 contentbox_main"><#=data.bulletins[i].bulletinText #></div>
+                </div>
+        </div>
+            <#}#>
+</script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+    
+</body>
+</html>

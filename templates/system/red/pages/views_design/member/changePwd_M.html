@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>U商城</title>
+	</head>
+
+	<body>
+		<div class="pages">
+			<div data-page="changePwd" class="page no-tabbar no-toolbar" data-controller="changePwdViewController">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="left">
+							<a href="#" class="link back"><i class="icon icon-back-gray"></i></a>
+						</div>
+						<div class="center">修改密码</div>
+						<div class="right"></div>
+					</div>
+				</div>
+				<div class="page-content" id="infomation_ul">
+					<div class="list-block all-order  m-t-10  m-b-0">
+						<form id="form-changePwd">
+							<ul>
+								<li class="item-content">
+									<div class="item-inner">
+										<div class="item-title label">
+											<span class="required">*</span>手机验证码
+										</div>
+										<div class="item-input verifyName">
+											<input type="text" placeholder="请输入验证码" name="verifyName" id="verifyName">
+										</div>
+										<div class="item-input">
+											<input type="button" id="SecurityCode" style="" class="button button-code p-lr-0" value="获取短信校验码">
+											
+										</div>
+									</div>
+								</li>
+								<li class="item-content">
+									<div class="item-inner">
+										<div class="item-title label">
+											<span class="required">*</span>新密码
+										</div>
+										<div class="item-input">
+											<input type="password" placeholder="请输入新密码" name="newPwd" id="newPwd">
+												
+										</div>
+									</div>
+								</li>
+								<li class="item-content">
+									<div class="item-inner">
+										<div class="item-title label">
+											<span class="required">*</span>确认密码
+										</div>
+										<div class="item-input">
+											<input type="password" placeholder="请重新输入新密码" name="renewPwd" id="renewPwd">												
+										</div>
+									</div>
+								</li>
+								<li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">
+                                            <span class="required">*</span>验证码
+                                        </div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="请输入验证码" name="captcha" id="captcha">
+                                        </div>
+                                        <div class="item-after">
+                                            <img width="71" class="img-changePhone-verification" src="" id="img-verification">
+                                        </div>
+                                    </div>
+                                </li>
+							</ul>
+						</form>
+					</div>
+					<div class="content-block-title color-red m-t-10 changePwd-Validatelog"></div>
+					<p class="button-div"><button class="button button-orange changePwd-btn-save" id="saveData">立即验证</button></p>
+				</div>
+				<div class="toolbar">
+					<div class="toolbar-inner">
+						<a class="button button-fill bg-green-u p-lr-25 only-one-btn changePwd-btn-save" id="saveData">保存</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%=includeScripts(view, ["../../js/changePwd_M.js"]);%>
+	</body>
+
+</html>

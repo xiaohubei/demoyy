@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<%=includeLinks(view, ["../css/evaluation_M.less"]);%>
+	</head>
+
+	<body>
+		<div>
+			<div class="pages navbar-fixed navbar-through">
+				<div data-page="evaluation" class="page no-toolbar no-tabbar" data-controller="EvaluationController">
+					<div class="navbar card-navbar">
+						<div class="navbar-inner">
+							<div class="left">
+								<a href='#' class="go-back back">
+									<i class="icon icon-back-gray"></i>
+								</a>
+							</div>
+							<div class="center">商品评价</div>
+							<div class="right">
+							</div>
+						</div>
+						<div class="subnavbar">
+							<div class="row content-block buttons-row nav-condition">
+								<a href="#" class="button evaluationBtn active">全部评价</a>
+								<a href="#" class="button evaluationBtn" starLevel='3'>好评</a>
+								<a href="#" class="button evaluationBtn" starLevel='2'>中评</a>
+								<a href="#" class="button evaluationBtn" starLevel='1'>差评</a>
+							</div>
+						</div>
+					</div>
+					<div class="page-content product-container infinite-scroll hide-bars-on-scroll pull-to-refresh-content" data-ptr-distance="55" data-distance="50">
+						<div class="pull-to-refresh-layer">
+							<div class="preloader"></div>
+							<div class="pull-to-refresh-arrow"></div>
+						</div>
+						<div class="row list-continer" id="products_list">
+							<div class="list-block media-list evaluation-list">
+								<ul class='evaluationList'>
+								</ul>
+							</div>
+						</div>
+						<div class="infinite-scroll-preloader hidden">
+							<div class="preloader"></div>
+						</div>
+					</div>
+					<script type="text/template7" id="evaluationListTpl">
+						{{#each data}}
+						<li>
+							<div class="item-content">
+								<div class="item-inner no-border">
+									<div class="item-title-row">
+										<div class="item-title">{{#if cMemberName}}{{cMemberName}}{{else}}{{iMemberId}}{{/if}}</div>
+										<div class="item-after">{{dTime}}</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class='evaluate-star'>
+									<span>评分：</span>
+									<ul class='star-box'>
+										{{#each iStars}}
+										<li class='stars {{#if this}}hasStar{{/if}}'></li>
+										{{/each}}
+									</ul>
+								</div>
+							</div>
+							<div class="row content">
+								<div style="font-size: 14px; color: #A0A0A0;">
+									<!--<i class="icon icon-myconsult"></i>-->
+									<span>{{cComment}}</span>
+								</div>
+							</div>
+							{{#if cCommentReply}}
+							<div class="row content">
+								<div class="item-text">
+									<i class="icon icon-reply"></i>
+									<span style="color:#505050">商家回复：{{cCommentReply}}</span>
+								</div>
+							</div>
+							{{/if}}
+						</li>
+						{{/each}}
+					</script>
+				</div>
+			</div>
+		</div>
+		<%=includeScripts(view, ["../js/evaluation_M.js"])%>
+	</body>
+
+</html>

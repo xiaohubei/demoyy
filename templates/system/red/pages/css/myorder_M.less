@@ -1,0 +1,75 @@
+@import "lib.less";
+.list-wrap{
+    background-color: #ffffff;
+    margin-top: 10px;
+    padding: 10px 0;
+   .topLine;
+   .bottomLine;
+}
+.order-list {
+    margin: 0 4px;
+    .order-btn {
+//      width: 100%;
+        padding-right: 10px;
+        box-sizing: border-box;
+        margin-top: 8px;
+        margin-bottom: 10px;
+    }
+}
+.order-list .paymentinfo{
+    font-weight: bold;
+}
+.order-list h4 {
+    .bottomLine;
+    margin: 0 10px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    color: #999;
+    font-weight: normal;
+    strong{
+        font-weight: normal;
+    }
+    em {
+        color: @subColor;
+    }
+}
+.order-list li {
+    font-size: 13px;
+    .bottomLine(#eeeeee);
+    .row{
+        margin: 5px 10px;
+        .title{
+          color: #505050;
+          line-height: 21px;
+          position: relative;
+          overflow: hidden;
+          height: 42px;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+        }
+        .text{
+            color: #999999;
+        }
+        .pirce{
+            text-align: right;
+        }
+    }
+    
+    &.order-bom{
+        height: 32px;
+        line-height: 32px;
+        text-align: right;
+        padding-right: 10px;
+        color: #505050;
+    }
+}
+.list-wrap a{
+    color: #505050;
+}
+.order-btn a.btn-theme{
+    border-color: @baseColor;
+    color: @baseColor;
+}

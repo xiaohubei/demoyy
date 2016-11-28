@@ -1,0 +1,40 @@
+{
+	"page": {
+		"header": [
+			""
+		],
+		"body": [
+			{
+				"row": [
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "abstract",
+									"datatype": "",
+									"colspan": "12",
+									"fixed": true
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "content",
+									"datatype": "",
+									"colspan": "12",
+									"fixed": true
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"footer": [
+			""
+		]
+	}
+}

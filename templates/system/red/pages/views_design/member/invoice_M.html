@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+    <%=includeLinks(view, ["../../css/confirm-order.css"]);%>
+</head>
+<body>
+    <div>
+        <div class="pages">
+            <div data-page="invoice" class="page no-tabbar navbar-fixed toolbar-fixed" data-controller="invoicePageController">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href="#" class="back">
+                                <i class="icon icon-back-gray"></i>
+                            </a>
+                        </div>
+                        <div class="center">发票信息</div>
+                        <div class="right">
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="list-block m-t-10 addr-invoice">
+                        <ul id="invoice_form" class="invoice_form">
+                            <li class="type align-top">
+                                <div class="item-content">
+                                    <div class="item-inner no-border  box-vertica">
+                                        <div class="item-title label">发票类型</div>
+                                        <div class="item-input checkdiv invoiceTypeContent">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner box-vertica">
+                                        <div class="item-title label">发票抬头</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="请输入发票抬头" name="cInvoiceTitle">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="type align-top content-type m-t-10">
+                                <div class="item-content">
+                                    <div class="item-inner no-border  box-vertica">
+                                        <div class="item-title label">发票内容</div>
+                                        <div class="item-input checkdiv invoiceContentContainer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn-div">
+                	<a href="#" class=" btn-red  invoice_save">保存</a>
+                </div>
+                
+                
+            </div>
+        </div>
+        <%=includeScripts(view, ["../../js/invoice_M.js"]);%>
+    </div>
+</body>
+</html>

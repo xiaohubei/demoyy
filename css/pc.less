@@ -1,0 +1,559 @@
+body{
+font-size:13px;
+}
+a{
+color:#666666;
+text-decoration:none;
+}
+a:hover{
+color:#ff7400;
+text-decoration:none;
+}
+ul{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+//顶部个人信息框
+.up-header
+{
+padding: 9px 14px;
+margin-bottom: 14px;
+background-color: #f7f7f9;
+border: 1px solid #e1e1e8;
+border-radius: 4px;
+
+}
+.up-header .dropdown{
+width:100px;
+float:left;
+}
+
+//顶部搜索框
+.up-searchBox{
+/*padding: 20px 0;*/
+}
+
+.up-searchBox .searchbtn{
+color:#ffffff;
+}
+.up-searchBox #basic-addon2{
+
+background-color:@styleColors;
+}
+
+//关键字
+.up-searchBox .keywords{
+padding: 4px;
+}
+.up-searchBox .keywords>span{
+float:left;
+color:@styleColors;
+display:block;
+min-width:40px;
+}
+.up-searchBox .keywords>ul{
+float:left;
+}
+.up-searchBox .keywords>ul>li{
+float:left;
+display:inline-block;
+min-width:20px;
+margin:0 6px;
+color:@baseColors;
+}
+.up-searchBox .contecttel>div{
+text-align: left;
+}
+
+.up-searchBox .contecttel>div.tel{
+color:@styleColors;
+font-weight:900;
+}
+.up-nav {
+position:relative;
+}
+.up-nav>img{
+position: absolute;
+right: 0;
+height: 62px;
+top: -10px;
+}
+.up-nav-box .up-nav {
+font-size:14px;
+/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FEA53D), to(#FE6B01));*/
+background: @styleColors;
+border: 1px solid #e1e1e8;
+border-radius: 4px;
+float:left;
+width:100%;
+margin:10px 0;
+}
+.up-nav-box .up-nav .nav.navbar-left > li {
+float:left;
+border-right: 2px solid #FF6400;
+}
+.up-nav-box .up-nav .nav.navbar-left > li:first-child {
+margin-left:-15px;
+}
+.up-nav-box .up-nav .nav.navbar-left>li>a {
+color:#ffffff;
+font-size:14px;
+font-weight:bold;
+}
+.up-nav-box .up-nav .nav.navbar-left>li>a:hover,.up-nav-box .up-nav .nav.navbar-left>li>a:visited{
+background-color:#ff6400;
+}
+.up-nav-box .up-nav .nav.navbar-right>li>a {
+z-index:2;
+color:#666666;
+}
+.up-nav-box .up-nav .nav.navbar-right>li>a:hover,.up-nav-box .up-nav .nav.navbar-right>li>a:visited{
+background-color:transparent;
+}
+
+//网站地图
+.up-mapping{
+border:1px solid #cdcdcd;
+background-color: #f7f7f9;
+padding:0 0 15px 0;
+}
+.up-mapping >div{
+padding: 15px 0px 0 15px;
+float: left;
+min-width: 150px;
+border-right: 1px solid #cdcdcd;
+min-height: 120px;
+}
+.up-mapping >div:last-child{
+border-right: none;
+}
+.up-mapping >span{
+margin:15px 0 0 0;
+}
+.up-mapping >div >ul>li {
+list-style-image:url("../images/pc/icon002.gif");
+list-style-position: inside;
+}
+.up-mapping >div>div{
+background:url("../images/pc/guild_icon.gif") no-repeat;
+padding: 0 0 4px 22px;
+font-size: 15px;
+font-weight: 900;
+}
+.up-mapping >div.brand{
+background:url("../images/pc/phone_icon.gif") no-repeat 60% 0;
+}
+.up-mapping >div.brand>ul>li{
+list-style:none;
+}
+.up-mapping >div.brand>ul>li:nth-child(1),.up-mapping >div.brand>ul>li:nth-child(2){
+color:red;
+}
+.up-mapping >div.brand>div{
+background:none;
+padding: 0 0 4px 0px;
+}
+.up-mapping >div.newguid>div{
+background-position: 0 -50px;
+}
+.up-mapping >div>div.pay{
+background-position: 0 -96px;
+}
+.up-mapping >div.dispatching>div{
+background-position: 0 -192px;
+}
+.up-mapping >div.afterservice>div{
+background-position: 0 -144px;
+}
+.up-mapping >div.aboutus>div{
+background-position: 0 -2px;
+}
+//尾部
+.up-footer>div>div>div{
+text-align:center;
+color:@baseColors;
+}
+
+.p-0{
+padding:0;
+}
+.p-t-16{
+padding-top:16px;
+}
+.box{
+margin:16px 0;
+padding:0px;
+border:1px solid #cdcdcd;
+}
+.box-noborder{
+padding:16px 10px;
+}
+//商品分类
+.up-content .header{
+color:@styleColors;
+border-bottom:2px solid @styleColors;
+padding: 7px 10px;
+font-size: 14px;
+background-color: #f7f7f9;
+font-weight:900;
+}
+.up-content .class1{
+background: url(http://www.laiyifen.com/themes/laiyifen2/images/subclass_icon1.gif) no-repeat 6px 9px;
+padding-left: 30px;
+}
+
+.up-content .classify{
+
+}
+.up-content .classify>li{
+display:block;
+padding: 6px 30px;
+margin: 0 6px;
+border-bottom: 1px solid #cdcdcd;
+background:url(http://www.laiyifen.com/themes/laiyifen2/images/icon003.gif) no-repeat 96%,url(http://www.laiyifen.com/themes/laiyifen2/images/subclass_icon1.gif) no-repeat  6px 6px;
+}
+.up-content .classify>li:last-child{
+border-bottom:0px ;
+}
+.up-content .classify>li:first-child:hover{
+display:block;
+padding: 6px 10px 6px 36px;
+margin: 0;
+border: 1px solid @styleColors;
+border-right: 1px solid #ffffff;
+border-top: 0px solid #ffffff;
+background:none;
+background:url(http://www.laiyifen.com/themes/laiyifen2/images/subclass_icon1.gif) no-repeat  11px 6px;
+}
+.up-content .classify>li:hover{
+display:block;
+padding: 6px 10px 6px 36px;
+margin: 0;
+border: 1px solid @styleColors;
+border-right: 1px solid #ffffff;
+background:none;
+background:url(http://www.laiyifen.com/themes/laiyifen2/images/subclass_icon1.gif) no-repeat  11px 6px;
+}
+
+//首页右侧tab页签
+.tab{
+}
+.tab>div,.tab>ul{
+float:left;
+}
+.tab>div>span{
+display: block;
+width: 144px;
+float: left;
+padding: 7px;
+text-align: center;
+background-color: #f7f7f9;
+}
+.tab>div>span:hover{
+border-bottom:1px solid #fffff;
+}
+.tab>ul{
+padding-top:10px;
+}
+.tab>ul>li{
+list-style:circle;
+margin-left:25px;
+padding: 5px;
+}
+.tab>div>span+span{
+border-left:1px solid #cdcdcd;
+border-bottom:1px solid #cdcdcd;
+}
+.tab>div>span.active{
+background:none;
+}
+
+
+//首页类别列表推荐
+.product-list>li{
+width: 154px;
+float:left;
+margin: 15px 0px 15px 15px;
+}
+.product-list >li>div{
+margin-top:10px;
+}
+.product-list >li>div>span{
+display:block;
+text-align: center;
+cursor:pointer;
+}
+.product-list >li>div>span:first-child{
+
+}
+.product-list >li>div>span:last-child{
+color:@styleColors;
+}
+.product-recommend{
+margin-top:15px;
+}
+.product-recommend>div>span{
+display:block;
+text-align: center;
+cursor:pointer;
+}
+.product-recommend>div>span:last-child{
+color:@styleColors;
+}
+
+
+//商品列表
+
+// 商品列表 ---菜单路径导航
+.up-list .menu-path{
+border-bottom:1px solid #cdcdcd;
+height: 26px;
+margin: 16px 0 0 0;
+}
+.up-list .menu-path>ul>li,.up-list .menu-path >span{
+display:block;
+min-width:40px;
+float: left;
+}
+.menu-path>ul>li:not(:last-child):after{
+content:"》";
+padding:0 6px;
+}
+
+
+// 商品列表 ---搜索详细列表
+.search-detail{
+border:1px solid #cdcdcd;
+background-color:#efefef;
+padding: 0px 10px 10px 10px;
+margin:10px 0 0 0
+}
+.search-detail .classify{
+background: #F5F4EC;
+border: 1px solid #E5DDC7;
+padding:10px;
+margin:10px 0 0 0;
+}
+.search-detail .brand{
+border: 1px solid #cdcdcd;
+padding:10px;
+margin:10px 0 0 0;
+background-color: #fff;
+}
+.search-detail .classify>ul>li,.search-detail .classify>span,.search-detail .brand>ul>li,.search-detail .brand>span{
+display:block;
+min-width: 26px;
+float: left;
+}
+.search-detail .classify>span,.search-detail .brand>span{
+width: 80px;
+font-weight:900;
+text-align: right;
+}
+.search-detail .classify>ul>li,.search-detail .brand>ul>li{
+margin:0 6px;
+cursor:pointer;
+}
+
+
+//搜索结果数
+.search-total{
+border:1px solid #cdcdcd;
+padding:4px;
+margin:10px 0 0 0;
+color:@baseColors;
+}
+.search-total>span{
+color:@styleColors;
+}
+
+//商品列表上的工具条
+.list-toolbar{
+border: 1px solid #cdcdcd;
+padding: 4px;
+margin: 10px 0 0 0;
+}
+.display-warp{
+float: left;
+width: 193px;
+}
+.listmode{
+color: black;
+padding: 0 1px;
+}
+
+.listmode a,.listorder a{
+background: url(../images/pc/listmode.png) no-repeat;
+cursor: pointer;
+display: block;
+padding: 0 0 0 6px;
+float: left;
+height: 25px;
+line-height: 25px;
+line-height: 28px\0;
+position: relative;
+margin-left: -1px;
+}
+
+.listmode a.current,.listmode a:hover,.listorder a:hover{
+background-position: 0 -35px;
+text-decoration: none;
+}
+.listorder{
+padding: 0 10px;
+}
+.listmode a i,.listorder a i{
+background: url(../images/pc/listmode-icon.gif) no-repeat;
+width: 12px;
+height: 10px;
+margin: 8px 3px 0 0;
+float: left;
+display: block;
+}
+
+.listmode a span,.listorder a span{
+background: url(../images/pc/listmode.png) no-repeat;
+cursor: pointer;
+display: block;
+float: left;
+height: 25px;
+line-height: 25px;
+position: relative;
+margin-left: -1px;
+background-position: right 0;
+padding: 0 6px 0 0;
+}
+
+.fl {
+float: left;
+display: inline;
+} 	
+
+.cart{
+background:url("../images/pc/shop_icon.gif") no-repeat 6px 6px;
+display: block;
+background-color:#F79B27;
+}
+.collection{
+  background: url(http://www.laiyifen.com/app/b2c/statics/collect_iconbj.gif) no-repeat 6px -16px;
+  display: block;
+  padding: 0 0 0 20px;
+  height: 24px;
+  margin: 4px;
+}
+.vdetail{
+  background: url(http://www.laiyifen.com/app/b2c/statics/goodsgallery_icon.gif) no-repeat 3px -24px;
+  display: block;
+  padding: 0 0 0 20px;
+  height: 24px;
+  margin: 4px;
+}
+
+// 商品详情页
+.product-detaill{
+
+}
+.main-info>div:nth-child(1)>span{
+display: block;
+padding: 14px 0px;
+font-size: 14px;
+font-weight: 900;
+}
+.goods-rightbox{
+margin:20px 0 0 0;
+}
+.goods-rightbox>ul{
+border-bottom:1px solid #cdcdcd;
+}
+.goods-rightbox>ul>li{
+float: left;
+width: 49%;
+padding: 6px;
+}
+.font24px {
+font-size: 24px;
+}
+.font-red {
+color: #f00;
+}
+.font-orange {
+color: #f60;
+}
+.options-box{
+padding:10px;
+}
+.cart{
+border: 1px solid #DD771A;
+border-radius: 4px;
+width: 104px;
+}
+.cart>span{
+text-align: left;
+width: 102px;
+display: block;
+padding: 6px 4px 6px 28px;
+color: #ffffff;
+border: 1px solid #FDCD88;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.detaill-select>ul>li{
+float: left;
+width: 100%;
+}
+.detaill-select>ul>li>span{
+display:block;
+float:left;
+min-width:20px;
+padding:6px;
+}
+.detaill-select>ul>li>span>input{
+width:50px;
+}
+.product-detaill .nav-tabs {
+border-bottom: 1px solid @styleColors;
+}
+.product-detaill .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+border: 1px solid @styleColors;
+border-bottom-color: transparent;
+}
+.detailbox{
+padding:15px;
+background: #F6F6F6;
+border-bottom: 1px solid #ddd;
+border-top: 1px solid #ddd;
+margin: 10px 0px;
+}
+.detailbox>li{
+display:block;
+width:33%;
+float: left;
+}
+.product-detaill-list{
+
+}
+.product-detaill-list>li>span{
+display:block;
+float:left;
+padding:4px 0;
+color:#017f40;
+font-size:14px;
+}
+.product-detaill-list>li>span:nth-child(1){
+font-weight:900;
+width:72px;
+text-align:right;
+}
+.product-detaill-list>li>span:nth-child(2){
+width: 396px;
+}
+.product-detaill-photos>img{
+width: 95%;
+margin: 15px;
+}
+.container > .row {
+margin-bottom: 20px;
+}

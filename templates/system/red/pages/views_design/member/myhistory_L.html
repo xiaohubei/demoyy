@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>
+			<%=resetTitle(view, "我的足迹");%>
+		</title>
+		<%=includeLinks(view, ["../../css/myhistory_L.less"]);%>
+	</head>
+
+	<body>
+		<div class="container bg-fa" data-controller="MyHistoryViewController">
+			<header></header>
+			<div class="row">
+				<div class="col-xs-2">
+					<member_nav></member_nav>
+				</div>
+				<div class='col-xs-10 main'>
+					<div class='main-title'>
+						<div class='col-md-6 mymessage'>
+							我的足迹
+						</div>
+					</div>
+					<div class='history-class'>
+						<span>足迹日历</span>
+						<select class='classes'>
+							<option>全部类目</option>
+						</select>
+						<button class='delete-btn'>批量删除</button>
+					</div>
+					<div class='main-contrent'></div>
+				</div>
+			</div>
+			<footer></footer>
+		</div>
+		<script id="historyTPL" type="text/html">
+			<#for(var p in data){#>
+				<div class="main_unit ">
+					<div class="content_header">
+						<div class="main_date">
+							<span> <#=p#> </span>
+							<#if(p==firstDate){#>
+								<span class='isToday'> 今天 </span>
+								<#}#>
+							<span>&nbsp;&nbsp;&nbsp;&nbsp;<#=data[p].length#>件宝贝</span>
+							<button class='delete-today hidden'>删除今天</button>
+						</div>
+					</div>
+					<div class="col-md-12 contentbox">
+						<ul class='historyBox'>
+							<#for (var i=0;i<data[p].length;i++){#>
+								<li class='col-xs-3' data-id='<#=data[p][i].id#>'>
+									<a href='/detail?goods_id=<#=data[p][i].pid#>'>
+										<img src='<#=data[p][i].defaultAlbum#>'/>
+									</a>
+									<div>
+                                        <#if(data[p][i].productAttribute=="1"){#>
+										<p class='price-content'>
+                                            <#if(data[p][i].isDisplayPrice){#>
+											￥<#=data[p][i].fSalePrice#>
+											&nbsp;&nbsp;
+                                            <#if(data[p][i].fSalePrice!=data[p][i].firstViewPrice){#>
+											<del>￥<#=data[p][i].firstViewPrice#></del>
+                                            <#}#>
+                                            <#}else{#>
+                                                <#=data[p][i].priceAreaMessage#>
+                                            <#}#>
+										</p>
+                                        <#}else if(data[p][i].productAttribute=="2"){#>
+                                            <#if(data[p][i].isDisplayPrice){#>
+                                            <p class='price-content'>
+										    <#=data[p][i].salePoints#>&nbsp;积分
+                                            </p>
+                                            <#}else{#>
+                                              <p class='price-content'>
+										    <#=data[p][i].priceAreaMessage#>
+                                            </p>
+                                            <#}#>
+                                        <#}#>
+										<p class='title-content'>
+											<#=data[p][i].cName#>
+										</p>
+									</div>
+									<div class='delete-icon hidden'></div>
+								</li>
+								<#}#>
+						</ul>
+					</div>
+				</div>
+				<#}#>
+		</script>
+		<%=includeScripts(view, ["../../js/myhistory_L.js"]);%>
+			<script type="text/javascript">
+				cb.init();
+			</script>
+	</body>
+
+</html>

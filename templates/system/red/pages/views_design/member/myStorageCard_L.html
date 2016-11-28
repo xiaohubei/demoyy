@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "我的储值卡");%></title>
+    <%=includeLinks(view, ["../../css/myStorageCard_L.css","@root/js/date/need/laydate.css","@root/js/date/skins/default/laydate.css"]);%>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="myStorageCardController">
+        <header></header>
+        <div class="row">
+            <div class="col-xs-2">
+                <member_nav></member_nav>
+            </div>
+            <div class="col-xs-10 main myStorageCard">
+                <div class="main_title">
+                    <div class="col-xs-12 mymessage">我的储值卡</div>
+                </div>
+                <div class="storagecard-top">
+                    <div class="col-xs-12 title">
+                        <p>储值卡明细</p>
+                    </div>
+                    <div class="col-xs-6 left-con">
+                        <p>储值卡余额:</p>
+                        <p>
+                            <span class="red-color" id="storageBalance">0 </span> &nbsp; 
+                            <a href="goRecharge" id="goRecharge" class="btn-xs btn btn-danger">去充值</a>
+                        </p>
+                    </div>
+                    <!--<div class="col-xs-6 right-con">
+                        <p>冻结金额:</p>
+                        <p>
+                            <span class="freezemoney">52</span>
+                            <span class="colorgray">(何时冻结?)</span>
+                        </p>
+                    </div>-->
+                </div>
+                <div class="col-xs-12 p-0">
+                    <div class="col-xs-12 p-0 ">
+                        <ul class="main_tabs" role="tablist" id="storageCardNav">
+                            <li role="presentation" class="active" data-iType="">
+                                <a href="#home" aria-controls="home"  role="tab" data-toggle="tab" id="score">全部</a>
+                            </li>
+                            <li role="presentation" data-iType="1">
+                                <a href="#profile" aria-controls="profile"  role="tab" data-toggle="tab" id="income">充值</a>
+                            </li>
+                            <li role="presentation" data-iType="2">
+                                <a href="#messages" aria-controls="messages"  role="tab" data-toggle="tab" id="expand">消费</a>
+                            </li>
+                        </ul>
+                        <div class="search">
+                            <form action="" class="form-inline" onsubmit="return false;">
+                                <div class="form-group">
+                                    <label for="timestart">日期</label>
+                                    <input type="text" class="form-control laydate-icon" onClick="laydate({istime:true,elem:'#timeStart',format:'YYYY-MM-DD'})" id="timeStart" placeholder="开始时间">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">到</label>
+                                    <input type="text" class="form-control laydate-icon" onClick="laydate({istime:true,elem:'#timeEnd',format:'YYYY-MM-DD'})"  id="timeEnd" placeholder="结束时间">
+                                </div>
+                                <button type="submit" id="mainsearch" class="btn btn-default">搜索</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Tab panes -->
+                    <div class="tab-content col-xs-12 p-0" id="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <div id="storageCardList" class="col-xs-12 p-0"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagenation" id="pagenation"></div>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+    <script  type="text/html" id="storageCardTpl">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>交易时间</th>
+                    <th>交易类型</th>
+                    <th>充值金额</th>
+                    <th>消费金额</th>
+                    <th>储值卡余额</th>
+                    <th>交易详情</th>
+                </tr>
+            </thead>
+            <tbody>
+            <# for(var i=0;i<data.length;i++){#>
+                <#var value=data[i];#>
+                <tr>
+                    <td><#=value.cCreateTime.substring(0,19)#></td>
+                    <td><#=value.cType#></td>
+                	 <#if(value.iType == 2 || value.iType == 3 ){#>
+                    	<td></td>
+                    	<td><#=value.fSum ? value.fSum.toFixed(2):'0.00'#></td>
+                    	<td><#=value.fBalance ? value.fBalance.toFixed(2):'0.00'#></td>
+	                	<#if(value.iType == 2 ){#>
+	                		<td>【<#=value.cType#>】订单号: <a href="orderdetail?orderId=<#=value.cSourceID#>"><#=value.cSourceID#></a></td>
+	                	<#}else if(value.iType == 3 ){#>
+	                		<td>【<#=value.cType#>】退款单号: <a href="return_detail?cSaleReturnNo=<#=value.cSourceID#>"><#=value.cSourceID#></a></td>
+	                	<#}else{#>
+	                		<td>【<#=value.cType#>】支付单号: <a href="orderdetail?orderId=<#=value.cSourceID#>"><#=value.cSourceID#></a></td>
+	                	<#}#>
+                	 <#}else{#>
+                    	<td><#=value.fSum ? value.fSum.toFixed(2):'0.00'#></td>
+                    	<td></td>
+                    	<td><#=value.fBalance ? value.fBalance.toFixed(2):'0.00'#></td>
+                    	<td></td>
+                	 <#}#>
+                </tr>
+            <#}#>
+            </tbody>
+        </table>
+    </script>
+
+ 
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+    <script src="../jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="../bootstrap/js/bootstrap.js" type="text/javascript"></script>
+    <%=includeScripts(view, ["@root/jquery/jquery.page.js","../../js/myStorageCard_L.js","@root/js/date/laydate.min.js"]);%>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+
+</html>

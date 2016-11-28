@@ -1,0 +1,43 @@
+{
+	"page": {
+		"body": [
+			{
+				"row": [
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "help_center",
+									"datatype": "help_center",
+									"colspan": "12"
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "friend_links",
+									"datatype": "friend_links",
+									"colspan": "12"
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "site_info",
+									"datatype": "site_info",
+									"colspan": "12"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

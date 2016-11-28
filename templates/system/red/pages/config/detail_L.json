@@ -1,0 +1,11 @@
+{
+	"view": {
+		"$": {
+			"name": "detailView",
+			"title": "U商城",
+			"controller": "DetailViewController",
+			"width": "fixed"
+		},
+		"widget": []
+	}
+}

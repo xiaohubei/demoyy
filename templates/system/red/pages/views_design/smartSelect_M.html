@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div>
+        <div class="pages">
+            <div data-page="SmartSelectListPage" class="page no-tabbar" data-controller="SmartSelectController">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href="#" class="link back">
+                                <i class="icon icon-backgray"></i>
+                            </a>
+                        </div>
+                        <div class="center nav-title-container"></div>
+                        <div class="right">
+                        </div>
+                    </div>
+                </div>
+                <form data-search-list=".smartSelect-Container" data-search-in=".item-title" class="searchbar searchbar-init">
+                    <div class="searchbar-input">
+                        <input type="search" placeholder="搜索"><a href="#" class="searchbar-clear"></a>
+                    </div><a href="#" class="searchbar-cancel">取消</a>
+                </form>
+                <div class="searchbar-overlay"></div>
+                <div class="page-content">
+                    <div class="content-block searchbar-not-found">
+                        <div class="content-block-inner">未找到相关数据</div>
+                    </div>
+                    <div class="list-block m-t-0 smartSelect-Container">
+                    </div>
+                </div>
+                <script type="text/template7" id="smartSelectItemTpl">
+                    <ul>
+                        {{#each data}}
+                        <li data-value="{{value}}" data-name="{{name}}">
+                            <label class="label-radio item-content">
+                                <input type="radio" name="my-radio" value="{{value}}" {{#if checked}}checked{{/if}}>
+                                {{#if cPhoneImage}}
+                                <div class="item-media">
+                                    <img src="{{cPhoneImage}}" style="width:35px;height:35px;">
+                                </div>
+                                {{/if}}
+                                <div class="item-inner">
+                                    <div class="item-title">{{name}}</div>
+                                </div>
+                            </label>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </script>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../js/smartSelect_M.js"]);%>
+</body>
+</html>
+

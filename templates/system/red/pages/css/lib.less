@@ -1,0 +1,135 @@
+@baseColor:#ef524d;
+@subColor:#fe9705;
+
+
+.clearfix{
+    display: block;
+    &:after{
+        clear: both;
+        zoom: 0;
+        display: block;
+        content: "";
+    }
+}
+.topLine(@bg-color:#dedddb){
+    position: relative;
+    &:before{
+        content: "";
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background-color: @bg-color;
+        left: 0;
+        top: 0;
+        z-index: 15;
+    }
+    &:first-child:before{
+        display: none;
+    }
+}
+.bottomLine(@bg-color:#dedddb){
+    position: relative;
+    &:after{
+        content: "";
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background-color: @bg-color;
+        left: 0;
+        bottom: 0;
+        z-index: 15;
+    }
+    &:last-child:after{
+        display: none;
+    }
+}
+.no-topLine(){
+   &:before{
+        height: 0;
+   }
+}
+.no-bottomLine(){
+   &:after{
+        height: 0;
+   }
+}
+.no-allLine(){
+    &:before{
+        height: 0;
+   }
+   &:after{
+        height: 0;
+   }
+}
+html.pixel-ratio-2 {
+    .topLine(){
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        }
+        .bottomLine() {
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        }
+}
+html.ios-gt-6.pixel-ratio-3  {
+    .topLine(){
+        -webkit-transform: scaleY(0.33);
+        transform: scaleY(0.33);
+        }
+        .bottomLine(){
+        -webkit-transform: scaleY(0.33);
+        transform: scaleY(0.33);
+        }
+}
+
+
+
+/*输入框未输入时文字颜色*/
+.placeholder(@color:#cccccc,@fz:15px){
+    &::-webkit-input-placeholder { /* WebKit browsers */
+        color: @color;
+        font-size: @fz !important;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: @color;
+        font-size: @fz !important;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: @color;
+        font-size: @fz !important;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: @color;
+        font-size: @fz !important;
+    }
+}
+//图文列表样式，以后需要移到index.less中
+.detail-wrap {
+    margin: 10px 0;
+     padding-bottom: 1px;
+    .topLine;
+    .bottomLine;
+    .clearfix;
+    li{
+        margin: 0 4px;
+        .bottomLine(#eeeeee);
+    }
+    .item-inner{
+        .no-bottomLine;
+    }
+        .item-text{
+        font-size: 13px;
+        color: #666666;
+            & + .item-after{
+                color: #393838;
+                font-size: 13px;
+            }
+        }
+        .item-subtitle{
+            font-size: 13px;
+            color: #999999;
+            & + .item-after{
+                color: #999999;
+            }
+        }
+ }

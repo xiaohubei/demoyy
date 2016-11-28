@@ -1,0 +1,166 @@
+﻿#mainbody_box {
+  width: 990px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.clear {
+  clear: both;
+  line-height: 0;
+  font-size: 0;
+  height: 0;
+}
+.clearfix {
+  display: block;
+}
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+.loginbox_left {
+  float: left;
+  width: 500px;
+  height: 309px;
+  background: url(../../../../widgets/images/login_line.gif) no-repeat right center;
+}
+.RegisterWrap {
+  margin: 10px;
+}
+.ex_login_box, .ex_signup_box {
+  border: 1px solid #ccc;
+  background: url(../../../../widgets/images/login_bg.gif) repeat-x left bottom;
+  overflow: hidden;
+}
+.RE_login_content {
+  height: 309px;
+  overflow: hidden;
+}
+.loginbox-right {
+  width: 28%;
+  float: right;
+}
+.ex_login_title {
+  margin: 0px auto;
+  padding-right: 100px;
+  text-align: center;
+  height: 50px;
+  padding-top: 20px;
+  font-family: Verdana, Geneva, sans-serif, "宋体";
+}
+.ex_login_title h1 {
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: Verdana, Geneva, sans-serif, "宋体";
+}
+.login_yellow, .new_deal .OrderList .OrderListName, .g_assemble_title ul li a:link, .g_assemble_title ul li a:visited {
+  color: #FF6400;
+}
+.tableform {
+  font-family: Verdana, Geneva, sans-serif, "宋体";
+  font-size: 12px;
+  color: #666;
+}
+.loginbox {
+  border: 0px solid #ddd;
+  padding: 10px;
+  margin: 8px 0 12px 0;
+  overflow: hidden;
+  zoom: 1;
+  clear: both;
+}
+.loginbox .leftlabel {
+  width: 105px;
+}
+.loginbox .leftlabel {
+  padding: 5px 2px;
+  margin: 0;
+  float: left;
+  width: 130px;
+  text-align: right;
+  height: auto;
+}
+address, caption, em, th, i {
+  font-style: normal;
+  font-weight:normal;
+}
+.loginbox li .floatdiv {
+  padding: 5px 2px;
+  float: left;
+  height: auto;
+   list-style-type:none;
+}
+.loginbox .inputstyle {
+  width: 160px;
+}
+.inputstyle, .x-input {
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+  background: url(../../../../widgets/images/Numinput-bj.gif) no-repeat 0 0 #fff;
+  font-size: 12px;
+}
+a:link, a:visited, a {
+  color: #666666;
+  text-decoration: none;
+}
+.loginbox li {
+  padding: 3px 0;
+  clear: both;
+  overflow: hidden;
+}
+.btn {
+  background: none;
+  border: none;
+  display: inline-block;
+  display: -moz-inline-stack;
+  zoom: 1;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  padding: 0;
+  overflow: visible;
+  text-decoration: none;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.common-btn span span {
+  background-position: right -595px;
+  line-height: 31px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #B15F15;
+}
+.common-btn span {
+  background-position: 0 -595px;
+  height: 31px;
+}
+.btn span {
+  background: url(../../../../widgets/images/btn-bj.gif);
+  display: block;
+  padding: 0 0 0 0px;
+  height: 28px;
+  width:60px;
+  white-space: nowrap;
+  overflow: visible;
+}
+.loginbox ul {
+  margin: 5px;
+  padding: 0;
+  list-style-type: none;
+}
+.error-messages{
+  padding: 2px 15px 3px 15px;
+  margin: 0 2px 1em 2px;
+  border: 1px solid #FCC;
+  background-color: #FFFFE6;
+  color: #f00;
+}
+#code {
+  height: 25px;
+  width: 80px;
+  font-size: 14px;
+  text-align: center;
+}

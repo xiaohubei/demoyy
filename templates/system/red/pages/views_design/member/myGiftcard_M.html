@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<%=includeLinks(view, ["../../css/mycoupon_M.less"]);%>
+<body>
+    <div class="pages">
+        <div data-page="myGiftCard" class="page no-toolbar no-tabbar" data-controller="myGiftCardController">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="back link">
+                            <i class="icon icon icon-back-gray"></i><span>Back</span>
+                        </a>
+                    </div>
+                    <div class="center sliding">礼品卡</div>
+                </div>
+                <div class="subnavbar" style="background-color:#FFF;">
+                    <div id="tabSwitch" class="buttons-row row  mygiftcardNav">
+                        <a href="#" data-type="0" class="button nav-bar tab-link active">已购买<span></span></a>
+                        <a href="#" data-type="1" class="button nav-bar tab-link">已使用<span></span></a>
+                        <a href="#" data-type="2" class="button nav-bar tab-link">已作废<span></span></a>
+                        <a href="#" data-type="9" class="button nav-bar tab-link">已转让<span></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content infinite-scroll pull-to-refresh-content" id="mygiftcardContanier" data-distance="50" style="padding-top:80px; padding-bottom:55px;" data-ptr-distance="55">
+                <div class="pull-to-refresh-layer">
+                    <div class="pull-to-refresh-arrow"></div>
+                </div>
+                <div class="row tab-content giftcardlist">
+                    <ul class="coupon-div col-100"  style="margin-top:0 !important;" id="cardList"></ul>
+                    <script id="cardListTpl1" type="text/template7">
+                        {{#each data}}
+                        <li>
+                            <div class="coupon-list">
+                                <div class=" giftcard bg-3"  style="    background-color: #ff8383;" >
+                                    <p  style="background: url('{{cFolder}}{{cImgName}}') no-repeat; background-size: 100% 125px !important;color:{{fontColor}}; width:100%;"><em>￥</em>{{reduceAmount}}</p>
+                                </div>
+                                <div class="coupon-date"  style="color:{{fontColor}}">
+                                    <p class="coupon-bt"></p>
+                                    <p>卡号：{{code}}</p>
+                                    <p>密码：{{password}}</p>
+                                    {{#js_compare "this.type == '0'"}}
+                                        <a href="member/goRecharge?password={{password}}&type=giftCard" class="btn-giftcardPay">去充值</a>
+                                    {{/js_compare}}
+                                    {{#js_compare "this.type == '1'"}}
+                                        <p>使用时间：{{useDate.substring(0,19)}}</p>
+                                    {{/js_compare}}
+                                    {{#js_compare "this.type == '2'"}}
+                                        <p>过期时间：{{expireEndDate.substring(0,19)}}</p>
+                                    {{/js_compare}}
+                                    {{#js_compare "this.type == '9'"}}
+                                        <p>转让时间：{{expireEndDate.substring(0,19)}}</p>
+                                    {{/js_compare}}
+                                </div>
+                            </div>
+                        </li>
+                        {{else}}
+                        <div class="noDataTip">
+                            <i class="icon icon-no-rebate"></i>
+                            <p>暂无礼品卡</p>
+                        </div>
+                        {{/each}}
+                    </script>
+                    <script id="cardListTpl4" type="text/template7">
+                        {{#each data}}
+                        <li>
+                            <div class="coupon-list">
+                                <div class=" giftcard bg-3"  style="background-color: #dddddd;" >
+                                    <p style="background: url('{{cFolder}}{{cImgName}}') no-repeat; background-size: 100% 125px !important;width:100%; "><em>￥</em>{{reduceAmount}}</p>
+                                </div>
+                                <div class="coupon-date overdue" >
+                                    <p class="coupon-bt"></p>
+                                    <p>卡号：{{code}}</p>
+                                    <p>密码：{{password}}</p>
+                                    {{#js_compare "this.type == '1'"}}
+                                        <p>使用时间：{{useDate.substring(0,19)}}</p>
+                                    {{/js_compare}}
+                                    {{#js_compare "this.type == '2'"}}
+                                        <p>过期时间：{{expireEndDate.substring(0,19)}}</p>
+                                    {{/js_compare}}
+                                    {{#js_compare "this.type == '9'"}}
+                                        <p>转让时间：{{expireEndDate.substring(0,19)}}</p>
+                                    {{/js_compare}}
+                                </div>
+                            </div>
+                        </li>
+                        {{else}}
+                        <div class="noDataTip">
+                            <i class="icon icon-no-rebate"></i>
+                            <p>暂无礼品卡</p>
+                        </div>
+                        {{/each}}
+                    </script>
+                    <script id="cardListTpl2" type="text/template7">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="row">
+                                    <th class="col-20">礼品卡</th>
+                                    <th class="col-20">面值</th>
+                                    <th class="col-20">卡号</th>
+                                    <th class="col-20">卡密</th>
+                                    {{#js_compare "this.type == '1'"}}
+                                    <th class="col-20">使用时间</th>
+                                    {{/js_compare}}
+                                    {{#js_compare "this.type != '1'"}}
+                                    <th class="col-20">有效时间</th>
+                                    {{/js_compare}}
+                                </tr>
+                            </thead>
+                            <tbody id="tableTbody">
+                                {{#each this.data}}
+                                <tr class="row">
+                                    <td class="col-20">{{giftCardName}}</td>
+                                    <td class="col-20">{{reduceAmount}}元</td>
+                                    <td class="col-20">{{code}}</td>
+                                    <td class="col-20">{{password}}</td>
+                                    {{#js_compare "this.type == '1'"}}
+                                    <td class="col-20">{{useDate.substring(0,19)}}</td>
+                                    {{/js_compare}}
+                                    {{#js_compare "this.type != '1'"}}
+                                    <td class="col-20">{{expireEndDate.substring(0,19)}}</td>
+                                    {{/js_compare}}
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </script>
+                    <script id="cardListTpl3" type="text/template7">
+                        {{#each this.data}}
+                        <tr class="row">
+                            <td class="col-20">{{giftCardName}}</td>
+                            <td class="col-20">{{reduceAmount}}元</td>
+                            <td class="col-20">{{code}}</td>
+                            <td class="col-20">{{password}}</td>
+                            {{#js_compare "this.type == '1'"}}
+                            <td class="col-20">{{useDate.substring(0,19)}}</td>
+                            {{/js_compare}}
+                            {{#js_compare "this.type != '1'"}}
+                            <td class="col-20">{{expireEndDate.substring(0,19)}}</td>
+                            {{/js_compare}}
+                        </tr>
+                        {{/each}}
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../../js/mygiftcard_M.js"]);%>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

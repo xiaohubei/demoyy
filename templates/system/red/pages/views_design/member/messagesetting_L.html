@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "消息设置");%></title>
+    <%=includeLinks(view, ["../../css/messagesetting_L.css"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="MessageSettingController">
+    <header></header>
+    <div class="row">
+    <div class="col-md-2">
+    <member_nav></member_nav>
+    </div>
+    <div class="col-md-10  main messageSetting">
+    	<div class="main_title">
+            <div class="col-md-6 mymessage">订阅类型</div>
+            <a class="main_setting linkBackToMyMessage" >返回我的消息</a>
+        </div>
+        <!--<div class="col-md-10 pagename">订阅类型</div>
+        <a href="#" class="col-md-2 linkBackToMyMessage">返回我的消息</a>-->
+        <div class="col-md-12 settingListBox"></div>
+    </div>
+    </div>
+    <footer></footer>
+    </div>
+    <%=includeScripts(view, ["../../js/messagesetting_L.js"]);%>
+        <script id="settingList" type="text/html">
+            <# for(var i=0;i<data.length;i++){ #>
+            <div class="col-md-12 main_content">
+                <div class="col-md-3 blockTitle"><#=data[i].typename #></div>
+                                <div class="col-md-9 blockContent">
+                    <# for(var j=0;j<data[i].subMessageTypes.length;j++){ #>
+                    <div class="col-md-3">
+                        <# if(data[i].typename=="系统消息"){ #>
+                            <#if(data[i].subMessageTypes[j].isUsed){ #>
+                            <input type="checkbox" checked  data-type="<#=data[i].subMessageTypes[j].type #>" data-id="<#=data[i].subMessageTypes[j].id #>" class="checkItems" />
+                                <#}else{#>
+                                     <input type="checkbox" data-type="<#=data[i].subMessageTypes[j].type #>" data-id="<#=data[i].subMessageTypes[j].id #>" class="checkItems" />
+                                    <#}#>
+                            <# } else{ #>
+                        <# if(data[i].subMessageTypes[j].isUsed){ #>
+                        <input  type="checkbox" checked data-id="<#=data[i].subMessageTypes[j].id #>" class="checkItems"/>
+                        <# }else{ #>
+                            <input type="checkbox"  class="checkItems" data-id="<#=data[i].subMessageTypes[j].id #>" data-type="<#=data[i].subMessageTypes[j].type #>" />
+                        <# } #>
+                        <# } #>
+                        <span><#=data[i].subMessageTypes[j].typename #></span>
+                    </div>
+                  <# } #>
+                </div>
+            </div>
+        <# } #>
+    </script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

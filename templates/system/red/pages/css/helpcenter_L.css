@@ -1,0 +1,54 @@
+.classificationList,
+.articleDetail,
+.help-right{
+	padding: 20px;
+	font-size: 12px;
+
+}
+.help-right h3,
+.articleDetail h3{
+	font-size: 14px;
+	color: #1a1919;
+	padding-bottom: 5px;
+	border-bottom: 1px dotted #e8e8e8;
+	position: relative;
+	text-indent: 14px;
+	margin: 20px 20px 5px 20px;
+}
+.help-right h3:before,
+.articleDetail h3:before{
+	width: 3px;
+	height: 14px;
+	background-color: #ef524d;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	content: " ";
+}
+.classificationList  ul li{
+	line-height: 28px;
+	margin-left: 20px;
+	position: relative;
+	color: #2a2929;
+
+}
+.classificationList  ul li:hover{
+	cursor: pointer;
+}
+.classificationList  ul li:before{
+	content: " ";
+	width: 2px;
+	height: 2px;
+	background-color: #2a2929;
+	position: absolute;
+	left: -10px;
+	top: 13px;
+}
+.articleContent{
+	padding:10px 25px;
+}
+.navPath a:not(:last-child):after {
+    content: ">";
+    padding: 0 7px;
+    color: #898989;
+}

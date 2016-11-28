@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="../css/category_L.less" rel="Stylesheet" type="text/css" />
+    	<script src="../js/category_L.js" type="text/javascript"></script>
+        <resource path="../resource/category_L.json"></resource>
+	</head>
+	<body>
+		<div data-name="<%=name%>" data-config="<%=config%>" data-type="Category">
+			<div class="header"><%=title%></div>
+			<ul class="classify">
+				
+			</ul>
+			<script type="text/html">
+				<#for(var i=0,len=list.length;i<len;i++){#>
+					<#var value=list[i];#>
+                    <#var hasChildren=value.hasChildren?'1':'0';#>
+					<li data-id="<#=value.id#>" data-children="<#=hasChildren#>">
+						<a href="/list?categoryid=<#=value.id#>"><#=value.cName#></a>
+						<#if(value.hasChildren){#>
+							<div style="display:none;">
+								<ul class="clearfix">
+									<#for(var j=0,lene=value.lsChildClass.length;j<lene;j++){#>
+										<#var item = value.lsChildClass[j];#>
+										<li><a href="/list?categoryid=<#=item.id#>"><#=item.cName#></a></li>
+									<#}#>
+								</ul>
+							</div>
+						<#}#>
+						
+					</li>
+				<#}#>
+			</script>
+   	 	</div>
+	</body>
+</html>

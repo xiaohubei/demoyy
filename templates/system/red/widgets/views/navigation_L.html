@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="../js/navigation_L.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="../css/navigation_L.less" />
+	</head>
+	<body>
+		<div data-name="<%=name%>" data-config="<%=config%>" data-type="Navigation">
+			<ul class="nav navbar-left"></ul>
+            <script type="text/html">
+                <#for(var i=0,len=list.length;i<len;i++){#>
+					<#var value=list[i];#>
+					<li>
+						<a href="<#=value.menuurl#>">
+							<#=value.menutitle#>
+						</a>
+					</li>
+				<#}#>
+            </script>
+		</div>
+	</body>
+</html>

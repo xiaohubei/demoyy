@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "收银台");%></title>
+    <%=includeLinks(view, ["../css/submit_message_L.css"]);%>
+    <script src="./bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="SubmitMessageViewController">
+        <header></header>
+        <div id="payment_mainbody_box" class="w main">
+            <div class="payment_AllWrapInside clearfix">
+                <div class="mainColumn pageMain">
+                    <div class="CartWrap" style="float:none;">
+                        <div id="f_order_pay">
+                            <div id="password_content" class="password_content">
+                                <div class="process">
+                                    <div id="sflex04" class="stepflex ">
+                                        <dl class="first done">
+                                            <dt class="s-num">1</dt>
+                                            <dd class="s-text">我的购物车<s></s><b></b></dd>
+                                        </dl>
+                                        <dl class="normal done">
+                                            <dt class="s-num">2</dt>
+                                            <dd class="s-text">填写核对订单信息<s></s><b></b></dd>
+                                        </dl>
+                                        
+                                        <dl class="last doing">
+                                            <dt class="s-num">3</dt>
+                                            <dd class="s-text">成功提交订单<s></s><b></b></dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="division clearfix order-suces-wrap" id="showOrderDetail">
+                         
+                            </div>
+                        </div>
+
+                        <div id="alipayment">
+                            <div id="body1" style="clear:left">
+                                <dl class="content">
+                                    <dt>网银支付方式：</dt>
+                                    <dd>
+                                        <span class="null-star">*</span>
+                                        <ul class="bank-list">
+                                          
+                                        </ul>
+                                    </dd>
+                                    <dt></dt>
+                                    <dd>
+                                        <span class="btnPayment-sp">
+                                            <button class="btnPayment">确认付款</button>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sideColumn pageSide">  </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="fullbg"></div>
+        <div id="dialog">
+            <div class="up-box w600" style="z-index: 20000; position: fixed; left: 420px; top: 300px;" id="waitpay_online">
+                <div class="up-box-hd">网上支付提示<span class="close_mayer">关闭</span></div>
+                <div class="up-box-bd">
+                    <div class="up-con clearfixx">
+                        <span class="mayer_icon">
+                        </span>
+                        <div class="r-txt">
+                            <p class="ft14">
+                                支付完成前，请不要关闭此支付验证窗口。<br clear="none">
+                                如果没有显示支付网页，网页可能被浏览器拦截，请检查。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="lay-btn">
+                        <button class="btnPaymentFailed">支付失败</button>
+                        <button class="btnPaymentSuccess">支付完成</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+        <script id="getOrderDetail" type="text/html">
+            <#if(list){#>
+                <#var value=list;#>
+                    <p class="order-sucs flt"></p>
+                    <p class="mt25">
+                        <span class="font16px fontbold ">订单已经成功提交!</span><br>
+                        订单编号：<em class="font14px point"><#=value.cOrderNo#></em>&nbsp;&nbsp;
+                        订单金额:<em class="point" id="span_amount"><#=value.fTotalMoney#></em><br>
+                    </p>
+                    <p style="font-size:12px" class="point">请于订单提交后24小时内付款，否则会被系统取消</p>
+                    <#}else{#>
+                        <div class="item-single  item-item" style="height:100px;text-align:center;">
+                            <span style="margin-top:30px;">啊偶，没找到订单信息</span>
+                        </div>
+                        <#}#>
+        </script>
+        <script id="bankListTpl" type="text/html">
+            <#if(bankList&&bankList.length){#>
+                <#for(var i=0,len=bankList.length;i<len;i++){#>
+                        <#var value=bankList[i];if(!value.isenable){continue;}#>
+                            <li data-type="<#=value.paytypecode#>">
+                                <div style="margin-top: 10px; float: left;"><input type="radio" name="paymentType" value="<#=value.paytypecode#>"></div>
+                                <div class="<#=value.paytypecode#>"></div>
+                            </li>
+                            <#}#>
+                                    <#}#>
+        </script>
+    </div>
+    <%=includeScripts(view, ["../js/submit_message_L.js","@root/bootstrap/js/bootstrap.js","@root/js/modal.js","@root/js/qrcode.js"]);%>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

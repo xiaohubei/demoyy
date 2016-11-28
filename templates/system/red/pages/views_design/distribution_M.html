@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="distribution" class="page no-tabbar" data-controller="distributionViewController">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="link back">
+                            <i class="icon icon-back-gray"></i>
+                        </a>
+                    </div>
+                    <div class="center">配送方式</div>
+                    <div class="right">
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="list-block media-list rebate-list  m-b-0">
+                    <div class="rebateList delivery">
+                        <ul class="db-listblock-container"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-div">
+                <a href="#" class="btn-ExpressType-save btn-red">确定</a>
+            </div>
+            <script type="text/template7" id="distributionTpl">
+                <li class="list-group-title">请选择配送方式</li>
+                {{#each data}}
+                <li data-type="{{id}}">
+                    <label class="label-checkbox item-content">
+                        <!-- Checked by default -->
+                        {{#if isSelected}}
+                        <input type="radio" name="my-express" value="{{id}}" checked>
+                        {{else}}
+                        <input type="radio" name="my-express" value="{{id}}">
+                        {{/if}}
+                        <div class="item-media">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title">{{name}}</div>
+                        </div>
+                    </label>
+                </li>
+                {{/each}}
+            </script>
+            <script type="text/template7" id="storeListTpl">
+                {{#each storeList}}
+                <li data-key="{{id}}|{{code}}|{{out_code}}|{{name}}|{{province}}|{{city}}|{{area}}|{{address}}|{{contact_phone}}">
+                    <label class="label-checkbox item-content">
+                        {{#if isChecked}}
+                        <input type="radio" name="my-store" data-id="{{id}}" data-code="{{code}}" data-outcode="{{out_code}}" checked>
+                        {{else}}
+                        <input type="radio" name="my-store" data-id="{{id}}" data-code="{{code}}" data-outcode="{{out_code}}">
+                        {{/if}}
+                        <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                        <div class="item-inner  no-border">
+                            <div class="item-title-row">
+                                <div class="item-title">{{name}}</div>
+                            </div>
+                            <div class="item-text">{{province}}{{city}}{{area}}{{address}}</div>
+                            <div class="item-subtitle">电话:<a href="tel:{{contact_phone}}" class="external">{{contact_phone}}</a></div>
+                        </div>
+                    </label>
+                    <div class="after">
+                        <p>   </p>
+                        <p class="btn-mapLoaction"><i class="icon icon-address" data-id="{{id}}" data-lng="{{lng}}" data-lat="{{lat}}"></i></p>
+                    </div>
+                </li>
+                {{else}}
+                <div class="noDataTip">
+                    <i class="icon icon-no-storeList"></i>
+                    <p>啊哦！ 您的默认区域没有自提点请重新选择</p>
+                </div>
+                {{/each}}
+            </script>
+            <script type="text/template7" id="storeDetailTpl">
+                <li class="item-content">
+                    <div class="item-media"><i class="icon order-addr"></i></div>
+                    <div class="item-inner no-border">
+                        <div class="item-title">{{name}}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner no-border">
+                        <div class="item-text">
+                            {{province}}{{city}}{{area}}{{address}}
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-media"><i class="icon map-tel"></i></div>
+                    <div class="item-inner no-border">
+                        <div class="item-subtitle yellow"><a href="tel:{{contact_phone}}" class="external">{{contact_phone}}</a></div>
+                    </div>
+                </li>
+                <li class="item-content hide">
+                    <div class="item-media"><i class="icon map-time"></i></div>
+                    <div class="item-inner no-border">
+                        <div class="item-subtitle">09:00-22:00</div>
+                    </div>
+                </li>
+            </script>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../js/distribution_M.js"]);%>
+</body>
+</html>

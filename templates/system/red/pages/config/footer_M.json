@@ -1,0 +1,38 @@
+{
+	"view": {
+		"widget": [
+			{
+				"$": {
+					"name": "toolbar",
+					"type": "toolbar"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "home",
+							"value": ["../img/icon/footer-1.png","../img/icon/footer-1-a.png","首页"]
+						}
+					},
+					{
+						"$": {
+							"key": "category",
+							"value": ["../img/icon/footer-2.png","../img/icon/footer-2-a.png","分类"]
+						}
+					},
+					{
+						"$": {
+							"key": "cart",
+							"value": ["../img/icon/footer-3.png","../img/icon/footer-3-a.png","购物车"]
+						}
+					},
+					{
+						"$": {
+							"key": "member",
+							"value": ["../img/icon/footer-4.png","../img/icon/footer-4-a.png","我的"]
+						}
+					}
+				]
+			}
+		]
+	}
+}

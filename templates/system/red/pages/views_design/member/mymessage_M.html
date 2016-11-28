@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <%=includeLinks(view, ["../../css/mymessage_M.less"]);%>
+</head>
+<body>
+    <div>
+        <div class="pages navbar-through">
+            <div data-page="MessageList" class="page  no-tabbar no-toolbar" data-controller="MessageListController">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left"><a href="#" class="link back"><i class="icon icon-back-gray"></i></a></div>
+                        <div class="center">
+                            消息中心
+                        </div>
+                        <div class="right">
+                            <a href="/member/messageSetting" class="link  icon-only"><i class="icon icon-msgSet"></i></a>
+                        </div>
+                        <div class="subnavbar no-border m-t-0">
+                            <div class="row buttons-row">
+                                <a href="#" class="button tab-link active">所有消息</a>
+                                <a href="#" class="button tab-link">订单信息</a>
+                                <a href="#" class="button tab-link">账户信息</a>
+                                <a href="#" class="button tab-link">系统消息</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content infinite-scroll" data-distance="50" style="margin-top:44px;">
+                    <div class="msg-list"></div>
+                    <div class="infinite-scroll-preloader">
+                        <div class="preloader"></div>
+                    </div>
+                </div>
+                <script type="text/template7" id="messageItemTpl">
+                    {{#each data}}
+                    {{#if bReaded}}
+                    <dl>
+                        {{else}}
+                        <dl class="unread">
+                            {{/if}}
+                            <dt style="color:#c4c2c2;">
+                                <p>{{js "this.dCreated.split(' ')[0]"}}</p>
+                                <p>{{js "this.dCreated.split(' ')[1]"}}</p>
+                                <p>{{subMessageType.typename}}</p>
+                            </dt>
+                            <dd>
+                                <p class="title" style="color: #505050;">{{cTitle}}</p>
+                                <p class="content" style="color:#c4c2c2;">{{bulletinText}}</p>
+                            </dd>
+                        </dl>
+                        {{else}}
+                        <div class="noDataTip">
+                            <i class="icon icon-no-message"></i>
+                            <p>您还没有相应消息</p>
+                        </div>
+                        {{/each}}
+                </script>
+            </div>
+        </div>
+        <%=includeScripts(view, ["../../js/mymessage_M.js"])%>
+    </div>
+</body>
+</html>

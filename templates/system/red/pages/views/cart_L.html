@@ -1,0 +1,1068 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>UP-MALL - 我的购物车</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" href="http://umalltest.yonyouup.com/photo/logo/21/6111534a-0d06-41ed-ad9f-decff4fedf96.gif" />
+<link href="bootstrap/css/bootstrap.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/topbar_member_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/topbar_subnav_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/search_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/navigation_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/cart_box_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/onlineCustomer_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/category_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/help_center_L.orange.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/friend_links_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/site_info_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/pages/css/cart_L.orange.css" rel="Stylesheet" type="text/css" />
+    <script src="./bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="container bg-fa" data-controller="CartViewController">
+        
+<div class="container up-header">
+<div class="row">
+<div class="pull-left">
+<div data-name="topbar_member" data-type="TopbarMember">
+        <span>欢迎光临 </span>
+        <div style="display:none;">
+            <a href="/login">请登录</a>
+            <span>|</span>
+            <a href="/register">免费注册</a>
+        </div>
+        <div style="display:none;">
+            <span></span>
+            <a>退出</a>
+        </div>
+    </div>
+</div>
+<div class="pull-right">
+<div data-name="topbar_subnav" data-config="" data-type="TopbarSubnav">
+        
+            <span><a href="/member/mymessage">站内消息<em class="quanTips"></em></a></span>
+        
+            <span><a href="/member">会员中心<em class="quanTips"></em></a></span>
+        
+            <span><a href="/helpcenter/classification?typeId=-1&wigetType=帮助中心">帮助中心<em class="quanTips"></em></a></span>
+        
+            <span><a href="http://bbs.yonyouup.com/">商城论坛<em class="quanTips"></em></a></span>
+        
+    </div>
+</div>
+</div>
+</div>
+<div class="container up-searchBox">
+<div class="row">
+<div class="col-xs-3">
+<div data-name="logo" data-type="Logo">
+        <div></div>
+        <script type="text/html">
+            <a href="/"><img src="<#=adjustImgSrc(logoImg)#>" border="0" alt="logo"></a>
+        </script>
+    </div>
+</div>
+<div class="col-xs-6">
+<div data-name="search" data-config="" data-type="Search">
+			<div class="search_box">
+				<div class="search_box_t">
+					<input type="text" />
+					<button>搜索</button>
+				</div>
+				<div class="search_box_b">
+					<span class="key_words">
+	                    <ul class='key-list'>
+	                    </ul>
+                	</span>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id='keylist'>
+        <#for(var i=0;i<hotKey.length;i++){#>
+        	<#if(hotKey[i].targetUrl){#>
+        		<li><a href="<#=hotKey[i].targetUrl#>"><#=hotKey[i].name#></a></li>
+        	<#}else{#>
+        		<li><a href='/list?keyword=<#=hotKey[i].name#>'><#=hotKey[i].name#></a></li>
+        	<#}#>
+        <#}#>
+		</script>
+</div>
+<div class="col-xs-2">
+<div data-name="cart_box" data-config="" data-type="Cart_box">
+			<div class="cart_box" style="overflow: visible;z-index:1000;width:300px;">
+				
+			</div>
+			<script type="text/html">
+                <div style="display:flex;width:100%;">
+                <div class="cart_div" style="width: 120px; margin-top: -15px;margin-right:15px;float:left;"><span class="cart_number">0</span><span>购物车</span></div>
+                <div class="cartBoxPointsDiv" style="width:140px;word-break:break-all;margin-left:10px;float:left;"><a href="/member/myintegral"><span class="cartBoxPoints"></span></a></div>
+                </div>
+				
+				<ul style="height:500px;margin-top:5px;" class="cart_box_list">
+                    <!--全部商品满赠和推广码满赠选择赠品展示开始-->
+                    <#if(allProductGiftPreferDetail.length){#>
+                        <#for(var m=0;m<allProductGiftPreferDetail.length;m++){#>
+                            <#if(allProductGiftPreferDetail[m].allGiftProjectList.length){#>
+                                <#for(var n=0;n<allProductGiftPreferDetail[m].allGiftProjectList.length;n++){#>
+                                    <#var miniCartAllGiftValue=allProductGiftPreferDetail[m].allGiftProjectList[n];#>
+                                      <li class="miniAllGiftActivedProductList" data-iskuid="<#=miniCartAllGiftValue.iSKUId#>" data-icorpid="<#=miniCartAllGiftValue.iCorpId#>" data-iquantity="<#=miniCartAllGiftValue.iQuantity#>" data-iproductid="<#=miniCartAllGiftValue.iProductId#>" data-id="<#=miniCartAllGiftValue.id#>">
+                                            <div class="col-xs-3" style="margin:0;">
+                                                <img src="<#=adjustImgSrc(miniCartAllGiftValue.oSKU.oProduct.DefaultImage)#>" />
+                                            </div>
+                                            <div class="col-xs-5" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:10px 0 0 0;">
+                                                <a href="/detail?goods_id=<#=miniCartAllGiftValue.oSKU.oProduct.id#>"><em class="s-ico">赠品</em><#=miniCartAllGiftValue.oSKU.oProduct.cName#></a>
+                                                <#if(miniCartAllGiftValue.oSKU.lsSkuSpecItems.length){#>
+                                                    <#for(var j=0,len1=miniCartAllGiftValue.oSKU.lsSkuSpecItems.length;j<len1;j++){#>
+                                                        <span><#=miniCartAllGiftValue.oSKU.lsSkuSpecItems[j].oSpec.cName#>:<#=miniCartAllGiftValue.oSKU.lsSkuSpecItems[j].cSpecItemName#></span>
+                                                        <#}#>
+                                                            <#}#>
+                                            </div>
+                                            <div class="col-xs-4" style="margin:10px 0 0 0;">
+                                                <span>0.00x<#=miniCartAllGiftValue.iQuantity#></span>
+                                            </div>
+                                        </li>  
+                                 <#}#>
+                            <#}#>
+                          <#}#>
+                      <#}#>
+                    <!--全部商品满赠和推广码满赠选择赠品展示结束-->
+                    <#for(var i=0,len=list.length;i<len;i++){#>
+                        <#if(list[i][0].oSKU.iStatus == 0 || !list[i][0].packageValid){#>
+                            <#continue;#>
+                        <#}#>
+                        <#for(var k=0,commonLen=list[i].length;k<commonLen;k++){#>
+                            <#if((list[i][k].oSKU.iStatus!="0")&&(list[i][k].packageValid!="0")||(list[i][k].isGiftProduct)){#>
+                                <#var dataKey='';#>
+                                <#if(list[i][k].guid){#>
+                                    <#dataKey=list[i][k].guid+'|';#>
+                                <#}else if(list[i][k].sPackageUUID){#>
+                                    <#dataKey=list[i][k].sPackageUUID+'|'#>
+                                <#}#>
+                                <#dataKey+=list[i][k].iSKUId;#>
+                                <li data-key="<#=dataKey#>" class="catBoxProductItems" data-productAttribute="<#=list[i][k].productAttribute#>">
+                                    <div class="col-xs-3" style="margin:0;">
+                                        <img src="<#=adjustImgSrc(list[i][k].oSKU.oProduct.DefaultImage)#>" />
+                                    </div>
+                                    <div class="col-xs-5" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:10px 0 0 0;">
+                                            <a href="/detail?goods_id=<#=list[i][k].oSKU.oProduct.id#>"><#if(list[i][k].isGiftProduct){#><em class="s-ico">赠品</em><#}else{#><#}#><#=list[i][k].oSKU.oProduct.cName#></a>
+                                        <#if(list[i][k].oSKU.lsSkuSpecItems.length){#>
+                                            <#for(var j=0,len1=list[i][k].oSKU.lsSkuSpecItems.length;j<len1;j++){#>
+                                                <span><#=list[i][k].oSKU.lsSkuSpecItems[j].oSpec.cName#>:<#=list[i][k].oSKU.lsSkuSpecItems[j].cSpecItemName#></span>
+                                            <#}#>
+                                        <#}#>
+                                    </div>
+                                    <div class="col-xs-4" style="margin:10px 0 0 0;">
+                                        <#if(list[i][k].isGiftProduct){#>
+                                            <span>0.00x<#=list[i][k].iQuantity#></span>
+                                            <#}else{#>
+                                                <#if(list[i][k].productAttribute=="1"){#>
+                                                <span><#=formatMoney(list[i][k].fNewSalePrice)#>x<#=list[i][k].iQuantity#></span>
+                                                <#}else if(list[i][k].productAttribute=="2"){#>
+                                                    <span><#=list[i][k].salePoints#>x<#=list[i][k].iQuantity#></span>
+                                                    <#}#>
+                                                <#}#>
+                                        <#if(!list[i][k].bIsMain){#>
+                                            <#if(!list[i][k].isGiftProduct){#>
+                                            <span class="deleteBtn" data-id="<#=list[i][k].id#>" style="cursor:pointer">删除</span>
+                                            <#}#>
+                                        <#}#>
+                                    </div>
+                                </li>
+                            <#}#>
+                        <#}#>
+
+                    <#}#>
+                    <li class="cart_result">
+                        <div>
+                            <#if(list.length){#>
+                                <span class="clear_cart">清空</span>
+                            <#}#>
+                            <a class="settleMent" style="cursor:pointer;">去结算</a>
+                            <span>共<span id="bottomTotalCount"></span>件商品</span>
+                        </div>
+                    </li>
+
+                </ul>
+			</script>
+   	 	</div>
+</div>
+<div class="col-xs-1">
+<div data-name="online_customer" data-config="" data-type="online_customer">
+        <div id="floatTools" class="rides-cs onlineCustomerContent" style="height:246px;">
+
+        </div>
+        <script type="text/html">
+            <div class="floatL">
+                <a id="aFloatTools_Show" class="btnOpen" title="查看在线客服" style="top:20px;display:block" href="javascript:void(0);">展开</a>
+                <a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" style="top:20px;display:none" href="javascript:void(0);">收缩</a>
+            </div>
+            <div id="divFloatToolsView" class="floatR" style="display: none;height:237px;width: 140px;">
+                <div class="cn">
+                    <h3 class="titZx">商城在线客服</h3>
+                    <ul>
+                        <#if(list){#>
+                        <#for(var k=0;k<list.length;k++){#>
+                        <li><span>客服<#=k+1#><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<#=list[k].cContactNum#>&site=qq&menu=yes"><img border="0" style="width:61px;height:16px;" src="http://wpa.qq.com/pa?p=1:<#=list[k].cContactNum#>:10" alt="点击这里给我发消息" title="点击这里给我发消息" /></a></span></li>
+                        <#}#>
+                        <#}else{#>
+                            
+                        <#}#>
+                        <li>
+                            <div class="div_clear"></div>
+                        </li>
+                        <li style="border:none;"><span>电话：<#if(phoneList.length){#><#=phoneList[0].cContactNum#><#}#></span> </li>
+                    </ul>
+                </div>
+            </div>
+        </script>
+    </div>
+</div>
+</div>
+</div>
+<div class="container up-nav-box">
+<div class="row">
+<div class="col-xs-2">
+<div data-name="category" data-config="" data-type="Category">
+			<div class="header">商品分类</div>
+			<ul class="classify">
+				
+			</ul>
+			<script type="text/html">
+				<#for(var i=0,len=list.length;i<len;i++){#>
+					<#var value=list[i];#>
+                    <#var hasChildren=value.hasChildren?'1':'0';#>
+					<li data-id="<#=value.id#>" data-children="<#=hasChildren#>">
+						<a href="/list?categoryid=<#=value.id#>"><#=value.cName#></a>
+						<#if(value.hasChildren){#>
+							<div style="display:none;">
+								<ul class="clearfix">
+									<#for(var j=0,lene=value.lsChildClass.length;j<lene;j++){#>
+										<#var item = value.lsChildClass[j];#>
+										<li><a href="/list?categoryid=<#=item.id#>"><#=item.cName#></a></li>
+									<#}#>
+								</ul>
+							</div>
+						<#}#>
+						
+					</li>
+				<#}#>
+			</script>
+   	 	</div>
+</div>
+<div class="col-xs-10">
+<div data-name="navigation" data-config="" data-type="Navigation">
+			<ul class="nav navbar-left"></ul>
+            <script type="text/html">
+                <#for(var i=0,len=list.length;i<len;i++){#>
+					<#var value=list[i];#>
+					<li>
+						<a href="<#=value.menuurl#>">
+							<#=value.menutitle#>
+						</a>
+					</li>
+				<#}#>
+            </script>
+		</div>
+</div>
+</div>
+</div>
+
+        <div class="row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-12 main">
+                <div class="stepflex" id="#sflex03">
+                    <dl class="first  doing">
+                        <dt class="s-num">1</dt>
+                        <dd class="s-text">1.我的购物车<s></s><b></b></dd>
+                    </dl>
+                    <dl class="normal">
+                        <dt class="s-num">2</dt>
+                        <dd class="s-text">2.填写核对订单信息<s></s><b></b></dd>
+                    </dl>
+                    <dl class="normal last">
+                        <dt class="s-num">3</dt>
+                        <dd class="s-text">3.成功提交订单<s></s><b></b></dd>
+                    </dl>
+                </div>
+                <div style="width: 100%; display: inline-flex;">
+                <!--推广码开始-->
+                    <div style="margin-top: 10px;width:50%;" class="promotionCodeFlag">
+                    
+                    </div>
+                <!--推广码结束-->
+                <!--我的积分开始-->
+                    <div class="myPoints">
+                             
+                    </div>
+                </div>
+                <!--我的积分结束-->
+                <div class="cart-warp">
+                    <div class="cart-main">
+                        <div class="cart-thead">
+                            <div class="column t-checkbox">
+                                <div class="cart-checkbox">
+                                    <input type="checkbox" id="checkAll" name="checkAll" class="jdcheckbox">
+                                </div>
+                                全选
+                            </div>
+                            <div class="column t-goods">商品</div>
+                            <div class="column t-guige">规格</div>
+                            <div class="column t-price">单价(元)</div>
+                            <div class="column t-quantity">数量</div>
+                            <div class="column t-sum">金额(元)</div>
+                            <div class="column t-action">操作</div>
+                        </div>
+                        <div id="cart-list">
+                            <div class="cart-item-list">
+                                <div class="cart-tbody">
+                                    <div class="shop"></div>
+                                    <div class="item-list">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cart-floatbar">
+                        <div class="ui-ceilinglamp-1">
+                            <div class="cart-toolbar">
+                                <div class="toolbar-wrap">
+                                    <div class="selected-item-list hide" style="display: none;">
+                                    </div>
+                                    <div class="options-box">
+                                        <div class="operation" style="width:100px;">
+                                            <input type="checkbox" id="downCheckAll" name="downCheckAll"  class="jdcheckbox" style="display:none;">
+                                            <span class="remove-batch" style="margin-left:10px;cursor:pointer;">删除</span>
+                                        </div>
+                                        <div style="color: red; height: 50px; font-weight: bold; line-height: 44px; ">礼品卡和积分商品只能单独结算，不能与其它商品同时结算</div>
+                                        <div class="toolbar-right">
+                                            <div class="normal">
+                                                <div class="comm-right">
+                                                    <div class="btn-area">
+                                                        <span class="submit-btn ">
+                                                            去结算<b></b>
+                                                        </span>
+                                                    </div>
+                                                    <div class="price-sum">
+                                                        <div>
+                                                            <span class="txt">总价（不含运费）：</span>
+                                                            <span class="price sumPrice"><em id="allProductPrice">0.00</em></span>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="amount-sum">
+                                                        已选择<em class="allProductCount" id="allProductCount">0</em>件商品
+                                                    </div>
+                                                    <div class="clr"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+<div class="container border-top-f2">
+<div class="row">
+<div class="col-xs-12">
+<div class="help-center-bar" data-name="help_center" data-config="" data-type="HelpCenter">
+            <div class="col-xs-3 contact">
+                <ul></ul>
+                <script type="text/html">
+	                <li><span><#=phoneNum#></span></li>
+                    <li><img src="<#=adjustImgSrc(WeixinImg)#>" style="width:100px;height:100px;" /></li>
+                    <li><em><#=WeixinDes#></em></li>
+		        </script>
+            </div>
+            <div class="col-xs-9 help-center-content">
+                <ul></ul>
+                <script type="text/html">
+	                <#for(var i=0,len=data.length;i<len;i++){#>
+	                    <#var value=data[i];#>
+                            <#if(data.length == 5){#>
+                                <li class="col-20 guide-item-list">
+                            <#}else if(data.length == 4){#>
+                                <li class="col-25 guide-item-list">
+                            <#}else if(data.length == 3){#>
+                                <li class="col-33 guide-item-list">
+                            <#}else{#>
+                                <li class="col-20 guide-item-list">
+                            <#}#>
+	                		<h3>
+                                <a href="/helpcenter/classification?typeId=<#=value.typeId#>&wigetType=帮助中心"><#=value.articleTypeName#></a>
+	                		</h3>
+	                		<ul>
+	                		    <#for(var j=0,len1=value.articleSingleList.length;j<len1;j++){#>
+                                    <#var articleSingle=value.articleSingleList[j];#>
+                                    <li>
+                                        <a href="/helpcenter/article?typeId=<#=value.typeId#>&articleId=<#=articleSingle.id#>&wigetType=帮助中心" target="_blank"><#=articleSingle.title#></a>
+                                    </li>
+                                <#}#>
+                                <#if(value.childType){#>
+                                    <#for(var m=0;m<value.childType.length;m++){#>
+                                        <#var articlesingle=value.childType[m].articleSingleList;#>
+                                        <#for(var n=0;n<articlesingle.length;n++){#>
+                                            <li>
+                                                <a href="/helpcenter/article?typeId=<#=value.childType[m].typeId#>&articleId=<#=articlesingle[n].id#>&wigetType=帮助中心" target="_blank"><#=articlesingle[n].title#></a>
+                                            </li>
+                                        <#}#>
+                                    <#}#>
+                                <#}#>
+                            </ul>
+		                </li>
+		            <#}#>
+		        </script>
+            </div>
+        </div>
+</div>
+</div>
+</div>
+<div class="container bg-2d">
+<div class="row">
+<div class="col-xs-12">
+<div class="friend-links" align="center" data-name="friend_links" data-config="" data-type="FriendLinks">
+			<script type="text/html">
+            <#for(var i=0,len=data.length;i<len;i++){#>
+                <#var link=data[i];
+                  if(!link.hidden){
+                #>
+	                <a target="_blank" href="<#=link.linkUrl#>">
+	                        <img src="<#=adjustImgSrc(link.linkPicture)#>" alt="<#=link.linkName#>"/>
+	                </a>
+                <#}#>
+            <#}#>
+        	</script>
+		</div>
+</div>
+</div>
+</div>
+<div class="container bg-2d">
+<div class="row">
+<div class="col-xs-12">
+<div class="site-info" align="center" data-name="site_info" data-config="" data-type="SiteInfo">
+			<script type="text/html">
+				<div align="center">
+					<div class="site-info-sitename">
+						<#=siteName#>
+					</div>
+					<div class="site-info-message">
+						<#=bottomMessage#>
+					</div>
+					<div class="site-info-license">
+						<#=licenseNum#>
+					</div>
+				</div>
+			</script>
+		</div>
+</div>
+</div>
+</div>
+
+        <script id="getCartLists" type="text/html">
+            <!--满赠活动推广码及全部赠品满赠开始-->
+             <#if(list.allProductGiftPreferDetail&&list.allProductGiftPreferDetail.length){#>
+                 <#for(var m=0;m<list.allProductGiftPreferDetail.length;m++){#>
+                     <#var allGiftValue=list.allProductGiftPreferDetail[m];#>
+                  <#if(allGiftValue.item.iGiftItemType!=-1){#>
+                      <!--全部商品促销和推广码促销赠品标题开始-->
+                      <div class="allGiftItemList">
+                     <div class="cart-item-header">
+                         <div class="f-txt giftIntroFirstItem">
+                             <a style="cursor:default;width:100%;"><span class="full-icon full-gray-icon">满赠</span>
+                             <#if(!allGiftValue.isValid){#>
+                             <#if(allGiftValue.prefer.iGiftType==1){#>满额送：<#=allGiftValue.prefer.sName#>
+                                 <#}else if(allGiftValue.prefer.iGiftType==2){#>满件送：<#=allGiftValue.prefer.sName#>
+                                     <#}else{#>买就送：<#=allGiftValue.prefer.sName#> 
+                                         
+                                         <#}#>
+                                <#}else{#>
+                                    <!--结算时候的参数，如果不是送赠品的全部商品满赠活动，并且满足满赠条件将子活动id传过去-->
+                                   <#if(allGiftValue.item.iGiftItemType!=1){#> <div class="childActivityId" style="display:none;" data-childactivityid="<#=allGiftValue.item.id#>"></div><#}#>
+                                    <#if(allGiftValue.prefer.iGiftType==1){#>
+                                                    满额送：<#if(allGiftValue.item.iGiftItemType==1){#>活动商品购满<#=allGiftValue.item.iConsumerSpending#>元，可领取赠品<#=allGiftValue.item.iGiftNum#>件&gt;<#}else if(allGiftValue.item.iGiftItemType==2){#>活动商品购满<#=allGiftValue.item.iConsumerSpending#>元，可领取<#=allGiftValue.item.iGiftNum#>优惠券&gt;<#}else if(allGiftValue.item.iGiftItemType==3){#>活动商品购满<#=allGiftValue.item.iConsumerSpending#>元，可领取<#=allGiftValue.item.iGiftNum#>积分&gt;<#}else{#>活动商品购满<#=allGiftValue.item.iConsumerSpending#>元，可领取<#=allGiftValue.item.iGiftNum#>倍积分&gt;<#}#>
+                                                    <#}else if(allGiftValue.prefer.iGiftType==2){#>
+                                                        满件送：<#if(allGiftValue.item.iGiftItemType==1){#>活动商品购满<#=allGiftValue.item.iConsumerSpending#>件，可领取赠品<#=allGiftValue.item.iGiftNum#>件&gt;<#}else if(allGiftValue.item.iGiftItemType==2){#>活动商品购满<#=allGiftValue.item.iConsumerSpending#>件，可领取<#=allGiftValue.item.iGiftNum#>优惠券&gt;<#}else if(allGiftValue.item.iGiftItemType==3){#>活动商品购满<#=allGiftValue.item.iConsumerSpending#>件，可领取<#=allGiftValue.item.iGiftNum#>积分&gt;<#}else{#>活动商品购满<#=allGiftValue.item.iConsumerSpending#>件，可领取<#=allGiftValue.item.iGiftNum#>倍积分&gt;<#}#>
+                                                        <#}else if(allGiftValue.prefer.iGiftType==3){#>
+                                                            买就送：<#if(allGiftValue.item.iGiftItemType==1){#>可领取赠品<#=allGiftValue.item.iGiftNum#>件&gt;<#}else if(allGiftValue.item.iGiftItemType==2){#>可领取<#=allGiftValue.item.iGiftNum#>优惠券&gt;<#}else if(allGiftValue.item.iGiftItemType==3){#>可领取<#=allGiftValue.item.iGiftNum#>积分&gt;<#}else{#>可领取<#=allGiftValue.item.iGiftNum#>倍积分&gt;<#}#>
+                                                            <#}else{#>
+                                                              
+                                                                <#}#>
+
+                                    <#}#>
+                                        <div class="giftMorePrivilege" style="margin-left:10px;" data-type="allGiftPrivilege" data-show="down">更多优惠详情<b></b></div>
+                             </a>
+                             <!--结算时候的参数，如果是送赠品的全部商品满赠活动，并且满赠满赠条件选了赠品将子活动id传过去-->
+                             <#if(allGiftValue.item.iGiftItemType==1&&allGiftValue.allGiftProjectList.length){#><div class="productGiftChildActivityId" data-childactivityid="<#=allGiftValue.item.id#>" style="display:none;"></div><#}#>
+                             <#if(allGiftValue.item.isShowGiftBtn==1){#>
+                                 <a class="allGiftBtn viewGiftBtn" style="margin-left: 20px;" data-giftpromotionid="<#=allGiftValue.item.iGiftPreId#>" data-giftnum="<#=allGiftValue.item.iGiftNum#>" 
+                                    <#if(allGiftValue.item.iGiftItemType==1){#> data-giftactiveid="<#=allGiftValue.item.id#>"<#}else{#>data-giftactiveid="<#=allGiftValue.item.ids#>"<#}#> data-type="allGift" data-iConsumerSpending="<#=allGiftValue.item.iConsumerSpending#>"><#if(allGiftValue.isValid&&allGiftValue.item.iGiftItemType==1){#>领取赠品<#}else{#>查看赠品<#}#>
+                                 </a>
+                                 <#}#>
+                               
+                         </div>
+                    </div>
+                      <!--全部商品促销和推广码促销优惠详情开始-->
+                                <!--<div class="giftIntroductitonMore" style="display:none;z-index:1000;width:97px;margin-top:228px;" data-type="allGiftPrivilege">更多优惠详情<b></b></div>-->
+                                <div class="cartGiftDetail">
+                                        <#for(var n=0;n<allGiftValue.items.length;n++){#>
+                                                <#if(n==0){#><div><#if(allGiftValue.prefer.iGiftType==1){#>满额送：<#=allGiftValue.prefer.sName#><#}else if(allGiftValue.prefer.iGiftType==2){#>满件送：<#=allGiftValue.prefer.sName#><#}else if(allGiftValue.prefer.iGiftType==3){#>买就送：<#=allGiftValue.prefer.sName#><#}else{#> <#}#><span class="endDate" style="margin-left:40px;">截止日期：<#=allGiftValue.prefer.dEndDate#></span></div><#}#>
+                                                <#if(allGiftValue.items[n].iGiftItemType==1){#>
+                                                    <p style="margin-left: 10px;"><#if(allGiftValue.prefer.iGiftType==3){#><#}else{#>满<#=allGiftValue.items[n].iConsumerSpending#><#if(allGiftValue.prefer.iGiftType==1){#>元,<#}else{#>件,<#}#><#}#><span>可领取赠品<#=allGiftValue.items[n].iGiftNum#>件,</span><#=allGiftValue.items[n].sgiftnames#> <#if(allGiftValue.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                    <#}else if(allGiftValue.items[n].iGiftItemType==2){#>
+                                                        <p style="margin-left: 10px;"><#if(allGiftValue.prefer.iGiftType==3){#><#}else{#>满<#=allGiftValue.items[n].iConsumerSpending#><#if(allGiftValue.prefer.iGiftType==1){#>元,<#}else{#>件,<#}#><#}#><span>可领取<#=allGiftValue.items[n].iGiftNum#>优惠券</span> <#if(allGiftValue.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                        <#}else if(allGiftValue.items[n].iGiftItemType==3){#>
+                                                            <p style="margin-left: 10px;"><#if(allGiftValue.prefer.iGiftType==3){#><#}else{#>满<#=allGiftValue.items[n].iConsumerSpending#><#if(allGiftValue.prefer.iGiftType==1){#>元,<#}else{#>件,<#}#><#}#><span>可领取<#=allGiftValue.items[n].iGiftNum#>积分</span> <#if(allGiftValue.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                            <#}else if(allGiftValue.items[n].iGiftItemType==4){#>
+                                                                <p style="margin-left: 10px;"><#if(allGiftValue.prefer.iGiftType==3){#><#}else{#>满<#=allGiftValue.items[n].iConsumerSpending#><#if(allGiftValue.prefer.iGiftType==1){#>元,<#}else{#>件,<#}#><#}#><span>可领取<#=allGiftValue.items[n].iGiftNum#>倍积分</span> <#if(allGiftValue.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                                <#}else{#>
+                                                                    <p style="margin-left: 10px;">满<#=allGiftValue.items[n].iConsumerSpending#>件,<span>可领取<#=allGiftValue.items[n].iGiftNum#>件</span> <#if(allGiftValue.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                                    <#}#>
+                                                
+                                           
+                                            <#}#>                                  
+                                    
+                                </div>
+                                <!--全部商品促销和推广码促销优惠详情结束-->
+                      <!--全部商品促销和推广码促销赠品标题结束-->
+                      <!--全部商品促销和推广码促销赠品展示开始-->
+                      <#if(allGiftValue.allGiftProjectList&&allGiftValue.allGiftProjectList.length){#>
+                          <#for(var n=0;n<allGiftValue.allGiftProjectList.length;n++){#>
+                              <div style="margin-top:20px;">
+                                  <div class="row getGiftProductItem" style="width:1168px;"  data-iskuid="<#=allGiftValue.allGiftProjectList[n].iSKUId#>" data-icorpid="<#=allGiftValue.allGiftProjectList[n].iCorpId#>" data-iquantity="<#=allGiftValue.allGiftProjectList[n].iQuantity#>" data-fsaleprice=0 data-iproductid="<#=allGiftValue.allGiftProjectList[n].iProductId#>" data-id="<#=allGiftValue.allGiftProjectList[n].id#>">
+                                      <div class="col-xs-4">
+                                          <div class="p-img"><a href="/detail?goods_id=<#=allGiftValue.allGiftProjectList[n].iProductId#>" target="_blank"><img style="width: 80px; height: 80px;" src="<#=adjustImgSrc(allGiftValue.allGiftProjectList[n].oSKU.oProduct.fullDefaultImageUrl)#>" alt="商品图片"></a></div>
+                                          <div class="item-msg">
+                                              <div class="p-name">
+                                                  <a href="/detail?goods_id=<#allGiftValue.allGiftProjectList[n].iProductId#>" target="_blank"><em class="s-ico">赠品</em><#=allGiftValue.allGiftProjectList[n].oSKU.oProduct.cName#></a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-xs-1 p-guige" style="text-align:center;margin-left:10px;margin-top:20px;">
+                                         <#if(allGiftValue.allGiftProjectList[n].oSKU&&allGiftValue.allGiftProjectList[n].oSKU.lsSkuSpecItems){#>
+                                           <#for(var n0=0,len2=allGiftValue.allGiftProjectList[n].oSKU.lsSkuSpecItems.length;n0<len2;n0++){#>
+                                       <span class="productOSku"><#=allGiftValue.allGiftProjectList[n].oSKU.lsSkuSpecItems[n0].oSpec.cName#></span>:
+                                       <span class="productOSku"><#=allGiftValue.allGiftProjectList[n].oSKU.lsSkuSpecItems[n0].cSpecItemName#></span>
+                                       <br>
+                                               <#}#>
+                                       <#}#>
+                                      </div>
+                                      <div class="col-xs-1 p-price" style="margin-left:10px;">
+                                          <strong class="productprice">0.00</strong>                    
+                                      </div>
+                                      <div class="col-xs-2 p-quantity" style="margin-top:20px;">
+                                          <span><#=allGiftValue.allGiftProjectList[n].iQuantity#></span>
+                                      </div>
+                                      <div class="col-xs-1 p-sum" style="margin-left:20px;">
+                                          <strong class="totalPrice">0.00</strong>
+                                      </div>
+                                      <div class="col-xs-2 p-ops" style="margin-top: 22px;">
+                                          <span class="cartGiftProductDelete" style="cursor:pointer;" data-id="<#=allGiftValue.allGiftProjectList[n].id#>">删除</span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <#}#>
+                                  <#}#>
+                                      <!--全部商品促销和推广码促销赠品展示结束-->
+                                      </div>
+                                      <#}#>
+                                          <div class="cart-item-border-line"></div>
+                                          <#}#>
+                                             
+                                              <#}#>
+            <!--满赠活动推广码及全部赠品满赠结束-->
+            <#if(list.list&&list.list.length){#>
+                <#for(var i=0,len=list.list.length;i<len;i++){#>
+                    <div class="commonProduct">
+                        <#var value=list.list[i];#>
+                        <#if(value[0].lPackageId){#>
+                            <#if(value[0].oSKU.iStatus=="0"||value[0].packageValid=="0"){#>
+                                <div class="quantity-form" style="width:240px;float:right;">
+                                    <span style="float:left;margin-top:4px;">套数：</span>
+                                    <a class="commonDecrement" style="cursor:not-allowed;"></a>
+                                    <input type="text" value="<#=value[0].iPackageNum#>" class="commonQuantity" name="commcomQuantity" disabled="disabled"/>
+                                    <a class="commonIncrement" style="cursor:not-allowed;"></a>
+                                    <span class="deleteCommon" style="cursor:pointer;">删除</span>
+                                </div>
+                            <#}else{#>
+                                <div class="quantity-form" style="width:240px;float:right;">
+                                    <span style="float:left;margin-top:4px;">套数：</span>
+                                    <a class="commonDecrement"></a>
+                                    <input type="text" value="<#=value[0].iPackageNum#>" class="commonQuantity" name="commonQuantity" />
+                                    <a class="commonIncrement"></a>
+                                    <span class="deleteCommon">删除套餐</span>
+                                </div>
+                            <#}#>
+                        <#}#>
+                        <div class="row itemList" style="border: 1px solid #e6e6e6;width:1168px;">
+                            <!--赠品促销开始-->
+                            <!--判断是否有满赠促销活动,有显示活动（不是组合并且有促销活动activityId-->
+                            <#if(!value[0].lPackageId&&value[0].activityId&&value[0].giftPreferDetail){#>
+                                <div class="cart-item-header">
+                                <div class="f-txt giftIntroFirstItem">
+                                    <a style="cursor:default;width:100%;"><span class="full-icon full-gray-icon">满赠</span>
+                                    <!--没有选中时满赠活动的标题活动类型：活动名称-->
+                                    <#if(!value[0].isCheckedFlag){#>
+                                        <#if(value[0].giftPreferDetail.prefer.iGiftType==1){#>满额送：<#=value[0].giftPreferDetail.prefer.sName#><#}else if(value[0].giftPreferDetail.prefer.iGiftType==2){#>满件送：<#=value[0].giftPreferDetail.prefer.sName#><#}else if(value[0].giftPreferDetail.prefer.iGiftType==3){#>买就送：<#=value[0].giftPreferDetail.prefer.sName#><#}else{#>买A送A：<#=value[0].giftPreferDetail.prefer.sName#><#}#>
+                                            
+                                            <#}else{#>
+                                                <#if(value[0].giftPreferDetail.prefer.iGiftType==1){#>
+                                                    满额送：<#if(value[0].giftPreferDetail.item.iGiftItemType==1){#>活动商品购满<#=value[0].giftPreferDetail.item.iConsumerSpending#>元，可领取赠品<#=value[0].giftPreferDetail.item.iGiftNum#>件&gt;<#}else if(value[0].giftPreferDetail.item.iGiftItemType==2){#>活动商品购满<#=value[0].giftPreferDetail.item.iConsumerSpending#>元，可领取<#=value[0].giftPreferDetail.item.iGiftNum#>优惠券&gt;<#}else if(value[0].giftPreferDetail.item.iGiftItemType==3){#>活动商品购满<#=value[0].giftPreferDetail.item.iConsumerSpending#>元，可领取<#=value[0].giftPreferDetail.item.iGiftNum#>积分&gt;<#}else{#>活动商品购满<#=value[0].giftPreferDetail.item.iConsumerSpending#>元，可领取<#=value[0].giftPreferDetail.item.iGiftNum#>倍积分&gt;<#}#>
+                                                    <#}else if(value[0].giftPreferDetail.prefer.iGiftType==2){#>
+                                                        满件送：<#if(value[0].giftPreferDetail.item.iGiftItemType==1){#>活动商品购满<#=value[0].giftPreferDetail.item.iConsumerSpending#>件，可领取赠品<#=value[0].giftPreferDetail.item.iGiftNum#>件&gt;<#}else if(value[0].giftPreferDetail.item.iGiftItemType==2){#>活动商品购满<#=value[0].giftPreferDetail.item.iConsumerSpending#>件，可领取<#=value[0].giftPreferDetail.item.iGiftNum#>优惠券&gt;<#}else if(value[0].giftPreferDetail.item.iGiftItemType==3){#>活动商品购满<#=value[0].giftPreferDetail.item.iConsumerSpending#>件，可领取<#=value[0].giftPreferDetail.item.iGiftNum#>积分&gt;<#}else{#>活动商品购满<#=value[0].giftPreferDetail.item.iConsumerSpending#>件，可领取<#=value[0].giftPreferDetail.item.iGiftNum#>倍积分&gt;<#}#>
+                                                        <#}else if(value[0].giftPreferDetail.prefer.iGiftType==3){#>
+                                                            买就送：<#if(value[0].giftPreferDetail.item.iGiftItemType==1){#>可领取赠品<#=value[0].giftPreferDetail.item.iGiftNum#>件&gt;<#}else if(value[0].giftPreferDetail.item.iGiftItemType==2){#>可领取<#=value[0].giftPreferDetail.item.iGiftNum#>优惠券&gt;<#}else if(value[0].giftPreferDetail.item.iGiftItemType==3){#>可领取<#=value[0].giftPreferDetail.item.iGiftNum#>积分&gt;<#}else{#>可领取<#=value[0].giftPreferDetail.item.iGiftNum#>倍积分&gt;<#}#>
+                                                            <#}else{#>
+                                                                买A送A:活动商品购满<#=value[0].giftPreferDetail.item.iConsumerSpending#>件，可领取赠品<#=value[0].giftPreferDetail.item.iGiftNum#>件&gt;
+                                                                <#}#>
+                                                                    <#}#>
+                                                                        <div class="giftMorePrivilege" style="margin-left:10px;" data-show="down">更多优惠详情<b></b></div>
+                                    
+                                    </a>
+                                    
+                                    <#if(value[0].giftPreferDetail.item.isShowGiftBtn==1||value[0].giftPreferDetail.item.iGiftItemType==-1){#>
+                                       
+                                        <#if(value[0].giftPreferDetail.item.iGiftItemType==-1){#>
+                                            <a class="btn-1 ml20 viewGiftBtn" style="margin-left: 20px;" data-cartid="<#=value[0].id#>" data-iproductid="<#=value[0].iProductId#>" data-igifttype="<#=value[0].giftPreferDetail.prefer.iGiftType#>" data-iConsumerSpending="<#=value[0].giftPreferDetail.item.iConsumerSpending#>" data-giftnum="<#=value[0].giftPreferDetail.item.iGiftNum#>" <#if(value[0].giftPreferDetail.item.iGiftItemType==-1){#> data-giftactiveid="<#=value[0].giftPreferDetail.item.id#>"<#}else{#>data-giftactiveid="<#=value[0].giftPreferDetail.item.ids#>"<#}#> data-giftpromotionid="<#=value[0].giftPromotionId#>">
+                                            <#if(value[0].isValid&&value[0].isCheckedFlag){#> 
+                                            领取赠品<#}else{#>查看赠品<#}#></a>
+                                                <#}#>
+                                        <#if(value[0].giftPreferDetail.item.iGiftItemType!=-1){#>
+                                            <#if(value[0].isValid&&value[0].isCheckedFlag&&value[0].giftPreferDetail.item.iGiftItemType!=1){#>
+                                                <a class="btn-1 ml20 viewGiftBtn" style="margin-left: 20px;" data-cartid="<#=value[0].id#>" data-iproductid="<#=value[0].iProductId#>" data-igifttype="<#=value[0].giftPreferDetail.prefer.iGiftType#>" data-iConsumerSpending="<#=value[0].giftPreferDetail.item.iConsumerSpending#>" data-giftnum="<#=value[0].giftPreferDetail.item.iGiftNum#>" <#if(value[0].giftPreferDetail.item.iGiftItemType==1){#> data-giftactiveid="<#=value[0].giftPreferDetail.item.id#>"<#}else{#>data-giftactiveid="<#=value[0].giftPreferDetail.item.ids#>"<#}#> data-giftpromotionid="<#=value[0].giftPromotionId#>">查看赠品</a>
+                                                <#}else{#>
+                                            <a class="btn-1 ml20 viewGiftBtn" style="margin-left: 20px;" data-cartid="<#=value[0].id#>" data-iproductid="<#=value[0].iProductId#>" data-igifttype="<#=value[0].giftPreferDetail.prefer.iGiftType#>" data-iConsumerSpending="<#=value[0].giftPreferDetail.item.iConsumerSpending#>" data-giftnum="<#=value[0].giftPreferDetail.item.iGiftNum#>" <#if(value[0].giftPreferDetail.item.iGiftItemType==1){#> data-giftactiveid="<#=value[0].giftPreferDetail.item.id#>"<#}else{#>data-giftactiveid="<#=value[0].giftPreferDetail.item.ids#>"<#}#> data-giftpromotionid="<#=value[0].giftPromotionId#>">
+                                            <#if(value[0].isValid&&value[0].isCheckedFlag){#>
+                                                <#if(value[0].giftPreferDetail.item.iGiftItemType==1){#>
+                                            领取赠品
+                                            <#}else{#>
+                                                查看赠品
+                                                <#}#>
+                                                 <#}else{#>查看赠品<#}#></a>
+
+                                                    <#}#>
+                                            <#}#>
+
+                                                
+                                        <#}#>
+                                    
+                                </div>
+                                </div>
+                                <div class="cart-item-border-line"></div>
+                                <!--满赠优惠详情开始-->
+                                <!--<div class="giftIntroductitonMore" style="display:none;z-index:1000">更多优惠详情<b></b></div>-->
+                                <div class="cartGiftDetail">
+                                        <#for(var n=0;n<value[0].giftPreferDetail.items.length;n++){#>
+                                                <#if(n==0){#><div><#if(value[0].giftPreferDetail.prefer.iGiftType==1){#>满额送：<#=value[0].giftPreferDetail.prefer.sName#><#}else if(value[0].giftPreferDetail.prefer.iGiftType==2){#>满件送：<#=value[0].giftPreferDetail.prefer.sName#><#}else if(value[0].giftPreferDetail.prefer.iGiftType==3){#>买就送：<#=value[0].giftPreferDetail.prefer.sName#><#}else{#>买A送A：<#=value[0].giftPreferDetail.prefer.sName#><#}#><span class="endDate" style="margin-left:40px;">截止日期：<#=value[0].giftPreferDetail.prefer.dEndDate#></span></div><#}#>
+                                                <#if(value[0].giftPreferDetail.items[n].iGiftItemType==1){#>
+                                                    <p style="margin-left: 10px;"><#if(value[0].giftPreferDetail.prefer.iGiftType==3){#><#}else{#>满<#=value[0].giftPreferDetail.items[n].iConsumerSpending#><#if(value[0].giftPreferDetail.prefer.iGiftType==1){#>元,<#}else{#>件,<#}#><#}#><span>可领取赠品<#=value[0].giftPreferDetail.items[n].iGiftNum#>件,</span><#=value[0].giftPreferDetail.items[n].sgiftnames#> <#if(value[0].giftPreferDetail.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                    <#}else if(value[0].giftPreferDetail.items[n].iGiftItemType==2){#>
+                                                        <p style="margin-left: 10px;"><#if(value[0].giftPreferDetail.prefer.iGiftType==3){#><#}else{#>满<#=value[0].giftPreferDetail.items[n].iConsumerSpending#><#if(value[0].giftPreferDetail.prefer.iGiftType==1){#>元,<#}else{#>件,<#}#><#}#><span>可领取<#=value[0].giftPreferDetail.items[n].iGiftNum#>优惠券</span> <#if(value[0].giftPreferDetail.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                        <#}else if(value[0].giftPreferDetail.items[n].iGiftItemType==3){#>
+                                                            <p style="margin-left: 10px;"><#if(value[0].giftPreferDetail.prefer.iGiftType==3){#><#}else{#>满<#=value[0].giftPreferDetail.items[n].iConsumerSpending#><#if(value[0].giftPreferDetail.prefer.iGiftType==1){#>元,<#}else{#>件,<#}#><#}#><span>可领取<#=value[0].giftPreferDetail.items[n].iGiftNum#>积分</span> <#if(value[0].giftPreferDetail.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                            <#}else if(value[0].giftPreferDetail.items[n].iGiftItemType==4){#>
+                                                                <p style="margin-left: 10px;"><#if(value[0].giftPreferDetail.prefer.iGiftType==3){#><#}else{#>满<#=value[0].giftPreferDetail.items[n].iConsumerSpending#><#if(value[0].giftPreferDetail.prefer.iGiftType==1){#>元,<#}else{#>件,<#}#><#}#><span>可领取<#=value[0].giftPreferDetail.items[n].iGiftNum#>倍积分</span> <#if(value[0].giftPreferDetail.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                                <#}else{#>
+                                                                    <p style="margin-left: 10px;">满<#=value[0].giftPreferDetail.items[n].iConsumerSpending#>件,<span>可领取<#=value[0].giftPreferDetail.items[n].iGiftNum#>件</span> <#if(value[0].giftPreferDetail.items[n].icapping==1){#>上不封顶<#}#></p>
+                                                                    <#}#>
+                                                
+                                           
+                                            <#}#>
+                                                
+                                    
+                                </div>
+                                <!--满赠优惠详情结束-->
+                            
+                            <#}#>
+                            <!--赠品促销结束-->
+                            <!--已选赠品展示开始-->
+                            <#for(var m=0;m<value.length;m++){#>
+                            <#if(!value[m].lPackageId&&value[m].isGiftProduct&&value[m].isValid){#>
+                           <div class="col-xs-12 p-goods">
+                               <div class="row getGiftProductItem" style="width:1168px;"  data-iskuid="<#=value[m].iSKUId#>" data-icorpid="<#=value[m].iCorpId#>" data-iquantity="<#=value[m].iQuantity#>" data-fsaleprice=0 data-iproductid="<#=value[m].iProductId#>" data-id="<#=value[m].id#>">
+                                   <div class="col-xs-4">
+                                       <div class="p-img"><a href="/detail?goods_id=<#=value[m].iProductId#>" target="_blank"><img style="width: 80px; height: 80px;" src="<#=adjustImgSrc(value[m].oSKU.oProduct.fullDefaultImageUrl)#>" alt="商品图片"></a></div>
+                                       <div class="item-msg">
+                                           <div class="p-name">
+                                               <a href="/detail?goods_id=<#=value[m].iProductId#>" target="_blank"><em class="s-ico">赠品</em><#=value[m].oSKU.oProduct.cName#></a>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col-xs-1 p-guige" style="text-align:center;margin-left:10px;margin-top:20px;">
+                                       <#if(value[m].oSKU&&value[m].oSKU.lsSkuSpecItems){#>
+                                           <#for(var n=0,len2=value[m].oSKU.lsSkuSpecItems.length;n<len2;n++){#>
+                                       <span class="productOSku"><#=value[m].oSKU.lsSkuSpecItems[n].oSpec.cName#></span>:
+                                       <span class="productOSku"><#=value[m].oSKU.lsSkuSpecItems[n].cSpecItemName#></span>
+                                       <br>
+                                               <#}#>
+                                       <#}#>
+                                   </div>
+                                   <div class="col-xs-1 p-price" style="margin-left:10px;">
+                                       <strong class="productprice">0.00</strong>                    
+                                   </div>
+                                   <div class="col-xs-2 p-quantity" style="margin-top:20px;">
+                                       <span><#=value[m].iQuantity#></span>
+                                   </div>
+                                   <div class="col-xs-1 p-sum" style="margin-left:20px;">
+                                       <strong class="totalPrice">0.00</strong>
+                                   </div>
+                                   <div class="col-xs-2 p-ops" style="margin-top: 22px;">
+                                       <span class="cartGiftProductDelete" style="cursor:pointer;" data-id="<#=value[m].id#>">删除</span>
+                                   </div>
+                               </div>
+                           </div>
+                            <#}#>
+                            <#}#>
+                            <!--已选赠品展示结束-->
+                            <div class="col-xs-12 p-goods">
+                                <#for(var j=0,sLen=value.length;j<sLen;j++){#>
+                                    <#var svalue=value[j];#>
+                                        <#if(!svalue.isGiftProduct){#>
+                                            <#if(svalue.oSKU.iStatus=="0"||(svalue.lPackageId&&svalue.packageValid=="0")||(value[0].oSKU.iStatus=="0"&&value[0].bIsMain=="1")||(value[0].bIsMain=="0"&&value[0].packageValid=="0")){#>
+                                                <div class="row commomItem" style="width: 1168px; cursor: not-allowed; background-color: #FAFAFA">
+                                                    <#if((svalue.lPackageId&&svalue.bIsMain=="1")||(!svalue.lPackageId)){#>
+                                                        <div class="col-xs-1 p-checkbox" style="background-color:#FAFAFA;">
+                                                            <input type="checkbox" name="checkItem" data-iscombination="<#=svalue.lPackageId#>"  class="single_jdcheckbox" disabled="disabled"/>
+                                                        </div>
+                                                        <#}#>
+                                            <div class="col-xs-4">
+                                                <input type="checkbox" name="checkChildItem" data-productAttribute="<#=svalue.productAttribute#>" id="checkChildItem" <#if(svalue.isChecked){#> checked="checked"<#}#> style="display:none;" />
+                                                <div class="p-img"><a style="cursor:not-allowed;"><img style="width: 80px; height: 80px;" src="<#=adjustImgSrc(svalue.oSKU.oProduct.fullDefaultImageUrl)#>" alt="商品图片" /></a></div>
+                                                <div class="item-msg">
+                                                    <div class="p-name">
+                                                        <span style="cursor:not-allowed;color:#cbcbcb">
+                                                            <#=svalue.oSKU.oProduct.cName#>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-1 p-guige" style="text-align:center;margin-left:10px;margin-top:20px;">
+                                                <#if(svalue.oSKU&&svalue.oSKU.lsSkuSpecItems){#>
+                                                    <#for(var k=0,len1=svalue.oSKU.lsSkuSpecItems.length;k<len1;k++){#>
+                                                        <span class="productOSku" style="color:#cbcbcb"><#=svalue.oSKU.lsSkuSpecItems[k].oSpec.cName#></span>:
+                                                        <span class="productOSku" style="color:#cbcbcb"><#=svalue.oSKU.lsSkuSpecItems[k].cSpecItemName#></span>
+                                                        <br />
+                                                    <#}#>
+                                                <#}#>
+                                            </div>
+                                            <div class="col-xs-1 p-price" style="margin-left:10px;color:#cbcbcb">
+                                                <#if(svalue.productAttribute=="1"){#>
+                                                    <#if(svalue.promotion){#>
+                                                        <strong class="productprice1" name="productprice1"><#=formatMoney(svalue.fSalePrice)#></strong>
+                                                        <strong class="productprice2" name="productprice"><#=formatMoney(svalue.fNewSalePrice)#></strong>
+                                                        <a class="sales-promotion" style="text-decoration:none;">卖家促销</a>
+                                                        <#}else{#>
+                                                            <#if(svalue.lPackageId&&svalue.bIsMain=="0" &&svalue.fNewSalePrice!=svalue.fSalePrice){#>
+                                                                <strong class="productprice1" name="productprice1"><#=formatMoney(svalue.fSalePrice)#></strong>
+                                                                <strong class="productprice2" name="productprice"><#=formatMoney(svalue.fNewSalePrice)#></strong>
+                                                                <#if(svalue.fNewSalePrice<svalue.fSalePrice){#>
+                                                                    <a class="sales-promotion" style="text-decoration:none;">卖家促销</a>
+                                                                    <#}#>
+                                                             <#}else{#>
+                                                                 <#if(!(svalue.lPackageId&&svalue.bIsMain=="0" )&&svalue.isLogin===1&&svalue.fNewSalePrice!=svalue.fSalePrice){#>
+                                                                     <strong class="productprice1" name="productprice1"><#=formatMoney(svalue.fSalePrice)#></strong>
+                                                                     <strong class="productprice2" name="productprice"><#=formatMoney(svalue.fNewSalePrice)#></strong>
+                                                                     <#if(svalue.fNewSalePrice<svalue.fSalePrice){#>
+                                                                         <#if(svalue.isGiftCard=="0"){#>
+                                                                             <a class="sales-promotion" style="text-decoration:none;">卖家降价</a>
+                                                                           <#}#>
+                                                                      <#}#>
+                                                                   <#}else{#>
+                                                                       <strong class="productprice" name="productprice"><#=formatMoney(svalue.fNewSalePrice)#></strong>
+                                                                         <#}#>
+                                                                   <#}#>
+                                                               <#}#>
+                                                                           <#}else if(svalue.productAttribute=="2"){#>
+                                                <strong class="productprice" name="productprice"><#=svalue.oSKU.salePoints#>&nbsp;积分</strong>
+                                                                                                                   <#}#>
+                                            </div>
+                                            <div class="col-xs-2 p-quantity">
+                                                <div class="quantity-form">
+                                                    <a class="decrement" style="text-decoration:none;cursor:not-allowed;"></a>
+                                                    <input name="changeQuantity11" class="changeQuantity11" type="text" value="<#=svalue.iQuantity#>" disabled="disabled" style="color:#cbcbcb">
+                                                    <input type="hidden" id="iSKUId" name="iSKUId" value="<#=svalue.iSKUId#>">
+                                                    <input type="hidden" id="iCorpId" name="iCorpId" value="<#=svalue.iCorpId#>">
+                                                    <input type="hidden" id="iQuantity" name="iQuantity" value="<#=svalue.iQuantity#>">
+                                                    <input type="hidden" id="fSalePrice" name="fSalePrice" value="<#=svalue.fSalePrice#>">
+                                                    <input type="hidden" id="iProductId" name="iProductId" value="<#=svalue.iProductId#>">
+                                                    <input type="hidden" id="id" name="id" value="<#=svalue.id#>">
+                                                    <input type="hidden" id="lInventoryCount" name="lInventoryCount" value="<#=svalue.oSKU.lInventoryCount#>">
+                                                    <input type="hidden" id="iMinOrderQuantity" name="iMinOrderQuantity" value="<#=svalue.oSKU.iMinOrderQuantity#>">
+                                                    <input type="hidden" id="cSpecIds" name="cSpecIds" value="<#=svalue.oSKU.cSpecIds#>">
+                                                    <input type="hidden" id="name" name="name" value="<#=svalue.oSKU.oProduct.cName#>">
+                                                    <input type="hidden" id="iStatus" name="iStatus" value="<#=svalue.oSKU.iStatus#>">
+                                                    <input type="hidden" id="isCollection" name="isollection" value="<#=svalue.isCollection#>">
+                                                    <input type="hidden" id="sPackageUUID" name="sPackageUUID" value="<#=svalue.sPackageUUID#>">
+                                                    <input type="hidden" id="lPackageId" name="lPackageId" value="<#=svalue.lPackageId#>">
+                                                    <input type="hidden" id="bIsMain" name="bIsMain" value="<#=svalue.bIsMain#>">
+                                                    <input type="hidden" id="commonUid" name="commonUid" value="<#=svalue.commonUid#>">
+                                                    <input type="hidden" id="canPurchaseCount" name="canPurchaseCount" value="<#=svalue.canPurchaseCount#>">
+                                                    <input type="hidden" name="guid" value="<#=svalue.guid#>">
+                                                    <input type="hidden" name="packageValid" value="<#=svalue.packageValid#>">
+                                                    <input type="hidden" name="commonFirstLimitQuantity" id="commonFirstLimitQuantity" value="0">
+                                                    <input type="hidden" id="canPerPurchaseCount" name="canPerPurchaseCount" value="<#=svalue.canPerPurchaseCount#>">
+                                                    <input type="hidden" id="isGiftCard" name="isGiftCard" value="<#=svalue.isGiftCard#>">
+                                                    <input type="hidden" id="productAttribute" name="productAttribute" value="<#=svalue.productAttribute#>">
+                                                    <a class="increment" style="cursor:not-allowed;"></a>
+                                                </div>
+                                                <div class="ac ftx-03 quantity-txt"style="color:red;">已失效</div>
+                                            </div>
+                                            <div class="col-xs-1 p-sum" style="margin-left:20px;">
+                                                <div class="getClosetSingleProfuctTotalPrice">
+                                                    <#if(svalue.productAttribute=="1"){#>
+                                                    <strong class="totalPrice" name="totalPrice" style="color:#cbcbcb"><#=formatMoney(svalue.singProductTotalPrice)#></strong>
+                                                        <#}else{#>
+                                                            <strong class="totalPrice" name="totalPrice" data-integral="2"><#=svalue.singProductTotalPrice#></strong><em style="margin-left: 2px; color: #f0534c; font-weight: normal;">积分</em>
+                                                            <#}#>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-2 p-ops">
+                                                <#if(svalue.bIsMain!="1"){#>
+                                                    <span class="cart-remove" style="cursor:pointer;">删除</span><br />
+                                                <#}#>
+                                                <#if(!svalue.isCollection){#>
+                                                    <span class="cart-follow" style="cursor: pointer;margin-top: 3px;">收藏</span>
+                                                <#}else{#>
+                                                    <span class="cart-follow" style="cursor: not-allowed;margin-top: 3px;">已收藏</span>
+                                                <#}#>
+                                            </div>
+                                        </div>
+                                    <#}else{#>
+                                        <#var dataKey=(svalue.sPackageUUID?svalue.sPackageUUID+'|':'')+svalue.iSKUId;#>
+                                        <div class="row commomItem" style="width:1168px;" data-key="<#=dataKey#>">
+                                             <#if((svalue.lPackageId&&svalue.bIsMain=="1")||(!svalue.lPackageId)){#>
+                                                 <div class="col-xs-1 p-checkbox">
+                                                     <input type="checkbox" name="checkItem" data-iscombination="<#=svalue.lPackageId#>" <#if(svalue.isChecked){#> checked="checked"<#}#>  class="single_jdcheckbox">
+                                                 </div>
+                                                <#}#>
+                                    <div class="col-xs-4">
+                                                <input type="checkbox" name="checkChildItem" data-productAttribute="<#=svalue.productAttribute#>" id="checkChildItem" <#if(svalue.isChecked){#> checked="checked"<#}#> style="display:none;" />
+                                                <div class="p-img"><a href="/detail?goods_id=<#=svalue.iProductId#>" target="_blank"><img style="width: 80px; height: 80px;" src="<#=adjustImgSrc(svalue.oSKU.oProduct.fullDefaultImageUrl)#>" alt="商品图片" /></a></div>
+                                                <div class="item-msg">
+                                                    <div class="p-name">
+                                                        <a href="/detail?goods_id=<#=svalue.iProductId#>" target="_blank">
+                                                            <#=svalue.oSKU.oProduct.cName#>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    <div class="col-xs-1 p-guige" style="text-align:center;margin-left:10px;margin-top:20px;">
+                                                <#if(svalue.oSKU&&svalue.oSKU.lsSkuSpecItems){#>
+                                                    <#for(var k=0,len1=svalue.oSKU.lsSkuSpecItems.length;k<len1;k++){#>
+                                                        <span class="productOSku"><#=svalue.oSKU.lsSkuSpecItems[k].oSpec.cName#></span>:
+                                                        <span class="productOSku"><#=svalue.oSKU.lsSkuSpecItems[k].cSpecItemName#></span>
+                                                        <br />
+                                                    <#}#>
+                                                <#}#>
+                                            </div>
+                                    <div class="col-xs-1 p-price" style="margin-left:10px;">
+                                        <#if(svalue.productAttribute=="1"){#>
+                                        <#if(svalue.promotion){#>
+                                            <strong class="productprice1" name="productprice1"><#=formatMoney(svalue.fSalePrice)#></strong>
+                                            <strong class="productprice2" name="productprice"><#=formatMoney(svalue.fNewSalePrice)#></strong>
+                                            <a class="sales-promotion" style="text-decoration:none;">卖家促销</a>
+                                            <#}else{#>
+                                                <#if((svalue.lPackageId&&svalue.bIsMain=="0") &&(svalue.fNewSalePrice!=svalue.fSalePrice)){#>
+                                                    <strong class="productprice1" name="productprice1"><#=formatMoney(svalue.fSalePrice)#></strong>
+                                                    <strong class="productprice2" name="productprice"><#=formatMoney(svalue.fNewSalePrice)#></strong>
+                                                    <#if(svalue.fNewSalePrice<svalue.fSalePrice){#>
+                                                    <a class="sales-promotion" style="text-decoration:none;">卖家促销</a>
+                                                        <#}else{#> 
+                                                            
+                                                            <#}#>
+                                                    <#}else{#>
+                                                    <#if(!(svalue.lPackageId&&svalue.bIsMain=="0" )&&svalue.isLogin===1&&svalue.fNewSalePrice!=svalue.fSalePrice){#>
+                                                        <strong class="productprice1" name="productprice1"><#=formatMoney(svalue.fSalePrice)#></strong>
+                                                        <strong class="productprice2" name="productprice"><#=formatMoney(svalue.fNewSalePrice)#></strong>
+                                                         <#if(svalue.fNewSalePrice<svalue.fSalePrice){#>
+                                                             <#if(svalue.isGiftCard=="0"){#>
+                                                        <a class="sales-promotion" style="text-decoration:none;">卖家降价</a>
+                                                                 <#}#>
+                                                             <#}#>
+                                                        <#}else{#>
+                                                            <strong class="productprice" name="productprice"><#=formatMoney(svalue.fNewSalePrice)#></strong>
+                                                            <#}#>
+                                                                <#}#>
+                                                                    <#}#>
+                                            <#}else if(svalue.productAttribute=="2"){#>
+                                                <strong class="productprice" name="productprice"><#=svalue.oSKU.salePoints#>&nbsp;积分</strong>
+                                                <#}#>
+                                    </div>
+
+                                    <div class="col-xs-2 p-quantity">
+                                                <div class="quantity-form">
+                                                    <button class="decrement" <#if(svalue.iQuantity<2){#> style="background-position: 0px 0;cursor: not-allowed;"<#}#>></button>
+                                                    <input name="changeQuantity11" class="changeQuantity11" type="text" value="<#=svalue.iQuantity#>">
+                                                    <input type="hidden" id="iSKUId" name="iSKUId" value="<#=svalue.iSKUId#>">
+                                                    <input type="hidden" id="iCorpId" name="iCorpId" value="<#=svalue.iCorpId#>">
+                                                    <input type="hidden" id="iQuantity" name="iQuantity" value="<#=svalue.iQuantity#>">
+                                                    <input type="hidden" id="fSalePrice" name="fSalePrice" value="<#=svalue.fSalePrice#>">
+                                                    <input type="hidden" id="iProductId" name="iProductId" value="<#=svalue.iProductId#>">
+                                                    <input type="hidden" id="id" name="id" value="<#=svalue.id#>">
+                                                    <input type="hidden" id="lInventoryCount" name="lInventoryCount" value="<#=svalue.oSKU.lInventoryCount#>">
+                                                    <input type="hidden" id="iMinOrderQuantity" name="iMinOrderQuantity" value="<#=svalue.oSKU.iMinOrderQuantity#>">
+                                                    <input type="hidden" id="cSpecIds" name="cSpecIds" value="<#=svalue.oSKU.cSpecIds#>">
+                                                    <input type="hidden" id="name" name="name" value="<#=svalue.oSKU.oProduct.cName#>">
+                                                    <input type="hidden" id="iStatus" name="iStatus" value="<#=svalue.oSKU.iStatus#>">
+                                                    <input type="hidden" id="isCollection" name="isollection" value="<#=svalue.isCollection#>">
+                                                    <input type="hidden" id="sPackageUUID" name="sPackageUUID" value="<#=svalue.sPackageUUID#>">
+                                                    <input type="hidden" id="lPackageId" name="lPackageId" value="<#=svalue.lPackageId#>">
+                                                    <input type="hidden" id="bIsMain" name="bIsMain" value="<#=svalue.bIsMain#>">
+                                                    <input type="hidden" id="commonUid" name="commonUid" value="<#=svalue.commonUid#>">
+                                                    <input type="hidden" id="canPurchaseCount" name="canPurchaseCount" value="<#=svalue.canPurchaseCount#>">
+                                                    <input type="hidden" name="guid" id="guid" value="<#=svalue.guid#>">
+                                                    <input type="hidden" name="packageValid" id="packageValid" value="<#=svalue.packageValid#>">
+                                                    <input type="hidden" name="commonFirstLimitQuantity" id="commonFirstLimitQuantity" value="0">
+                                                    <input type="hidden" id="canPerPurchaseCount" name="canPerPurchaseCount" value="<#=svalue.canPerPurchaseCount#>">
+                                                    <input type="hidden" id="isGiftCard" name="isGiftCard" value="<#=svalue.isGiftCard#>">
+                                                    <input type="hidden" id="productAttribute" name="productAttribute" value="<#=svalue.productAttribute#>">
+                                                    <button class="increment" <#if(svalue.iQuantity<svalue.oSKU.lInventoryCount){#><#}else{#> style="background-position: -30px 0;cursor: not-allowed;"<#}#>></button>
+                                                </div>
+                                                <div class="ac ftx-03 quantity-txt"><#=svalue.inventoryCountText#></div>
+                                         <div class="ac ftx-03 quantity-txt" name="canPurchaseMsg"><#=svalue.limitCountTip#></div>
+                                          <div class="ac ftx-03 quantity-txt" name="canPurchaseMsg"><#=svalue.canPurchaseTip#></div>
+                                                   
+                                            </div>
+                                    <div class="col-xs-1 p-sum" style="margin-left:20px;">
+                                                <div class="getClosetSingleProfuctTotalPrice" style="width:100%;">
+                                                    <#if(svalue.productAttribute=="1"){#>
+                                                    <strong class="totalPrice" name="totalPrice" data-integral="1"><#=formatMoney(svalue.singProductTotalPrice)#></strong>
+                                                        <#}else if(svalue.productAttribute=="2"){#>
+                                                             <strong class="totalPrice" name="totalPrice" data-integral="2"><#=svalue.singProductTotalPrice#></strong><em style="margin-left: 2px; color: #f0534c; font-weight: normal;">积分</em>
+                                                            <#}#>
+                                                </div>
+                                            </div>
+                                    <div class="col-xs-2 p-ops">
+                                                <#if(svalue.bIsMain!="1"){#>
+                                                    <span class="cart-remove" style="cursor:pointer;">删除</span><br />
+                                                <#}#>
+                                                <#if(!svalue.isCollection){#>
+                                                    <span class="cart-follow" style="cursor:pointer;margin-top:3px;">收藏</span>
+                                                <#}else{#>
+                                                    <span class="cart-follow" style="cursor:not-allowed;margin-top:3px;">已收藏</span>
+                                                <#}#>
+                                            </div>
+                                        </div>
+                                    <#}#>
+                                        <#}#>
+                                <#}#>
+                            </div>
+                        </div>
+                    </div>
+                <#}#>
+            <#}else{#>
+                <div class="item-single  item-item" style="height:100px;text-align:center;">
+                    <span style="margin-top:30px;">啊偶，购物车里没有商品</span>
+                </div>
+            <#}#>
+        </script>
+        <!--满赠赠品弹层开始-->
+        <div class="gift-box" style="display:none;">
+			<input type="hidden"  value="1">
+        	<div class="gift-mt">
+				可领取最多<em class="maxGiftNum">0</em>件，已选<em class="selectGiftNum">0</em>件
+				<strong class="gift-close">X</strong>
+			</div>
+        	<div class="gift-goods">        		
+        	</div>
+        	<div class="op-btns ac">
+                <a class="btn-9 ml10 del return-gift">返回</a>
+                <a class="giftOkBtn">确定</a>
+                <a class="btn-9 ml10 del cancel-gift">取消</a>
+            </div>
+        </div>
+        <!--满赠商品弹出层模板开始-->
+         <script id="getGiftLists" type="text/html">
+             <#if(giftList&&giftList.length){#>
+                 <#for(var i=0,len=giftList.length;i<len;i++){#>
+                  <#var value=giftList[i];#>
+                      <#if(value.item.iGiftItemType==-1){#>
+                          <!--满A送A-->
+                          <div>满<#=value.item.iConsumerSpending#>件送<#=value.item.iGiftNum#>件</div>
+                          <#}else if(value.iGiftType==1){#>
+                              <div>满<#=value.item.iConsumerSpending#>元送<#=value.item.iGiftNum#>件</div>
+                              <#}else if(value.iGiftType==2){#>
+                                  <div>满<#=value.item.iConsumerSpending#>件送<#=value.item.iGiftNum#>件</div>
+                                  <#}else if(value.iGiftType==3){#>
+                                      <div>买就送<#=value.item.iGiftNum#>件</div>
+                                      <#}#>
+                      
+                      <#for(var m=0;m<giftList[i].productList.length;m++){#>
+                          <#for(var n=0;n<giftList[i].productList[m].lsProductSkus.length;n++){#>
+                              <#var hasInventory=giftList[i].productList[m].lsProductSkus[n].lInventoryCount>0;#>
+                 <div class="item-gift" <#if(!hasInventory){#>style="opacity:0.55;pointer-events:none"<#}#>>
+                    <div class="gift-checkbox">
+                        <div class="gift-cart-checkbox">
+                            <input type="checkbox" name="gift-checkbox-input"  class="gift-checkbox-input" <#if(!hasInventory){#>disabled="disabled"<#}#> <#if(giftList[i].productList[m].lsProductSkus[n].isChecked){#> checked="checked"<#}#> />
+                        </div>
+                    </div>
+                    <div class="p-img">
+                        <a href="/detail?goods_id=<#=giftList[i].productList[m].id#>" target="_blank">
+                            <img  src="<#=adjustImgSrc(giftList[i].productList[m].imgUrl)#>">
+                        </a>
+                    </div>
+                    <div class="p-msg">
+                        <div class="p-name">
+                            <a href="/detail?goods_id=<#=giftList[i].productList[m].id#>" target="_blank"><#=giftList[i].productList[m].cName#></a>
+                            <span class="num">×1</span>
+                        </div>
+                        <div class="p-sku" data-skuid="<#=giftList[i].productList[m].lsProductSkus[n].id#>">
+                            <a><#=giftList[i].productList[m].lsProductSkus[n].skuName#></a>
+                        </div>
+                        <div class="gift-price">
+                            <strong><em>￥0.00</em></strong>
+                        </div>
+                        <!--查看赠品不显示，领取赠品显示-->
+                        <#if(giftList[0].isGetGiftProduct){#>
+                        <div id="gift-skus-select" class="gift-skus-select">
+                            <ul>
+                                <li class="gift-quantityItem">
+                                    <span class="gift-quantity">数量：</span>
+                                    <div class="quantity_right">
+                                        <button class="quantityReduce giftQuantityReduce" <#if(giftList[i].productList[m].lsProductSkus[n].lInventoryCount<2){#>disabled<#}#>>-</button>
+                                        <input id="iQuantity" type="text" class="tb-text gift-number" data-inventorycount="<#=giftList[i].productList[m].lsProductSkus[n].lInventoryCount#>" data-productid="<#=giftList[i].productList[m].id#>" <#if(giftList[i].productList[m].lsProductSkus[n].isChecked){#>value="<#=giftList[i].productList[m].lsProductSkus[n].selectQuantity#>""<#}else{#> value="1"<#}#> <#if(giftList[i].productList[m].lsProductSkus[n].lInventoryCount<1){#>disabled<#}#>>
+                                        <button class="quantityAdd giftQuantityAdd" <#if(giftList[i].productList[m].lsProductSkus[n].lInventoryCount<2){#>disabled<#}#>>+</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                            <#}#>
+                    </div>
+                </div>
+                              <#}#>
+<div class="cart-item-border-line"></div>
+                          <#}#>
+                 <#}#>
+                 <#}else{#>
+                     <div style="margin-top: 250px; width: 100%; text-align: center;">没有赠品,请从新刷新一下试试哦</div>
+            <#}#>
+         </script>
+        <!--满赠商品弹出层模板结束-->
+        <!--满赠赠品弹层结束-->
+    </div>
+    <script src="jquery/jquery-1.11.3.js" type="text/javascript"></script>
+<script src="js/template-native-debug.js" type="text/javascript"></script>
+<script src="js/cube.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/topbar_member_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/topbar_subnav_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/logo_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/search_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/navigation_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/cart_box_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/online_customer_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/category_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/help_center_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/friend_links_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/site_info_L.js" type="text/javascript"></script>
+<script src="templates/system/red/pages/js/cart_L.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

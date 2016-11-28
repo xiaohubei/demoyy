@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "我的订单");%></title>
+    <%=includeLinks(view, ["../../css/myorder_L.less","@root/js/date/need/laydate.css","@root/js/date/skins/default/laydate.css"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="MyEvaluationController">
+    <header></header>
+    <div class="row">
+        <div class="col-xs-2">
+            <member_nav></member_nav>
+        </div>
+        <div class="col-xs-10 main myEvaluation">
+          <div class="main_title">
+                <div class="col-xs-6 mymessage">我的订单</div>
+            </div>
+            <div class="main_tabs">
+                 <ul id="tabSwitch">
+                  <li class="tabbg tabactive" id="alloders"  data-status="">
+                    <span>全部</span>
+                    (<span id="allList">0</span>)
+                  </li>
+                  <li class="tabbg" id="payment"  data-status="PAYMONEY">
+                    <span>待付款</span>
+                    (<span id="waitPayment">0</span>)
+                  </li>
+                  <li class="tabbg" id="sendproduct"  data-status="DELIVERGOODS">
+                    <span>待发货</span>
+                    (<span id="waitDeliver">0</span>)
+                  </li>
+                  <li class="tabbg" id="recivedproduct"  data-status="TAKEDELIVERY">
+                    <span>待收货</span>
+                    (<span id="waitRecive">0</span>)
+                  </li>
+                  <li class="tabbg" id="goremark" data-status="UNREMARK">
+                      <span>待评价</span>
+                    (<span id="endOrder">0</span>)
+                  </li>
+                </ul>
+            </div>
+
+            <div class="main_search col-xs-12">
+                <form class="form-horizontal">
+                  <div class=" form-group col-xs-6">
+                    <label class="col-sm-3  control-label" for="searchOrderNum">订单编号</label>
+                    <div class="col-sm-9 p-0">
+                      <input type="text" class="form-control" id="searchOrderNum" placeholder="订单编号">
+                    </div>
+                  </div>
+                  <div class=" form-group col-xs-6">
+                    <label class="col-sm-3  control-label" for="productname">商品名</label>
+                    <div class="col-sm-9 p-0">
+                      <input type="text" class="form-control" id="productname" placeholder="商品名">
+                    </div>
+                  </div>
+                  <div class=" form-group col-xs-6">
+                    <label class="col-sm-3  control-label" for="dealdata">成交日期</label>
+                    <div class="col-sm-9 p-0">
+                      <input class="form-control ordernum laydate-icon" id="startDate" placeholder="开始日期" onClick="laydate({istime:true,elem:'#startDate',format:'YYYY-MM-DD'})"><span style="float:left; margin-top: 5px;">&nbsp-&nbsp</span>
+                      <input class="form-control ordernum laydate-icon" id="endDate" placeholder="结束日期" onClick="laydate({istime:true,elem:'#endDate',format:'YYYY-MM-DD'})">
+                    </div>
+                  </div>
+                  <div class=" form-group col-xs-6">
+                    <label class="col-sm-3  control-label" for="receiver">收货人</label>
+                    <div class="col-sm-9 p-0">
+                      <input type="text" class="form-control" id="receiver" placeholder="收货人">
+                    </div>
+                  </div>
+                </form>
+                <a class="btn btn-danger m-r-5 ordersearch"  id="ordersearch">搜索</a>
+            </div>
+            <div class="main_btn col-xs-12">
+                <div class="col-xs-4 m-t-20 p-0">
+                    <div class="col-xs-4 p-0">
+                        <div class="checkbox">
+                          <label class="">
+                            <input type="checkbox"id="checkAll" name="checkAll"> 全 选
+                          </label>
+                        </div>
+                    </div>
+                    <!-- <div class="col-xs-4 p-0">
+                        <a href="javascript:void(0);" class="btn btn-default" id="batchPayment">合并付款</a>
+                    </div> -->
+                    <div class="col-xs-4 p-0" >
+                        <a href="javascript:void(0);" class="btn btn-default"  id="batchConfirm">批量确认收货</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-0 col-xs-12" id="orderList"></div>
+            <div class="pagenation" id="pagenation"></div>
+        </div>
+    </div>
+    <footer></footer>
+    </div>
+    <%=includeScripts(view, ["@root/jquery/jquery.page.js","@root/bootstrap/js/bootstrap.js","@root/js/modal.js","../../js/myorder_L.js","@root/js/date/laydate.min.js"]);%>
+      <script id="orderListTpl" type="text/html">
+          <table class="table table-bordered table-hover table-striped">
+              <thead>
+                    <tr>
+                        <th colspan="2">商品</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th>商品操作</th>
+                        <th>实付金额</th>
+                        <th>订单状态</th>
+                        <th>操作</th>
+                    </tr>
+              </thead>
+              <tbody>
+                  <#for(var i=0;i<orderList.length;i++){#>
+                      <#var value1=orderList[i];#>
+                      <#for(var j=0;j<value1.oOrderDetails.length;j++){#>
+                        <#var value=value1.oOrderDetails[j];#>
+                        <!--待付款-->
+                        <#if(value1.cNextStatus == 'PAYMONEY'){#>
+                          <# if(j == 0){#>
+                          <tr style="background:#f5f5f5">
+                              <td colspan="8"  class="orderheaderinfo" >
+                                <input type="checkbox" name="checkItem"  class="checkItem" data-cOrderNo="<#=value1.cOrderNo#>"  data-status="<#=value1.cNextStatus#>"/>
+                                      <time>下单时间:<span><#=value1.dOrderDate#></span></time>
+                                      <span class="orderheader_num"订单编号:<span><#=value1.cOrderNo#></span>
+                              </td>
+                          </tr>
+                          <#}#>
+                          <tr>
+                            <td width="112">
+                              <a href="/detail?goods_id=<#=value.iProductId#>" target="_blank"><img style="width:100px; height:100px;" src="<#=adjustImgSrc(value.DefaultImage)#>" alt="商品图片">
+                              </a>
+                            </td>
+                            <td width="260px">
+                              <p><#=value.cProductName#></p>
+                              <p><#=value.cSpecDescription#></p>
+                              </td>
+                            
+                            <# if(value.productAttribute == 2){#>
+                            	<td  class="textright"><#=value.salePoints#>积分</td>
+                            <#}else{#>
+                            	<td  class="textright"><#=value.fSalePrice.toFixed(2)#></td>
+                            <#}#>
+                            <td><#=value.iQuantity#></td>
+                            <td><span><a href="myreturn?detailid=<#=value.id#>"></a></span></td>
+                            <# if(j == 0){#>
+                                <# if(value.productAttribute == 2){#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.pointNum#>积分</td>
+                                <#}else{#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.fPayMoney.toFixed(2)#></td>
+                                <#}#>
+                                <td rowspan=<#=value1.oOrderDetails.length#>><#=value1.cNextStatusName#></td>
+                                <td rowspan=<#=value1.oOrderDetails.length#> style="text-align:center">
+                                    <div><a class="btn-pay" href="../submit_message?order_id=<#=value.cOrderNo#>" target="_blank">付款</a></div>
+                                    <div><a href="orderremark?order_id=<#=value.cOrderNo#>"  target="_blank">订单备注</a></div>
+                                    <div class="closeOrder" data-cOrderNo="<#=value1.cOrderNo#>"><a href="javascript:;">取消订单</a></div>
+                                    <div><a href="orderdetail?orderId=<#=value.cOrderNo#>" target="_blank">详情</a></div>
+                                </td>
+                            <#}#>
+                          </tr>
+
+                        <!--待发货-->
+                        <#}else if(value1.cNextStatus == 'DELIVERGOODS'){#>
+                          <# if(j == 0){#>
+                          <tr style="background:#f5f5f5">
+                              <td colspan="8"  class="orderheaderinfo" >
+                                <input type="checkbox" name="checkItem"  class="checkItem" data-cOrderNo="<#=value1.cOrderNo#>"  data-status="<#=value1.cNextStatus#>"/>
+                                      <time>下单时间:<span><#=value1.dOrderDate#></span></time>
+                                      <span class="orderheader_num"订单编号:<span><#=value1.cOrderNo#></span>
+                              </td>
+                          </tr>
+                          <#}#>
+                          <tr>
+                            <td width="112"><a href="/detail?goods_id=<#=value.iProductId#>" target="_blank"><img style="width:100px; height:100px;" src="<#=adjustImgSrc(value.DefaultImage)#>" alt="商品图片">
+                              </a></td>
+                            <td width="260px"><p><#=value.cProductName#></p>
+                              <p><#=value.cSpecDescription#></p></td>
+                            <# if(value.productAttribute == 2){#>
+                            	<td  class="textright"><#=value.salePoints#>积分</td>
+                            <#}else{#>
+                            	<td  class="textright"><#=value.fSalePrice.toFixed(2)#></td>
+                            <#}#>
+                            <td><#=value.iQuantity#></td>
+							   <td>
+							      <div><span><#=value.cSaleReturnStatusName#></span></div>
+              						<# if(value.cSaleReturnStatus && value.cSaleReturnStatus != ""){#>
+		                                <# if(value.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'){ #>
+		                                    <div style="margin-top:5px;"><a class="returngood" data-detailId="<#=value.id#>"  data-cOrderNo='<#=value1.cOrderNo#>'>请退货</a></div>
+		                                <#}else{#>
+		                                    <div style="margin-top:5px;"><a href="return_detail?iDetailId=<#=value.id#>"  target="_blank">详情</a></div>
+		                                <#}#>
+          							<#}else{#>
+                                		<#if(!value.isGiftCard && value1.cOrderPayType != "FIRSTDELIVER" && value.productAttribute !== 2){#>
+                                      <span><a href="myreturn?detailid=<#=value.id#>" target="_blank">退款申请</a></span>
+                            			<#}#>
+          							<#}#>
+								</td>
+                            <# if(j == 0){#>
+                                <# if(value.productAttribute == 2){#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.pointNum#>积分</td>
+                                <#}else{#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.fPayMoney.toFixed(2)#></td>
+                                <#}#>
+                                <td rowspan=<#=value1.oOrderDetails.length#>><#=value1.cNextStatusName#></td>
+                                <td rowspan=<#=value1.oOrderDetails.length#> style="text-align:center">
+                                	<# if(value1.cOrderPayType == "FIRSTDELIVER" ){#>
+                                    	<div class="closeOrder" data-cOrderNo="<#=value1.cOrderNo#>"><a href="javascript:;">取消订单</a></div>
+                                	<# }#>
+                                    <div><a href="orderremark?order_id=<#=value.cOrderNo#>"  target="_blank">订单备注</a></div>
+                                    <div><a href="orderdetail?orderId=<#=value.cOrderNo#>" target="_blank">详情</a></div>
+                                </td>
+                              <#}#>
+                          </tr>
+
+                        <!--待收货-->
+                        <#}else if(value1.cNextStatus == 'TAKEDELIVERY'){#>
+                          <# if(j == 0){#>
+                          <tr style="background:#f5f5f5">
+                              <td colspan="8"  class="orderheaderinfo" >
+                                <input type="checkbox" name="checkItem"  class="checkItem" data-cOrderNo="<#=value1.cOrderNo#>"  data-status="<#=value1.cNextStatus#>"/>
+                                      <time>下单时间:<span><#=value1.dOrderDate#></span></time>
+                                      <span class="orderheader_num"订单编号:<span><#=value1.cOrderNo#></span>
+                              </td>
+                          </tr>
+                          <#}#>
+                          <tr>
+                            <td width="112"><a href="/detail?goods_id=<#=value.iProductId#>" target="_blank"><img style="width:100px; height:100px;" src="<#=adjustImgSrc(value.DefaultImage)#>" alt="商品图片">
+                              </a></td>
+                            <td width="260px"><p><#=value.cProductName#></p>
+                              <p><#=value.cSpecDescription#></p></td>
+                            <# if(value.productAttribute == 2){#>
+                            	<td  class="textright"><#=value.salePoints#>积分</td>
+                            <#}else{#>
+                            	<td  class="textright"><#=value.fSalePrice.toFixed(2)#></td>
+                            <#}#>
+                            <td><#=value.iQuantity#></td>
+							<td><div><span><#=value.cSaleReturnStatusName#></span></div>
+							<# if(value.cSaleReturnStatus && value.cSaleReturnStatus != ""){#>
+
+                        		<!--确认收货-->
+                                <# if(value.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'){ #>
+                                  <div style="margin-top:5px;"><a class="returngood" data-detailId="<#=value.id#>"  data-cOrderNo='<#=value1.cOrderNo#>' >请退货</a></div>
+                                <#}else{#>
+                                  <div style="margin-top:5px;"><a href="return_detail?iDetailId=<#=value.id#>"  target="_blank">详情</a></div>
+                                <#}#>
+                            <#}else{#>
+      								<#if(!value.isGiftCard && value1.cOrderPayType == "FIRSTPAY" && value.productAttribute !== 2){#>
+                                <span><a href="myreturn?detailid=<#=value.id#>" target="_blank">退款申请</a></span>
+      								<#}#>
+                            <#}#>
+							</td>
+                            <# if(j == 0){#>
+                                <# if(value.productAttribute == 2){#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.pointNum#>积分</td>
+                                <#}else{#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.fPayMoney.toFixed(2)#></td>
+                                <#}#>
+                                <td rowspan=<#=value1.oOrderDetails.length#>><#=value1.cNextStatusName#></td>
+                                <td rowspan=<#=value1.oOrderDetails.length#> style="text-align:center">
+                                  <div class="confrimOrder" data-cOrderNo="<#=value1.cOrderNo#>"><a>确认收货</a></div>
+                                	<# if(!value.isGiftCard){#>
+                                		<div><a href="searchexpress?order_id=<#=value.cOrderNo#>" target="_blank">查看物流</a></div>
+                                	<# }#>
+                                    <div><a href="orderdetail?orderId=<#=value.cOrderNo#>" target="_blank">详情</a></div>
+                                </td>
+                              <#}#>
+                          </tr>
+
+                        <!--待评价-->
+                        <#}else if(value1.cNextStatus == 'UNREMARK'){#>
+                          <# if(j == 0){#>
+                          <tr style="background:#f5f5f5">
+                              <td colspan="8"  class="orderheaderinfo" >
+                                <input type="checkbox" name="checkItem"  class="checkItem" data-cOrderNo="<#=value1.cOrderNo#>"  data-status="<#=value1.cNextStatus#>"/>
+                                      <time>下单时间:<span><#=value1.dOrderDate#></span></time>
+                                      <span class="orderheader_num"订单编号:<span><#=value1.cOrderNo#></span>
+                              </td>
+                          </tr>
+                          <#}#>
+                          <tr>
+                            <td width="112"><a href="/detail?goods_id=<#=value.iProductId#>" target="_blank"><img style="width:100px; height:100px;" src="<#=adjustImgSrc(value.DefaultImage)#>" alt="商品图片">
+                              </a></td>
+                            <td width="260px"><p><#=value.cProductName#></p>
+                              <p><#=value.cSpecDescription#></p></td>
+                            
+                            <# if(value.productAttribute == 2){#>
+                            	<td  class="textright"><#=value.salePoints#>积分</td>
+                            <#}else{#>
+                            	<td  class="textright"><#=value.fSalePrice.toFixed(2)#></td>
+                            <#}#>
+                            <td><#=value.iQuantity#></td>
+                            <td>
+							   <#if(!value.isGiftCard  && value.productAttribute !== 2){#>
+                                <span><a href="myreturn?detailid=<#=value.id#>" target="_blank">退款申请</a></span>
+								<#}#>
+							</td>
+                            <# if(j == 0){#>
+                                <# if(value.productAttribute == 2){#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.pointNum#>积分</td>
+                                <#}else{#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.fPayMoney.toFixed(2)#></td>
+                                <#}#>
+                                <td rowspan=<#=value1.oOrderDetails.length#>><#=value1.cNextStatusName#></td>
+                                <td rowspan=<#=value1.oOrderDetails.length#> style="text-align:center">
+                                  <div><a href="orderremark?order_id=<#=value.cOrderNo#>"  target="_blank">订单备注</a></div>
+                                	<# if(!value.isGiftCard){#>
+                                		<div><a href="searchexpress?order_id=<#=value.cOrderNo#>" target="_blank">查看物流</a></div>
+                                	<# }#>
+                                  <div><a href="orderdetail?orderId=<#=value.cOrderNo#>" target="_blank">详情</a></div>
+                                </td>
+                              <#}#>
+                          </tr>
+                        <#}else if(value1.cNextStatus == 'ENDORDER'){#>
+                          <# if(j == 0){#>
+                            <tr style="background:#f5f5f5">
+                                <td colspan="8"  class="orderheaderinfo" >
+                                  <input type="checkbox" name="checkItem"  class="checkItem" data-cOrderNo="<#=value1.cOrderNo#>"  data-status="<#=value1.cNextStatus#>"/>
+                                      <time>下单时间:<span><#=value1.dOrderDate#></span></time>
+                                      <span class="orderheader_num"订单编号:<span><#=value1.cOrderNo#></span>
+                                </td>
+                            </tr>
+                          <#}#>
+                            <tr>
+                              <td width="112"><a href="/detail?goods_id=<#=value.iProductId#>" target="_blank"><img style="width:100px; height:100px;" src="<#=adjustImgSrc(value.DefaultImage)#>" alt="商品图片">
+                              </a></td>
+                              <td width="260px"><p><#=value.cProductName#></p>
+                              <p><#=value.cSpecDescription#></p></td>
+                              
+                            <# if(value.productAttribute == 2){#>
+                            	<td  class="textright"><#=value.salePoints#>积分</td>
+                            <#}else{#>
+                            	<td  class="textright"><#=value.fSalePrice.toFixed(2)#></td>
+                            <#}#>
+                              <td><#=value.iQuantity#></td>
+                              <td>
+			                     <div><span ><#=value.cSaleReturnStatusName#></span></div>
+								 <#if(value.iCommentId==0 ){#>
+								  <div><a href="myevaluation?order_id=<#=value.cOrderNo#>" target="_blank">立即评论</a></div>
+								 <#}else{#>
+								  <div><span style="color:#ADAAAA;">已评论</span></div>
+								<#}#>
+							    <#if(value.cSaleReturnStatus && value.cSaleReturnStatus!=""){#>
+						        	<# if(value.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'){ #>
+                                        <div style="margin-top:5px;"><a class="returngood" data-detailId="<#=value.id#>"  data-cOrderNo='<#=value1.cOrderNo#>'>请退货</a></div>
+								    <#}#> 
+                                    <div style="margin-top:5px;"><a href="return_detail?iDetailId=<#=value.id#>"  target="_blank">详情</a></div>
+								<#}else{#>
+									<#if(!value.isGiftCard  && value.productAttribute !== 2){#>
+									  <div>
+                                <span><a href="myreturn?detailid=<#=value.id#>" target="_blank">退款申请</a></span>
+                                </div>
+									<#}#> 
+								  <#}#>
+                              </td>
+                              <# if(j == 0){#>
+                                <# if(value.productAttribute == 2){#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.pointNum#>积分</td>
+                                <#}else{#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.fPayMoney.toFixed(2)#></td>
+                                <#}#>
+                                <td rowspan=<#=value1.oOrderDetails.length#>>已完成</td>
+                                <td rowspan=<#=value1.oOrderDetails.length#> style="text-align:center">
+                                	<# if(!value.isGiftCard){#>
+                                		<div><a href="searchexpress?order_id=<#=value.cOrderNo#>" target="_blank">查看物流</a></div>
+                                	<# }#>
+                                    <div><a href="orderdetail?orderId=<#=value.cOrderNo#>" target="_blank">详情</a></div>
+                                </td>
+                              <#}#>
+                            </tr>
+                        <#}else {#>
+                          <# if(j == 0){#>
+                          <tr style="background:#f5f5f5">
+                              <td colspan="8" class="orderheaderinfo" >
+                                <input type="checkbox" name="checkItem"  class="checkItem" data-cOrderNo="<#=value1.cOrderNo#>"  data-status="<#=value1.cNextStatus#>"/>
+                                      <time>下单时间:<span><#=value1.dOrderDate#></span></time>
+                                      <span class="orderheader_num"订单编号:<span><#=value1.cOrderNo#></span>
+                              </td>
+                          </tr>
+                          <#}#>
+                          <tr>
+                            <td width="112">
+                              <a href="/detail?goods_id=<#=value.iProductId#>" target="_blank"><img style="width:100px; height:100px;" src="<#=adjustImgSrc(value.DefaultImage)#>" alt="商品图片">
+                              </a>
+                            </td>
+                            <td width="260px"><p><#=value.cProductName#></p>
+                              <p><#=value.cSpecDescription#></p></td>
+                            
+                            <# if(value.productAttribute == 2){#>
+                            	<td  class="textright"><#=value.salePoints#>积分</td>
+                            <#}else{#>
+                            	<td  class="textright"><#=value.fSalePrice.toFixed(2)#></td>
+                            <#}#>
+                            <td><#=value.iQuantity#></td>
+                            <td><span><a href="myreturn?detailid=<#=value.id#>" target="_blank"></a></span></td>
+                            <# if(j == 0){#>
+                                <# if(value.productAttribute == 2){#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.pointNum#>积分</td>
+                                <#}else{#>
+                                    <td class="textright" rowspan=<#=value1.oOrderDetails.length#>><#=value1.fPayMoney.toFixed(2)#></td>
+                                <#}#>
+                                <td rowspan=<#=value1.oOrderDetails.length#>><#=value1.cNextStatusName#></td>
+                                <td rowspan=<#=value1.oOrderDetails.length#> style="text-align:center">
+                                </td>
+                            <#}#>
+                          </tr>
+                        <#}#>
+                      <#}#>
+                  <#}#>
+              </tbody>
+          </table>
+      </script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

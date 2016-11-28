@@ -1,0 +1,70 @@
+.red-color{
+  color:red;
+}
+.red-bg{
+  background:#EF524D;
+  color:#fff;
+  padding:3px 6px;
+  margin-left:3px;
+  font-weight:bold;
+  cursor:pointer;
+  border-radius: 5px;
+}
+.red-bg:hover{
+	color:#fff;
+}
+.colorgray{
+  color:gray;
+  margin-left:5px;
+}
+.myStorageCard{
+  padding-top:20px;
+}
+.myStorageCard .tab-content{
+	float: left;
+	width: 100%;
+}
+.storagecard-top{
+    border: 1px solid #dfdfdf;
+    margin: 10px auto;
+    float: left;
+    width: 100%;
+}
+.storagecard-top .title{
+  height: 45px;
+  line-height: 45px;
+  background: #fafafa;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.storagecard-top .left-con, .storagecard-top .right-con {
+  padding: 15px;
+  padding-left: 60px;
+}
+.main_tabs{
+  float:left;
+}
+.search{
+  float:right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 48px;
+  line-height: 48px;
+}
+.search input.form-control{
+	width: 85% !important;
+}
+.main_tabs a{
+  display:inline-block;
+  height:48px;
+  min-width:100px;
+}
+
+th,td{
+	text-align: center;
+}
+
+.p-0{
+	padding: 0;
+}
+

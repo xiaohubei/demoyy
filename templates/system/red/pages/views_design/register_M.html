@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+    <%=includeLinks(view, ["../css/register_M.less"]);%>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="register" class="page no-tabbar navbar-fixed" data-controller="RegisterViewController">
+            <div class="navbar card-navbar no-after" style="background-color: #DF3327;">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#">
+                            <i class="icon icon-backwhite registerReturn"></i>
+                        </a>
+                    </div>
+                    <div class="center">注册</div>
+                    <div class="right">
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <form id="registerForm" class="list-block store-data m-t-10">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-media"><i class="icon icon-r-tel"></i></div>
+                                    <div class="item-input">
+                                        <input type="text" id="registerPhoneNumber" placeholder="请输入手机号码">
+                                    </div>
+                                    <div class="item-after "><a href="#" class="messageSendBtn" id="registerMessageSend">获取验证码</a></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-media"><i class="icon icon-r-code"></i></div>
+                                    <div class="item-input">
+                                        <input type="text" id="registerMessageCode" placeholder="请输入短信中的验证码">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-media"><i class="icon icon-r-referrer"></i></div>
+                                    <div class="item-input">
+                                        <input type="text" id="registerReferrer" placeholder="请输入推荐人的手机号">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-media"><i class="icon icon-r-pwd"></i></div>
+                                    <div class="item-input">
+                                        <input type="password" id="registerPassword" placeholder="请输入6-18位密码">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+                <p class="register-tip btn-registerServerText">注册即表示已接受<a href="#" class="color-orange">商城相关服务条款</a></p>
+                <div class="content-block m-t-15 p-0" id="registerBtn">
+                    <div class="button new-button ">注册</div>
+                </div>
+            </div>
+            <script type="text/template7" id="agreeMentTpl">
+                <div class="page no-toolbar no-tabbar">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="link btn-back"><i class="icon icon-back-gray"></i></a>
+                            </div>
+                            <div class="center">注册协议</div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="content-block-title">注册即表示已接受以下协议：</div>
+                        <div class="list-block">
+                            <ul>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">会员服务协议1</div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">会员服务协议1</div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">会员服务协议1</div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">会员服务协议1</div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">会员服务协议1</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </script>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../js/register_M.js"]);%>
+</body>
+</html>

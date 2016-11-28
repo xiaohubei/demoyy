@@ -1,0 +1,222 @@
+
+.loading{
+	background: url("../images/pc/loading.gif") no-repeat;
+	width:50px;
+	height: 50px;
+}
+.main-content {
+	border: 1px solid #DFDFDF;
+	padding: 10px 50px;
+}
+.m-t-10{
+	margin-top: 10px;
+}
+.unit {
+	padding-top: 7px;
+	text-align: left;
+	padding-left: 0;
+}
+
+.radio {
+	padding-top: 36px !important;
+}
+
+.radio input[type=radio] {
+	margin-top: 18px;
+}
+
+.giftcardpassword {
+	padding-top: 36px;
+}
+
+.giftcardpassword .isGiftCardValid{
+	color:red;
+	margin: 0;
+    padding-top: 20px;
+    display: none;
+    font-weight: bold;
+}
+
+.passwordtip {
+	padding-top: 16px;
+}
+
+.p-l-0 {
+	padding-left: 0;
+}
+
+.submitbtn {
+	padding-top: 26px;
+}
+
+.payway {
+	display: inline-block;
+	height: 45px;
+	width: 145px;
+}
+
+.giftcardpay {
+	background: url(../images/pc/giftcard.jpg) no-repeat center;
+	background-size: 90px, 45px;
+	display: inline-block;
+    height: 45px;
+    width: 125px;
+}
+
+.chanpay {
+	background: url(../images/pc/chanpay1.jpg) no-repeat center;
+    display: inline-block;
+    margin-top: 4px;
+    background-size: 80px,35px;
+    height: 45px;
+    width: 145px;
+}
+.weixin {
+	background: url(../images/pc/weixinpay.png) no-repeat center;
+    display: inline-block;
+    background-size: 105px,55px;
+    height: 44px;
+    width: 125px;
+}
+
+.alipay {
+	background: url(../images/pc/baxx.jpg) no-repeat center;
+    display: inline-block;
+    background-size: 82px,35px;
+    height: 44px;
+    width: 125px;
+}
+
+.red-color {
+	color: red;
+}
+
+.myStorageCard {
+	padding-top: 20px;
+}
+
+.storagecard-top {
+	border: 1px solid #dfdfdf;
+	margin: 10px auto;
+	float: left;
+	width: 100%;
+}
+
+.storagecard-top .title {
+	height: 45px;
+	line-height: 45px;
+	background: #fafafa;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+#rechargeMoney {
+	display: none;
+}
+
+
+.scantip{
+    margin-left: 0px;
+    background-color: #ff7676;
+    width: 150px;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    padding: 3px 0;	
+}
+
+//弹出层
+.garybg {
+	height: 1042px;
+	width: 1423px;
+	background-color: gray;
+	left: 0;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	z-index: 10; 
+    filter:alpha(opacity=50);  
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";  
+}
+#dialog{
+	display: none;
+}
+.close_mayer {
+	float: right;
+	cursor: pointer;
+}
+
+.up-box {
+	background: #fff;
+	border-radius: 0 0 5px 5px;
+	line-height: 25px;
+	width:480px;
+}
+
+.up-box-hd {
+	height: 37px;
+	line-height: 35px;
+	position: relative;
+	background-color: #ef524d;
+	color: #fff;
+	padding: 0 20px;
+	font-size: 16px;
+	text-align: left;
+}
+
+.up-box-bd {
+	background: #EFEEF2;
+	border-radius: 0 0 5px 5px;
+	padding: 20px 60px;
+	line-height: 25px;
+	height: 200px;
+}
+
+.up-box-bd .mayer_icon {
+	float: left;
+	margin-right: 25px;
+	background-image: url("../images/pc/working.gif");
+	width: 66px;
+	height: 66px;
+	display: none;
+}
+
+.up-box-bd .up-con {
+	width: 360px;
+	margin-top: 10px;
+	float: left;
+	color: #666;
+}
+
+.ft14 {
+	font-size: 14px;
+}
+
+.ft14 p {
+	line-height: 20px;
+}
+
+.up-box-bd .lay-btn {
+	padding: 0;
+	padding-top: 20px;
+}
+
+.lay-btn {
+	height: 30px;
+	padding: 10px 0;
+	text-align: center;
+}
+
+lay-btn span {
+	margin: 0 10px;
+}
+
+.btnPaymentFailed,
+.btnPaymentSuccess {
+	text-align: center;
+	background-color: #fbecec;
+	color: #ef524d;
+	border: 1px solid #EAD4D4;
+	height: 43px;
+	line-height: 43px;
+	width: 120px;
+}

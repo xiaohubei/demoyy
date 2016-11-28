@@ -1,0 +1,319 @@
+body {
+  font-family: "Microsoft Yahei";
+}
+.row > .col-xs-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.border-top-f2 {
+  border-top: 1px solid #f2f2f2;
+  margin-top: 50px;
+}
+.bg-2d {
+  background: #2d2d2d;
+}
+.bg-fd {
+  background: #fefdfd;
+}
+.bg-fa {
+  background: #fafafa;
+}
+.fl {
+  float: left;
+}
+.container {
+  width: 100% !important;
+  padding: 0;
+  margin: 0;
+}
+.login-top {
+  background: #fefcfd;
+  border: 1px solid #efedee;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+.login-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.login-title {
+  color: #706e6f;
+  font-size: 18px;
+  margin-left: 5px;
+}
+.login-right {
+  color: #979696;
+  font-size: 14px;
+  margin-right: 20px;
+  float: right;
+  padding-top: 10px;
+}
+.login-right a {
+  color: #c81522;
+}
+.row,
+.w {
+  width: 1200px;
+  margin: 0 auto;
+  clear: both;
+  position: relative;
+}
+#mainbody_box {
+  width: 1200px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.clearfix {
+  display: block;
+}
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+.ex_signup_box {
+  font-weight: normal;
+}
+.ex_login_box,
+.ex_signup_box {
+  overflow: hidden;
+}
+.ex_signup_left {
+  width: 500px;
+  margin: 50px auto;
+  margin-bottom: 0;
+}
+.ex_sigunp_titile h1 {
+    text-align: left;
+    padding-left: 94px;
+    line-height: 50px;
+    color: #2D2B2B;
+    font-size: 21px;
+}
+.loginbox {
+  border: 0px;
+}
+.signupform div {
+  border: 0px;
+}
+.loginbox {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 8px 0 12px 0;
+  overflow: hidden;
+  zoom: 1;
+  clear: both;
+}
+.loginbox ul {
+  margin: 5px;
+  padding: 0;
+  list-style-type: none;
+}
+.loginbox li {
+  padding: 8px 0;
+  clear: both;
+  overflow: hidden;
+}
+.loginbox .leftlabel {
+  padding: 0;
+  padding-right: 12px;
+  margin: 0;
+  float: left;
+  width: 105px;
+  text-align: right;
+  height: 39px;
+  line-height: 39px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #565555;
+}
+.loginbox .leftlabel i {
+  font-style: normal;
+  color: #EF524D;
+}
+.loginbox li .floatdiv {
+  float: left;
+  height: auto;
+}
+.loginbox .inputstyle {
+  width: 290px;
+  height: 39px;
+  line-height: 39px;
+  border: 1px solid #e5e5e5;
+  padding: 0 5px;
+  background: #fff;
+  font-size: 14px;
+  color: #555555;
+}
+.loginbox .inputstyle.imput-sm {
+  width: 165px ;
+}
+.loginbox .inputstyle + span {
+  display: block;
+}
+.btn {
+  background: none;
+  border: none;
+  display: inline-block;
+  display: -moz-inline-stack;
+  zoom: 1;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  padding: 0;
+  overflow: visible;
+  text-decoration: none;
+  cursor: pointer;
+  vertical-align: middle;
+  border-radius: 0;
+}
+.btn span {
+  background: #c81522;
+  display: block;
+  text-align: center;
+  width: 250px;
+  height: 48px;
+  white-space: nowrap;
+  overflow: visible;
+  line-height: 48px;
+  color: #FFF;
+  font-size: 16px;
+}
+.ex_signup_box .ex_signup_right {
+  width: 440px;
+  float: left;
+  padding-left: 10px;
+  height: 426px;
+  display: none;
+}
+.ex_signup_content {
+  padding: 17px 0px 0px 25px;
+}
+.ex_signup_content h3 {
+  font-size: 14px;
+  font-weight: bold;
+  background: url(../../../../widgets/images/newuser_icon.gif) no-repeat left center;
+  padding-left: 20px;
+  color: #FF6400;
+}
+.ex_signup_content span p {
+  font-size: 14px;
+  font-weight: bold;
+  height: 60px;
+  line-height: 60px;
+  color: #666666;
+}
+.ex_signup_content li {
+  list-style: none;
+  padding: 7px 0px 7px 10px;
+  background: url(../../../../widgets/images/icon.gif) no-repeat 0px 16px;
+}
+.ex_signup_content li font {
+  color: #ff6400;
+  font-weight: bold;
+  font-size: 12px;
+}
+.ex_signup_content_btn {
+  padding: 10px 0px 0px 15px;
+  display: none;
+}
+.success-message,
+.error-message {
+  width: 270px;
+  overflow: hidden;
+  height: 90px;
+  padding: 10px 25px 10px 10px;
+  border-width: 3px;
+  border-style: solid;
+  background: #fff;
+  box-shadow: 0 0 5px #999;
+  -webkit-box-shadow: 0 0 5px #999;
+  -moz-box-shadow: 0 0 5px #999;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  position: absolute;
+  z-index: 100000;
+}
+.ex_alerttitle span {
+  font-size: 14px;
+  font-weight: bold;
+}
+.ex_si_content {
+  padding: 5px 0px;
+}
+.ex_si_content ul li {
+  float: left;
+  display: block;
+  padding: 0px 3px;
+  list-style: none;
+}
+.ex_signup_tail {
+  padding: 8px 0px 10px 5px;
+  clear: both;
+  overflow: hidden;
+}
+.font-red {
+  color: #f00;
+}
+.error,
+.error-tips,
+.error-notice {
+  padding: 2px 15px 3px 15px;
+  margin: 0 2px 1em 2px;
+  border: 1px solid #FCC;
+  background-color: #FFFFE6;
+  color: #f00;
+}
+.error-messages {
+  padding: 2px 15px 3px 15px;
+  margin: 0 2px 1em 2px;
+  border: 1px solid #FCC;
+  background-color: #FFFFE6;
+  color: #f00;
+}
+.message-tip {
+  color: #f5a902;
+  font-size: 12px;
+}
+.change-nextImg {
+  cursor: pointer;
+  height: 39px;
+  line-height: 39px;
+  color: #c81522;
+  text-decoration: underline;
+  float: left;
+  margin-left: 5px;
+}
+.reg-tip,
+.reg-tip a {
+  font-size: 12px;
+  color: #555555;
+}
+#getMessageAuthenticationCode {
+  display: inline-block;
+  letter-spacing: 0px;
+  font-size: 14px;
+  background-color: #F5F5F5;
+  color: #555555;
+  border-radius: 0;
+  border: 1px solid #E5E5E5;
+  height: 39px;
+  line-height: 39px;
+  width: 116px;
+  text-align: center;
+  margin-left: 5px;
+}
+#registerValCode {
+  height: 39px;
+  width: 73px;
+  float: left;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #E5E5E5;
+  margin-left: 5px;
+}

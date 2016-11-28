@@ -1,0 +1,69 @@
+.row.main {
+font-family:"微软雅黑";
+margin-left:80px;
+}
+h4{
+    font-family: "Hiragino Sans GB","Microsoft YaHei";
+}
+.package-status{
+
+}
+.package-status ul{
+  margin: 0;
+  padding: 0;
+  margin-left: 12px;
+  margin-top: 20px;
+  padding-left: 10px;
+  list-style: none;
+  line-height: 30px;
+  font-size: 12px;
+}
+.package-status ul li{
+    border-left:1px solid #d9d9d9;
+    height: auto;
+    min-height: 30px;
+    color:#333;
+    font-size: 13px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.package-status ul li:before{
+    content: '';
+    border: 3px solid #C8BFBF;
+    background-color: #E5DCDC;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    margin-left: -4px;
+    margin-right: 10px;
+}
+.package-status ul li.lastinfo:before{
+    border: 3px solid #fe4300;
+}
+.package-status ul time{
+    margin-right: 10px;
+}
+
+.expressinfo{
+    margin-top: 20px;
+}
+.expressinfo span{
+    margin-top: 20px;
+    font-weight: 700;
+    margin-right: 10px
+    font:12px/1.5 tahoma,arial,"Hiragino Sans GB",simsun,sans-serif;
+}
+.expressinfo div{
+    margin-top: 20px;
+}
+.expresserrortip{
+    font-size: 22px;
+    margin-top: 50px;
+    padding: 71px;
+    border: 1px solid #C7C6C6;
+    text-align: center
+}
+.searchexpress{
+  margin-top: 50px;
+}

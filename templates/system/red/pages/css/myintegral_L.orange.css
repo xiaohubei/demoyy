@@ -1,0 +1,242 @@
+.red-color {
+  color: #ff7400;
+}
+.gray-color {
+  color: #999999;
+}
+.m-l-5 {
+  margin-left: 5px;
+}
+.myintegral {
+  padding-top: 20px;
+}
+.p-0 {
+  padding: 0;
+}
+.integral-top {
+  border: 1px solid #dfdfdf;
+  margin: 10px auto;
+  float: left;
+  width: 100%;
+  font-size: 12px;
+}
+.integral-top .title {
+  height: 45px;
+  line-height: 45px;
+  background: #fafafa;
+  border-bottom: 1px solid #e6e6e6;
+}
+.integral-top .title strong {
+  font-weight: normal;
+}
+.integral-top .title a {
+  color: #ff7400;
+}
+.integral-top .left-con {
+  border-right: 1px solid #dfdfdf;
+}
+.integral-top .left-con,
+.integral-top .right-con {
+  padding: 15px;
+  padding-left: 60px;
+}
+.integral-top .left-con p,
+.integral-top .right-con p {
+  margin-left: 20px;
+}
+.integral-top .right-con #totalCoupon {
+  color: #333;
+}
+.btn-red {
+  background: #c90408;
+  color: #fff;
+  border: 1px solid #a50b0b;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.mytabs {
+  background: #f5f5f5;
+}
+.tab-pane .table,
+.tab-pane .table td {
+  text-align: center;
+  color: #8c8a8b;
+  border-color: #e6e6e6;
+}
+.tab-pane .table th {
+  border: none;
+  text-align: center;
+  font-weight: normal;
+  color: #484848;
+}
+/*优惠券样式*/
+#couponList > div {
+  width: 100%;
+  float: left;
+  border: 1px #ddd dashed;
+  margin: 10px auto;
+}
+.coupon_content {
+  padding-right: 0;
+}
+.coupon {
+  /*border: 1px solid #797979;
+  box-shadow: 4px 4px 5px rgba(0,0,0,.2);*/
+  display: inline-block;
+  margin: 5px auto;
+  padding-left: 0;
+  /* width: 520px; */
+}
+.coupon-title {
+  height: 30px;
+  line-height: 30px;
+  padding-right: 0;
+  margin-bottom: 10px;
+}
+.coupon-title .right-btn {
+  color: #f0534c;
+  font-size: 12px;
+}
+.coupon-title .no-state {
+  background: #fce0df;
+  color: #f0534e;
+  padding: 0 6px;
+  height: 19px;
+  margin-left: 50px;
+  line-height: 19px;
+}
+.coupon-title .infor {
+  position: relative;
+}
+.coupon-title .infor .infor-com {
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+.coupon-con {
+  float: left;
+  color: #fff;
+  padding-left: 15px;
+  position: relative;
+  width: 100%;
+  padding-right: 0;
+  background: url(../images/pc/coupon-bg.png) repeat-y 0 3px;
+  padding-bottom: 19px;
+}
+.coupon-con .coupon-sum {
+  font-size: 20px;
+  display: inline-block;
+  width: 95px;
+  margin: 15px auto;
+  line-height: 36px;
+  padding-left: 10px;
+}
+.coupon-con .coupon-sum .sum {
+  font-size: 24px;
+}
+.coupon-con .coupon-state {
+  display: inline-block;
+  font-size: 14px;
+  text-align: left;
+  width: 225px;
+  margin-top: 10px;
+}
+.coupon-con p {
+  margin-left: 10px;
+  margin-bottom: 6px;
+}
+.coupon-right {
+  display: inline-block;
+  width: 100%;
+}
+.coupon-infor {
+  min-height: 100px;
+}
+.coupon-right p {
+  margin-top: 10px;
+}
+.coupon-infor p {
+  max-height: 80px;
+  line-height: 25px;
+  overflow: hidden;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  margin: 0;
+}
+.coupon-right .btn {
+  display: inline-block;
+  border: 1px solid #e8e8e8;
+  margin: 10px auto;
+  background: #f6f5f5;
+  text-align: center;
+  padding: 0 10px;
+  height: 24px;
+  line-height: 24px;
+  color: #6f6d6e;
+  border-radius: 0;
+  font-size: 12px;
+}
+.coupon-right .btn i {
+  color: #f3948e;
+}
+.coupon-con.orange {
+  background-color: #ffc88b;
+}
+.coupon-con.red {
+  background-color: #fb8883;
+}
+/*积分样式*/
+.List_form {
+  margin: 10px;
+}
+.List_form a {
+  margin-right: 10px;
+  display: inline-block;
+  padding: 0 10px;
+  line-height: 20px;
+}
+.List_form a:hover,
+.List_form a.active {
+  background: #ffa63d;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+/*优惠券排序*/
+.orderBy .btn {
+  border-radius: 0;
+  background-color: #fff;
+  border-color: #e7e7e7;
+  overflow: hidden;
+  color: #6a6a6a;
+  font-size: 12px;
+}
+.orderBy .btn.active.focus,
+.orderBy .btn.active:focus,
+.orderBy .btn.focus,
+.orderBy .btn:active.focus,
+.orderBy .btn:active:focus,
+.orderBy .btn:focus {
+  outline: none;
+}
+.orderBy .btn.active {
+  background-color: rgba(255, 116, 0, 0.1);
+  color: #ff7400;
+  border-color: rgba(255, 116, 0, 0.2);
+  box-shadow: none;
+}
+.orderBy .btn.down,
+.orderBy .btn.up {
+  background-image: url(../images/pc/orderBy-btn-icon.png);
+  background-repeat: no-repeat;
+  padding-right: 20px;
+}
+.orderBy .btn.down {
+  background-position: 90% top;
+}
+.orderBy .btn.up {
+  background-position: 90% bottom;
+}
+.tabbg {
+  cursor: pointer;
+}

@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+    <%=includeLinks(view, ["../../css/myCollection_M.less"]);%>
+</head>
+<body>
+    <div>
+        <div class="pages">
+            <div data-page="myCollection" class="page no-toolbar no-tabbar" data-controller="MyCollectionViewController">
+                <div class="navbar card-navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href="#" class="back link">
+                                <i class="icon icon-back-gray"></i>
+                            </a>
+                        </div>
+                        <div class="center">我的收藏夹</div>
+                        <div class="right">
+                            <!--<a href="#" class="icon-only">
+                                <i class="icon myCollectionSearch" data-type="showSearch"></i>
+                            </a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!--<form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init hide searchMycollection">
+                    <div class="searchbar-input search" style="height:100%;">
+                        <input type="search" class="search" placeholder="请输入关键字" style="padding-top:5px;"><a href="#" class="searchbar-clear"></a>
+                    </div><a href="#" class="searchbar-cancel">取消</a>
+                </form>-->
+
+
+                <!--<div class="searchbar-overlay"></div>-->
+                <div class="page-content infinite-scroll pull-to-refresh-content">
+                	<div class="pull-to-refresh-layer">
+                        <div class="pull-to-refresh-arrow"></div>
+                    </div>
+                    <div class="content-block searchbar-not-found">
+                        <div class="content-block-inner">没有查到符合条件的商品</div>
+                    </div>
+                    
+
+                    <div class="list-continer" id="myCollectionList">
+                        <div class="list-block list-block-search searchbar-found media-list m-t-0 product-list">
+                            <ul></ul>
+                        </div>
+                    </div>
+                    <script type="text/template7" id="myCollectionListTpl">
+                        {{#if myCollectionList.length}}
+                        {{#each myCollectionList}}
+                        <li class='dateClass'>
+                            {{name}}
+                        </li>
+                        {{#each data}}
+                        <li>
+                            <a href="detail?goods_id={{pid}}" class="item-link item-content">
+                                <div class="item-media">
+                                    <div class="upimgdiv">
+                                        <img src="{{adjustImgSrc defaultAlbum}}" class="lazy">
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-text item-title" style="white-space: normal;">{{pName}}</div>
+
+                                    </div>
+                                    <div class="item-subtitle price">
+                                        {{#js_compare "this.productAttribute===1"}}
+                                        {{#if isDisplayPrice}}
+                                        <span>
+                                            <em>￥</em>{{fSalePrice}}
+                                        </span>
+                                        {{#js_compare "this.fSalePrice<this.fMarkPrice"}}
+                                        <span class="del-price">
+                                            <em>￥</em>{{fMarkPrice}}
+                                        </span>
+                                        {{/js_compare}}
+                                        {{else}}
+                                        <span>
+                                         {{priceAreaMessage}}
+                                        </span>
+                                        {{/if}}
+                                        {{else}}
+                                        {{#if isDisplayPrice}}
+                                        <span>
+                                            {{salePoints}}<em>&nbsp;积分</em>
+                                        </span>
+                                        {{else}}
+                                        <span>
+                                         {{priceAreaMessage}}
+                                        </span>
+                                        {{/if}}
+                                        {{/js_compare}}
+                                        <!--<em style="text-decoration: line-through;color: #cbcbcb;">￥</em><span class="price" style="text-decoration: line-through;color: #cbcbcb;">{{fMarkPrice}}</span>-->
+                                    </div>
+                                    <!--<div class="item-subtitle price">
+
+                                    </div>-->
+                                </div>
+                            </a>
+                            <!--<a href="#" class="myCollectionCart" data-pid="{{pid}}"></a>-->
+                            <a href="#" class="myCollectionDel del-coll" data-pid="{{pid}}" data-id="{{id}}"></a>
+                        </li>
+                        {{/each}}
+                        {{/each}}
+                        {{else}}
+                        <li class="noDataTip">暂无商品</li>
+
+                        {{/if}}
+                    </script>
+                    <script type="text/template7" id="addProdductSkuTpl">
+                        <div class="content-block" style="margin:0px 0px;">
+                            <p class="p-close">
+                                <a href="#" class="close-popup"> <i class="icon icon-colse-popup"></i></a>
+                            </p>
+                            <div class="popup-top">
+                                <div class="popup-img">
+                                    <img src="{{adjustImgSrc product.oDefaultAlbum.cFolder}}lm_{{product.oDefaultAlbum.cImgName}}" alt="" />
+                                </div>
+                                <div class="title-row">
+                                    <div class="title">
+                                        {{product.cName}}
+                                    </div>
+                                    <div class="subtitle">{{product.cCode}}</div>
+                                </div>
+                                <div class="popup-number priceStepContainer">
+                                </div>
+                            </div>
+                            <div class="popup-content">
+                                <div class="row popup-attrs">
+                                    {{#each product.lsSpecs}}
+                                    <p>{{cName}}</p>
+                                    <div class="col-100">
+                                        {{#each lsSpecItem}}
+                                        <div class="attrItem">
+                                            <input type="radio" name="attrItem_{{../id}}" value="{{id}}" {{#if @first}} checked {{ />if}}   />
+                                            <span>{{cSpecItemName}}</span>
+                                        </div>
+                                        {{/each}}
+                                    </div>
+                                    {{/each}}
+                                    <p>订购数量<span id="changeAttrInventoryCount">库存 {{product.lInventoryCount}}</span></p>
+                                    <div class="numberManage col-100">
+                                        <i class="icon icon-cart-less disabled"></i>
+                                        <input type="text" value="{{#if product.iMinOrderQuantity}} {{product.iMinOrderQuantity}} {{else}}1{{/if}}" id="txtProSpecsCount" class="editControl" data-i-min-order-quantity="{{product.iMinOrderQuantity}}" data-linventorycount="{{product.lInventoryCount}}">
+                                        <i class="icon icon-cart-add"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-bottom">
+                                <span class="collectionAddCartTalPrice">1 <em>件</em>  1 <em>元</em> </span>
+                                <a href="#" class="button btn-update-sku">确  定</a>
+                            </div>
+                        </div>
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%=includeScripts(view, ["../../js/myCollection_M.js"]);%>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+/*选择、全选样式控制*/
+.cs-k-check,.checkbox-cell{
+    display:inline-block;
+    width:14px;
+    height:14px;
+    background:url(../images/checkbox_off.png) no-repeat 0 0;
+}
+.cs-k-check[check-state=on],.checkbox-cell[check-state=on]{
+    background-image:url(../images/checkbox_on.png);
+}
+
+/*单元格内容对齐样式*/
+td.textAlignLeft[role=gridcell] ,th.textAlignLeft[role=columnheader]{text-align:left;}
+td.textAlignRight[role=gridcell] ,th.textAlignRight[role=columnheader]{text-align:right;}
+td.textAlignCenter[role=gridcell] ,th.textAlignCenter[role=columnheader]{text-align:center;}

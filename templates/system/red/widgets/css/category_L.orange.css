@@ -1,0 +1,93 @@
+[data-type="Category"] {
+  position: absolute;
+  /*min-height: 340px;*/
+  width: 100%;
+  /*top: -60px;*/
+  left: 0;
+  z-index: 10;
+  font-family: "microsoft yahei";
+}
+[data-type="Category"] > .header {
+  color: #fff;
+  font-size: 16px;
+  background-color: #ff7400;
+  text-align: left;
+  text-indent: 30px;
+  height: 40px;
+  line-height: 40px;
+}
+[data-type="Category"] > .header:hover {
+  background-color: #c6423d;
+}
+[data-type="Category"] > ul > li {
+  display: block;
+  text-indent: 30px;
+  height: 41px;
+  line-height: 41px;
+}
+[data-type="Category"] > ul > li[data-children="1"] {
+  background: url(../images/right-arrow.png) no-repeat 94%;
+}
+[data-type="Category"] .classify {
+  display: none;
+  background: #F6F6F6;
+  position: relative;
+}
+[data-type="Category"] .classify > li > a {
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #333333;
+  z-index: 3;
+}
+[data-type="Category"] .classify > li > a:hover {
+  background-color: #fff;
+  color: #ff7400;
+  border-right: 1px solid #ffffff;
+}
+[data-type="Category"] .classify > li > a:last-child {
+  border-bottom: 0px;
+}
+[data-type="Category"] .classify > li:hover {
+  display: block;
+  margin: 0;
+  background: none;
+  border: 1px solid #ff7400;
+  border-right: none;
+}
+[data-type="Category"] .classify > li > div {
+  position: absolute;
+  top: 0px;
+  left: 99%;
+  width: 500px;
+  height: 100%;
+  border: 1px solid #ff7400;
+  background-color: #ffffff;
+  z-index: 2;
+}
+[data-type="Category"] .classify > li > div > ul {
+  margin: 12px 6px;
+}
+[data-type="Category"] .classify > li > div > ul > li {
+  display: block;
+  float: left;
+  min-width: 30px;
+  top: 14px;
+  padding: 0px 10px;
+  border-right: 1px solid #ccc;
+  color: #666666;
+  font-size: 13px;
+  height: 14px;
+  line-height: 14px;
+  margin: 8px 0;
+}
+[data-type="Category"] .classify > li > div > ul > li a {
+  color: #555;
+  text-decoration: none;
+}
+[data-type="Category"] .classify > li > div > ul > li a:hover {
+  color: #ff7400;
+  text-decoration: none;
+}

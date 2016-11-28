@@ -1,0 +1,26 @@
+﻿ .messageSendBtn {
+  font-size: 12px;
+  color: #fda307;
+  border: 1px solid #efbf4d;
+  background-color: #fdf2e1;
+  padding: 0 7px;
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border-radius: 3px;
+}
+.register-tip {
+  margin: 0;
+  text-align: left;
+  margin-left: 20px;
+  font-size: 12px;
+  color: #999999;
+}
+.store-data .item-input {
+  margin-left: 12px !important;
+}
+.store-data .item-input ::-webkit-input-placeholder {
+  color: #c7c7cd;
+}
+/*# sourceMappingURL=register_M.css.map */

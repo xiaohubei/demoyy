@@ -1,0 +1,605 @@
+{
+	"view": {
+		"$": {
+			"name": "homeView",
+			"title": "U商城",
+			"controller": "HomeViewController"
+		},
+		"widget": [
+			{
+				"$": {
+					"name": "image_text_1",
+					"type": "image_text"
+				},
+				"config": [
+					{
+						"_": "<p><a href=\"/list?categoryid=783\" target=\"_blank\"><img src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/422c7a21-578d-4122-b8bb-51d56d83fb5f.PNG\" _src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/422c7a21-578d-4122-b8bb-51d56d83fb5f.PNG\"/></a></p>",
+						"$": {
+							"key": "content"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "image_text_2",
+					"type": "image_text"
+				},
+				"config": [
+					{
+						"_": "<p><a href=\"/list?categoryid=782\" target=\"_blank\"><img src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/c06df198-1cad-45af-84be-e016cce02a69.PNG\" _src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/c06df198-1cad-45af-84be-e016cce02a69.PNG\"/></a></p>",
+						"$": {
+							"key": "content"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "image_text_3",
+					"type": "image_text"
+				},
+				"config": [
+					{
+						"_": "<p><a href=\"/list?categoryid=784\" target=\"_blank\"><img src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/a436e481-801b-4808-b56d-a569f0eddc7b.PNG\" _src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/a436e481-801b-4808-b56d-a569f0eddc7b.PNG\"/></a></p>",
+						"$": {
+							"key": "content"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "main_slide_1A",
+					"type": "main_slide"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "height",
+							"value": "315"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "navigation_1i",
+					"type": "navigation"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "height",
+							"value": "315"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "index_goods_1e",
+					"type": "index_goods"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "advertisement"
+						}
+					},
+					{
+						"$": {
+							"key": "choosegoods",
+							"value": 0
+						}
+					},
+					{
+						"$": {
+							"key": "colspan"
+						}
+					},
+					{
+						"$": {
+							"key": "rows",
+							"value": "2"
+						}
+					},
+					{
+						"$": {
+							"key": "cols",
+							"value": "4"
+						}
+					},
+					{
+						"$": {
+							"key": "texttag",
+							"value": "销售价"
+						}
+					},
+					{
+						"$": {
+							"key": "show_market",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "show_star",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "isCurrentClass"
+						}
+					},
+					{
+						"$": {
+							"key": "displayMode"
+						}
+					},
+					{
+						"$": {
+							"key": "filter"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "type_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "saleprice",
+									"valuefrom": "",
+									"valueto": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "keyword",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "categoryid",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "brand_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "tag_id",
+									"valuefrom": "152"
+								}
+							}
+						]
+					},
+					{
+						"$": {
+							"key": "order"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "iOrder"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "image_text_14",
+					"type": "image_text"
+				},
+				"config": [
+					{
+						"_": "<div><br/></div><p><img src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/3c82de95-a6b1-45f5-992c-10292714a01d.PNG\" _src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/3c82de95-a6b1-45f5-992c-10292714a01d.PNG\"/></p>",
+						"$": {
+							"key": "content"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "index_goods_1k",
+					"type": "index_goods"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "advertisement"
+						}
+					},
+					{
+						"$": {
+							"key": "choosegoods",
+							"value": 0
+						}
+					},
+					{
+						"$": {
+							"key": "colspan"
+						}
+					},
+					{
+						"$": {
+							"key": "rows",
+							"value": "2"
+						}
+					},
+					{
+						"$": {
+							"key": "cols",
+							"value": "2"
+						}
+					},
+					{
+						"$": {
+							"key": "texttag",
+							"value": "销售价"
+						}
+					},
+					{
+						"$": {
+							"key": "show_market",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "show_star",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "isCurrentClass"
+						}
+					},
+					{
+						"$": {
+							"key": "displayMode"
+						}
+					},
+					{
+						"$": {
+							"key": "filter"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "type_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "saleprice",
+									"valuefrom": "",
+									"valueto": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "keyword",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "categoryid",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "brand_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "tag_id",
+									"valuefrom": ""
+								}
+							}
+						]
+					},
+					{
+						"$": {
+							"key": "order"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "iOrder"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "index_goods_1G",
+					"type": "index_goods"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "advertisement"
+						}
+					},
+					{
+						"$": {
+							"key": "choosegoods",
+							"value": 0
+						}
+					},
+					{
+						"$": {
+							"key": "colspan"
+						}
+					},
+					{
+						"$": {
+							"key": "rows",
+							"value": "2"
+						}
+					},
+					{
+						"$": {
+							"key": "cols",
+							"value": "3"
+						}
+					},
+					{
+						"$": {
+							"key": "texttag",
+							"value": "销售价"
+						}
+					},
+					{
+						"$": {
+							"key": "show_market",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "show_star",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "isCurrentClass"
+						}
+					},
+					{
+						"$": {
+							"key": "displayMode"
+						}
+					},
+					{
+						"$": {
+							"key": "filter"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "type_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "saleprice",
+									"valuefrom": "",
+									"valueto": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "keyword",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "categoryid",
+									"valuefrom": "782"
+								}
+							},
+							{
+								"$": {
+									"fieldname": "brand_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "tag_id",
+									"valuefrom": ""
+								}
+							}
+						]
+					},
+					{
+						"$": {
+							"key": "order"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "iOrder",
+									"direction": "asc"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "image_text_1Y",
+					"type": "image_text"
+				},
+				"config": [
+					{
+						"_": "<p><img src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/4b877737-df63-4671-ac1e-7a84066cb000.PNG\" _src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/4b877737-df63-4671-ac1e-7a84066cb000.PNG\" style=\"font-size: 16px; line-height: 1.5em;\"/><br/></p>",
+						"$": {
+							"key": "content"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "image_text_1j",
+					"type": "image_text"
+				},
+				"config": [
+					{
+						"_": "<p><img src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/f4084eee-b08c-4611-8d20-10ffb9135937.PNG\" _src=\"http://umall.yonyouup.com/photo/template_imgag_text/21/20151110/f4084eee-b08c-4611-8d20-10ffb9135937.PNG\" style=\"font-size: 16px; line-height: 1.5em;\"/><br/></p>",
+						"$": {
+							"key": "content"
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "index_goods_1a",
+					"type": "index_goods"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "advertisement"
+						}
+					},
+					{
+						"$": {
+							"key": "choosegoods",
+							"value": 0
+						}
+					},
+					{
+						"$": {
+							"key": "colspan"
+						}
+					},
+					{
+						"$": {
+							"key": "rows",
+							"value": "2"
+						}
+					},
+					{
+						"$": {
+							"key": "cols",
+							"value": "2"
+						}
+					},
+					{
+						"$": {
+							"key": "texttag",
+							"value": "销售价"
+						}
+					},
+					{
+						"$": {
+							"key": "show_market",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "show_star",
+							"value": ""
+						}
+					},
+					{
+						"$": {
+							"key": "isCurrentClass"
+						}
+					},
+					{
+						"$": {
+							"key": "displayMode"
+						}
+					},
+					{
+						"$": {
+							"key": "filter"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "type_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "saleprice",
+									"valuefrom": "",
+									"valueto": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "keyword",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "categoryid",
+									"valuefrom": "784"
+								}
+							},
+							{
+								"$": {
+									"fieldname": "brand_id",
+									"valuefrom": ""
+								}
+							},
+							{
+								"$": {
+									"fieldname": "tag_id",
+									"valuefrom": ""
+								}
+							}
+						]
+					},
+					{
+						"$": {
+							"key": "order"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "iOrder",
+									"direction": "asc"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

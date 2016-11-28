@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "我的足迹");%></title>
+    <%=includeLinks(view,["../../css/myPath_L.css"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container myPath" data-controller="MyPathViewController">
+        <header></header>
+        <div class="row" style="margin-bottom:0;height:50px;">
+            <div class="filter-bar">
+                <div class="filter-bar-wrap">
+                    <div class="cal-mode">
+                        <a class="cal-mode-btn">足迹日历</a>
+                    </div>
+                    <div class="cat-selector">
+                        <div class="current-cat">
+                            <span>全部类目</span>
+                            <span class="allow"></span>
+                        </div>
+                        <div class="cats">
+                            <p>
+                                <a class="cat">全部宝贝</a>
+                                <a class="cat">全部宝贝</a>
+                                <a class="cat">全部宝贝</a>
+                                <a class="cat">全部宝贝</a>
+                                <a class="cat">全部宝贝</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cal-mode">
+                        <input type="checkbox" />
+                        只看促销宝贝
+                    </div>
+                    <a class="cal-mode-del">批量删除</a>
+                </div>
+            </div>
+        </div>
+        <div class="goods-page">
+            <div class="goods-area-box">
+                <div class="goods first-child">
+                    <div class="goods-box ">
+                        <div class="goods-date" data-date="2015-09-08">
+                            <span>
+                                <i class="month-lite">9</i>.
+                                <i class="day-lite">8</i>
+                                <i class="date-desc">今天</i>
+                                <i class="count">34</i>件宝贝
+                            </span>
+                            <s class="line"></s>
+                        </div>
+                        <div class="goods-pic J_GoodsPic" data-last-time="1441692499080">
+                            <div class="goods-pic-box">
+                                <a class="goods-pic-link" target="_blank" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" title="ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋">
+                                    <img class="goods-img" src="//img.alicdn.com/bao/uploaded/i4/TB1wpMLHpXXXXbhaXXXXXXXXXXX_!!0-item_pic.jpg_200x200.jpg">
+                                </a>
+                            </div>
+                            <a class="goods-delete"><i></i></a>
+                            <div class="goods-delete-mask"></div>
+                            <div class="goods-status cat-only-status">
+                                <a class="desc cat-only">只看 童鞋</a>
+                                <span class="desc view_count"><span>83</span>人看过</span>
+                            </div>
+                        </div>
+                        <div class="goods-attr">
+                            <div class="goods-price clearfix">
+                                <span class="g_price">
+                                    <span>¥</span><strong>159</strong>
+                                </span>
+                            </div>
+                            <div class="good-title">
+                                <a class="title" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" target="_blank">ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋</a>
+                            </div>
+                            <div>
+                                <span class="extra-icon" data-credit="675639">
+                                    <i class="rank-tmall"></i>
+                                </span>
+                                <span class="address">福建 泉州</span>
+                            </div>
+                            <div class="goods-num clearfix">
+                                <div class="J_MatchRecom match-recom">
+                                    <a href="//lu.taobao.com/similar2.htm?cat1=122650005&amp;id=44697513890&amp;catId=50012341" data-snstracelog="tbgltjph.4.9" target="_blank" class="match-recom-item">找相似</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods">
+                    <div class="goods-box ">
+                        <div class="goods-date">
+                            <s class="line"></s>
+                        </div>
+                        <div class="goods-pic J_GoodsPic">
+                            <div class="goods-pic-box">
+                                <a class="goods-pic-link" target="_blank" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" title="ABC童鞋">
+                                    <img class="goods-img" src="//img.alicdn.com/bao/uploaded/i4/TB1wpMLHpXXXXbhaXXXXXXXXXXX_!!0-item_pic.jpg_200x200.jpg">
+                                </a>
+                            </div>
+                            <a class="goods-delete"><i></i></a>
+                            <div class="goods-delete-mask"></div>
+                            <div class="goods-status cat-only-status">
+                                <a class="desc cat-only">只看 童鞋</a>
+                                <span class="desc view_count"><span>83</span>人看过</span>
+                            </div>
+                        </div>
+                        <div class="goods-attr">
+                            <div class="goods-price clearfix">
+                                <span class="g_price">
+                                    <span>¥</span><strong>159</strong>
+                                </span>
+                            </div>
+                            <div class="good-title">
+                                <a class="title" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" target="_blank">ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋</a>
+                            </div>
+                            <div>
+                                <span class="extra-icon" data-credit="675639">
+                                    <i class="rank-tmall"></i>
+                                </span>
+                                <span class="address">福建 泉州</span>
+                            </div>
+                            <div class="goods-num clearfix">
+                                <div class="J_MatchRecom match-recom">
+                                    <a href="//lu.taobao.com/similar2.htm?cat1=122650005&amp;id=44697513890&amp;catId=50012341" data-snstracelog="tbgltjph.4.9" target="_blank" class="match-recom-item">找相似</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods">
+                    <div class="goods-box ">
+                        <div class="goods-date" data-date="2015-09-08">
+                            <s class="line"></s>
+                        </div>
+                        <div class="goods-pic J_GoodsPic" data-last-time="1441692499080">
+                            <div class="goods-pic-box">
+                                <a class="goods-pic-link" target="_blank" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" title="ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋">
+                                    <img class="goods-img" src="//img.alicdn.com/bao/uploaded/i4/TB1wpMLHpXXXXbhaXXXXXXXXXXX_!!0-item_pic.jpg_200x200.jpg">
+                                </a>
+                            </div>
+                            <a class="goods-delete"><i></i></a>
+                            <div class="goods-delete-mask"></div>
+                            <div class="goods-status cat-only-status">
+                                <a class="desc cat-only">只看 童鞋</a>
+                                <span class="desc view_count"><span>83</span>人看过</span>
+                            </div>
+                        </div>
+                        <div class="goods-attr">
+                            <div class="goods-price clearfix">
+                                <span class="g_price">
+                                    <span>¥</span><strong>159</strong>
+                                </span>
+                            </div>
+                            <div class="good-title">
+                                <a class="title" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" target="_blank">ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋</a>
+                            </div>
+                            <div>
+                                <span class="extra-icon" data-credit="675639">
+                                    <i class="rank-tmall"></i>
+                                </span>
+                                <span class="address">福建 泉州</span>
+                            </div>
+                            <div class="goods-num clearfix">
+                                <div class="J_MatchRecom match-recom">
+                                    <a href="//lu.taobao.com/similar2.htm?cat1=122650005&amp;id=44697513890&amp;catId=50012341" data-snstracelog="tbgltjph.4.9" target="_blank" class="match-recom-item">找相似</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods">
+                    <div class="goods-box ">
+                        <div class="goods-date" data-date="2015-09-08">
+                            <s class="line"></s>
+                        </div>
+                        <div class="goods-pic J_GoodsPic" data-last-time="1441692499080">
+                            <div class="goods-pic-box">
+                                <a class="goods-pic-link" target="_blank" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" title="ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋">
+                                    <img class="goods-img" src="//img.alicdn.com/bao/uploaded/i4/TB1wpMLHpXXXXbhaXXXXXXXXXXX_!!0-item_pic.jpg_200x200.jpg">
+                                </a>
+                            </div>
+                            <a class="goods-delete"><i></i></a>
+                            <div class="goods-delete-mask"></div>
+                            <div class="goods-status cat-only-status">
+                                <a class="desc cat-only">只看 童鞋</a>
+                                <span class="desc view_count"><span>83</span>人看过</span>
+                            </div>
+                        </div>
+                        <div class="goods-attr">
+                            <div class="goods-price clearfix">
+                                <span class="g_price">
+                                    <span>¥</span><strong>159</strong>
+                                </span>
+                            </div>
+                            <div class="good-title">
+                                <a class="title" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" target="_blank">ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋</a>
+                            </div>
+                            <div>
+                                <span class="extra-icon" data-credit="675639">
+                                    <i class="rank-tmall"></i>
+                                </span>
+                                <span class="address">福建 泉州</span>
+                            </div>
+                            <div class="goods-num clearfix">
+                                <div class="J_MatchRecom match-recom">
+                                    <a href="//lu.taobao.com/similar2.htm?cat1=122650005&amp;id=44697513890&amp;catId=50012341" data-snstracelog="tbgltjph.4.9" target="_blank" class="match-recom-item">找相似</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods">
+                    <div class="goods-box ">
+                        <div class="goods-date" data-date="2015-09-08">
+                            <s class="line"></s>
+                        </div>
+                        <div class="goods-pic J_GoodsPic" data-last-time="1441692499080">
+                            <div class="goods-pic-box">
+                                <a class="goods-pic-link" target="_blank" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" title="ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋">
+                                    <img class="goods-img" src="//img.alicdn.com/bao/uploaded/i4/TB1wpMLHpXXXXbhaXXXXXXXXXXX_!!0-item_pic.jpg_200x200.jpg">
+                                </a>
+                            </div>
+                            <a class="goods-delete"><i></i></a>
+                            <div class="goods-delete-mask"></div>
+                            <div class="goods-status cat-only-status">
+                                <a class="desc cat-only">只看 童鞋</a>
+                                <span class="desc view_count"><span>83</span>人看过</span>
+                            </div>
+                        </div>
+                        <div class="goods-attr">
+                            <div class="goods-price clearfix">
+                                <span class="g_price">
+                                    <span>¥</span><strong>159</strong>
+                                </span>
+                            </div>
+                            <div class="good-title">
+                                <a class="title" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" target="_blank">ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋</a>
+                            </div>
+                            <div>
+                                <span class="extra-icon" data-credit="675639">
+                                    <i class="rank-tmall"></i>
+                                </span>
+                                <span class="address">福建 泉州</span>
+                            </div>
+                            <div class="goods-num clearfix">
+                                <div class="J_MatchRecom match-recom">
+                                    <a href="//lu.taobao.com/similar2.htm?cat1=122650005&amp;id=44697513890&amp;catId=50012341" data-snstracelog="tbgltjph.4.9" target="_blank" class="match-recom-item">找相似</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods">
+                    <div class="goods-box ">
+                        <div class="goods-date" data-date="2015-09-08">
+                            <s class="line"></s>
+                        </div>
+                        <div class="goods-pic J_GoodsPic" data-last-time="1441692499080">
+                            <div class="goods-pic-box">
+                                <a class="goods-pic-link" target="_blank" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" title="ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋">
+                                    <img class="goods-img" src="//img.alicdn.com/bao/uploaded/i4/TB1wpMLHpXXXXbhaXXXXXXXXXXX_!!0-item_pic.jpg_200x200.jpg">
+                                </a>
+                            </div>
+                            <a class="goods-delete"><i></i></a>
+                            <div class="goods-delete-mask"></div>
+                            <div class="goods-status cat-only-status">
+                                <a class="desc cat-only">只看 童鞋</a>
+                                <span class="desc view_count"><span>83</span>人看过</span>
+                            </div>
+                        </div>
+                        <div class="goods-attr">
+                            <div class="goods-price clearfix">
+                                <span class="g_price">
+                                    <span>¥</span><strong>159</strong>
+                                </span>
+                            </div>
+                            <div class="good-title">
+                                <a class="title" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" target="_blank">ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋</a>
+                            </div>
+                            <div>
+                                <span class="extra-icon" data-credit="675639">
+                                    <i class="rank-tmall"></i>
+                                </span>
+                                <span class="address">福建 泉州</span>
+                            </div>
+                            <div class="goods-num clearfix">
+                                <div class="J_MatchRecom match-recom">
+                                    <a href="//lu.taobao.com/similar2.htm?cat1=122650005&amp;id=44697513890&amp;catId=50012341" data-snstracelog="tbgltjph.4.9" target="_blank" class="match-recom-item">找相似</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods">
+                    <div class="goods-box ">
+                        <div class="goods-date" data-date="2015-09-08">
+                            <s class="line"></s>
+                        </div>
+                        <div class="goods-pic J_GoodsPic" data-last-time="1441692499080">
+                            <div class="goods-pic-box">
+                                <a class="goods-pic-link" target="_blank" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" title="ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋">
+                                    <img class="goods-img" src="//img.alicdn.com/bao/uploaded/i4/TB1wpMLHpXXXXbhaXXXXXXXXXXX_!!0-item_pic.jpg_200x200.jpg">
+                                </a>
+                            </div>
+                            <a class="goods-delete"><i></i></a>
+                            <div class="goods-delete-mask"></div>
+                            <div class="goods-status cat-only-status">
+                                <a class="desc cat-only">只看 童鞋</a>
+                                <span class="desc view_count"><span>83</span>人看过</span>
+                            </div>
+                        </div>
+                        <div class="goods-attr">
+                            <div class="goods-price clearfix">
+                                <span class="g_price">
+                                    <span>¥</span><strong>159</strong>
+                                </span>
+                            </div>
+                            <div class="good-title">
+                                <a class="title" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" target="_blank">ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋</a>
+                            </div>
+                            <div>
+                                <span class="extra-icon" data-credit="675639">
+                                    <i class="rank-tmall"></i>
+                                </span>
+                                <span class="address">福建 泉州</span>
+                            </div>
+                            <div class="goods-num clearfix">
+                                <div class="J_MatchRecom match-recom">
+                                    <a href="//lu.taobao.com/similar2.htm?cat1=122650005&amp;id=44697513890&amp;catId=50012341" data-snstracelog="tbgltjph.4.9" target="_blank" class="match-recom-item">找相似</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods">
+                    <div class="goods-box ">
+                        <div class="goods-date" data-date="2015-09-08">
+                            <span>
+                                <i class="month-lite">9</i>.
+                                <i class="day-lite">8</i>
+                                <i class="date-desc">今天</i>
+                                <i class="count">34</i>件宝贝
+                            </span>
+                             <s class="line"></s>
+                        </div>
+                        <div class="goods-pic J_GoodsPic" data-last-time="1441692499080">
+                            <div class="goods-pic-box">
+                                <a class="goods-pic-link" target="_blank" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" title="ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋">
+                                    <img class="goods-img" src="//img.alicdn.com/bao/uploaded/i4/TB1wpMLHpXXXXbhaXXXXXXXXXXX_!!0-item_pic.jpg_200x200.jpg">
+                                </a>
+                            </div>
+                            <a class="goods-delete"><i></i></a>
+                            <div class="goods-delete-mask"></div>
+                            <div class="goods-status cat-only-status">
+                                <a class="desc cat-only">只看 童鞋</a>
+                                <span class="desc view_count"><span>83</span>人看过</span>
+                            </div>
+                        </div>
+                        <div class="goods-attr">
+                            <div class="goods-price clearfix">
+                                <span class="g_price">
+                                    <span>¥</span><strong>159</strong>
+                                </span>
+                            </div>
+                            <div class="good-title">
+                                <a class="title" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" target="_blank">ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋</a>
+                            </div>
+                            <div>
+                                <span class="extra-icon" data-credit="675639">
+                                    <i class="rank-tmall"></i>
+                                </span>
+                                <span class="address">福建 泉州</span>
+                            </div>
+                            <div class="goods-num clearfix">
+                                <div class="J_MatchRecom match-recom">
+                                    <a href="//lu.taobao.com/similar2.htm?cat1=122650005&amp;id=44697513890&amp;catId=50012341" data-snstracelog="tbgltjph.4.9" target="_blank" class="match-recom-item">找相似</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods">
+                    <div class="goods-box ">
+                        <div class="goods-date" data-date="2015-09-08">
+                            <s class="line"></s>
+                        </div>
+                        <div class="goods-pic J_GoodsPic" data-last-time="1441692499080">
+                            <div class="goods-pic-box">
+                                <a class="goods-pic-link" target="_blank" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" title="ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋">
+                                    <img class="goods-img" src="//img.alicdn.com/bao/uploaded/i4/TB1wpMLHpXXXXbhaXXXXXXXXXXX_!!0-item_pic.jpg_200x200.jpg">
+                                </a>
+                            </div>
+                            <a class="goods-delete"><i></i></a>
+                            <div class="goods-delete-mask"></div>
+                            <div class="goods-status cat-only-status">
+                                <a class="desc cat-only">只看 童鞋</a>
+                                <span class="desc view_count"><span>83</span>人看过</span>
+                            </div>
+                        </div>
+                        <div class="goods-attr">
+                            <div class="goods-price clearfix">
+                                <span class="g_price">
+                                    <span>¥</span><strong>159</strong>
+                                </span>
+                            </div>
+                            <div class="good-title">
+                                <a class="title" href="//item.taobao.com/item.htm?scm=12306.1.0.0&amp;id=44697513890" target="_blank">ABC童鞋 正品男童 网眼透气软底宝宝运动鞋 2015夏季新款儿童网鞋</a>
+                            </div>
+                            <div>
+                                <span class="extra-icon" data-credit="675639">
+                                    <i class="rank-tmall"></i>
+                                </span>
+                                <span class="address">福建 泉州</span>
+                            </div>
+                            <div class="goods-num clearfix">
+                                <div class="J_MatchRecom match-recom">
+                                    <a href="//lu.taobao.com/similar2.htm?cat1=122650005&amp;id=44697513890&amp;catId=50012341" data-snstracelog="tbgltjph.4.9" target="_blank" class="match-recom-item">找相似</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+    <%=includeScripts(view, ["../../js/myPath_L.js"]);%>
+    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

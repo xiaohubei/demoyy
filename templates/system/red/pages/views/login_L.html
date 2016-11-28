@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>登录</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" href="img/favicon.ico" />
+<link href="bootstrap/css/bootstrap.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/help_center_L.red.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/friend_links_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/widgets/css/site_info_L.css" rel="Stylesheet" type="text/css" />
+<link href="templates/system/red/pages/css/login_L.red.css" rel="Stylesheet" type="text/css" />
+    <script src="./bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class=" bg-fa" data-controller="LoginViewController">
+        <div class="content">
+            <h1>享受你的购物之旅</h1>
+            <div class="main">
+                    <div class="profile-left">
+                        <h2>材易购在线,欢迎你回来!</h2>
+                        <form action="">
+                            <div class="login">
+                                <input id="uname" type="text" class="email-icon" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}" required="">
+                                <input id="password" type="password" class="key-icon"  value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" placeholder="密码" required="">
+                                <input id="iptsingup" type="text" class="key-icon"  placeholder="验证码"  required="" style="margin-top:18px;">
+                                <div>点击图片刷新<img src="" height="32" id="code" alt="验证码"></div>
+                            </div>
+                            <input type="submit" value="登录" class="btn-login" >
+                        </form>
+                        <div class="login-left">
+                            <ul>
+                                <li><a class="fb" href="register">注册</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="profile-middle">
+                        <div class="profile-img">
+                            <div class="login-pic" ><img width="164" src="../images/pic2.jpg" alt=" " /></div>
+                            <h3>小湖北</h3>
+                            <p>caiyigoulive.com</p>
+                        </div>
+                        <div class="twitt-left">
+                            <h5>欢迎回来</h5>
+                            <p></p>
+                        </div>
+                        <div class="twitt-right">
+                            <h5>够快才畅快</h5>
+                            <p></p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"> </div>
+            </div>
+        </div>
+        <!-- 
+<div class="container border-top-f2">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="help-center-bar" data-name="help_center" data-config="" data-type="HelpCenter">
+            <div class="col-xs-3 contact">
+                <ul></ul>
+                <script type="text/html">
+	                <li><span><#=phoneNum#></span></li>
+                    <li><img src="<#=adjustImgSrc(WeixinImg)#>" style="width:100px;height:100px;" /></li>
+                    <li><em><#=WeixinDes#></em></li>
+		        </script>
+            </div>
+            <div class="col-xs-9 help-center-content">
+                <ul></ul>
+                <script type="text/html">
+	                <#for(var i=0,len=data.length;i<len;i++){#>
+	                    <#var value=data[i];#>
+                            <#if(data.length == 5){#>
+                                <li class="col-20 guide-item-list">
+                            <#}else if(data.length == 4){#>
+                                <li class="col-25 guide-item-list">
+                            <#}else if(data.length == 3){#>
+                                <li class="col-33 guide-item-list">
+                            <#}else{#>
+                                <li class="col-20 guide-item-list">
+                            <#}#>
+	                		<h3>
+                                <a href="/helpcenter/classification?typeId=<#=value.typeId#>&wigetType=帮助中心"><#=value.articleTypeName#></a>
+	                		</h3>
+	                		<ul>
+	                		    <#for(var j=0,len1=value.articleSingleList.length;j<len1;j++){#>
+                                    <#var articleSingle=value.articleSingleList[j];#>
+                                    <li>
+                                        <a href="/helpcenter/article?typeId=<#=value.typeId#>&articleId=<#=articleSingle.id#>&wigetType=帮助中心" target="_blank"><#=articleSingle.title#></a>
+                                    </li>
+                                <#}#>
+                                <#if(value.childType){#>
+                                    <#for(var m=0;m<value.childType.length;m++){#>
+                                        <#var articlesingle=value.childType[m].articleSingleList;#>
+                                        <#for(var n=0;n<articlesingle.length;n++){#>
+                                            <li>
+                                                <a href="/helpcenter/article?typeId=<#=value.childType[m].typeId#>&articleId=<#=articlesingle[n].id#>&wigetType=帮助中心" target="_blank"><#=articlesingle[n].title#></a>
+                                            </li>
+                                        <#}#>
+                                    <#}#>
+                                <#}#>
+                            </ul>
+		                </li>
+		            <#}#>
+		        </script>
+            </div>
+        </div>
+		</div>
+	</div>
+</div>
+<div class="container bg-2d">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="friend-links" align="center" data-name="friend_links" data-config="" data-type="FriendLinks">
+			<script type="text/html">
+            <#for(var i=0,len=data.length;i<len;i++){#>
+                <#var link=data[i];
+                  if(!link.hidden){
+                #>
+	                <a target="_blank" href="<#=link.linkUrl#>">
+	                        <img src="<#=adjustImgSrc(link.linkPicture)#>" alt="<#=link.linkName#>"/>
+	                </a>
+                <#}#>
+            <#}#>
+        	</script>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="container bg-2d">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="site-info" align="center" data-name="site_info" data-config="" data-type="SiteInfo">
+			<script type="text/html">
+				<div align="center">
+					<div class="site-info-sitename">
+						<#=siteName#>
+					</div>
+					<div class="site-info-message">
+						<#=bottomMessage#>
+					</div>
+					<div class="site-info-license">
+						<#=licenseNum#>
+					</div>
+				</div>
+			</script>
+		</div>
+		</div>
+	</div>
+</div>
+ -->
+    </div>
+    <script src="jquery/jquery-1.11.3.js" type="text/javascript"></script>
+<script src="js/template-native-debug.js" type="text/javascript"></script>
+<script src="js/cube.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/logo_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/help_center_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/friend_links_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/site_info_L.js" type="text/javascript"></script>
+<script src="templates/system/red/pages/js/login_L.js" type="text/javascript"></script>
+<script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="js/modal.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

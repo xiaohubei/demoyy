@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "物流查看");%></title>
+    <%=includeLinks(view, [ "../../css/searchexpress_L.css"]);%>
+        <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="container" data-controller="searchExpressController">
+        <header></header>
+        <div class="row">
+            <div class="col-xs-2">
+                <member_nav></member_nav>
+            </div>
+            <div class="col-xs-10 main searchexpress">
+                <div class="col-xs-12">
+                    <h4>您的物流信息如下</h4>
+                </div>
+                <div id="expressinfo">
+                    <span style=" position: relative;left: 293px;top: 56px; font-size:18px;">物流信息加载中...</span>
+                </div>
+            </div>
+            <footer></footer>
+        </div>
+    </div>
+    <%=includeScripts(view, [ "../../js/searchexpress_L.js"]);%>
+    <script id="searchexpress" type="text/html">
+        <#if(result.status != 200){#>
+            <h4><#=result#></h4>
+        <#}else{#>
+            <div class="col-xs-12 package-status">
+                <ul>
+                <#var data = result.data#>
+                <#for (var i=0;i<data.length;i++) {#>
+                    <#if( i == data.length-1){#>
+                        <li class="lastinfo"><time class="date"><#=data[i].time #></time><span class="text"><#=data[i].context #></span></li>
+                    <#}else{#>
+                        <li><time class="date"><#=data[i].time #></time><span class="text"><#=data[i].context #></span></li>
+                    <#}#>
+                <#}#>
+                </ul>
+            </div>
+            <div class="col-xs-12 expressinfo">
+                <div>物流公司：<span><#=result.corp_name #></span>&nbsp &nbsp 物流单号：<span><#=result.nu #></span>  </div>
+                <div>订单号：<span><#=result.cOrderNum #></span></div>
+            </div>
+        <#}#>
+    </script>
+    <script type="text/javascript">
+    cb.init();
+    </script>
+</body>
+
+</html>

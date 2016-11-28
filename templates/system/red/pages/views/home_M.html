@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>U商城</title>
+</head>
+<body>
+<div>
+<div class="pages">
+<div data-page="home" class="page navbar-fixed toolbar-fixed" data-controller="HomeViewController">
+
+    <div class="navbar no-after lucencyBar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" id="btnScan">
+                    <i class="icon icon-scan"></i>
+                </a>
+            </div>
+            <div class="center sliding" style="width: 80%;">
+    	<div data-name="search" data-config="" data-type="search"  style="width: 100%;">
+       
+            <a href="./search" class="link icon-only" >
+                <div class="input-group-addon"><i class="icon icon-search-input"></i></div><input type="" class="search" placeholder="输入商品名称/关键字" style="width: 85%;" readonly="readonly">
+            </a>
+        </div>
+    </div>
+            <!--<div class="search-login login-ing">
+				   <a id="index_searchLogin" href="/login">
+			</div>-->
+            <div class="right">
+                <a href="/member/mymessage" class="top_message">
+                    <i class="icon icon-msg"></i>
+                    <!--<span>消息</span>-->
+                </a>
+            </div>
+        </div>
+    </div>
+
+<div class="page-content p-t-0">
+<div class="row">
+<div class="col-100">
+<div class="swiper-container swiper-slow home-swiper" data-name="main_slide_1460700732530" data-config="{&#34;data&#34;:[{&#34;id&#34;:&#34;slide1&#34;,&#34;cMemo&#34;:&#34;&#34;,&#34;iOrder&#34;:&#34;&#34;,&#34;cRedirectUrl&#34;:&#34;&#34;,&#34;cAdImageUrl&#34;:&#34;/photo/template/21/222bdb0f-9486-46c8-877a-88ed14ab3297.png&#34;,&#34;iHeight&#34;:&#34;&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/222bdb0f-9486-46c8-877a-88ed14ab3297.png&#34;,&#34;isExternal&#34;:false},{&#34;id&#34;:1460700816747,&#34;cAdImageUrl&#34;:&#34;/photo/template/21/9a045777-f617-42f9-8bc8-84683f8c55e7.jpg&#34;,&#34;iOrder&#34;:&#34;&#34;,&#34;cRedirectUrl&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/9a045777-f617-42f9-8bc8-84683f8c55e7.jpg&#34;},{&#34;id&#34;:1460700891629,&#34;cAdImageUrl&#34;:&#34;/photo/template/21/ce167264-4c8b-467f-bfb9-e9e02f92ed4f.png&#34;,&#34;iOrder&#34;:&#34;&#34;,&#34;cRedirectUrl&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/ce167264-4c8b-467f-bfb9-e9e02f92ed4f.png&#34;},{&#34;id&#34;:1460700838103,&#34;cAdImageUrl&#34;:&#34;/photo/template/21/9c6d9368-90a4-4d99-af26-53f664f978a1.png&#34;,&#34;iOrder&#34;:&#34;4&#34;,&#34;cRedirectUrl&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/9c6d9368-90a4-4d99-af26-53f664f978a1.png&#34;}]}" data-type="MainSlide">
+        <!-- Slides wrapper -->
+        <div class="swiper-wrapper"></div>
+        <!-- Pagination, if required -->
+        <div class="swiper-pagination"></div>
+        <script type="text/template7">
+            {{#each data}}
+            	
+                <div class="swiper-slide" data-id="{{this.id}}" data-link="{{this.isExternal}}">
+                    <a href="{{this.cRedirectUrl}}"><img src="{{adjustImgSrc this.cAdImageUrl}}" /></a>
+                </div>
+            {{/each}}
+        </script>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="coupon_1465957754820" data-config="{&#34;height&#34;:&#34;60&#34;,&#34;data&#34;:[{&#34;id&#34;:&#34;coupon1&#34;,&#34;couponid&#34;:781,&#34;title&#34;:&#34;立减99&#34;,&#34;backtype&#34;:&#34;0&#34;,&#34;startAmount&#34;:321,&#34;reduceAmount&#34;:99,&#34;expireStartDate&#34;:&#34;2016-06-08&#34;,&#34;expireEndDate&#34;:&#34;2016-07-08&#34;,&#34;background&#34;:&#34;#00ff00&#34;,&#34;iorder&#34;:&#34;&#34;,&#34;itype&#34;:false,&#34;configNum&#34;:50,&#34;height&#34;:&#34;60&#34;,&#34;isNotFile&#34;:true,&#34;iOrder&#34;:&#34;&#34;},{&#34;id&#34;:1465957770140,&#34;couponid&#34;:751,&#34;title&#34;:&#34;满100减18&#34;,&#34;backtype&#34;:&#34;0&#34;,&#34;startAmount&#34;:100,&#34;reduceAmount&#34;:18,&#34;expireStartDate&#34;:&#34;2016-05-23&#34;,&#34;expireEndDate&#34;:&#34;2016-07-26&#34;,&#34;background&#34;:&#34;#e69138&#34;,&#34;iorder&#34;:&#34;&#34;,&#34;itype&#34;:false,&#34;iOrder&#34;:&#34;&#34;,&#34;configNum&#34;:50,&#34;height&#34;:&#34;60&#34;}]}" data-type="Coupon">
+			<ul class="row MainPhoto"></ul>
+			<script type="text/template7">
+				{{#each data}}				
+				<li class="col-{{this.configNum}} " style="font-size:12px">
+						{{#if itype}}
+						<div class="sendCoupon" id="{{couponid}}">
+							<img src="{{background}}" style="height:{{height}}px;"/>
+						</div>
+						{{else}}
+						<div class="sendCoupon" id="{{couponid}}" style="padding-top:1px;height:{{height}}px;background:{{background}}; border-radius: 5px;;">
+							<div class="coupon-bt"></div>
+							<p style="margin-top:0px;color:white;"><em>￥</em>{{reduceAmount}}</p>
+							<div class="coupon-type">
+								<p style="margin-top:0px;color:white;">满{{startAmount}}元使用</p>
+							</div>
+							<p style="margin-top:0px;color:white;">{{expireEndDate}}前有效</p>
+							
+						</div>
+						{{/if}}
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1467600843015" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;http://umalltest.yonyouup.com/photo/template/21/3184b943-e3f4-4fc7-ba48-80f0b1dcabcd.jpg&#34;,&#34;link&#34;:&#34;&#34;,&#34;selectedNum&#34;:4,&#34;isExternal&#34;:false,&#34;configNum&#34;:33,&#34;isNotFile&#34;:true},{&#34;id&#34;:2,&#34;url&#34;:&#34;http://umalltest.yonyouup.com/photo/template/21/47c0dbd8-e53b-4cea-9588-0b48aff7b254.jpg&#34;,&#34;link&#34;:&#34;&#34;,&#34;selectedNum&#34;:4,&#34;isExternal&#34;:false,&#34;configNum&#34;:33,&#34;isNotFile&#34;:true},{&#34;id&#34;:5,&#34;url&#34;:&#34;http://umalltest.yonyouup.com/photo/template/21/a5f27160-23b1-49d4-818c-57271eecac19.jpg&#34;,&#34;link&#34;:&#34;&#34;,&#34;selectedNum&#34;:4,&#34;isExternal&#34;:false,&#34;configNum&#34;:33,&#34;isNotFile&#34;:true}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="index_goods_1467616068473" data-config="{&#34;advertisement&#34;:null,&#34;choosegoods&#34;:null,&#34;colspan&#34;:null,&#34;rows&#34;:&#34;1&#34;,&#34;cols&#34;:&#34;12&#34;,&#34;texttag&#34;:null,&#34;show_market&#34;:null,&#34;show_star&#34;:null,&#34;isCurrentClass&#34;:null,&#34;displayMode&#34;:&#34;smallphoto&#34;,&#34;showname&#34;:&#34;initial&#34;,&#34;showprice&#34;:&#34;initial&#34;,&#34;showsale&#34;:&#34;initial&#34;,&#34;goodclass&#34;:&#34;points&#34;,&#34;filter&#34;:[{&#34;fieldname&#34;:&#34;type_id&#34;,&#34;valuefrom&#34;:&#34;&#34;},{&#34;fieldname&#34;:&#34;saleprice&#34;,&#34;valuefrom&#34;:&#34;&#34;,&#34;valueto&#34;:&#34;&#34;},{&#34;fieldname&#34;:&#34;keyword&#34;,&#34;valuefrom&#34;:&#34;&#34;},{&#34;fieldname&#34;:&#34;categoryid&#34;,&#34;valuefrom&#34;:&#34;&#34;},{&#34;fieldname&#34;:&#34;brand_id&#34;,&#34;valuefrom&#34;:&#34;&#34;},{&#34;fieldname&#34;:&#34;tag_id&#34;,&#34;valuefrom&#34;:&#34;&#34;},{&#34;fieldname&#34;:&#34;salepoints&#34;,&#34;valuefrom&#34;:&#34;&#34;,&#34;valueto&#34;:&#34;&#34;}],&#34;order&#34;:[{&#34;fieldname&#34;:&#34;salePoints&#34;,&#34;direction&#34;:&#34;asc&#34;}]}" data-type="IndexGoods">
+			<ul class="row"></ul>
+			<script type="text/template7">
+				{{#each data}}				
+				<li class="">
+					<div class="card-item">
+						<div class="item-media">
+							<div class="upimgdiv">
+								<a href="detail?goods_id={{this.pid}}">
+									<img {{#if this.defaultAlbum}} {{#if @root.preview}}src{{else}}data-src{{/if}}="{{adjustImgSrc this.defaultAlbum}}" {{else}} src="./img/nopic.jpg" {{/if}} class="lazy lazy-fadeIn" onerror="this.onerror=null;this.src='./img/nopic.jpg'"/>
+								</a>
+							</div>
+						</div>
+						<div class="caption">
+							<p class="p-title" style="visibility: {{this.showname}};">{{this.pName}}</p>
+							<p>
+								<span class="price" style="visibility: {{this.showprice}};">
+									{{#if productAttribute}}									
+										{{this.salePoints}}<em>积分</em>
+									{{else}}
+										{{#if fMarkPrice}}
+											<em>￥</em>{{this.fSalePrice}}
+											<del style="color: #000; font-weight: initial; font-size: 10px;" >￥{{this.fMarkPrice}}</del>
+										{{else}}
+											<em>￥</em>{{this.fSalePrice}}
+										{{/if}}
+									{{/if}}
+								</span>
+								<span class="sale" style="visibility: {{this.showsale}};">已售出:{{this.iSales}}</span>
+							</p>
+						</div>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460701297921" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/16a6d6d1-3692-4428-9d60-e51657107508.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100,&#34;isNotFile&#34;:true,&#34;selectedNum&#34;:4}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460701377779" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/c5ef9445-738a-4004-8a10-c30fa42b5f40.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100,&#34;isNotFile&#34;:true}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1466992883510" data-config="{&#34;photos&#34;:[{&#34;id&#34;:7,&#34;url&#34;:&#34;http://umalltest.yonyouup.com/photo/template/21/2e2fb014-3a42-4932-85ba-194836a6b554.jpg&#34;,&#34;link&#34;:&#34;&#34;,&#34;selectedNum&#34;:4,&#34;isExternal&#34;:false,&#34;configNum&#34;:33,&#34;isNotFile&#34;:true},{&#34;id&#34;:8,&#34;url&#34;:&#34;http://umalltest.yonyouup.com/photo/template/21/86390557-49cb-4cc1-a07d-36e1de7c1f03.jpg&#34;,&#34;link&#34;:&#34;&#34;,&#34;selectedNum&#34;:4,&#34;isExternal&#34;:false,&#34;configNum&#34;:33,&#34;isNotFile&#34;:true},{&#34;id&#34;:6,&#34;url&#34;:&#34;http://umalltest.yonyouup.com/photo/template/21/23a78ff9-299f-439c-9a74-21c2cc866fc5.jpg&#34;,&#34;link&#34;:&#34;&#34;,&#34;selectedNum&#34;:4,&#34;isExternal&#34;:false,&#34;configNum&#34;:33,&#34;isNotFile&#34;:true}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="magic_box_1460701426748" data-config="{&#34;imagedata&#34;:[{&#34;startX&#34;:0,&#34;startY&#34;:0,&#34;nX&#34;:4,&#34;nY&#34;:4,&#34;id&#34;:&#34;0_0_4_4&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/a5ed13d6-ee24-4ae1-b53a-e7e588afec5a.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:4,&#34;startY&#34;:4,&#34;nX&#34;:4,&#34;nY&#34;:4,&#34;id&#34;:&#34;4_4_4_4&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/efdc00c5-f9b1-4934-8d53-f1c8b716cb30.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:0,&#34;startY&#34;:4,&#34;nX&#34;:4,&#34;nY&#34;:4,&#34;id&#34;:&#34;0_4_4_4&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/04c1dcfd-4b92-4d33-bed4-3dea5e507f64.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:4,&#34;startY&#34;:0,&#34;nX&#34;:4,&#34;nY&#34;:4,&#34;id&#34;:&#34;4_0_4_4&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/6fdc33df-b99f-4b41-a227-b942a297942c.png&#34;,&#34;href&#34;:&#34;&#34;}]}" data-type="MagicBox" style="position:relative;">
+        <div style="position:relative;" class="MagicBox">
+            <canvas class="canvas" style="z-index:3; position:absolute; ">你的浏览器不支持canvas</canvas>
+            <canvas class="upCanvas" style="z-index:4; position:absolute; ">你的浏览器不支持canvas</canvas>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460707537299" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/774edcb2-6052-4e81-8d9d-177b592720cf.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100,&#34;isNotFile&#34;:true}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="magic_box_1460707750160" data-config="{&#34;imagedata&#34;:[{&#34;startX&#34;:0,&#34;startY&#34;:0,&#34;nX&#34;:4,&#34;nY&#34;:3,&#34;id&#34;:&#34;0_0_4_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/85a21aa8-1c6c-437c-a742-36a68818c9e0.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:4,&#34;startY&#34;:0,&#34;nX&#34;:4,&#34;nY&#34;:3,&#34;id&#34;:&#34;4_0_4_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/a9d3f3d9-65ec-489d-b6aa-20801c7892bf.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:0,&#34;startY&#34;:3,&#34;nX&#34;:4,&#34;nY&#34;:3,&#34;id&#34;:&#34;0_3_4_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/2046bb11-1690-4eb2-a08c-372ec2af3749.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:4,&#34;startY&#34;:3,&#34;nX&#34;:4,&#34;nY&#34;:3,&#34;id&#34;:&#34;4_3_4_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/89444b80-b56c-43cf-87c3-917d967fc065.png&#34;,&#34;href&#34;:&#34;&#34;}]}" data-type="MagicBox" style="position:relative;">
+        <div style="position:relative;" class="MagicBox">
+            <canvas class="canvas" style="z-index:3; position:absolute; ">你的浏览器不支持canvas</canvas>
+            <canvas class="upCanvas" style="z-index:4; position:absolute; ">你的浏览器不支持canvas</canvas>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460703425652" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/16c2186a-c204-4154-80e4-b2ff264d4f20.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="magic_box_1460707937452" data-config="{&#34;imagedata&#34;:[{&#34;startX&#34;:0,&#34;startY&#34;:0,&#34;nX&#34;:3,&#34;nY&#34;:3,&#34;id&#34;:&#34;0_0_3_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/cf82f6a7-f736-49c7-8ac5-faa36057a839.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:3,&#34;startY&#34;:0,&#34;nX&#34;:3,&#34;nY&#34;:3,&#34;id&#34;:&#34;3_0_3_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/0b6629e8-3a69-4b5b-8537-108fbea28c66.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:6,&#34;startY&#34;:0,&#34;nX&#34;:2,&#34;nY&#34;:3,&#34;id&#34;:&#34;6_0_2_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/ee1b3069-2639-454d-ac97-ea0803b12d40.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:0,&#34;startY&#34;:3,&#34;nX&#34;:2,&#34;nY&#34;:3,&#34;id&#34;:&#34;0_3_2_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/c8848e6c-e2ce-42ff-a330-72bbd66b422e.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:2,&#34;startY&#34;:3,&#34;nX&#34;:3,&#34;nY&#34;:3,&#34;id&#34;:&#34;2_3_3_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/f76492a3-b45a-4734-bdc8-500487ba9af9.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:5,&#34;startY&#34;:3,&#34;nX&#34;:3,&#34;nY&#34;:3,&#34;id&#34;:&#34;5_3_3_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/af2074d1-cc92-4bfa-bc9a-4809f5cf537d.png&#34;,&#34;href&#34;:&#34;&#34;}]}" data-type="MagicBox" style="position:relative;">
+        <div style="position:relative;" class="MagicBox">
+            <canvas class="canvas" style="z-index:3; position:absolute; ">你的浏览器不支持canvas</canvas>
+            <canvas class="upCanvas" style="z-index:4; position:absolute; ">你的浏览器不支持canvas</canvas>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460703235744" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/719d028b-7689-4728-ba43-b2b40856ac44.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460704441474" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/9fa2c86a-5b47-485c-9aba-3902245264a3.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100,&#34;isNotFile&#34;:true}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="magic_box_1460704473251" data-config="{&#34;imagedata&#34;:[{&#34;startX&#34;:0,&#34;startY&#34;:0,&#34;nX&#34;:3,&#34;nY&#34;:4,&#34;id&#34;:&#34;0_0_3_4&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/8dcd36fd-2a66-47be-b00a-f21726668b0f.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:3,&#34;startY&#34;:0,&#34;nX&#34;:3,&#34;nY&#34;:2,&#34;id&#34;:&#34;3_0_3_2&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/ad2233d8-e2ac-4d60-a06d-a28b9dd4ba6e.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:6,&#34;startY&#34;:0,&#34;nX&#34;:2,&#34;nY&#34;:2,&#34;id&#34;:&#34;6_0_2_2&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/36d281e2-d7db-4b91-8a36-ce4d5ecb536c.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:3,&#34;startY&#34;:2,&#34;nX&#34;:2,&#34;nY&#34;:2,&#34;id&#34;:&#34;3_2_2_2&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/78914cbf-3c6d-4013-a8da-994cc9975e9d.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:5,&#34;startY&#34;:2,&#34;nX&#34;:3,&#34;nY&#34;:2,&#34;id&#34;:&#34;5_2_3_2&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/4f1a6e4d-696b-4050-b6e7-4677360226bf.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/11a61ce7-9e24-431b-bd74-9ec3cdced8f8.png&#34;,&#34;href&#34;:&#34;&#34;,&#34;id&#34;:&#34;undefined_undefined_undefined_undefined&#34;}]}" data-type="MagicBox" style="position:relative;">
+        <div style="position:relative;" class="MagicBox">
+            <canvas class="canvas" style="z-index:3; position:absolute; ">你的浏览器不支持canvas</canvas>
+            <canvas class="upCanvas" style="z-index:4; position:absolute; ">你的浏览器不支持canvas</canvas>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460948599699" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/83f7c2b5-268a-41f1-b171-d2edb18743a4.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="magic_box_1460945983715" data-config="{&#34;imagedata&#34;:[{&#34;startX&#34;:0,&#34;startY&#34;:0,&#34;nX&#34;:5,&#34;nY&#34;:5,&#34;id&#34;:&#34;0_0_5_5&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/3feed904-fe48-4fb0-aa11-15a903eb8a7e.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:0,&#34;startY&#34;:5,&#34;nX&#34;:3,&#34;nY&#34;:3,&#34;id&#34;:&#34;0_5_3_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/e384c390-80df-47a9-a8b3-2e30db799679.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:3,&#34;startY&#34;:5,&#34;nX&#34;:3,&#34;nY&#34;:3,&#34;id&#34;:&#34;3_5_3_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/fb093633-5367-43cc-9d8e-eca21ad8909a.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:6,&#34;startY&#34;:5,&#34;nX&#34;:2,&#34;nY&#34;:3,&#34;id&#34;:&#34;6_5_2_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/8b50812e-8813-4eb1-8390-c9102554351c.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/097db2be-80b3-4823-81f3-4d428f713adf.png&#34;,&#34;href&#34;:&#34;&#34;,&#34;id&#34;:&#34;undefined_undefined_undefined_undefined&#34;},{&#34;startX&#34;:5,&#34;startY&#34;:0,&#34;nX&#34;:3,&#34;nY&#34;:5,&#34;id&#34;:&#34;5_0_3_5&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/ce18c414-bfef-49ac-bbbe-9c5b9d116c9b.png&#34;,&#34;href&#34;:&#34;&#34;}]}" data-type="MagicBox" style="position:relative;">
+        <div style="position:relative;" class="MagicBox">
+            <canvas class="canvas" style="z-index:3; position:absolute; ">你的浏览器不支持canvas</canvas>
+            <canvas class="upCanvas" style="z-index:4; position:absolute; ">你的浏览器不支持canvas</canvas>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460703227103" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/3f5bed31-8c08-4716-9eb9-9ce48571c7a0.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460703527551" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/27c0e4e1-9137-413b-bfcd-02010abfdb84.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100,&#34;isNotFile&#34;:true}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="magic_box_1460945734654" data-config="{&#34;imagedata&#34;:[{&#34;startX&#34;:0,&#34;startY&#34;:0,&#34;nX&#34;:3,&#34;nY&#34;:5,&#34;id&#34;:&#34;0_0_3_5&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/b32b63a3-a922-47d1-ab09-14bc1e3b3697.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:5,&#34;startY&#34;:3,&#34;nX&#34;:3,&#34;nY&#34;:5,&#34;id&#34;:&#34;5_3_3_5&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/77a62075-7cb8-4742-ae6e-9d2cf278da54.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:5,&#34;startY&#34;:0,&#34;nX&#34;:3,&#34;nY&#34;:3,&#34;id&#34;:&#34;5_0_3_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/a90f9d66-9998-4ad2-b48a-0beb3ad98416.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:0,&#34;startY&#34;:5,&#34;nX&#34;:3,&#34;nY&#34;:3,&#34;id&#34;:&#34;0_5_3_3&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/ed74827a-78b8-4372-a9c1-1a5db910ffa1.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:3,&#34;startY&#34;:0,&#34;nX&#34;:2,&#34;nY&#34;:2,&#34;id&#34;:&#34;3_0_2_2&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/524aed74-c0bf-4fdb-94ea-ad5f6d9e0b5f.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:3,&#34;startY&#34;:2,&#34;nX&#34;:2,&#34;nY&#34;:2,&#34;id&#34;:&#34;3_2_2_2&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/87a66838-7e20-4fa1-b078-cbce188c507d.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:3,&#34;startY&#34;:4,&#34;nX&#34;:2,&#34;nY&#34;:2,&#34;id&#34;:&#34;3_4_2_2&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/f66a9e8d-6f1e-4fb7-a477-53018f9a63df.png&#34;,&#34;href&#34;:&#34;&#34;},{&#34;startX&#34;:3,&#34;startY&#34;:6,&#34;nX&#34;:2,&#34;nY&#34;:2,&#34;id&#34;:&#34;3_6_2_2&#34;,&#34;isNotFile&#34;:true,&#34;url&#34;:&#34;/photo/template/21/3688108d-e67d-431d-aaa7-c28f92845483.png&#34;,&#34;href&#34;:&#34;&#34;}]}" data-type="MagicBox" style="position:relative;">
+        <div style="position:relative;" class="MagicBox">
+            <canvas class="canvas" style="z-index:3; position:absolute; ">你的浏览器不支持canvas</canvas>
+            <canvas class="upCanvas" style="z-index:4; position:absolute; ">你的浏览器不支持canvas</canvas>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-100">
+<div data-name="main_pictures_1460708343022" data-config="{&#34;photos&#34;:[{&#34;id&#34;:&#34;0&#34;,&#34;url&#34;:&#34;/photo/template/21/abad5ad8-00ec-4993-b217-f77ee75480aa.png&#34;,&#34;link&#34;:&#34;&#34;,&#34;isExternal&#34;:false,&#34;configNum&#34;:100,&#34;isNotFile&#34;:true}]}" data-type="MainPhoto">
+			<ul class="row MainPhoto owl-carousel" id="slider"></ul>
+			<script type="text/template7">
+				{{#each photos}}				
+				<li class="owl-item col-{{this.configNum}} mainPhotoLi">
+					<div data-link="{{this.isExternal}}">
+						<a href="{{this.link}}" target="_blank">
+							<img src="{{adjustImgSrc this.url}}"/>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+</div>
+</div>
+</div>
+
+    <div class="toolbar tabbar tabbar-labels homeNavBar">
+        <div class="toolbar-inner">
+            
+    <style>
+        .footer-icon-1 {
+            background-image: url(templates/system/red/pages/img/icon/footer-1.png);
+        }
+        .active .footer-icon-1 {
+            background-image: url(templates/system/red/pages/img/icon/footer-1-a.png);
+        }
+    </style>
+    <a href="#homeView" class="tab-link">
+        <i class="icon footer-icon-1"></i>
+        <span class="tabbar-label">首页</span>
+    </a>
+    
+    
+    <style>
+        .footer-icon-2 {
+            background-image: url(templates/system/red/pages/img/icon/footer-2.png);
+        }
+        .active .footer-icon-2 {
+            background-image: url(templates/system/red/pages/img/icon/footer-2-a.png);
+        }
+    </style>
+    <a href="#categoryView" class="tab-link">
+        <i class="icon footer-icon-2"> </i>
+        <span class="tabbar-label">分类</span>
+    </a>
+    
+    
+    <style>
+        .footer-icon-3 {
+            background-image: url(templates/system/red/pages/img/icon/footer-3.png);
+        }
+        .active .footer-icon-3 {
+            background-image: url(templates/system/red/pages/img/icon/footer-3-a.png);
+        }
+    </style>
+    <a href="#cartView" class="tab-link">
+        <i class="icon footer-icon-3" id="toolBarShoppingCartCount">
+            <span class="badge bg-red shoppingCartCount" style="display:none;">0</span>
+        </i>
+        <span class="tabbar-label">购物车</span>
+    </a>
+    
+    
+    <style>
+        .footer-icon-4 {
+            background-image: url(templates/system/red/pages/img/icon/footer-4.png);
+        }
+        .active .footer-icon-4 {
+            background-image: url(templates/system/red/pages/img/icon/footer-4-a.png);
+        }
+    </style>
+    <a href="#memberView" class="tab-link">
+        <i class="icon footer-icon-4">
+            <span class="mybadge"></span>
+        </i>
+        <span class="tabbar-label">我的</span>
+    </a>
+    
+            
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+<script src="templates/system/red/widgets/js/search_M.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/image_text_L.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/main_pictures_M.js" type="text/javascript"></script>
+<script src="js/carousel/carousel.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/magic_box_M.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/main_slide_M.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/coupon_M.js" type="text/javascript"></script>
+<script src="templates/system/red/widgets/js/index_goods_M.js" type="text/javascript"></script>
+<script src="templates/system/red/pages/js/home_M.js" type="text/javascript"></script>
+</body>
+</html>

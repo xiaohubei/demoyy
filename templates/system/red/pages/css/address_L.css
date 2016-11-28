@@ -1,0 +1,141 @@
+﻿.main-body{
+    padding-top: 20px;
+}
+
+.main_tabs {
+    width: 100%;
+    background-color: #fff;
+}
+
+.main_top {
+    margin-top: 20px;
+    border-bottom: 1px solid #eee;
+    padding-right: 0;
+}
+
+.myaddress {
+    font-size: 18px;
+    height: 35px;
+    line-height: 30px;
+}
+
+.main_addaddr {
+    text-align: right;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+}
+
+.main_middle {
+    padding: 0;
+}
+
+.addr_item {
+    border: 1px solid #eee;
+    padding: 0;
+    margin-top: 22px;
+    height: 152px;
+}
+
+.middle_often {
+    float: left;
+    z-index: 20;
+    background-color: #ffbba2;
+    color: #ff564c;
+    width: 40px;
+    height: 152px;
+    padding-top: 40px;
+}
+
+.middle_l {
+    height: 152px;
+    padding: 12px 0 0 60px;
+    float: left;
+    line-height: 24px;
+}
+
+.middle_r {
+    height: 151px;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    float: right;
+    background-color: #fafafa;
+    width: 158px;
+    display: table;
+}
+
+.item_name {
+    margin-bottom: 10px;
+}
+
+.ftx-01 {
+    font-weight: normal;
+}
+
+.middle_r_d {
+    display: table-row;
+}
+
+.f3 {
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.middle_r a {
+    display: block;
+    text-align: center;
+    color: #333;
+}
+
+.main_bottom {
+    border: 1px dashed #ececec;
+    margin: 7px 0px;
+    float: right;
+    height: 72px;
+    line-height: 72px;
+    padding-left: 326px;
+}
+
+    .main_bottom a {
+        color: #0e0c0f;
+        text-decoration: none;
+    }
+
+.addaddr-btn {
+    border: 1px solid #ef524c;
+    background-color: #fafafa;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+.addaddr-btn:hover{
+    background-color: #ef524c;
+    color: #fff;
+}
+.ftx-02 {
+    color: #7edb3c;
+}
+a.common-address {
+    color: #06c;
+    cursor: pointer;
+}
+
+.edit-btn {
+    cursor: pointer;
+}
+
+.delete-btn {
+    cursor: pointer;
+}
+
+/**
+ * Checkbox One
+ */
+.checkboxOne{
+    display:inline-block;
+    width:14px;
+    height:14px;
+    vertical-align:-12%;
+
+}
+

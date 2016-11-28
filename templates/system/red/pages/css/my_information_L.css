@@ -1,0 +1,145 @@
+﻿.my_information_main {
+  overflow: hidden;
+  /*font: 14px/150% Arial,Verdana,"\5b8b\4f53";*/
+  color: #666;
+  margin: 0px auto;
+  padding-top: 20px;
+}
+.extra-l li {
+  float: left;
+  padding-left: 20px;
+  list-style:none;
+}
+a.curr {
+  padding-bottom: 0;
+  color: #e4393c;
+  border-bottom: 2px solid #e4393c;
+  font-weight: 700;
+  cursor: default;
+  text-decoration: none;
+}
+.userset-lcol {
+  float: left;
+  width: 450px;
+}
+.user-set {
+  background-color: #fff;
+  margin-left:70px;
+  margin-top: 20px;
+}
+.form .item {
+  display: inline-block;
+  display: block;
+  margin-bottom: 20px;
+  line-height: 30px;
+}
+.form .item span.label {
+  float: left;
+  height: 18px;
+  line-height: 18px;
+  padding: 6px 0;
+  width: 100px;
+  text-align: right;
+}
+.form em {
+  color: #e4393c;
+}
+em, i, u {
+  font-style: normal;
+}
+.fl {
+  float: left;
+}
+.extra-l {
+    height:30px;
+}
+.form .item:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.form .itxt, .form .text {
+  height: 26px;
+  width: 127px;
+  padding: 5px 23px 5px 5px;
+}
+.form .area, .form .itxt, .form .sele, .form .selt {
+  line-height: 26px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  float: none;
+}
+.form .selt1 {
+  width: 70px;
+}
+.form .area, .form .itxt, .form .sele, .form .selt {
+  line-height: 18px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  float: none;
+}
+.form label {
+  float: none;
+}
+.ml5 {
+  margin-left: 5px;
+}
+.mr5 {
+  margin-right: 5px;
+}
+label, .badge {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 11.844px;
+  line-height: 14px;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: rgba(153, 153, 153, 0);
+}
+
+/*右边*/
+#user-info {
+  overflow: hidden;
+  width: 200px;
+  float: left;
+  height: 360px;
+  line-height: 20px;
+  padding-top:20px;
+}
+#user-info .u-pic {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  overflow: hidden;
+  text-align: center;
+  margin-right: 6px;
+}
+.submit_btn {
+  background-color: red;
+  width: 54px;
+  height: 25px;
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+  cursor:pointer;
+}
+.save_btn {
+  background-color: #FF3C3C;
+  width: 54px;
+  height: 25px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  padding-top: 2px;
+  margin-left: 140px;
+}
+.phone_title {
+  float: left;
+  margin-right: 20px;
+}
+.font-red {
+  color: #f00;
+}
+

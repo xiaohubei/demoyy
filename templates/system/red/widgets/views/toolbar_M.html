@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <%if(configs.home){%>
+    <style>
+        .footer-icon-1 {
+            background-image: url(<%=getImgRelativePath(configs.home[0],tplDir)%>);
+        }
+        .active .footer-icon-1 {
+            background-image: url(<%=getImgRelativePath(configs.home[1],tplDir)%>);
+        }
+    </style>
+    <a href="#homeView" class="tab-link">
+        <i class="icon footer-icon-1"></i>
+        <span class="tabbar-label"><%=configs.home[2]%></span>
+    </a>
+    <%}%>
+    <%if(configs.category){%>
+    <style>
+        .footer-icon-2 {
+            background-image: url(<%=getImgRelativePath(configs.category[0],tplDir)%>);
+        }
+        .active .footer-icon-2 {
+            background-image: url(<%=getImgRelativePath(configs.category[1],tplDir)%>);
+        }
+    </style>
+    <a href="#categoryView" class="tab-link">
+        <i class="icon footer-icon-2"> </i>
+        <span class="tabbar-label"><%=configs.category[2]%></span>
+    </a>
+    <%}%>
+    <%if(configs.cart){%>
+    <style>
+        .footer-icon-3 {
+            background-image: url(<%=getImgRelativePath(configs.cart[0],tplDir)%>);
+        }
+        .active .footer-icon-3 {
+            background-image: url(<%=getImgRelativePath(configs.cart[1],tplDir)%>);
+        }
+    </style>
+    <a href="#cartView" class="tab-link">
+        <i class="icon footer-icon-3" id="toolBarShoppingCartCount">
+            <span class="badge bg-red shoppingCartCount" style="display:none;">0</span>
+        </i>
+        <span class="tabbar-label"><%=configs.cart[2]%></span>
+    </a>
+    <%}%>
+    <%if(configs.member){%>
+    <style>
+        .footer-icon-4 {
+            background-image: url(<%=getImgRelativePath(configs.member[0],tplDir)%>);
+        }
+        .active .footer-icon-4 {
+            background-image: url(<%=getImgRelativePath(configs.member[1],tplDir)%>);
+        }
+    </style>
+    <a href="#memberView" class="tab-link">
+        <i class="icon footer-icon-4">
+            <span class="mybadge"></span>
+        </i>
+        <span class="tabbar-label"><%=configs.member[2]%></span>
+    </a>
+    <%}%>
+</body>
+</html>

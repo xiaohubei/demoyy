@@ -1,0 +1,78 @@
+﻿#forget_code_mainbody_box {
+  width: 990px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.RegisterWrap_forgetCode {
+  margin: 10px;
+}
+.loginbox {
+  border: 0px;
+}
+.RegisterWrap_forgetCode .intro {
+  color: #999;
+}
+.message_code {
+  width: 80px;
+}
+.loginbox_forgetCode ul {
+  margin: 5px;
+  padding: 0;
+  list-style-type: none;
+}
+.loginbox_forgetCode li {
+  padding: 3px 0;
+  clear: both;
+  overflow: hidden;
+}
+.leftlabel_forgetCode {
+  width: 105px;
+}
+.leftlabel_forgetCode {
+  padding: 5px 2px;
+  margin: 0;
+  float: left;
+  width: 130px;
+  text-align: right;
+  height: auto;
+}
+.floatdiv_forgetCode {
+  padding: 5px 2px;
+  float: left;
+  height: auto;
+}
+.inputstyle_forgetCode {
+  width: 160px;
+}
+.error_forget {
+  padding: 2px 15px 3px 15px;
+  margin: 0 2px 1em 2px;
+  border: 1px solid #FCC;
+  background-color: #FFFFE6;
+  color: #f00;
+}
+.get_forgetCode {
+  padding: 2px 15px 3px 15px;
+  margin: 0 2px 1em 2px;
+  background-color: #F8B355;
+  cursor:pointer
+}
+.forgetCode-btn{
+  vertical-align:central;
+}
+.forgetCode-btn span span {
+  background-position: right -595px;
+  line-height: 31px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #B15F15;
+}
+.forgetCode-btn span {
+  background: url(../../../../widgets/images/btn-bj.gif);
+  display: block;
+  padding: 0 0 0 0px;
+  height: 28px;
+  width: 60px;
+  white-space: nowrap;
+  overflow: visible;
+}

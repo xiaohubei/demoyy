@@ -1,0 +1,74 @@
+{
+	"page": {
+		"body": [
+			{
+				"row": [
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "index_goods_1465283818158",
+									"datatype": "index_goods",
+									"colspan": "12"
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "image_text_1464250859574",
+									"datatype": "image_text",
+									"colspan": "12"
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "notices_1464766146195",
+									"datatype": "notices",
+									"colspan": "6"
+								}
+							},
+							{
+								"$": {
+									"widgetname": "coupon_1464766148703",
+									"datatype": "coupon",
+									"colspan": "6"
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "image_text_1466660502034",
+									"datatype": "image_text",
+									"colspan": "3"
+								}
+							},
+							{
+								"$": {
+									"widgetname": "index_goods_1466660504227",
+									"datatype": "index_goods",
+									"colspan": "9"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"header": [
+			""
+		],
+		"footer": [
+			""
+		]
+	}
+}

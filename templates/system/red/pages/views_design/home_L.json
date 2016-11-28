@@ -1,0 +1,27 @@
+{
+	"page": {
+		"header": [
+			""
+		],
+		"body": [
+			{
+				"row": [
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "main_slide",
+									"datatype": "main_slide",
+									"colspan": "12"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"footer": [
+			""
+		]
+	}
+}

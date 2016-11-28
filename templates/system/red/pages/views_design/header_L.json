@@ -1,0 +1,78 @@
+{
+	"page": {
+		"body": [
+			{
+				"row": [
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "topbar_member",
+									"datatype": "topbar_member",
+									"position": "left"
+								}
+							},
+							{
+								"$": {
+									"widgetname": "topbar_subnav",
+									"datatype": "topbar_subnav",
+									"position": "right"
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "logo",
+									"datatype": "logo",
+									"colspan": "3"
+								}
+							},
+							{
+								"$": {
+									"widgetname": "search",
+									"datatype": "search",
+									"colspan": "6"
+								}
+							},
+							{
+								"$": {
+									"widgetname": "cart_box",
+									"datatype": "cart_box",
+									"colspan": "2"
+								}
+							},
+							{
+								"$": {
+									"widgetname": "online_customer",
+									"datatype": "online_customer",
+									"colspan": "1"
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "category",
+									"datatype": "category",
+									"colspan": "2"
+								}
+							},
+							{
+								"$": {
+									"widgetname": "navigation",
+									"datatype": "navigation",
+									"colspan": "10"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

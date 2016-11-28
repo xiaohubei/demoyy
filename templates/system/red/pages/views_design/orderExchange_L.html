@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "订单确认");%></title>
+    <%=includeLinks(view,["../css/order_L.less","@root/js/date/need/laydate.css","@root/js/date/skins/default/laydate.css"]);%>
+    <script src="./bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="OrderExchangeViewController">
+        <header></header>
+        <div class="row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-12 main">
+                <div class="stepflex" id="#sflex03">
+                    <dl class="first done">
+                        <dt class="s-num">1</dt>
+                        <dd class="s-text">1.我的购物车<s></s><b></b></dd>
+                    </dl>
+                    <dl class="normal doing">
+                        <dt class="s-num">2</dt>
+                        <dd class="s-text">2.填写核对订单信息<s></s><b></b></dd>
+                    </dl>
+                    <dl class="normal last">
+                        <dt class="s-num">3</dt>
+                        <dd class="s-text">3.成功提交订单<s></s><b></b></dd>
+                    </dl>
+                </div>
+                <div class="col-md-12">
+                    <div class="order_main">
+                        <div class="address_box">
+                            <h3>收货人信息</h3>
+                            <!-- Modal -->
+                            <div class="modal fade" id="newaddress" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <h4 class="modal-title btn-OpenModal" id="myModalLabel">新增地址</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="form-horizontal address">
+                                                <input type="hidden" id="addressid">
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label">收货人姓名</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="cReceiver" placeholder="姓名">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label">手机号码</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="cMobile" placeholder="手机号码">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label">固定电话</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="cTelePhone" placeholder="固定电话">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label">邮政编码</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="cZipCode" placeholder="邮编">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group regionListArea">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label">所在地区</label>
+                                                    <div class="col-sm-10">
+                                                        <select id="cProvince" class="form-control provice"></select>
+                                                        <select id="cCity" class="form-control city"></select>
+                                                        <select id="cArea" class="form-control area"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label">详细地址</label>
+                                                    <div class="col-sm-10">
+                                                        <textarea class="form-control" id="cAddress" placeholder="街道/小区/房间号"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-2 control-label"></label>
+                                                    <div class="checkboxOne">
+                                                        <input type="checkbox" checked="checked" id="bDefault" class="check-box" />
+                                                    </div>
+                                                    <span>设为常用地址</span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                            <button type="button" id="newaddressSave" class="btn btn-primary">保存</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address_list_opts">
+                            </div>
+                        </div>
+                        <div class="pay_list">
+                            <div class="steptit">
+                                <h3>支付方式</h3>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li><span data-code="FIRSTDELIVER" class="isdefault">在线支付</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pays_list">
+                            <div class="steptit">
+                                <h3>配送方式</h3>
+                            </div>
+                            <div>
+                                <ul class="distributionContent">
+                                    <li><span data-code="EMS" class="isdefault">快递物流</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="steptit">
+                            <h3>送货清单</h3>
+                            <div class="extra-r"><a href="cart">返回修改购物车</a></div>
+                        </div>
+                        <div class="shopping-list">
+                            <div class="good-list">
+                                <div class="good-tit">
+                                </div>
+                                <div class="goods-items-title">
+                                    <ul>
+                                        <li class="col-xs-6 text-center">
+                                            商品
+                                        </li>
+                                        <li class="col-xs-2 text-center">单价</li>
+                                        <li class="col-xs-2 text-center">数量</li>
+                                        <li class="col-xs-2 text-center">金额</li>
+                                    </ul>
+                                </div>
+                                <div class="goods-items">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-remarks">
+                            <div class="remark-tit">添加订单备注</div>
+                            <div class="remark-cont">
+                                <input type="text" id="remarkText" maxlength="255" size="15" placeholder="限255个字" onkeydown="if (this.value.length > 255) { return false;}">
+                                <span class="tips">提示：请勿填写有关支付、收货、发票方面的信息</span>
+                            </div>
+                        </div>
+                        <div class="user-defined" style="color:#333">
+                            <div class="steptit">
+                                <h3>其他信息</h3>
+                            </div>
+                            <div class="container"></div>
+                        </div>
+                        <div class="steptit">
+                            <h3>结算信息</h3>
+                        </div>
+                        <div class="order_summary1 orderSummaryContainer">
+                            <ul>
+                                <li class="sum"><span>应付积分：</span><span class="payforPrice"></span></li>
+                            </ul>
+                        </div>
+                        <div class="osubmit">
+                            <div><button>提交订单</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12"></div>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+    
+    <%=includeScripts(view, ["../js/orderExchange_L.js","@root/js/date/laydate.min.js"]);%>
+    <script src="./bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./js/addressBaseData.js" type="text/javascript"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=Da2GUB3raZGa2XnLnmYT1KUwvaT9FYPw" type="text/javascript"></script>
+    <script type="text/template" id="UserDefinedTpl">
+        <#for(var i=0;i<data.length;i++){#>
+            <#var item = data[i];#>
+            <#if(item.cType == "text" ){#>
+                <#if(item.cInputWay == "text"){#>
+                    <div class="form-group row">
+                        <label for="indetificationCard" class="col-sm-2"><#=item.cTitle#></label>
+                        <div class="col-sm-2"> 
+                            <# if(item.isReadonly){#> 
+                                <input type="text" class="form-control user-defined-data" name="indetificationCard"  maxlength="<#=item.iLength#>" data-iLength="<#=item.iLength#>" data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>" readonly>
+                            <#}else{#>
+                                <input type="text" class="form-control user-defined-data" name="indetificationCard"  maxlength="<#=item.iLength#>" data-iLength="<#=item.iLength#>" data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>" >
+                            <#}#>
+                        </div>
+                    </div>
+                <#}else if(item.cInputWay == "reference"){#>
+                    <#var referenceArr = item.cFormat.split(";");#>
+                    <div class="form-group row">
+                        <label for="deliverTime" class="col-sm-2"><#=item.cTitle#></label>
+                        <div class="col-sm-1">
+                            <div class="dropup">
+                              <a class="btn btn-default dropdown-toggle " id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <# if(item.isReadonly){#>
+                                        <input class="reference btn-default user-defined-data" data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>" value="" placeholder="请选择" style="border:none; " readonly> 
+                                    <#}else{#>
+                                        <input class="reference btn-default user-defined-data" data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>" value="" placeholder="请选择" style="border:none; " > 
+                                    <#}#>
+                                <span class="caret" style="margin-left: 13px;" ></span>
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a>清空</a></li>
+                                <li role="separator" class="divider"></li>
+                                <#for(var j=0; j<referenceArr.length; j++){#>
+                                    <li><a><#=referenceArr[j]#></a></li>
+                                <#}#>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                <#}#>
+            <#}else if(item.cType == "number" ){#>
+                <#if(item.cInputWay == "text"){#>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-2"><#=item.cTitle#></label>
+                        <div class="col-sm-1">
+                            <# if(item.isReadonly){#>
+                                <input type="number" class="form-control user-defined-data" name="" maxlength="<#=item.iLength#>" data-iLength="<#=item.iLength#>"  data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>" readonly>
+                            <#}else{#>
+                                <input type="number" class="form-control user-defined-data" name="" maxlength="<#=item.iLength#>" data-iLength="<#=item.iLength#>"  data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>" > 
+                            <#}#>
+                        </div>
+                    </div>
+                <#}else if(item.cInputWay == "reference"){#>
+                    <#var referenceArr = item.cFormat.split(";");#>
+                    <div class="form-group row">
+                        <label for="deliverTime" class="col-sm-2"><#=item.cTitle#></label>
+                        <div class="col-sm-1">
+                            <div class="dropup">
+                              <a class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+                                
+                                <# if(item.isReadonly){#>
+                                    <input class="reference btn-default user-defined-data" data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>" value="" placeholder="请选择" style="border:none; " readonly>
+                                <#}else{#>
+                                    <input class="reference btn-default user-defined-data" data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>" value="" placeholder="请选择" style="border:none; " >
+                                <#}#>
+                                <span class="caret" style="margin-left: 13px;"></span>
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a>清空</a></li>
+                                <li role="separator" class="divider"></li>
+                                <#for(var j=0; j<referenceArr.length; j++){#>
+                                    <li><a><#=referenceArr[j]#></a></li>
+                                <#}#>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                <#}#>
+            <#}else if(item.cType == "date"){#>
+                <#if(item.cInputWay == "text"){#>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-2"><#=item.cTitle#></label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control laydate-icon user-defined-data" onClick="laydate({istime:true,elem:'#<#=item.cDefineName#>',format:'YYYY-MM-DD'})"  id="<#=item.cDefineName#>" placeholder="请选择" maxlength="<#=item.iLength#>" data-iLength="<#=item.iLength#>"  data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>">
+                        </div>
+                    </div>
+                <#}else if(item.cInputWay == "reference"){#>
+                    <#var referenceArr = item.cFormat.split(";");#>
+                    <div class="form-group row">
+                        <label for="deliverTime" class="col-sm-2"><#=item.cTitle#></label>
+                        <div class="col-sm-1">
+                            <div class="dropup">
+                              <a class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <input class="reference btn-default user-defined-data" data-cDefineName="<#=item.cDefineName#>" data-isNull = "<#=item.isNull#>" value="" placeholder="请选择" style="border:none; ">
+                                <span class="caret" style="margin-left: 13px;"></span>
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a>清空</a></li>
+                                <li role="separator" class="divider"></li>
+                                <#for(var j=0; j<referenceArr.length; j++){#>
+                                    <li><a><#=referenceArr[j]#></a></li>
+                                <#}#>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                <#}#>
+            <#}#>
+        <#}#>
+    </script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

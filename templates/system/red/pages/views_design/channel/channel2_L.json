@@ -1,0 +1,56 @@
+{
+	"page": {
+		"header": [
+			""
+		],
+		"body": [
+			{
+				"row": [
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "main_slide_12",
+									"datatype": "main_slide",
+									"colspan": "12"
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "index_goods_1e",
+									"datatype": "index_goods",
+									"colspan": "12"
+								}
+							}
+						]
+					},
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "coupon_1467084810109",
+									"datatype": "coupon",
+									"colspan": "6"
+								}
+							},
+							{
+								"$": {
+									"widgetname": "notices_1467084812469",
+									"datatype": "notices",
+									"colspan": "6"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"footer": [
+			""
+		]
+	}
+}

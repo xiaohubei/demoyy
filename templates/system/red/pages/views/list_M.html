@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut icon" href="http://umalltest.yonyouup.com/photo/logo/21/9aeebbee-e1c3-47b7-a31d-8c6e7e803e62.bmp" />
+<link href="templates/system/red/pages/css/list_M.orange.css" rel="Stylesheet" type="text/css" />
+</head>
+<body>
+    <div>
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="productList" class="page no-toolbar no-tabbar" data-controller="ListProductController">
+                <div class="navbar card-navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href='#' class="go-back back">
+                                <i class="icon icon-back-gray"></i>
+                            </a>
+                        </div>
+                        <div class="center sliding" style=" width: 79%;">
+                            <form style="width: 100%;">
+                                <input type="search" class="search" placeholder="搜索商品">
+                                <i class="icon icon-voice-gray"></i>
+                            </form>
+                        </div>
+                        <div class="right">
+                            <a href="#" class="icon-only">
+                                <i class="icon icon-product-list"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="subnavbar">
+                        <div class="row content-block buttons-row nav-condition" style='padding:0'>
+                            <a href="#" class="button active" data-name="iOrder">
+                                综合
+                                <i class="icon icon-down-arrow-red"></i>
+                            </a>
+                            <a href="#" class="button" data-name="dOnSaleTime">
+                                新品
+                                <i class="icon icon-down-arrow-red hidden"></i>
+                            </a>
+                            <a href="#" class="button" data-name="iSales">
+                                销量
+                                <i class="icon icon-down-arrow-red hidden"></i>
+                            </a>
+                            <a href="#" class="button" data-name="fSalePrice">
+                                价格
+                                <i class="icon triangle triangle-up"></i>
+                                <i class="icon triangle triangle-down"></i>
+                            </a>
+                            <a href="#" class="button" data-name="siftLists">
+                                筛选
+                                <i class="icon icon-sift"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content product-container infinite-scroll hide-bars-on-scroll pull-to-refresh-content" data-ptr-distance="55" data-distance="50">
+                    <div class="pull-to-refresh-layer">
+                        <div class="preloader"></div>
+                        <div class="pull-to-refresh-arrow"></div>
+                    </div>
+                    <div class="row list-continer" id="products_list">
+                        <div class="list-block media-list product-list" style="width:100%">
+                            <ul class='listStyle'></ul>
+                            <ul class='blockStyle'></ul>
+                        </div>
+                    </div>
+                    <div class="infinite-scroll-preloader" style='display:none'>
+                        <div class="preloader"></div>
+                    </div>
+                </div>
+                <a class="totop hide" href="#" style="display:block;"></a>
+                <script type="text/template7" id="tpl_list">
+                    {{#each products}}
+                    <li>
+                        <a href="detail?goods_id={{pid}}" class="item-link item-content">
+                            <div class="item-media">
+                                <div class="upimgdiv" style="width:100px;height:100px;">
+                                    {{#if defaultAlbum}}
+                                    <img src="{{adjustImgSrc defaultAlbum}}" class="lazy lazy-fadeIn" onerror="this.onerror=null;this.src='img/nopic.jpg'">
+                                    {{else}}
+                                    <img src="img/nopic.jpg" class="lazy lazy-fadeIn" onerror="this.onerror=null;this.src='img/nopic.jpg'">
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-text">{{pName}}</div>
+                                </div>
+                                <div class="item-subtitle stock">销量 {{iSales}}</div>
+                                <div class="item-subtitle stock" style='height: 21px;'> </div>
+                                <div class="item-subtitle price">
+                                    {{#js_compare "this.productAttribute == 2"}}
+                                    <em></em>{{salePoints}}积分
+                                    {{else}}
+                                    <em>￥</em>{{fSalePrice.toFixed(2)}}
+                                    {{#if fMarkPrice}}
+                                    <del>{{fMarkPrice.toFixed(2)}}</del>
+                                    {{/if}}
+                                    {{/js_compare}}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {{else}}
+                    <!-- <li class="noDataTip">抱歉,没有找到合适的商品</li>-->
+                    <div class="noDataTip">
+                        <i class="icon icon-no-list"></i>
+                        <p>抱歉，没有找到合适的商品</p>
+                        <a href="#" class="button tryListAgain hide">再试试</a>
+                    </div>
+                    {{/each}}
+                </script>
+                <script type="text/template7" id="tpl_block">
+                    {{#each products}}
+                    <li class="col-50" style='float:left;height:270px;'>
+                        <div class="card-item">
+                            <div class="item-media">
+                                <div class="upimgdiv" style="height:182px;width:182px;">
+                                    <a href="detail?goods_id={{pid}}">
+                                        {{#if defaultAlbum}}
+                                        <img src="{{adjustImgSrc defaultAlbum}}" class="lazy lazy-fadeIn" style='height: 100%;' onerror="this.onerror=null;this.src='./img/nopic.jpg'">
+                                        {{else}}
+                                        <img data-src="img/nopic.jpg" class="lazy lazy-fadeIn" style='height: 100%;' onerror="this.onerror=null;this.src='./img/nopic.jpg'">
+                                        {{/if}}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="caption">
+                                <p class="p-title">{{pName}}</p>
+                                <p>
+                                    <span class="price">
+                                        {{#js_compare "this.productAttribute == 2"}}
+                                        {{salePoints}}积分
+                                        {{else}}
+                                        <em>￥</em>{{fSalePrice.toFixed(2)}}
+                                        {{#if fMarkPrice}}
+                                        <del>{{fMarkPrice.toFixed(2)}}</del>
+                                        {{/if}}
+                                        {{/js_compare}}
+                                    </span>
+                                    <span class="stock">销量{{iSales}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    {{else}}
+                    <!-- <li class="noDataTip">抱歉,没有找到合适的商品</li>-->
+                    <div class="noDataTip">
+                        <i class="icon icon-no-list"></i>
+                        <p>抱歉，没有找到合适的商品</p>
+                        <a href="#" class="button tryListAgain hide">再试试</a>
+                    </div>
+                    {{/each}}
+                </script>
+                <script type="text/template7" id="tpl_filter">
+                    <div class="popup popup-filter" id="popup-filter">
+                        <div class="sift">
+                            <p class="title">价格区间</p>
+                            <p class="subtitle">
+                                <input type="text" name="" id="" value="" placeholder="最低价" class="price-input" />-<input type="text" name="" id="" value="" placeholder="最高价" class="price-input" />
+                            </p>
+                           
+                            {{#js_compare "this.classList.length != 0 && this.isClassList !== true"}}
+                            <p class="title">分类 <i class="icon icon-dropup"></i></p>
+                            <ul class="checkdiv">
+                                {{#each classList}}
+                                <li class="pay-style"><input type="radio" data-name="classList" name="classList" data-id="{{id}}"><span>{{cName}}</span></li>
+                                {{/each}}
+                            </ul>
+                            {{/js_compare}}
+                            {{#js_compare "this.brandList.length != 0"}}
+                            <p class="title">品牌 <i class="icon icon-dropup"></i></p>
+                            <ul class="checkdiv">
+                                {{#each brandList}}
+                                <li class="pay-style"><input type="radio" name="brandList" data-id="{{id}}" data-name="brandList"><span>{{brand_name}}</span></li>
+                                {{/each}}
+                            </ul>
+                            {{/js_compare}}
+                            {{#js_compare "this.propsList.length != 0"}}
+                            {{#each propsList}}
+                            <p class="title" data-id={{id}}>{{props_name}} <i class="icon icon-dropup"></i></p>
+                            <ul class="checkdiv">
+                                {{#each this.tpvs}}
+                                <li class="pay-style"><input type="radio" name="propsList_{{props_id}}" data-id="{{props_value_name}}" data-name="propsList"><span>{{props_value_name}}</span></li>
+                                {{/each}}
+                            </ul>
+                            {{/each}}
+                            {{/js_compare}}
+                            <div class="checkdiv m-t-10">
+                                <div class="pay-style"><input type="checkbox" name="displayHasInventory" data-name="displayHasInventory"><span>仅显示有货</span></div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <!-- <p>共计<span>176</span>件商品</p> -->
+                            <a href="#" class="bottom-btn reset">重置</a>
+                            <a href="#" class="bottom-btn finish close-popup">完成</a>
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+    <script src="templates/system/red/pages/js/list_M.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="searchexpress" class="page navbar-fixed toolbar-fixed no-toolbar no-tabbar" data-controller="searchExpressController">
+            <div class="searchbar-overlay"></div>
+            <div class="navbar navbarbg">
+            	<div class="navbar-inner" id="barNoSearch">
+                    <div class="left">
+                        <a href="#" class="back link"><i class="icon icon-back"></i></a>
+                    </div>
+                    <div class="center">
+                        <a href="#" class="link open-popover popover-orders-links">物流详情</a>
+                    </div>
+                </div>
+            </div>
+			<div class="page-content pull-to-refresh-content searchexpress-container" data-distance="50"  data-ptr-distance="55"  id="searchexpress-container">
+			    <div class=" main searchexpress">
+	                <div class="" id="searchexpressinfo"></div>
+	            </div>
+			    <script id="searchexpressTpl" type="text/template7">
+		            <div class="col-100 icon-searchexpress">
+		            	<div class="searchexprescorp">
+		            		<div class="express-orderinfo">
+				            	<div class="col-90"><span>物流公司 </span><span>{{data.corp_name}}</span></div>
+				                <!--<div class="col-90  m-t-5">物流单号 <span>{{data.nu}}</span></div>-->
+				                <div class="col-90  m-t-5">订单号 <span>{{data.cOrderNum}}</span></div>
+				            </div>
+			                <div class="express-status">
+                                <i class="icon currentstatus "></i>
+			                </div>
+		            	</div>
+		            </div>
+			    	<ul class="searchexpressdetail">
+			    		<p class="logisticsNo"><span>物流单号</span>{{data.nu}}</p>
+			    		{{#each data.data}}
+				    		<li class="express-wrap">
+								{{#if first}}
+									<div class="express-step express-step-last">
+											<div class="icon-dot icon-express-item-last"></div>
+										<div class=" express-step-text">
+						    				<div class="text">{{context}}</div>
+											<time class="date">{{time}}</time>
+										</div>
+									</div>
+								{{else}}
+									{{#if last}}
+										<div class="express-step express-step-first">
+												<div class="icon-dot icon-express-item"></div>
+											<div class="express-step-text">
+							    				<div class="text">{{context}}</div>
+												<time class="date">{{time}}</time>
+											</div>
+										</div>
+									{{else}}
+										<div class="express-step">
+												<div class=" icon-dot icon-express-item"></div>
+											<div class=" express-step-text">
+							    				<div class="text">{{context}}</div>
+												<time class="date">{{time}}</time>
+											</div>
+										</div>
+									{{/if}}
+								{{/if}}
+				    		</li>
+			    		{{/each}}
+			    	</ul>
+			    </script>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../../js/searchexpress_M.js"]);%>
+</body>
+</html>

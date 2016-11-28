@@ -1,0 +1,28 @@
+{
+	"page": {
+		"header": [
+			""
+		],
+		"body": [
+			{
+				"row": [
+					{
+						"col": [
+							{
+								"$": {
+									"widgetname": "content",
+									"datatype": "",
+									"colspan": "12",
+									"fixed": true
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"footer": [
+			""
+		]
+	}
+}

@@ -1,0 +1,197 @@
+//.evaluationList{
+//  margin-top: 10px !important;
+//}
+.evaluation-list{
+    width:100%;
+    background-color: #f0efed !important;
+    margin-top: 55px;
+}
+.evaluation-list li{
+    background-color: #fff !important;
+//  padding-bottom: 5px;
+    margin: 0;
+}
+.evaluation-list li:after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #eeeeee;
+    left: 0;
+    bottom: 0;
+    z-index: 15;
+}
+.evaluation-list .item-text,
+.evaluation-list .item-subtitle{
+//  margin-left: 4%;
+    color: #505050;
+    font-size: 13px;
+}
+.evaluation-list .item-text{
+    height: auto;
+    -webkit-line-clamp: inherit;
+    color: #999;
+}
+.evaluation-list .item-title{
+    font-size: 16px;
+    color:#505050;
+}
+.evaluation-list .item-after{
+     color: #999999;
+     font-size: 14px;
+}
+.evaluation-list .item-subtitle{
+    color: #999999;
+}
+.evaluation-date .item-title{
+    font-size: 11px;
+    color: #999999;
+    /*line-height: 44px;*/
+}
+.evaluation-date .item-inner{
+    padding: 0 !important;
+}
+.evaluation-date .item-after a{
+    color: #fda307;
+    border: 1px solid #EFBF4D;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 12px;
+    padding: 3px 8px;
+}
+div[data-page="evaluation"] .subnavbar{
+    height: 48px;
+}
+.subnavbar .buttons-row a.active{
+        color:#ef534d;
+        border-bottom: 1px solid #ef534d;
+        margin-top: 1px;
+}
+div[data-page="MessageList"] .list-block .item-content{
+    background: #f8f8f8;
+    min-height:30px;
+    line-height:30px;
+     .icon{
+            top:-2px;
+        }
+    &.consultingNum,
+    &.evaluation-date{
+        background: #fff;
+        min-height:24px;
+        line-height:24px;
+        padding-top:4px;
+        .item-inner{
+            height:auto;
+            min-height:auto;
+        }
+        .item-text{
+            color: #505050;
+        }
+       
+    }
+}
+
+.star-box{
+    display: inline-block;
+    list-style: none;
+}
+.star-box li.stars{
+    float: left;
+    background: url('../img/star-no.png') no-repeat;
+    width: 12px;
+    height: 12px;
+    background-size: 12px 12px;
+    margin-left: 5px;
+}
+.star-box li.stars.hasStar{
+    background: url('../img/star.png') no-repeat;
+    background-size: 12px 12px;
+}
+.evaluate-star{
+    padding:2px 0px;
+    text-align: left;
+    padding-left: 15px;
+    
+}
+.list-block ul ul.star-box{
+  padding-left:0px;
+  position: relative;
+  top:2px;
+}
+.evaluate-star span{
+    height: 20px;
+    line-height: 20px; 
+    font-size: 14px;    
+  }  
+.row.content{
+    padding-left:15px;
+    padding-bottom: 15px;
+}
+.list-block.evaluation-list .evaluation-ul{
+    margin-top: 10px;
+    text-align: center;
+    padding: 15px;
+    
+    li{
+//      margin-top: 10px;
+        position: relative;
+        padding-bottom: 5px;
+        &:after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 0;
+            right: 0;
+            top: auto;
+            bottom: 0;
+            background-color:#EEEEEE ;
+        }
+        .item-content,.item-inner{
+            padding:0;
+            min-height: 25px;
+            height: 25px;
+        }
+        .row.content{
+           text-align: left;
+           padding:0;
+           span{
+            word-break: break-all;
+            } 
+        }
+        .item-title-row{
+            font-size: 15px;
+            .item-title{
+                color: #545454;
+                font-size: 14px;
+                font-weight: normal;
+            }
+            .item-after{
+               color: #B2B1B1;
+               font-size: 12px; 
+            }
+        }
+        .item-text{
+            color: #A0A0A0;
+            font-size: 14px;
+        }
+    }
+}
+div[data-page="productDetail"] .evaluate-star{
+    padding-left:0px;
+}
+div[data-page="evaluation"]  .navbar-inner {
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            top: auto;
+            right: auto;
+            height: 1px;
+            width: 100%;
+            background-color: #e3e3e3;
+            display: block;
+            z-index: 99;
+        }
+    }

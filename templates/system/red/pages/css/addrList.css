@@ -1,0 +1,318 @@
+﻿/*统一调整底部导航颜色*/
+/*.navbar{
+	background: #32a075;
+	color: #FFFFFF;
+}*/
+/*统一修改单选多选框背景颜色为红色*/
+label.label-checkbox input[type=checkbox]:checked + .item-media i.icon-form-checkbox,
+label.label-checkbox input[type=radio]:checked + .item-media i.icon-form-checkbox {
+    background-color: #ff0000;
+}
+.btn-addressManage{
+    margin-right:8px;
+}
+.confirmList {
+    margin: 0 auto;
+    margin-bottom: 70px;
+}
+
+    .confirmList ul {
+        background: #f1f1f1;
+        margin-top: 10px;
+    }
+
+        .confirmList ul li {
+            background: #FFFFFF;
+            position: relative;
+        }
+		.confirmList ul li:after{
+		content: '';
+        position: absolute;
+        left: 0;
+        bottom: auto;
+        top: 0;
+        right: auto;
+        height: 1px;
+        width: 100%;
+        background-color: #eee;
+        display: block;
+        z-index: 15;
+}
+.confirmList ul li:after{
+		left: 0;
+        bottom: 0;
+        top: auto;
+        right: auto;
+}
+.confirmList ul li li:last-child:after{
+    height:0;
+}
+html.pixel-ratio-2 .confirmList ul li:before,
+html.pixel-ratio-2 .confirmList ul li:after {
+    -webkit-transform: scaleY(0.5);
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    -o-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+html.pixel-ratio-3 .confirmList ul li:before,
+html.pixel-ratio-3 .confirmList ul li:after {
+    -webkit-transform: scaleY(0.33);
+    -moz-transform: scaleY(0.33);
+    -ms-transform: scaleY(0.33);
+    -o-transform: scaleY(0.33);
+    transform: scaleY(0.33);
+}
+ 
+    .confirmList .item-inner:after {
+        height: 0;
+    }
+
+
+    .confirmList .item-title {
+        position: relative;
+        display: table-cell;
+        width: 100%;
+    }
+
+        .confirmList .item-title p {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 15px;
+            color: #666666;
+        }
+
+    .confirmList .item-after {
+        height: auto !important;
+        line-height: 21px;
+        max-height: 100%;
+        display: inline-block;
+        text-align: right;
+    }
+
+        .confirmList .item-after p {
+            color: #000000;
+            font-size: 13px;
+        }
+
+    .confirmList p {
+        margin: 4px auto;
+        font-size: 13px;
+    }
+
+    /*.confirmList ul li.addrList {
+        background: #fefaf3;
+        border: 2px solid transparent;
+        -webkit-border-image: url(../img/icon/addr-bg.png) 113 0 round; 
+        -o-border-image: url(../img/icon/addr-bg.png) 113 0 round; 
+        border-image: url(../img/icon/addr-bg.png) 113 0 round;
+        border-left-width: 0;
+        border-right-width: 0;
+    }*/
+
+.addr-content .addr-edit .icon-bank-checked {
+    background-position: 0 -20px;
+}
+
+.addr-content .checked .addr-edit .icon-bank-checked {
+    background-position: 0 0;
+}
+.addr-content .addr-edit .icon-addr-checked {
+    background-position: 0 -18px;
+}
+
+.addr-content .checked .addr-edit .icon-addr-checked {
+    background-position: 0 0;
+}
+.addr-content .item-title {
+    font-size: 14px;
+    color: #505050;
+}
+
+.addr-content .item-after {
+    font-size: 14px;
+    color: #505050;
+}
+
+.addr-content .item-text {
+    font-size: 13px;
+    word-break: break-all;
+    color: #999;
+}
+
+    .addr-content .item-text .default-addr {
+        /*background: #f5716e;*/
+        color: #ef524d;
+        -webkit-font-size-adjust: none;
+        font-size: 13px !important;
+        display: inline-block;
+        text-align: center;
+        padding: 0 3px;
+        border-radius: 2px;
+        height: 15px;
+        line-height: 15px;
+    }
+
+.addr-content .addr-edit {
+    /*border-left: 1px solid #E1E1E1;*/
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.addressList .item-after{
+	margin-left: 0 !important;
+}
+.addr-new,
+.addr-new input[type=text],
+.addr-new input[type=tel],
+.addr-new input[type=number],
+.addr-new select {
+    font-size: 14px !important;
+    color: #505050;
+    /*line-height:50px;*/
+}
+
+    .addr-new .item-title.label {
+        width: 10%;
+    }
+
+    .addr-new .item-title i.icon {
+        background-position: top;
+    }
+
+    .addr-new .checked .item-title i.icon {
+        background-position: 0 -18px;
+    }
+/*地址管理部分*/
+.addr-operate {
+    margin: auto 15px;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    display: none;
+    margin-bottom: 10px;
+}
+.addr-operate:before{	
+		content: '';
+        position: absolute;
+        left: 15px;
+        bottom: auto;
+        top: auto;
+        right: 15px;
+        height: 1px;
+        background-color: #eee;
+        display: block;
+        z-index: 15;
+}
+html.pixel-ratio-2 .addr-operate:before {
+    -webkit-transform: scaleY(0.5);
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    -o-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+html.pixel-ratio-3 .addr-operate:before {
+    -webkit-transform: scaleY(0.33);
+    -moz-transform: scaleY(0.33);
+    -ms-transform: scaleY(0.33);
+    -o-transform: scaleY(0.33);
+    transform: scaleY(0.33);
+}
+    .addr-operate label.label-checkbox {
+        float: left;
+    }
+
+    .addr-operate .operate-r {
+        float: right;
+    }
+
+        .addr-operate .operate-r a {
+            color: #333333;
+            font-size: 12px;
+            margin-left: 20px;
+        }
+
+    .addr-operate .item-media {
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+        color: #666666;
+        font-size: 13px;
+    }
+
+        .addr-operate .item-media i.icon {
+            margin-right: 5px;
+        }
+        
+        #AddressDetail .item-inner:after{
+        	left: -5px;
+        }
+    .addressManage-btn-del .color-red2{
+    	font-size: 15px;
+    }    
+/*订单详情部分*/
+.confirmList ul li.infoTitle {
+    background-color: #5f6b85;
+    color: #fff;
+    font-size: 13px;
+    padding: 10px;
+}
+
+    .confirmList ul li.infoTitle .title {
+        font-size: 17px;
+    }
+
+.confirmList ul li .infoContent {
+    font-size: 13px;
+    padding: 10px;
+    color: #666666;
+    border-bottom: 1px solid #e1e1e1;
+    margin: auto 5px;
+}
+
+    .confirmList ul li .infoContent .title {
+        font-size: 17px;
+        color: #222222;
+    }
+
+/**/
+.orderNone {
+    background: url(../img/icon/orderNone.png) no-repeat center 30%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-size: 88px 104px;
+    position: relative;
+}
+
+.orderNone-info {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+}
+
+    .orderNone-info h5 {
+        font-size: 18px;
+        color: #666666;
+        margin: 0 auto;
+    }
+
+    .orderNone-info p {
+        font-size: 13px;
+        color: #A1A1A1;
+        margin: 5px auto 10px auto;
+    }
+
+.orderNone-btn {
+    width: 102px;
+    height: 35px;
+    line-height: 35px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    color: #666666;
+    border: 1px solid #666666;
+    margin: 20px auto;
+}

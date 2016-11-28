@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../js/online_customer_L.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/onlineCustomer_L.less" />
+</head>
+<body>
+    <div data-name="<%=name%>" data-config="<%=config%>" data-type="online_customer">
+        <div id="floatTools" class="rides-cs onlineCustomerContent" style="height:246px;">
+
+        </div>
+        <script type="text/html">
+            <div class="floatL">
+                <a id="aFloatTools_Show" class="btnOpen" title="查看在线客服" style="top:20px;display:block" href="javascript:void(0);">展开</a>
+                <a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" style="top:20px;display:none" href="javascript:void(0);">收缩</a>
+            </div>
+            <div id="divFloatToolsView" class="floatR" style="display: none;height:237px;width: 140px;">
+                <div class="cn">
+                    <h3 class="titZx">商城在线客服</h3>
+                    <ul>
+                        <#if(list){#>
+                        <#for(var k=0;k<list.length;k++){#>
+                        <li><span>客服<#=k+1#><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<#=list[k].cContactNum#>&site=qq&menu=yes"><img border="0" style="width:61px;height:16px;" src="http://wpa.qq.com/pa?p=1:<#=list[k].cContactNum#>:10" alt="点击这里给我发消息" title="点击这里给我发消息" /></a></span></li>
+                        <#}#>
+                        <#}else{#>
+                            
+                        <#}#>
+                        <li>
+                            <div class="div_clear"></div>
+                        </li>
+                        <li style="border:none;"><span>电话：<#if(phoneList.length){#><#=phoneList[0].cContactNum#><#}#></span> </li>
+                    </ul>
+                </div>
+            </div>
+        </script>
+    </div>
+</body>
+</html>

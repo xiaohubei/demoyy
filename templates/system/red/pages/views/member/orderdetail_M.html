@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="orderdetail" class="page navbar-fixed toolbar-fixed no-tabbar no-toolbar" data-controller="orderdetailController">
+            <div class="searchbar-overlay"></div>
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i></a></div>
+                    <div class="center">订单详情</div>
+                    <div class="right"><a href="#" class="link"> <i class="icon icon-ellipsis"></i></a></div>
+                </div>
+            </div>
+            <div class="page-content infinite-scroll orderDetail-container" data-distance="50" id="orderDetail-container">
+                <div class="col-100 countdown" id="orderDetail-container-header">
+                    <p class="font-15">订单编号：<span class="header-ordernum"></span></p>
+                    <p>下单时间：<span class="header-orderdate"></span></p>
+                    <div class="status">
+                        <i class="icon currentstatus"></i>
+                        <p id="timeRemain">23时 57 分20 秒确认收货</p>
+                    </div>
+                </div>
+                <div class="orderdetail" id="orderDetail"></div>
+                <!-- <div class="infinite-scroll-preloader"><div class="preloader"></div></div> -->
+                <script id="orderDetailTpl" type="text/template7">
+                    <div class=" list-block media-list m-b-0 m-t-0">
+                        <ul>
+                            <li class="align-top">
+                                {{#if order.isGiftCard}}
+                                {{else}}
+                                    {{#if order.isPickup}}
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <i class="icon order-addr"></i>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">{{order.cReceiver}}</div>
+                                                    <div class="item-after">{{order.storeContactPhone}}</div>
+                                                </div>
+                                                <div class="item-text">{{order.cReceiveAddress}}</div>
+                                            </div>
+                                        </div>
+                                    {{else}}
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <i class="icon order-addr"></i>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">{{order.cReceiver}}</div>
+                                                    <div class="item-after">{{order.cReceiveMobile}}</div>
+                                                </div>
+                                                <div class="item-text">{{order.cReceiveAddress}}</div>
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                {{/if}}
+                            </li>
+                            <li class="align-top">
+                                {{#if order.isShowPayInfo}}
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <i class="icon order-pay"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">{{order.oPayWayCode.cName}}</div>
+                                            <div class="item-after"> </div>
+                                        </div>
+                                        <div class="item-text">{{order.dPayDate}}</div>
+                                    </div>
+                                </div>
+                                {{/if}}
+                            </li>
+                           {{#if order.isPickup}}
+                                <li class="align-top">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="icon order-logistics"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">配送方式</div>
+                                                <div class="item-after">门店自提</div>
+                                            </div>
+                                            <div class="item-text"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="align-top">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="icon order-logistics"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">自提门店</div>
+                                                <div class="item-after">{{order.storeName}}</div>
+                                            </div>
+                                            <div class="item-text"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="align-top">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="icon order-logistics"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">提货码</div>
+                                                <div class="item-after">{{order.ladingCode}} &nbsp &nbsp<span id="ladingCodeQr"></span></div>
+                                            </div>
+                                            <div class="item-text"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {{/if}}
+                            <li class="expressinfo" id="expressinfo"></li>
+                            <li class="align-top">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <i class="icon order-invoice"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">{{order.cInvoiceType}}</div>
+                                            <div class="item-after"> </div>
+                                        </div>
+                                        <div class="item-text">{{order.cInvoiceTitle}} {{order.cInvoiceContent}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="align-top">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <i class="icon order-note"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">买家留言</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                        <div class="item-text">{{order.cClientMemo}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class=" detail-wrap list-block media-list">
+                        <ul>
+                            {{#each order.oOrderDetails}}
+                            <li>
+                                <div class="item-content">
+                                    <a href="detail?goods_id={{iProductId}}">
+                                        <div class="item-media">
+                                            <img alt="" style="width:75px;height:75px;max-width: 75px;" src="{{adjustImgSrc DefaultImage}}">
+                                        </div>
+                                    </a>
+                                    <div class="item-inner m-l-10">
+                                        <a href="detail?goods_id={{iProductId}}">
+                                            <div class="item-title-row">
+                                                <div class="item-text" style="width: 80%;">{{cProductName}}</div>
+                                                {{#js_compare "this.productAttribute == 2 "}}
+                                                    <div class="item-after">{{salePoints}}积分</div>
+                                                {{else}}
+                                                    <div class="item-after">{{fSalePrice}}</div>
+                                                {{/js_compare}}
+                                            </div>
+                                            <div class="item-title-row">
+                                                <div class="item-subtitle">{{cSpecDescription}}</div>
+                                                <div class="item-after">x{{iQuantity}}</div>
+                                            </div>
+                                        </a>
+                                        {{#js_compare "this.cNextStatus != 'PAYMONEY'"}}
+
+                                        {{#js_compare "this.cNextStatus == 'DELIVERGOODS'"}}
+                                        <div class="fr order-btn p-r-0" data-corderno="{{this.cOrderNo}}">
+                                            {{#js_compare "this.cSaleReturnStatus && this.cSaleReturnStatus != ''"}}
+                                            {{#js_compare "this.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'"}}
+                                            <a href="" class="btn btn-theme returngood" data-detailid="{{id}}" data-corderno="{{cOrderNo}}">请退货</a>
+                                            <a href="member/return_detail?iDetailId={{id}}" class="btn btn-theme ">详情</a>
+                                            {{else}}
+                                            <a href="member/return_detail?iDetailId={{id}}" class="btn btn-theme ">详情</a>
+                                            {{/js_compare}}
+                                            {{else}}
+                                            {{#js_compare "this.cOrderPayType != 'FIRSTDELIVER' && this.productAttribute !== 2"}}
+                                                <a href="member/myreturn?detailid={{id}}" class="btn btn-theme returnmoney">退款</a>
+                                            {{/js_compare}}
+                                            {{/js_compare}}
+                                            <span class="fr" style="line-height:25px; height: 25px;font-size:12px; color:#000;">{{cSaleReturnStatusName}}</span>
+                                        </div>
+                                        {{/js_compare}}
+                                        {{#js_compare "this.cNextStatus == 'TAKEDELIVERY'"}}
+                                        <div class="fr order-btn p-r-0" data-corderno="{{this.cOrderNo}}">
+                                            {{#js_compare "this.cSaleReturnStatus && this.cSaleReturnStatus != ''"}}
+                                            {{#js_compare "this.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'"}}
+                                            <a href="" class="btn btn-theme returngood" data-detailid="{{id}}" data-corderno="{{cOrderNo}}">请退货</a>
+                                            <a href="member/return_detail?iDetailId={{id}}" class="btn btn-theme ">详情</a>
+                                            {{else}}
+                                            <a href="member/return_detail?iDetailId={{id}}" class="btn btn-theme ">详情</a>
+                                            {{/js_compare}}
+                                            {{else}}
+                                            {{#js_compare "!this.isGiftCard && this.cOrderPayType == 'FIRSTPAY' && this.productAttribute !== 2"}}
+                                            <a href="member/myreturn?detailid={{id}}" class="btn btn-theme returnmoney">退款</a>
+                                            {{/js_compare}}
+                                            {{/js_compare}}
+                                            <span class="fr" style="line-height:25px; height: 25px;font-size:12px; color:#000;">{{cSaleReturnStatusName}}</span>
+                                        </div>
+                                        {{/js_compare}}
+                                        {{#js_compare "this.cNextStatus == 'UNREMARK'"}}
+                                        <div class="fr order-btn p-r-0" data-corderno="{{this.cOrderNo}}">
+                                            {{#js_compare "this.cSaleReturnStatus && this.cSaleReturnStatus != ''"}}
+                                            {{#js_compare "this.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'"}}
+                                            <a href="" class="btn btn-theme returngood" data-detailid="{{id}}" data-corderno="{{cOrderNo}}">请退货</a>
+                                            <a href="member/return_detail?iDetailId={{id}}" class="btn btn-theme ">详情</a>
+                                            {{else}}
+                                            <a href="member/return_detail?iDetailId={{id}}" class="btn btn-theme ">详情</a>
+                                            {{/js_compare}}
+                                            {{else}}
+                                            {{#js_compare "!this.isGiftCard && this.productAttribute !== 2"}}
+                                            <a href="member/myreturn?detailid={{id}}" class="btn btn-theme returnmoney">退款</a>
+                                            {{/js_compare}}
+                                            {{/js_compare}}
+                                            <span class="fr" style="line-height:25px; height: 25px;font-size:12px; color:#000;">{{cSaleReturnStatusName}}</span>
+                                        </div>
+                                        {{/js_compare}}
+                                        {{#js_compare "this.cNextStatus == 'ENDORDER'"}}
+                                        <div class="fr order-btn p-r-0" data-corderno="{{this.cOrderNo}}">
+                                            {{#js_compare "this.cSaleReturnStatus && this.cSaleReturnStatus != ''"}}
+                                            {{#js_compare "this.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'"}}
+                                            <a href="" class="btn btn-theme returngood" data-detailid="{{id}}" data-corderno="{{cOrderNo}}">请退货</a>
+                                            <a href="member/return_detail?iDetailId={{id}}" class="btn btn-theme ">详情</a>
+                                            {{else}}
+                                            <a href="member/return_detail?iDetailId={{id}}" class="btn btn-theme ">详情</a>
+                                            {{/js_compare}}
+                                            {{else}}
+                                            {{#js_compare "!this.isGiftCard && this.productAttribute !== 2"}}
+                                            <a href="member/myreturn?detailid={{id}}" class="btn btn-theme returnmoney">退款</a>
+                                            {{/js_compare}}
+                                            {{/js_compare}}
+                                            {{#js_compare "this.iCommentId ==0"}}
+                                            <a href="member/myEvaluation?order_id={{cOrderNo}}" class="btn btn-theme  evaluate">评价</a>
+                                            {{else}}
+                                            <span style="color:#ADAAAA;float:left;">已评论</span>
+                                            {{/js_compare}}
+                                            <span class="fr" style="line-height:25px; height: 25px;font-size:12px; color:#000;">{{cSaleReturnStatusName}}</span>
+                                        </div>
+                                        {{/js_compare}}
+
+                                        {{/js_compare}}
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        <div class="list-block paymentinfo">
+                            <ul>
+                                {{#js_compare "this.order.oOrderDetails[0].productAttribute == 2"}}
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">实付款(含运费)</div>
+                                                    <div class="item-after">{{order.pointNum}}积分</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {{else}}
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">整单优惠</div>
+                                                <div class="item-after">￥{{order.preferentialMoney}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">运费</div>
+                                                <div class="item-after">￥{{order.iPostage}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">优惠券抵扣</div>
+                                                <div class="item-after">￥{{order.couponMoney}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">积分抵扣</div>
+                                                <div class="item-after">￥{{order.pointMoney}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{#if order.fDiscountFee}}
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">商家优惠</div>
+                                                <div class="item-after">￥{{order.fDiscountFee}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{/if}}
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">实付款(含运费)</div>
+                                                    <div class="item-after">￥{{order.fPayMoney}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {{/js_compare}}
+                            </ul>
+                        </div>
+                        <div class="order-btn " data-corderno="{{order.cOrderNo}}">
+                            {{#js_compare "this.order.cNextStatus == 'PAYMONEY'"}}
+                                <a href="#" class="btn btn-theme payfor">付款</a>
+                                <a href="#" class="btn cancel">取消订单</a>
+                            {{/js_compare}}
+                            {{#js_compare "this.order.cNextStatus == 'DELIVERGOODS' "}}
+                                {{#js_compare "this.order.cOrderPayType == 'FIRSTDELIVER' "}}
+                                    <a href="#" class="btn cancel">取消订单</a>
+                                {{/js_compare}}
+                            {{/js_compare}}
+                            {{#js_compare "this.order.cNextStatus == 'TAKEDELIVERY'"}}
+                                <a href="#" class="btn btn-theme confirm" >确认收货</a>
+                                {{#js_compare "!this.order.isGiftCard && !this.order.isPickup"}}
+                                    <a href="member/searchexpress?oid={{order.cOrderNo}}&cNextStatus={{order.cNextStatus}}" class="btn logistics" >查看物流</a>
+                                {{/js_compare}}
+                            {{/js_compare}}
+                            {{#js_compare "this.order.cNextStatus == 'ENDORDER'"}}
+                                {{#js_compare "!this.order.isGiftCard && !this.order.isPickup"}}
+                                    <a href="member/searchexpress?oid={{order.cOrderNo}}&cNextStatus={{order.cNextStatus}}" class="btn logistics" >查看物流</a>
+                                {{/js_compare}}
+                            {{/js_compare}}
+                        </div>
+                    </div>
+                </script>
+                <script id="expressTpl" type="text/template7">
+                    <li class="align-top">
+                        <div class="item-content item-link">
+                            <div class="item-media">
+                                <i class="icon order-logistics"></i>
+                            </div>
+                                <div class="item-inner bg-arrow">
+                            <a href="member/searchexpress?oid={{data.orderId}}">
+                                    <div class="item-title-row">
+                                        <div class="item-title">{{data.corp_name}}</div>
+                                        <div class="item-after color-orange"> {{data.currentstatus}}</div>
+                                    </div>
+                                    <div class="item-text">{{data.time}}</div>
+                            </a>
+                                </div>
+                        </div>
+                    </li>
+                </script>
+            </div>
+        </div>
+    </div>
+    <script src="templates/system/red/pages/js/orderdetail_M.js" type="text/javascript"></script>
+<script src="js/qrcode.js" type="text/javascript"></script>
+<script src="js/JsBarcode.min.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="returndetail" class="page navbar-fixed toolbar-fixed no-tabbar" data-controller="returnDetailController">
+            <div class="searchbar-overlay"></div>
+            <div class="navbar navbarbg" id="navabar">
+                <div class="navbar-inner" id="barNoSearch">
+                    <div class="left">
+                        <a href="#" class="back link"><i class="icon icon-back"></i></a>
+                    </div>
+                    <div class="center">
+                        <a href="#" class="link open-popover popover-orders-links"data-ordertype="salesOrder">退货详情</a>
+                    </div>
+                </div>
+            </div>
+
+			<div class="page-content returndetail-container" id="returndetail-container">
+				<div class="col-100" id="returndetail">
+                </div>
+				<script id="returnDetailTpl" type="text/template7">
+                    <div class=" detail-wrap list-block ">
+                        <div class="item-content row" style="margin-left: 5px;">
+                                <div class="item-media">
+                                    <a href="detail?goods_id={{iProductId}}" >
+                                        <img alt="图片" height="75px" width="75px" src="{{imgUrl}}">
+                                    </a>
+                                </div>
+                            <div class=" col-75" >
+                                <a href="detail?goods_id={{iProductId}}">
+                                    <div class="item-title-row">
+                                        <div class="item-text">{{cProductName}}</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-block-title">退货状态</div>
+                    <div class="list-block media-list" id="returndetail-status">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title returnStepType">状态</div>
+                                        <div class="item-after returnStepTime order-btn">{{cStatusName}}
+                                            {{#js_compare "this.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'"}}
+                                                <a href="" class="btn btn-theme returngood" data-detailid="{{iDetailId}}" data-corderno="{{cOrderNo}}" style="float:none;">请退货</a>
+                                            {{/js_compare}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-block-title">退货申请评价</div>
+                    <div class="list-block media-list">
+                        <ul>
+                            <li class="item-content return-satisfaction hide" id="return-satisfaction">
+                                <div class="item-inner">
+                                    <div class="item-title-row" style="font-size: 14px;">
+                                        <div class="item-title">您对本次退货满意吗?</div>
+                                        <div class="item-after" style="font-size:14px">
+                                            <a class="btn satisfation" data-ifeedback="1">满意</a>
+                                            <a class="btn dissatisfation" data-ifeedback="0">不满意</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">申请单号</div>
+                                        <div class="item-after" style="font-size:14px">{{cSaleReturnNo}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">申请类型</div>
+                                        <div class="item-after">{{returnType}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">申请原因</div>
+                                        <div class="item-after">{{reason}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!--{{js_compare "this.cOpposeMemo != false"}}
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">驳回理由</div>
+                                            <div class="item-after">{{cOpposeMemo}}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {{/js_compare}}-->
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">退货金额</div>
+                                        <div class="item-after">￥ {{fReturnMoney}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content" id="returndetail-postRemark">
+                                <div class="item-inner">
+                                    <div class="item-title label">退单备注</div>
+                                    <div class="item-input">
+                                        <textarea style="font-size:14px; border:1px solid #ccc; margin-top:12px">{{cRemark}}</textarea>
+                                        <a href="#" class="btn" >提交备注</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-input" style="font-size:14px">
+                                        <strong>温馨提示: </strong>货到付款时,请填写银行卡卡号、开户行、开户名称
+                                    （请填写少于255字）
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+			    </script>
+            </div>
+        </div>
+    </div>
+    <script src="templates/system/red/pages/js/return_detail_M.js" type="text/javascript"></script>
+</body>
+</html>

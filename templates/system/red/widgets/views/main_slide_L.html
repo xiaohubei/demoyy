@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../css/main_slide_L.css" rel="Stylesheet" type="text/css" />
+    <script src="@root/bootstrap/js/unslider.js" type="text/javascript"></script>
+    <script src="../js/main_slide_L.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="banner" data-name="<%=name%>" data-config="<%=config%>" data-type="MainSlide">
+        <ul></ul>
+        <script type="text/html">
+            <#for(var i=0,len=list.length;i<len;i++){#>
+                <#var val=list[i];#>
+                <li>
+                    <#if(val.cRedirectUrl){#>
+                        <a href="<#=val.cRedirectUrl#>" target="_blank">
+                    <#}else{#>
+                        <a>
+                    <#}#>
+                    <img src="<#=adjustImgSrc(val.cAdImageUrl)#>" /></a>
+                    <span><#=val.cMemo#></span>
+                </li>
+            <#}#>
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+	<%=includeLinks(view, ["../../css/myevaluation_M.less"]);%>
+<body>
+    <div>
+        <div class="pages navbar-through">
+            <div data-page="evaluation" class="page no-tabbar" data-controller="myEvaluationController">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href="#" class="link back">
+                                <i class="icon icon-back-gray"></i>
+                            </a>
+                        </div>
+                        <div class="center">评价晒单</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="detail-wrap list-block media-list" style="padding-bottom: 100px; background: #fff;">
+                        <ul class='evluationUl'></ul>
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                        <label class="label-checkbox item-content">
+                            <input type="checkbox" name="my-checkbox" class='anonymous-evalute'>
+                            <div class="item-media">
+                                <i class="icon icon-form-checkbox"></i>
+                                <span class='anonymous'>匿名评价</span>
+                            </div>
+                        </label>
+                        <a class="button button-fill bg-red submit-evaluation disabled">
+                            <span>发表评论</span>
+                        </a>
+                    </div>
+                </div>
+                <script type="text/template7">
+                    {{#each data}}
+                    <li data-status=false data-iOrderDetail_Id={{iOrderDetail_Id}}>
+                        <div class="item-content">
+                            <div class="item-media">
+                                <img class="icon" src='{{cImgName}}' width='90'>
+                            </div>
+                            <div class="item-inner no-border">
+                                <div class="item-title-row">
+                                    <div class="item-text" style="max-width: 153px;">{{cProductName}}</div>
+                                    {{#js_compare "this.productAttribute == 2"}}
+                                        <div class="item-after">{{salePoints}}积分</div>
+                                    {{else}}
+                                        <div class="item-after">{{fSalePrice}}</div>
+                                    {{/js_compare}}
+                                </div>
+                                <div class="item-subtitle">{{cSpecDescription}}</div>
+                            </div>
+                        </div>
+                        <div class='evaluate-star'>
+                            <span>商品评价：</span>
+                            <ul>
+                                <li class='stars'></li>
+                                <li class='stars'></li>
+                                <li class='stars'></li>
+                                <li class='stars'></li>
+                                <li class='stars'></li>
+                            </ul>
+                        </div>
+                        <div class='eva-content'>
+                            <textarea placeholder="亲 写点什么吧~ 长度在10-250字之间"></textarea>
+                        </div>
+                    </li>
+                    {{/each}}
+                </script>
+            </div>
+        </div>
+        <%=includeScripts(view, ["../../js/myevaluation_M.js"]);%>
+    </div>
+</body>
+
+</html>

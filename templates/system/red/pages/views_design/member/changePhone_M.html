@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>U商城</title>
+	</head>
+
+	<body>
+		<div class="pages">
+			<div data-page="changePwd" class="page no-tabbar  no-toolbar" data-controller="changePhoneViewController">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="left">
+							<a href="#" class="link back"><i class="icon icon-back-gray"></i></a>
+						</div>
+						<div class="center">修改手机号码</div>
+						<div class="right"></div>
+					</div>
+				</div>
+				<div class="page-content" id="infomation_ul">
+					<div class="changePhone step-one  m-t-10">
+						<div class="list-block m-t-0">
+							<ul>
+								<li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">
+                                            <span class="required">*</span>手机号
+                                        </div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="请输入手机号码" name="phone" value="" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </li>
+                                 <li class="item-content">
+									<div class="item-inner">
+										<div class="item-title label">
+											<span class="required">*</span>手机验证码
+										</div>
+										<div class="item-input verifyName">
+											<input type="text" placeholder="请输入验证码" name="verifyName" id="verifyName">
+										</div>
+										<div class="item-input">
+											<input type="button" id="SecurityCodeOld" style="" class="button button-code p-lr-0" value="获取短信校验码">		
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<p>
+                        	<a href="#" class="button button-fill new-button submit step-one">下一步</a>
+                    	</p>
+					</div>
+					<div class="changePhone step-two  m-t-0" style="display: none;">
+						<div class="list-block m-t-0">
+							<ul>
+								<li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">
+                                            <span class="required">*</span>已验证手机号
+                                        </div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="请输入手机号码" name="phone" value="">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">
+                                            <span class="required">*</span>我的手机号
+                                        </div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="请输入手机号码" name="Myphone" value="">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+									<div class="item-inner">
+										<div class="item-title label">
+											<span class="required">*</span>手机验证码
+										</div>
+										<div class="item-input verifyName">
+											<input type="text" placeholder="请输入验证码" name="MyverifyName" id="MyverifyName">
+										</div>
+										<div class="item-input">
+											<input type="button" id="SecurityCodeNew" style="" class="button button-code p-lr-0" value="获取短信校验码">									
+										</div>
+									</div>
+								</li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">
+                                            <span class="required">*</span>验证码
+                                        </div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="请输入验证码" name="Mycaptcha" id="Mycaptcha">
+                                        </div>
+                                        <div class="item-after">
+                                            <img width="71" class="img-changePhone-verification" src="" id="img-verification">
+                                        </div>
+                                    </div>
+                                </li>
+							</ul>
+						</div>
+						<p>
+                        	<a href="#" class="button button-fill new-button submit finish">完成</a>
+                    	</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%=includeScripts(view, ["../../js/changePhone_M.js"]);%>
+	</body>
+
+</html>

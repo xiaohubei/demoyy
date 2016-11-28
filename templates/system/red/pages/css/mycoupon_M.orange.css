@@ -1,0 +1,140 @@
+.coupon-div {
+  background-color: #f5f5f5 !important;
+  margin-top: 60px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  margin-bottom: 44px !important;
+}
+.coupon-div .item-content {
+  padding-left: 0 !important;
+}
+.coupon-div .item-content .item-media {
+  margin-right: 10px;
+}
+.coupon-div > li {
+  background: transparent;
+}
+.coupon-div:before,
+.coupon-div:after {
+  display: none;
+}
+.coupon-list {
+  margin-top: 10px;
+  width: 100%;
+}
+.coupon-list .coupon,
+.coupon-list .giftcard {
+  background: #f4ce73 url(../img/rebate.png) no-repeat left top;
+  background-size: 55% 87px;
+  height: 86px;
+  border-radius: 5px 5px 0 0;
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+.coupon-list .coupon > p,
+.coupon-list .giftcard > p {
+  font-size: 36px ;
+  font-weight: bold;
+  line-height: 86px;
+  margin: 0;
+  text-align: right;
+  width: 50% !important;
+}
+.coupon-list .coupon > p em,
+.coupon-list .giftcard > p em {
+  font-style: normal;
+  font-size: 15px;
+  font-weight: normal;
+}
+.coupon-list .coupon.bg-0,
+.coupon-list .giftcard.bg-0 {
+  background-color: #f4ce73;
+}
+.coupon-list .coupon.bg-1,
+.coupon-list .giftcard.bg-1 {
+  background-color: #aa89bd;
+}
+.coupon-list .coupon.bg-2,
+.coupon-list .giftcard.bg-2 {
+  background-color: #77acd4;
+}
+.coupon-list .coupon.bg-3,
+.coupon-list .giftcard.bg-3 {
+  background-color: #ff8383;
+}
+.coupon-list .coupon .coupon-type,
+.coupon-list .giftcard .coupon-type {
+  position: absolute;
+  right: 18px;
+  max-width: 50%;
+  overflow: hidden;
+  top: 18px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.coupon-list .coupon .coupon-type h1,
+.coupon-list .giftcard .coupon-type h1 {
+  font-size: 19px;
+  font-weight: bold;
+}
+.coupon-list .coupon .coupon-type p,
+.coupon-list .giftcard .coupon-type p {
+  font-size: 15px;
+  margin: 0;
+}
+.coupon-list .coupon.overdue,
+.coupon-list .giftcard.overdue {
+  background-color: #dddddd ;
+}
+.coupon-list .coupon.overdue p,
+.coupon-list .giftcard.overdue p {
+  color: #9D9D9D;
+}
+.coupon-list .coupon.overdue + .coupon-date,
+.coupon-list .giftcard.overdue + .coupon-date {
+  color: #9d9d9d !important;
+}
+.coupon-list .giftcard {
+  background: url(../img/giftcard.png) no-repeat 10px 10px;
+  background-size: 82px 13px!important;
+}
+.coupon-list .coupon-date {
+  background: #fff;
+  font-size: 11px;
+  color: #626262;
+  margin: 0;
+  line-height: 22px;
+  border-radius: 0 0 5px 5px;
+  position: relative;
+  padding-left: 12px;
+}
+.coupon-list .coupon-date p {
+  margin: 0;
+}
+.coupon-list .coupon-date .coupon-bt {
+  background: url(../img/rebate-bt.png) repeat-x left top;
+  background-size: 11px 2px;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  margin: 0;
+  height: 2px;
+  width: 100%;
+}
+.coupon-list .coupon-date .btn-giftcardPay {
+  position: absolute;
+  right: 10px;
+  width: 58px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border: 1px solid #dcdcdc;
+  border-radius: 2px;
+  color: #626262;
+  font-size: 12px;
+  top: 6px;
+  z-index: 15;
+}
+div[data-page="fund"] .coupon-div {
+  margin-top: 10px !important;
+}

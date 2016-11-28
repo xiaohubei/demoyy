@@ -1,0 +1,241 @@
+/*category*/
+
+
+.category-tab {
+    float: left;
+    width: 90px;
+    min-width: 90px;
+    overflow-y: auto;
+    min-height: 100%;
+    background: #f3f4f6;
+    padding-bottom: 44px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.category-content {
+    width: -webkit-calc(100% - 90px);
+    width: -moz-calc(100% - 90px);
+    width: -ms-calc(100% - 90px);
+    width: calc(100% - 90px);
+    /*width: 70%;
+    float: right;*/
+    height: 82%;
+    background-color: #fff;
+    margin-left: 90px;
+	left: 0;
+	padding-bottom: 44px;
+}
+
+    .category-tab ul,
+    .category-tab li,
+    .category-content ul,
+    .category-content li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+
+    .category-content ul {
+        padding-top: 10px;
+        float: left;
+  		width: 100%;
+  		zoom: 1;
+    }
+     .category-content ul:after{
+     	content: "";
+     	display: block;
+     	clear: both;
+     }
+    
+
+.category-tab ul {
+    width: 90px;
+}
+
+.category-tab li {
+    height: 49px;
+    line-height: 49px;
+    border-bottom: 1px solid #ececec;
+    border-right: 1px solid #ececec;
+    background: #f6f6f6;
+    text-align: center;
+    font-size: 0;
+    overflow: hidden;
+}
+
+
+    .category-tab li a {
+        display: inline-block;
+        width: 100%;
+        line-height: 24px;
+        text-decoration: none;
+        font-size: 14px;
+        color: #505050;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+    }
+
+    .category-tab li.cur {
+        border-right: 1px solid #fff;
+        background: #fff;
+        border-left: 2px solid #ef524d;
+    }
+
+        .category-tab li.cur a {
+            border-right: 1px solid #fff;
+            background: #fff;
+            color: #505050;
+        }
+
+        .category-tab li.cur.hot {
+            border-left: 2px solid #ff626e;
+        }
+
+            .category-tab li.cur.hot a {
+                color: #ff626e;
+            }
+
+#category_wapper {
+    overflow: auto;
+}
+
+    #category_wapper ul {
+        -webkit-transition: translateY 0.2s ease-out;
+    }
+
+.category-content .category-div,
+.category-content .category-hot {
+    margin: 0 13px 0 13px;
+    padding-bottom: 70px;
+
+}
+
+.category-content h4 {
+    font-size: 12px;
+    margin: 0;
+    padding: 10px 0 0 0;
+    line-height: 1em;
+    color: #888;
+}
+
+.category-div ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    float: left;
+}
+
+.category-div p,
+.category-hot p {
+    font-size: 12px;
+    margin: 10px auto 10px auto;
+    width: 100%;
+    display: inline-block;
+}
+
+.category-div ul {
+    margin-bottom: 10px;
+}
+
+.category-div li:nth-of-type(3n+1) {
+    margin-left: 0;
+}
+
+.category-div li:nth-of-type(3n) {
+    margin-right: 0;
+}
+
+.category-div li a {
+    color: #666666;
+}
+/*===========category-hot==========*/
+.category-hot li {
+    width: 30%;
+    margin: 5px 2.5%;
+    height: 90px;
+    float: left;
+    text-align: center;
+}
+
+    .category-hot li:nth-of-type(3n+1) {
+        margin-left: 0;
+    }
+
+    .category-hot li:nth-of-type(3n) {
+        margin-right: 0;
+    }
+
+.category-hot a {
+    text-decoration: none;
+    color: #333;
+}
+
+.category-hot img {
+    border: 0;
+}
+
+.category-hot span {
+    font-size: 12px;
+    display: block;
+    margin: 5px 0 9px;
+    line-height: 1.1em;
+    height: 1.1em;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    color: #505050;
+}
+
+.category-hot:after {
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 100%;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+}
+
+.category-hot .button {
+    border-color: #ff626e;
+    color: #ff626e;
+    font-size: 15px;
+    line-height: 38px;
+    height: 40px;
+}
+
+.category-hot .title {
+    text-align: center;
+    position: relative;
+    font-size: 13px;
+    color: #333333;
+}
+
+    .category-hot .title:before,
+    .category-hot .title:after {
+        content: " ";
+        position: absolute;
+        height: 1px;
+        background-color: #e0e0e0;
+        top: 50%;
+        width: 28%;
+    }
+
+    .category-hot .title:before {
+        left: 4%;
+    }
+
+    .category-hot .title:after {
+        right: 4%;
+    }
+
+.category-hot li img {
+    width: 60px;
+    height: 60px;
+    min-height: 60px;
+}

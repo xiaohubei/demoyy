@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "订单详情");%></title>
+    <%=includeLinks(view, ["../../css/orderdetail_L.less"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="orderDetailController">
+        <header></header>
+        <div class="row">
+            <div class="col-xs-12 main">
+                <div class="stepflex sflex05 orderStatusProgress">
+                </div>
+                <div class="orderDetail-warp">
+                    <div class="warp-left orderDescContainer"></div>
+                    <div class="wrap-right orderDetailManage">
+                        <div class="wrap-right-top">
+                            <div class="order-tips">
+                                请在 <span class="timeSpan payforTime"></span>内支付，超时订单将关闭
+                            </div>
+                            <div class="order-manage">
+                                您还可以：
+                            </div>
+                        </div>
+                        <div class="wrap-right-bottom">
+                            <div class="tips">
+                                 还有<span class="timeSpan confirmTime"></span>来确认收货，超时订单将自动确认收货
+                            </div>
+                            <div class="logistics logisticsContainer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="orderDetail-warp">
+                    <div class="user-definedinfo"></div>
+                </div>
+                <div class="orderDetail-container">
+                    <div class="container-header">
+                        <div class="column t-goods">商品</div>
+                        <div class="column t-price">单价(元)</div>
+                        <div class="column t-quantity">数量</div>
+                        <div class="column t-sum">商品金额(元)</div>
+                        <div class="column t-static">状态</div>
+                    </div>
+                    <div class="container-main orderDetailContainer">
+                        <div class="item-block">
+                            <div class="item-title hide">
+                                <div class="column t-package">包裹1</div>
+                                <div class="column t-express"></div>
+                                <div class="column t-expressNo"></div>
+                                <div class="column t-logisticsInfo"></div>
+                                <div class="column t-more">更多</div>
+                            </div>
+                            <div class="item-list">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+    <%=includeScripts(view, ["@root/bootstrap/js/bootstrap.js","@root/js/modal.js","../../js/orderdetail_L.js"]);%>
+    <script type="text/template" id="orderDescTpl">
+        <div class="warp-left-top">
+            订单详情
+        </div>
+        <div class="warp-left-center">
+            <#if(cDeliverType=="PICKUP"){#>
+                <div class="field-item">
+                    <div class="field-title">自提门店：</div>
+                    <div class="field-text">
+                        <div class="field-line"><#=storeName#> &nbsp &nbsp <#=storeContactPhone#></div>
+                        <div class="field-line"><#=cReceiveAddress#>  </div>
+                    </div>
+                </div>
+                <div class="field-item">
+                    <div class="field-title">提货码：</div>
+                    <div class="field-text">
+                    <div class="field-line"><#=ladingCode#>  </div>
+                    </div>
+                </div>
+            <#}else{#>
+                <div class="field-item addr-item">
+                    <div class="field-title">收货地址：</div>
+                    <div class="field-text">
+                        <div class="field-line"><#=cReceiver#>  <#=cReceiveMobile#></div>
+                        <div class="field-line"><#=cReceiveAddress#></div>
+                    </div>
+                </div>
+            <#}#>
+            <div class="field-item">
+                <div class="field-title">买家留言：</div>
+                <div class="field-text">
+                    <div class="field-line"><#=cClientMemo#></div>
+                    <div class="field-line small"></div>
+                </div>
+            </div>
+        </div>
+        <div class="warp-left-bottom">
+            <div class="field-item">
+                <div class="field-title">订单编号：</div>
+                <div class="field-text">
+                    <div class="field-line"><#=cOrderNo#></div>
+                </div>
+            </div>
+            <div class="field-item">
+                <div class="field-title">支付方式：</div>
+                <div class="field-text">
+                    <div class="field-line"><#for(var i=0;i<oPayType.length;i++){#>
+                     <#if(oPayType[i].id==cOrderPayType){#><#=oPayType[i].name#><#}}#>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="orderDetailTableTpl">
+        <#for(var i=0;i<oOrderDetails.length;i++){#>
+        <div class="item-single">
+            <div class="cell t-goods">
+                <div class="p-img">
+                    <a target="_blank" href="../detail?goods_id=<#=oOrderDetails[i].iProductId#>">
+                        <img src="<#=oOrderDetails[i].DefaultImage.replace(/\\/g,'/')#>" />
+                     </a>
+                </div>
+                <div class="p-title">
+                    <a target="_blank" href="../detail?goods_id=<#=oOrderDetails[i].iProductId#>">
+                       <#=oOrderDetails[i].cProductName#>
+                     </a>
+                </div>
+                <div class="p-desc">
+                    <#=oOrderDetails[i].cSpecDescription#>
+                </div>
+            </div>
+            <#if(oOrderDetails[i].productAttribute == 2){#>
+                <div class="cell t-price"><#=oOrderDetails[i].salePoints#>积分</div>
+                <div class="cell t-quantity"><#=oOrderDetails[i].iQuantity#></div>
+                <div class="cell t-sum"><#=(oOrderDetails[i].salePoints*oOrderDetails[i].iQuantity)#>积分</div>
+            <#}else{#>
+                <div class="cell t-price"><#=oOrderDetails[i].fSalePrice.toFixed(2)#></div>
+                <div class="cell t-quantity"><#=oOrderDetails[i].iQuantity#></div>
+                <div class="cell t-sum"><#=(oOrderDetails[i].fSalePrice*oOrderDetails[i].iQuantity).toFixed(2)#></div>
+            <#}#>
+            <div class="cell t-static"><#=cNextStatusName#></div>
+        </div>
+      <#}#>
+    </script>
+
+    <script type="text/template" id="orderTotalDescTpl">
+        <div class="detail-desc">
+            <div class="left">
+                <#if(cInvoiceType!='NONE'){#>
+                <div class="field-content">
+                    <div class="field-title">发票类型：</div>
+                    <div class="field-text"><#if(cInvoiceType=='PLAIN'){#>普通发票<#}else{#>增值税发票<#}#></div>
+                </div>
+                <div class="field-content">
+                    <div class="field-title">发票抬头：</div>
+                    <div class="field-text"><#=cInvoiceTitle#></div>
+                </div>
+                <div class="field-content">
+                    <div class="field-title">发票内容：</div>
+                    <div class="field-text"><#=cInvoiceContent#></div>
+                </div>
+                <#}else{#>
+                <div class="field-content">
+                     <div class="field-title">发票类型：</div>
+                     <div class="field-text">不开发票</div>
+                </div>
+                <#}#>
+            </div>
+            <div class="right">
+                <#if(oOrderDetails[0].productAttribute == 2){#>
+                    <div class="field-content curr">
+                        <div class="field-title">商品金额</div>
+                            <div class="field-text"><#=pointNum#>积分</div>
+                    </div>
+                <#}else{#>
+                    <div class="field-content curr">
+                        <div class="field-title">商品金额</div>
+                            <div class="field-text">￥<#=fTotalMoney.toFixed(2)#></div>
+                    </div>
+                    <div class="field-content noGift">
+                        <div class="field-title"><#if(preferentialName){#><#=preferentialName#><#}else{#>无整单优惠<#}#></div>
+                        <div class="field-text">优惠
+                            <#if(preferentialMoney){#>￥<#=preferentialMoney#><#}else{#>￥0<#}#>
+                        </div>
+                    </div>
+                    <#if(fDiscountFee){#>
+                    <div class="field-content">
+                        <div class="field-title">商家优惠</div>
+                        <div class="field-text"><#if(fDiscountFee){#>￥<#=fDiscountFee#><#}else{#>￥0<#}#></div>
+                    </div>
+                    <#}#>
+                    <div class="field-content noGift">
+                        <div class="field-title">免邮活动</div>
+                        <div class="field-text">邮费<#if(iPostage){#>￥<#=iPostage#><#}else{#>￥0<#}#></div>
+                    </div>
+                    <div class="field-content noGift">
+                        <div class="field-title"><#if(couponName){#><#=couponName#><#}else{#>无优惠券<#}#></div>
+                        <div class="field-text">优惠<#if(couponMoney){#>￥<#=couponMoney#><#}else{#>￥0<#}#></div>
+                    </div>
+                    <div class="field-content noGift">
+                        <div class="field-title">积分抵扣</div>
+                        <div class="field-text"><#if(pointMoney){#>￥<#=pointMoney#><#}else{#>￥0<#}#></div>
+                    </div>
+                <#}#>
+            </div>
+        </div>
+        <div class="detail-line">
+            <#if(oOrderDetails[0].productAttribute == 2){#>
+                <span class="payfor">应付款：<#=pointNum#>积分</span>
+            <#}else{#>
+                <span class="integral">返积分：<#=newPoints#></span>
+                <span class="payfor">应付款：￥<#=fPayMoney.toFixed(2)#></span>
+            <#}#>
+        </div>
+    </script>
+    <script type="text/template" id="orderStatusTpl">
+        <#for(var i=0;i<oOrderStatuses.length;i++){#>
+            <#var clz=i==0?"first doing":(i==oOrderStatuses.length-1?"normal last":"normal");#>
+             <dl class="<#=clz#>">
+                <dd class="s-title s-text"><#=oOrderStatuses[i].cName#></dd>
+                <dt class="s-num"><#=i+1#></dt>
+                <dd class="s-text timeSpan"></dd>
+            </dl>
+        <#}#>
+    </script>
+    <script type="text/template" id="userDefinedTpl">
+        <#for(var i=0; i<data.length; i++){#>
+            <#var value = data[i];#>
+            <#if(value.cDefaultValue){#>
+                <div class="field-item">
+                    <div class="field-title"><#=value.cTitle #> : </div>
+                    <div class="field-text">
+                        <div class="field-line"><#=value.cDefaultValue #></div>
+                    </div>
+                </div>
+            <#}#>
+        <#}#>
+    </script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

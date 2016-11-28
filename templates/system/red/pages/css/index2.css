@@ -1,0 +1,22 @@
+.up-header .cygqrcode {
+    position: relative;
+}
+.up-header .cygqrcode img{
+    display: none;
+    position: absolute;
+    right: -5px;
+    top: 22px;
+}
+
+.up-searchBox .logo{
+    padding-left: 42px;
+}
+.up-searchBox .logotext{
+    font-size: 20px;
+    color: #d42626;
+    font-weight: 600;
+}
+
+.p-l-5{
+    padding-left: 5px !important;
+}

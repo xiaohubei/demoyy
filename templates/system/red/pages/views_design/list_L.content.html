@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<%=includeWidget(view.widgets["path_mapping"]);%>
+	<%=includeWidget(view.widgets["search_detail"]);%>
+	<div class="col-xs-2">
+		<%=includeWidget(view.widgets["sales_charts"]);%>
+	</div>
+	<div class="col-xs-10">
+		<%=includeWidget(view.widgets["product_list"]);%>
+	</div>
+    <%if(!view.corp.configs||view.corp.configs.showFootprint){%>
+	<div class="col-xs-12">
+		<%=includeWidget(view.widgets["myhistory"]);%>
+	</div>
+    <%}%>
+</body>
+</html>

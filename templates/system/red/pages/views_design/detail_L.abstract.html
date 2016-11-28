@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <%=includeWidget(view.widgets["path_mapping"]);%>
+    <div id="product-detail"></div>
+    <div class="product-recommend hide">
+        <div class="recommend-nav">
+            <ul class='nav-first'>
+                <li class="hide">推荐搭配</li>
+                <li class="hide">相关商品</li>
+            </ul>
+        </div>
+        <div class="panes-first"></div>
+        <div class="panes-seconds">
+        </div>
+    </div>
+    <script id="detail_productDetail" type="text/template">
+        <div class="main-info  clearfix">
+            <div class="col-xs-5">
+                <div class="detailBigImg  goods-img" style="text-align:center">
+                    <div class="vertical-align-span"></div>
+                    <#if(list.oDefaultAlbum){#>
+                        <img src="<#=adjustImgSrc(list.oDefaultAlbum.lImgUrl) #>" alt='<#=list.cName #>'/>
+                    <#}else{#>
+                        <img src="" alt="此商品暂无图片" />
+                    <#}#>
+                </div>
+                    <div class="detail_piTthumbnail">
+                    </div>
+                </div>
+                <div class="col-xs-7 goods-rightbox">
+                <div class="goods-rightbox">
+				    <span id="cName" class="goods-title"><#=list.cName#></span>
+                    <#if(list.oProductSub&&list.oProductSub.cTitleMemo){#>
+                          <p class="sellingPoint goods-describe"><#=list.oProductSub.cTitleMemo#></p>
+                     <#}#>
+                    <div class="detail-abstract">
+                        <ul class="goods-info-list clearfix">
+                            <li class="curr-price" style="position:relative;">
+                                <#if(list.lsProductSkus.length>0){#>
+                                <em class="font-red font24px  goodsprice">￥<#=list.lsProductSkus[0].fSalePrice#></em>
+                                <#if(list.lsProductSkus[0].fSalePrice<list.lsProductSkus[0].fMarkPrice){#>
+                                <del class="mktprice1">￥<#=list.lsProductSkus[0].fMarkPrice#></del>
+                                    <#}else{#>
+                                        <#}#>
+                                <#}else{#>
+                                    <em class="font-red font24px  goodsprice">￥<#=list.fSalePrice#></em>
+                                <#if(list.fSalePrice<list.fMarkPrice){#>
+                                <del class="mktprice1">￥<#=list.fMarkPrice#></del>
+                                    <#}else{#>
+                                        <#}#>
+                                    <#}#>
+                                <#if(list.promotion){#>
+                                    <span class="promotion-tag"><#=list.promotion.sDesName#></span>
+                                <#}#>
+                                <div class="evaluationQuantities"><a href="#profile1" class="evaluationQuantities1"></a><p>商品评论</p></div> 
+                                        <#if(list.preferentialMap){#>
+											<#if(list.preferentialMap.postlistMap.length>0 || list.preferentialMap.pricepreferentialList.length>0||list.preferentialMap.giftpreferentialList.length>0){#>
+                                            <div class="our-activity">
+                                                <p class="our-activityName">
+                                                    <span></span>
+                                                    <#if(list.preferentialMap.pricepreferentialList){#>
+                                                        <#for(var n=0;n<list.preferentialMap.pricepreferentialList.length;n++){#>
+                                                    <#var value=list.preferentialMap.pricepreferentialList[n]#>
+                                                    <#for(var m=0;m<value.pricePreferentialItemList.length;m++){#>
+                                                        <# var newvalue=value.pricePreferentialItemList[m]#>
+                                                        <span>满<#=newvalue.consumerSpending#><#if(newvalue.discountNum){#><span>打<#=newvalue.discountNum#>折</span><#}else{#><span>减<#=newvalue.fireNum#><#if(newvalue.isCapping){#><span>上不封顶</span><#}#></span><#}#>
+                                                        </span>
+                                                    <#}#>
+                                                <#}#>
+                                            <#}#>
+                                        	<#if(list.preferentialMap.giftpreferentialList[0]){#>
+                                            	<#for(var k=0;k<list.preferentialMap.giftpreferentialList[0].giftpreferentialItemList.length;k++){#>
+                                                	<#var value=list.preferentialMap.giftpreferentialList[0].giftpreferentialItemList[k]#>
+                                                	<span><#=value.description#></span>
+                                            	<#}#>
+                                        	<#}#>
+                                            <#if(list.preferentialMap.postlistMap){#>
+                                                <#for(var k=0;k<list.preferentialMap.postlistMap.length;k++){#>
+                                                    <span><#=list.preferentialMap.postlistMap[k].postActivityName#></span>
+                                                <#}#>
+                                            <#}#>
+                                                </p>
+                                                <span style="float:right;">更多优惠 v</span>
+                                            </div>
+                                            <div class="activity-detail">
+                                                <a href="#" class="unmore">收起 v</a>
+                                                <ul>
+                                                    <#if(list.preferentialMap.pricepreferentialList){#>
+                                                        <#for(var n=0;n<list.preferentialMap.pricepreferentialList.length;n++){#>
+                                            <#var value=list.preferentialMap.pricepreferentialList[n]#>
+                                            <li>
+                                            <div>整单促销：<#=value.pricePreferentialName#><span class='endDate'>截止日期：<#=value.endDate#></span></div>
+                                            <#for(var m=0;m<value.pricePreferentialItemList.length;m++){#>
+                                                <# var newvalue=value.pricePreferentialItemList[m]#>
+                                                <p>满
+                                                <#=newvalue.consumerSpending#>
+                                                    <#if(newvalue.discountNum){#>
+                                                        <span>打<#=newvalue.discountNum#>折</span>
+                                                    <#}else{#>
+                                                        <span>
+                                                                                                                                                                                             减<#=newvalue.fireNum#>
+                                                        <#if(newvalue.isCapping){#>
+                                                            <span>上不封顶</span>
+                                                        <#}#>
+                                                        </span>
+                                                    <#}#>
+                                                <#}#>
+                                            </li>
+                                        <#}#>
+                                    <#}#>
+                                    <#if(list.preferentialMap.giftpreferentialList){#>
+                                        <#for(var k=0;k<list.preferentialMap.giftpreferentialList.length;k++){#>
+                                          <#var value=list.preferentialMap.giftpreferentialList[k]#>
+                                            <li>
+                                                <div>
+                                                	<#=value.iGiftType#>：
+                                                	<#=value.giftPreferentialName#>
+                                                	<span class='endDate'>截止日期：<#=value.endDate#></span>
+                                                	<#for(var m=0;m<value.giftpreferentialItemList.length;m++){#>
+                                                    <p><#=value.giftpreferentialItemList[m].description#></p>
+                                                    <#}#>
+                                                    	<#if(value.mutuallyDescription){#>
+                                                    		<p class='incompatible-activities'>与<#=value.mutuallyDescription #>互斥</p>
+                                                		<#}#>
+                                                </div>
+                                            </li>
+                                        <#}#>
+                                    <#}#>
+                                    <#if(list.preferentialMap.postlistMap){#>
+                                        <#for(var k=0;k<list.preferentialMap.postlistMap.length;k++){#>
+                                            <li>
+                                                <div>包邮活动：<#=list.preferentialMap.postlistMap[k].postActivityName#></div>
+                                                <#if(list.preferentialMap.postlistMap[k].postActivityAddress){#>
+                                                    <#var notAdress=list.preferentialMap.postlistMap[k].postActivityAddress#>
+                                                    <p>不包邮地区：
+                                                    <#for(var s=0;s<notAdress.length;s++){#>
+                                                        <span>
+                                                            <#=notAdress[s].cProvince#>
+                                                            <#=notAdress[s].cCity#>
+                                                            <#=notAdress[s].cArea#>
+                                                        </span>
+                                                        <#if(s!=(notAdress.length-1)){#>
+                                                            <span> || </span>
+                                                        <#}#>
+                                                    <#}#>
+                                                    </p>
+                                                    <#}#>
+                                            </li>
+                                        <#}#>
+                                    <#}#>
+                                        </ul>
+                                    </div>
+                                    <#}#>
+									<#}#>
+</li>
+                        </ul>
+                    </div>
+                    <div class="detaill-select clearfix">
+                        <div id="skus-select" class="skus-select"></div>
+                        <div class="options-box">
+                            <a class="cart"><span>加入购物车</span></a>
+                            <a class="now-order"><span>立即订购</span></a>
+                            <a class="collect"><span>收藏商品</span></a>
+                        </div>                       
+                    </div>
+                    <div class="bdsharebuttonbox" data-tag="share_1" style="margin-left: 20px;margin-top: 20px;">
+						<a class="bds_tsina" data-cmd="tsina"></a>
+						<a class="bds_sqq" data-cmd="sqq"></a>
+						<a class="bds_qzone" data-cmd="qzone" href="#"></a>						
+						<a class="bds_weixin" data-cmd="weixin"></a>
+						<a class="bds_copy" data-cmd="copy"></a>
+					</div>
+					<script src="http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion="+~(-new Date()/36e5) type="text/javascript"></script>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="detail_skus" type="text/template">
+        <ul class="clearfix">
+            <#for(var i=0,len =list.lsSpecs.length;i<len;i++){#>
+                <#var value = list.lsSpecs[i]#>
+                <li data-lsspec="<#=value.id#>" data-index="<#i#>">
+                    <span><#=value.cName#>：</span>
+                    <div class="itemsBox">
+                        <#for(var j=0,len1 =value.lsSpecItem.length;j<len1;j++){#>
+                        <#var lsSpecItem = value.lsSpecItem[j];#>
+                        <span data-lsSpecItem="<#=lsSpecItem.id#>" ><#=lsSpecItem.cSpecItemName#></span>
+                        <#}#>
+                    </div>
+                </li>
+            <#}#>
+            <li class="quantityItem">
+                <span>数量：</span>
+                <div class="quantity_right">
+                    <button href="#" class="quantityReduce">-</button><input id="iQuantity" type="text" class="tb-text" value="1" title="请输入购买量"><button href="#" class="quantityAdd">+</button>
+                </div>
+                <div class="afterQuantity"><#=list.unit_name#>
+                    <span class="kucunInfor">(库存<span class="kucun"><#=list.lInventoryCount#></span>件)</span>
+                </div>
+                <p class="kucunTips"></p>
+                    <#if(list.promotion){#>
+                        <p class="purchasingTips">
+                            <#=list.promotion.lTypeName#>
+                            <#if(list.canPurchaseCount||list.canPurchaseCount==0){#>
+                            , 还可以购买<#=list.canPurchaseCount#>件
+                            <#}#>
+                        </p>
+                        <#}#>
+</li>
+        </ul>
+    </script>
+    <script id="detail_thumbnail" type="text/template">
+        <#if(data.length==0){#>
+            <#}else{#>
+            <span class="arrow_left" style="position:relative;"></span>
+            <span class="arrow_right" style="position:relative;"></span>
+            <div class="div_thumbnail">
+            <ul class="skuImages">
+                <#for(var i=0;i<data.length;i++){#>
+            <li><img src="<#=adjustImgSrc(data[i].imgUrl)#>" alt="<#=data[i].cName #>" data-bigimage="<#=adjustImgSrc(data[i].mImgUrl)#>"/></li>
+            <#}#>
+            </ul>
+            </div>
+            <#}#>
+    </script>
+    <script id="combineSaleTpl" type="text/template">
+        <ul class="recommend-styles">
+            <#for(var i=0;i<data.length;i++){#>
+                 <li data-id="<#=data[i].id#>"><#=data[i].name#></li>
+            <#}#>
+        </ul>
+        <ul class="recommend-box">
+            <li class="recommend-self">
+                <a href="javascript:void(0)" class='recommend-img'>
+                    <img src='<#=adjustImgSrc(data.mainProduct.lsAlbums[0].imgUrl)#>' />
+                </a>
+                <a href="javascript:void(0)" class="recommend-title" title="<#=data.mainProduct.cName#>"><#=data.mainProduct.cName#></a>
+            </li>
+            <li class="recommend-img"><span></span></li>
+            <li class="recommendothers-box">
+                <#for(var i=0;i<data.length;i++){#>
+                    <# var combinItem = data[i].combinProducts#>
+                    <# var px=combinItem.length*218-80#>
+                    <ul class="recommend-others " data-id="<#=data[i].id#>" style="width:<#=px#>px">
+                        <#for(var j=0;j<combinItem.length;j++){#>
+                            <# var combinProductItem = combinItem[j]#>
+                                <li class="recommend-self">
+                                    <a href="/detail?goods_id=<#=combinProductItem.productId#>" class='recommend-img' target="_blank">
+                                        <img src="<#=adjustImgSrc(combinProductItem.productPicUrl)#>" />
+                                    </a>
+                                    <a href="/detail?goods_id=<#=combinProductItem.productId#>" target="_blank"  class="recommend-title" title="<#=combinProductItem.productName#>">
+                                        <#=combinProductItem.productName#>
+                                    </a>
+                                    <div>
+                                        <label>
+                                            <input type="checkbox" data-id="<#=combinProductItem.productId#>" />
+                                            <span style="color:red">￥<em><#=combinProductItem.newPrice.toFixed(2)#></em></span>
+                                            <span style="display:none">￥<em><#=combinProductItem.price.toFixed(2)#></em></span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <#if(j==combinItem.length-1){#>
+                                <#}else{#>
+                                    <li class="recommend-img"><span></span></li>
+                                <#}#>
+                            <#}#>
+                        </ul>
+                <#}#>
+            </li>
+            <li style="margin-left:100px;padding-top:20px;text-align:left" class="recommend-info">
+                <p>已经选择了<span class="recommendQuantity"> 0 </span>个配件</p>
+                <p>搭配价：￥<span class="recommendPrice"> 0 </span></p>
+                <p>节省：￥<span class="recommend-save"></span></p>
+                <a id="addtoShoppingCart" class="cart"> <span>加入购物车</span></a>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </script>
+    <script id="modalTpl" type="text/template">
+        <div class="modal-header">
+            <#for(var i=0;i<data.length;i++){#>
+                <div>
+                    <label>
+                        <img src="<#=adjustImgSrc(data[i].oDefaultAlbum.imgUrl)#>" />
+                        <#if(i==0){#>
+                            <input type="checkbox" data-id="<#=data[i].id#>" style="margin:5px 0 0 35px;" disabled checked />
+                            <#}else{#>
+                                <input type="checkbox" data-id="<#=data[i].id#>" style="margin:5px 0 0 35px;" />
+                              <#}#>
+                    </label>
+                </div>
+            <#}#>
+            </div>
+        <div class="modal-body">
+            <ul class="clearfix main-info  col-lg-12" style="padding-right:0">
+                <#for(var i=0; i<data.length; i++){#>
+                    <li class="detaill-select col-lg-6" data-id="<#=data[i].id#>">
+                        <div class="skus-select">
+                            <div class="productPic fl">
+                                <img src="<#=adjustImgSrc(data[i].oDefaultAlbum.imgUrl)#>" />
+                            </div>
+                            <div class="combineSaleInfo">
+                                <p><#=data[i].cName#></p>
+                                <p class="productPriceP">
+                                    <span><#=data[i].fSalePrice#></span>
+                                    <del><#=data[i].fMarkPrice#></del>
+                                </p>
+                                <p class="combineSaleStock">
+                                    <span>
+                                        可购数量：
+                                        <span class="combineSaleCount"><#=data[i].lInventoryCount#></span>
+                                        <#=data[i].unit_name#>
+                                    </span>
+                                </p>
+                            </div>
+                            <ul class="combineSaleSpecs">
+                                <#var lsSpecs=data[i].lsSpecs#>
+                                    <#for(var j=0; j<lsSpecs.length; j++){#>
+                                <#var value = lsSpecs[j]#>
+                                <li data-lsspec="<#=value.id#>" data-index="<#=i#>">
+                                    <span><#=value.cName#>：</span>
+                                    <div class="itemsBox">
+                                        <#for(var k=0; k<value.lsSpecItem.length; k++){#>
+                                            <#var lsSpecItem = value.lsSpecItem[k];#>
+                                            <span data-lsSpecItem="<#=lsSpecItem.id#>" ><#=lsSpecItem.cSpecItemName#></span>
+                                        <#}#>
+                                    </div>
+                                </li>
+                                <#}#>
+                            </ul>
+                        </div>
+                    </li>
+                <#}#>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <span>购买<input type="text" value="1" style="width:35px;text-align:center;margin:5px"/>套</span>
+            <span>节省：￥<span class="savePrice"></span></span>
+            <span>共￥<span class="packagePrice"></span></span>
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary btn-ok">确认</button>
+        </div>
+    </script>
+    <script id='relatedTPL' type="text/template">
+        <ul class="recommend-styles">
+            <#for(var i=0;i<data.length;i++){#>
+            	<#if(i==0){#>
+            	   <li data-id="<#=data[i].id#>" class='active'><#=data[i].name#></li>
+        		<#}else{#>
+            	   <li data-id="<#=data[i].id#>"><#=data[i].name#></li>
+        		<#}#>
+            <#}#>
+        </ul>
+            <#for(var i=0;i<data.length;i++){#>
+            	<#if(i>0){#>
+            	<ul class='related-ul hide' data-id='<#=data[i].id#>'>	
+            	<#}else{#>
+            	<ul class='related-ul' data-id='<#=data[i].id#>'>	
+            	<#}#>
+            		<#for(var j=0;j<data[i].combinProducts.length;j++){#>
+		          		<li>
+							<a href="/detail?goods_id=<#=data[i].combinProducts[j].productId#>" target="_blank">
+                                <img src="<#=adjustImgSrc(data[i].combinProducts[j].productPicUrl)#>" />
+                                <p><#=data[i].combinProducts[j].productName#></p>
+                                <p style='color:red;font-weight: bold;'>￥<#=data[i].combinProducts[j].price#></p>
+                            </a>
+				  		</li>
+            		<#}#>
+    			</ul>
+            <#}#>
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>注册</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/register_L.css">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/cube.js" type="text/javascript"></script>
+<script src="../js/template-native-debug.js" type="text/javascript"></script>
+<script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="RegisterViewController">
+        <div class="container login-top">
+            <div class="w login-content">
+                <div style="float:left;margin-top:-5px;">
+                    <!--<%=includeWidget(view.widgets["logo"]);%>-->
+                </div>
+                <span class="login-title">| 会员注册</span>
+                <span class="login-right">已有商城账号?<a href="login"><span  class="color-red">点击登录</span></a></span>
+            </div>
+        </div>
+        <div id="mainbody_box bg-fa ">
+            <div class="AllWrapInside clearfix">
+                <div class="mainColumn pageMain">
+                    <div class="PassportWrap ex_signup_box">
+                        <div class="ex_signup_left">
+                            <div class="ex_sigunp_titile"><h1></h1></div>
+                            <div class="signupform">
+                                <div>
+                                    <div class="intro">
+                                        <div class="customMessages">
+                                        </div>
+                                    </div>
+                                    <div class="loginbox">
+                                        <input name="forward" type="hidden" value="">
+                                        <ul>
+                                            <li>
+                                                <label class="leftlabel"><i>*</i>用户名</label>
+                                                <div class="floatdiv">
+                                                    <input type="text" class="inputstyle" id="reg_user" name="reg_user" maxlength="50">
+                                                    <span id="validateReg_user"></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class="leftlabel"><i>*</i>密码</label>
+                                                <div class="floatdiv">
+                                                    <input class="inputstyle" type="password" id="reg_passwd" name="reg_passwd">
+                                                    <span id="validateReg_passwd"></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class="leftlabel"><i>*</i>确认密码</label>
+                                                <div class="floatdiv">
+                                                    <input type="password" class="inputstyle" id="reg_passwd_r" name="reg_passwd_r">
+                                                    <span id="validateReg_passwd_rFirst"></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class="leftlabel">推荐人</label>
+                                                <div class="floatdiv">
+                                                    <input type="text" class="inputstyle" id="referees" name="referees">
+                                                    <span id="validateReg_referees" class="message-tip">请输入推荐人手机号</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class="leftlabel"><i>*</i>验证手机</label>
+                                                <div class="floatdiv">
+                                                    <input id="mobile" class="inputstyle" name="mobile">
+                                                    <span id="phoneVerification">&nbsp;</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class="leftlabel"><i>*</i>短信验证码</label>
+                                                <div class="floatdiv">
+                                                    <input id="messageAuthenticationCode" class="inputstyle imput-sm" name="messageAuthenticationCode">
+                                                    <input id="getMessageAuthenticationCode" type="submit" style="font-size:smaller" value="短信验证码 " />
+                                                    <br><span class="message-tip">请务必完整准确填写，以便找回登录密码。</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class="leftlabel"><i>*</i>验证码</label>
+                                                <div class="floatdiv">
+                                                    <div style="float:left;"><input class="inputstyle imput-sm" name="signupverifycode" id="iptsingup"></div>
+                                                    <img class="imgCode" id="registerValCode" />
+                                                    <div id="refCode" class="change-nextImg">换一个</div>
+                                                    <span id="validateCode"></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class="leftlabel"></label>
+                                                <div class="floatdiv">
+                                                    <span class="reg-tip">
+                                                        <input type="checkbox" id="license" name="license"  checked="checked">
+
+                                                        我已阅读并同意<a href="/helpcenter/classification?wigetType=会员注册协议&&typeId=-2" id="terms_error" class="lnk" target="_blank"><span class="FormText" id="terms_error_sym">商城会员协议</span></a>
+                                                        。
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class="leftlabel"></label>
+                                                <div class="floatdiv">
+                                                    <button id="submit-btn" type="submit"  class="btn common-btn"><span><span>注册</span></span></button>
+                                                    <input type="hidden" name="forward" value="">
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ex_signup_right">
+                            <div class="ex_signup_content">
+                                <h3>新用户须知</h3>
+                                <span><p class="login_yellow">欢迎来到优普商城,期待您的加入</p></span>
+                                <ul>
+                                    <li>如果您在购物过程中遇到任何疑惑，请您及时联系我们的客服。</li>
+                                    <li>请您务必在购物时仔细核对您要购买的商品，以便您能尽早收到您订购商品</li>
+                                </ul>
+                                <span class="ex_signup_content_btn"><a class="link" href="#">我有帐号立刻登录</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sideColumn pageSide">  </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <footer></footer>
+    </div>
+    <script src="../js/pages/register_L.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

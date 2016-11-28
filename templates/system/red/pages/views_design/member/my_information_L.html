@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title><%=resetTitle(view, "个人信息");%></title>
+		<%=includeLinks(view, ["../../css/my_information_L.less","@root/js/date/need/laydate.css","@root/js/date/skins/default/laydate.css"]);%>
+	</head>
+
+	<body>
+		<div class="container bg-fa" data-controller="MyInformationViewController">
+			<header></header>
+			<div class="row">
+				<div class="col-xs-2">
+					<member_nav></member_nav>
+				</div>
+				<div id="my_information_main" class="my_information_main col-xs-10 main">
+
+				</div>
+			</div>
+			<footer></footer>
+			<script id="myInformationTpl" type="text/html">
+				<#var value=list;#>
+					<div class="main_title">
+						<div class="col-md-12 mymessage">基本信息</div>
+					</div>
+					<div class="user-set userset-lcol">
+						<div class="form" id="formInfo">
+							<div class="item">
+								<span class="fl"><em>*</em>用户名：</span>
+								<div>
+									<#if(value.cUserName){#>
+										<#if(value.isIe8){#>
+											<input type="text" class="itxt" maxlength="20" id="nickName" name="nickName" value="<#=value.cUserName#>" disabled="true">
+										<#}else{#>
+											<input type="text" class="itxt" maxlength="20" id="nickName" name="nickName" value="<#=value.cUserName#>" readonly="readonly">
+										<#}#>
+										
+									<#}else{#>
+										<input type="text" class="itxt" maxlength="20" id="nickName" name="nickName" value="<#=value.cUserName#>" readonly="">
+									<#}#>									
+									<span id="validateNickName"></span>
+								</div>
+							</div>
+							<div class="item">
+								<span class="fl">等级：</span>
+								<div>
+									<#if(value.isIe8){#>
+											<input disabled='true' value="<#=value.cMemberLevelName#>" type="text" class="itxt" maxlength="20" name="levelName" id="levelName">
+										<#}else{#>
+											<input type="text" class="itxt" maxlength="20" id="nickName" name="nickName" value="<#=value.cMemberLevelName#>" readonly="readonly">
+										<#}#>
+									
+								</div>
+							</div>
+							<div class="item">
+								<span class="fl"> qq号：</span>
+								<div>
+									<input value="<#=value.cQQ#>" type="text" class="itxt" maxlength="20" name="cQQ" id="cQQ">
+								</div>
+							</div>
+							<div class="item">
+								<span class="fl">当前积分：</span>
+								<div>
+									<#if(value.isIe8){#>
+											<input disabled="true" value="<#=value.iPoints#>" type="text" class="itxt" maxlength="20" name="iPoints" id="iPoints">
+										<#}else{#>
+											<input readonly='readonly' value="<#=value.iPoints#>" type="text" class="itxt" maxlength="20" name="iPoints" id="iPoints">
+										<#}#>
+									
+								</div>
+							</div>
+							<div class="item">
+								<span class="fl">真实姓名：</span>
+								<div>
+									<input value="<#=value.cRealName#>" type="text" class="itxt" maxlength="20" name="realName" id="realName">
+								</div>
+							</div>
+							<div class="item">
+								<span class="fl">消费总金额：</span>
+								<div>
+									<#if(value.isIe8){#>
+											<input type="text" value="<#=value.fConsumeAmount#>" disabled='true' class="itxt" maxlength="20" id="fConsumeAmount">
+										<#}else{#>
+											<input type="text" value="<#=value.fConsumeAmount#>" readonly='readonly' class="itxt" maxlength="20" id="fConsumeAmount">
+										<#}#>
+									
+								</div>
+							</div>
+							<div class="item">
+								<span class="fl">出生日期：</span>
+								<div>
+									<#if(value.dBirthday){#>
+										<#if(value.isIe8){#>
+											<input value="<#=value.dBirthday#>" class="itxt" id="dBirthday" type="text" disabled="true">
+										<#}else{#>
+											<input value="<#=value.dBirthday#>" class="itxt" id="dBirthday" type="text" readonly="readonly">
+										<#}#>
+										
+									<#}else{#>
+										<input value="<#=value.dBirthday#>" class="itxt" id="dBirthday" type="date">
+									<#}#>			
+								</div>
+							</div>
+							<div class="save_btn">
+								<span id="save_btn">保存</span>
+							</div>
+						</div>
+					</div>
+					<div id="user-info">
+						<span class="phone_title">头像：</span>
+                        <div style="position: relative;" class="portraitArea">
+                            <div class="u-pic">
+                                <img alt="用户头像" style="width: 100px; height: 100px;cursor:pointer" id="myPortrait" src="<#=adjustImgSrc(value.cPortrait)#>">
+                                <input type="hidden" id="myPortraitUrl" name="myPortraitUrl" value="<#=value.cPortrait#>">
+                            </div>
+                            <div class="editPortrait" style="position: absolute; top: 70%; right: 60.5%; z-index: 999; color: white; background-color: #8A7F79; width: 100px; text-align: center;display:none;cursor:pointer;">编辑头像</div>
+                        </div>
+						<div class="info-m">
+							<p class="info-item phone">
+								<span>手&nbsp;&nbsp;机</span>
+								<span id="cPhoneNum"><#=value.cPhone#></span>
+								<span id="valPhone" class="modify">[修改]</span>
+							</p>
+							<p class="info-item email">
+								<span>邮&nbsp;&nbsp;箱</span>
+								<span id="cEmailNum"><#=value.cEmail#></span>
+								<span id="submit_btn" class="modify">[修改]</span>
+							</p>
+						</div>
+					</div>
+			</script>
+			<script type="text/html" id="myInformationExtendTpl">
+				<#for(var i=0;i<extendlist.length;i++){#>
+					<# var value=extendlist[i];#>													
+						<div class="item">
+							<span class="fl"><#=value.cTitle#></span>
+							<div>
+								<#if (value.isReadonly) {#>
+									<#if (value.cType == "date") {#>
+										<# value.cText =formatDate(value.cText);#>
+											<#if(value.isIe8){#>
+												<input type="text" value="<#=value.cText#>" class="itxt" maxlength="20" id="<#=value.id#>" style="line-height: 13px;" disabled="true">
+											<#}else{#>
+												<input type="text" value="<#=value.cText#>" class="itxt" maxlength="20" id="<#=value.id#>" style="line-height: 13px;" readonly="">
+											<#}#>										
+									<#}else{#>
+										<#if(value.isIe8){#>
+											<input type="<#=value.cType#>" value="<#=value.cText#>" class="itxt" maxlength="20" id="<#=value.id#>" style="line-height: 13px;" disabled="true">
+										<#}else{#>
+											<input type="<#=value.cType#>" value="<#=value.cText#>" class="itxt" maxlength="20" id="<#=value.id#>" style="line-height: 13px;" readonly="">
+										<#}#>
+										
+									<#}#>														
+								<#}else{#>
+									<#if(value.cType == "date"){#>
+									<# value.cText =formatDate(value.cText);#>
+									<input type="" value="<#=value.cText#>" class="itxt laydate-icon" maxlength="20" id="<#=value.id#>" style="line-height: 13px;" onclick="laydate({istime: true, format: &quot;YYYY-MM-DD&quot;})">
+									<#}else{#>
+										<input type="<#=value.cType#>" value="<#=value.cText#>" class="itxt" maxlength="20" id="<#=value.id#>" style="line-height: 13px;">
+									<#}#>																															
+								<#}#>								
+							</div>
+						</div>
+						<#}#>
+			</script>
+			<script id="myInformationExtendTpl" type="text/html">
+
+			</script>
+
+		</div>
+		<%=includeScripts(view, ["../../js/my_information_L.js","@root/js/date/laydate.min.js"]);%>
+			<script type="text/javascript">
+				cb.init();
+			</script>
+	</body>
+
+</html>

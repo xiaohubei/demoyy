@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <%=includeLinks(view, ["../css/submitConsulting_M.less"]);%>
+</head>
+<body>
+    <div>
+        <div class="pages navbar-fixed navbar-through">
+            <div data-page="submitConsulting" class="page no-tabbar" data-controller="SubmitConsultingController">
+                <div class="navbar card-navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href='#' class="go-back back">
+                                <i class="icon icon-back-gray"></i>
+                            </a>
+                        </div>
+                        <div class="center">发表咨询</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class='consulting-type'>
+                        <p>咨询类型：</p>
+                        <div class="col-100 lsSpecItem">
+                            <div class="attrItem active" data-type='11'>商品咨询</div>
+                            <div class="attrItem" data-type='12'>配送咨询</div>
+                            <div class="attrItem" data-type='13'>售后咨询</div>
+                        </div>
+                    </div>
+                    <div class='consulting-content'>
+                        <p>咨询内容：</p>
+                        <textarea placeholder="请输入咨询内容"></textarea>
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                        <a href='#' class="btn-submit">提交</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../js/submitConsulting_M.js"])%>
+</body>
+
+</html>

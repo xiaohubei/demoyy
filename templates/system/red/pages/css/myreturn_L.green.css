@@ -1,0 +1,125 @@
+.row.main {
+  font-family: "微软雅黑";
+}
+.myReturn {
+  padding-top: 30px;
+}
+/*.myReturn .tabs {
+    background-color: #f7f7f7;
+    height: 40px;
+    text-align: center;
+    padding: 0px;
+    border: 1px solid #e1e1e1;
+    border-bottom: none;
+    line-height: 40px;
+}
+
+.myReturn .active{
+    background-color: #EF4D49;
+    color: #fff;
+    font-weight: 600;
+    border-radius:8px;
+}*/
+.myReturn .returnlist {
+  min-height: 120px;
+  padding: 8px 0;
+}
+.myReturn .returnlist .control-label {
+  font-weight: normal;
+  color: #494848;
+}
+.myReturn .returnlist .form-control {
+  border-radius: 0;
+  border: 1px solid #e6e6e6;
+  box-shadow: none;
+}
+.myReturn .returnlist .myReturnBtn {
+  background: rgba(40, 196, 178, 0.1);
+  border: 1px solid rgba(40, 196, 178, 0.2);
+  color: #28c4b2;
+}
+.webuploader-pick {
+  background: #f7f7f7 !important;
+  border: 1px solid #dddbdc  !important;
+  color: #5e5e5e  !important;
+  border-radius: 0  !important;
+  padding: 5px 10px !important;
+}
+.tip {
+  padding: 6px;
+  position: relative;
+  top: 9px;
+  color: #7e7e7e;
+  font-size: 12px;
+}
+.tip_block {
+  display: block;
+  clear: both;
+  margin-left: 18%;
+  top: -4px;
+}
+.errortip {
+  color: #ef524d;
+}
+.errorwaning {
+  display: none;
+  margin-left: 10px;
+  padding: 6px;
+  color: red;
+  font-weight: bold;
+}
+.noreturngood {
+  margin: 40px 190px;
+  font-size: 20px;
+}
+.returnstatus {
+  font-size: 16px;
+  border-left: 3px solid #EF524D;
+  padding-left: 10px;
+}
+.stepflex {
+  text-align: left;
+}
+.stepflex dl {
+  width: 20%;
+}
+.fl {
+  float: left;
+}
+.productinfo {
+  padding: 20px;
+  background: #fff7f8;
+  margin-bottom: 20px;
+}
+.imgleft img {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.textright {
+  margin: 10px 0 0 20px;
+}
+.textright li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.form-horizontal .redstar:before {
+  content: "*";
+  color: red;
+  margin-left: -5px;
+}
+.main_tabs ul li {
+  cursor: pointer;
+}
+.del {
+  background: url("../images/pc/del.png") no-repeat;
+  width: 24px;
+  height: 24px;
+  float: right;
+}
+.section-border {
+  position: absolute;
+  z-index: 10;
+  border: 1px solid #ffa800;
+  box-shadow: 1px 1px 3px #ffa800;
+}

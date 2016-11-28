@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+    <%=includeLinks(view, ["../../css/addrList.css"]);%>
+</head>
+<body>
+    <div>
+        <div class="pages">
+            <div data-page="addrNewPage" class="page no-tabbar" data-controller="AddrNewPageControoller">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href="#" class="back link">
+                                <i class="icon icon-back-gray"></i>
+                            </a>
+                        </div>
+                        <div class="center">
+                            地址信息
+                        </div>
+                        <!--<div class="right addrNewPage-address-submit">
+                            <a href="#">保存</a>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="list-block m-t-10 addr-new">
+                        <form id="AddressDetail">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <!--<div class="item-title label">
+                                                <i class="icon icon-contacts"></i>
+                                            </div>-->
+                                            <div class="item-input">
+                                                <input type="text" name="cReceiver" placeholder="收货人姓名">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <!--<div class="item-title label">
+                                                <i class="icon icon-tel"></i>
+                                            </div>-->
+                                            <div class="item-input">
+                                                <input type="tel" name="cMobile" placeholder="请输入手机号码">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner  bg-arrow">
+                                            <!--<div class="item-title label">
+                                                <i class="icon order-addr"></i>
+                                            </div>-->
+                                            <div class="item-input" id="newAddrInput">
+                                                <input type="text" name="cDistrct" placeholder="请选择所在地区" id="picker-dependent" readonly="readonly">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <!--<div class="item-title label">
+                                                <i class="icon full-addr"></i>
+                                            </div>-->
+                                            <div class="item-input">
+                                                <input type="text" name="cAddress" placeholder="街道/小区/房间号">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <!--<div class="item-title label">
+                                                <i class="icon icon-tel"></i>
+                                            </div>-->
+                                            <div class="item-input">
+                                                <input type="text" name="cTelePhone" placeholder="请输入固定电话">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <!--<div class="item-title label">
+                                                <i class="icon postcode"></i>
+                                            </div>-->
+                                            <div class="item-input">
+                                                <input type="tel" name="cZipCode" placeholder="邮政编码">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="last-item isDefault">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label"><i class="icon icon-undefault"></i></div>
+                                            <div class="item-input">
+                                                设为默认收货地址
+                                            </div>
+                                            <!--<div class="item-after">
+                                                <i class="icon icon-undefault"></i>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                    <div class="list-block m-t-10" id="btnDeleAddr" style="margin-bottom: 90px;">
+                        <ul style="overflow: hidden;">
+                            <li class="item-content addressManage-btn-del">
+                                <div class="only-one-btn">
+                                    <a class="color-red2">删除地址信息</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                 <div class="btn-div  addrNewPage-address-submit">
+	                    	<a href="#" class="btn-rebate-save btn-red">保存地址</a>
+	                 </div>
+            </div>
+           
+        </div>
+    </div>
+    <%=includeScripts(view, ["../../js/addr-new_M.js"]);%>
+</body>
+</html>
+

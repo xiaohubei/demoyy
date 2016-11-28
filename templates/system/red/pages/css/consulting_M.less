@@ -1,0 +1,116 @@
+ div[data-page="consulting"] .navbar-inner {
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            top: auto;
+            right: auto;
+            height: 1px;
+            width: 100%;
+            background-color: #e3e3e3;
+            display: block;
+            z-index: 99;
+        }
+    }
+[data-page="consulting"]{
+    .toolbar{
+        height: 70px;
+        .btn-ok{
+            width: 96%;
+            text-align: center;
+            line-height: 46px;
+            height: 46px;
+            background-color: #ef524d;
+            margin: 5px auto;
+            border-radius: 3px;
+            font-size: 15px;
+            color: #fff;
+            display: block;
+        }
+    }
+    .subnavbar{
+        height: 48px;
+    }
+    .subnavbar .buttons-row .button{
+        color: #999999;
+        font-size: 14px;
+//      padding-top: 2px;
+    }
+    .subnavbar .buttons-row .button.active{
+            color:#ef534d;
+            border-bottom: 1px solid #ef534d;
+              margin-top: 2px;
+              padding-top: 0;
+    }
+}
+
+
+.consulting-list{
+  margin-top: 58px;
+  width: 100%;
+      ul{
+            /*padding: 15px 0;*/
+            text-align: center;
+        }
+    li{
+        
+        padding-bottom: 5px;
+        position:relative;
+        &:after{
+           content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: #eeeeee;
+            left: 0;
+            bottom: 0;
+            z-index: 15; 
+        }
+        &:last-child:after{
+            display: none;
+        }
+        .row{
+            margin-left: 0;
+//          min-height: 42px;
+            padding-left: 12px;
+            margin-bottom: 5px;
+ //           padding-top: 5px;
+            .item-text,.item-title{
+                overflow: auto !important;
+                white-space: normal !important;
+                text-overflow: initial !important;
+                color: #999;
+                height: auto !important;
+                text-align: left;
+                font-size: 13px;
+                .icon{
+                      margin-top: -2px;
+                      margin-right: 5px;
+                }
+            }
+        }
+    }
+    .item-content{
+        .item-media img{
+              @w:30px;
+            width: @w;
+            height: @w;
+            border-radius: @w/2;
+        }
+       .item-inner{
+           .item-title{
+               font-size: 14px;
+               color: #545454;
+           }
+           .item-after{
+               font-size: 12px;
+               color: #b2b1b1;
+           }
+       } 
+    }
+    .item-subtitle{
+        margin-top: 30px;
+    }
+  
+}

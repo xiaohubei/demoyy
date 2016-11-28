@@ -1,0 +1,277 @@
+body {
+  font-family: "Microsoft Yahei";
+}
+.row > .col-xs-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.border-top-f2 {
+  border-top: 1px solid #f2f2f2;
+  margin-top: 50px;
+}
+.bg-2d {
+  background: #2d2d2d;
+}
+.bg-fd {
+  background: #fefdfd;
+}
+.color-orange {
+  color: #f29003;
+}
+.color-orange:hover {
+  color: #DC8405;
+}
+.bg-fa {
+  background: #fafafa;
+}
+.fl {
+  float: left;
+}
+.container {
+  width: 100% !important;
+  padding: 0;
+  margin: 0;
+}
+.main {
+  background: #fff;
+  border: 1px solid #f3f3f3;
+}
+.row,
+.w {
+  width: 1200px;
+  margin: 0 auto;
+  clear: both;
+  position: relative;
+}
+.contact li {
+  list-style: none;
+}
+.login-top {
+  background: #fefcfd;
+  border: 1px solid #efedee;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+.login-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.login-title {
+  color: #706e6f;
+  font-size: 18px;
+  margin-left: 5px;
+}
+.login-right {
+  color: #979696;
+  font-size: 14px;
+  margin-right: 20px;
+  float: right;
+  padding-top: 10px;
+}
+.login-right a {
+  color: #28c4b2;
+}
+#mainbody_box {
+  width: 1200px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.clear {
+  clear: both;
+  line-height: 0;
+  font-size: 0;
+  height: 0;
+}
+.clearfix {
+  display: block;
+}
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+.loginbox_left {
+  float: right;
+}
+.floatdiv ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #bdbbbb;
+}
+.floatdiv :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #bdbbbb;
+}
+.floatdiv ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #bdbbbb;
+}
+.floatdiv :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #bdbbbb;
+}
+#forget_password {
+  margin-bottom: 30px;
+  color: #707070;
+  margin-right: 15px;
+}
+.RegisterWrap {
+  margin: 10px;
+}
+.ex_login_box,
+.ex_signup_box {
+  background: url(../images/pc/login-bg.png) no-repeat 10px bottom;
+  overflow: hidden;
+}
+.RE_login_content {
+  overflow: hidden;
+}
+.loginbox-right {
+  width: 28%;
+  float: right;
+}
+.ex_login_title {
+  margin: 0px auto;
+  padding-right: 100px;
+  text-align: center;
+  height: 50px;
+  padding-top: 20px;
+  font-family: Verdana, Geneva, sans-serif, "宋体";
+  display: none;
+}
+.ex_login_title h1 {
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: normal;
+}
+.login_yellow,
+.new_deal .OrderList .OrderListName,
+.g_assemble_title ul li a:link,
+.g_assemble_title ul li a:visited {
+  color: #FF6400;
+}
+.tableform {
+  color: #666;
+}
+.loginbox {
+  margin: 80px 0 12px 0;
+  overflow: hidden;
+  zoom: 1;
+  clear: both;
+  padding: 65px 30px;
+  width: 360px;
+  height: 410px;
+  border: 1px solid #f6f6f6;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  float: right;
+  margin-right: 40px;
+}
+.loginbox .leftlabel {
+  padding: 5px 2px;
+  margin: 0;
+  float: left;
+  width: 130px;
+  text-align: right;
+  height: auto;
+  display: none;
+}
+.loginbox li {
+  width: 90%;
+  margin: 0 auto;
+}
+.loginbox li .floatdiv {
+  width: 100%;
+  padding: 5px 2px;
+  float: left;
+  height: auto;
+  list-style-type: none;
+  border-bottom: 1px solid #dcdcdc;
+}
+.loginbox .inputstyle {
+  float: left;
+}
+.loginbox .icon {
+  display: inline-block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: url(../images/pc/login-icon.png) no-repeat;
+}
+.loginbox .icon.username {
+  background-position: left 6px;
+}
+.loginbox .icon.password {
+  background-position: left -45px;
+}
+.loginbox .icon.verify {
+  background-position: left -97px;
+}
+.inputstyle,
+.x-input {
+  border: none;
+  padding: 3px 5px;
+  outline: none;
+}
+.loginbox .x-input {
+  width: 210px;
+}
+.loginbox .x-input.verify {
+  width: 77px;
+}
+.loginbox li {
+  padding: 3px 0;
+  clear: both;
+  overflow: hidden;
+  height: 50px;
+}
+.common-btn {
+  background: #28c4b2;
+  border: none;
+  zoom: 1;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  padding: 0;
+  overflow: visible;
+  text-decoration: none;
+  cursor: pointer;
+  vertical-align: middle;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  width: 300px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 0;
+}
+.common-btn:hover {
+  background: #c6423d;
+  color: #fff;
+}
+.loginbox ul {
+  margin: 5px;
+  padding: 0;
+  list-style-type: none;
+}
+.error-messages {
+  padding: 2px 15px 3px 15px;
+  margin: 0 2px 1em 2px;
+  border: 1px solid #FCC;
+  background-color: #FFFFE6;
+  color: #f00;
+}
+#code {
+  margin-left: 10px;
+  height: 23px;
+  width: 60px;
+  float: left;
+  font-size: 14px;
+  color: red;
+  text-align: center;
+}

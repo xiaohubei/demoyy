@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "退货申请");%></title>
+    <%=includeLinks(view, ["../../css/myreturn_L.less",
+        "@root/js/fileupload/css/webuploader.min.css",
+        "@root/js/fileupload/css/diyUpload.min.css"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container" data-controller="MyReturnController">
+    <header></header>
+    <div class="row">
+    <div class="col-xs-2">
+    <member_nav></member_nav>
+    </div>
+        <div class="col-xs-10 main myReturn">
+            <div class="col-xs-12 productinfo" id="productinfo">
+                <div class="fl imgleft">
+                    <img alt="商品图片">
+                </div>
+                <div class="fl textright">
+                    <ul>
+                        <li>订单号:<span class="cOrderNo"></span></li>
+                        <li class="cProductName"></li>
+                    </ul>
+                </div>
+            </div>
+            <div  class="col-xs-12 ">
+                <div class="returnstatus">
+                    退货状态
+                </div>
+                <div class="stepflex" id="#sflex03">
+                    <dl class="first  doing">
+                        <dt class="s-num">1</dt>
+                        <dd class="s-text">提交申请<s></s><b></b></dd>
+                        <!-- <dd>2015-10-08 09:02:42</dd> -->
+                    </dl>
+                    <dl class="normal">
+                        <dt class="s-num">2</dt>
+                        <dd class="s-text">卖家审核<s></s><b></b></dd>
+                    </dl>
+                    <dl class="normal">
+                        <dt class="s-num">3</dt>
+                        <dd class="s-text">退货中<s></s><b></b></dd>
+                    </dl>
+                    <dl class="normal">
+                        <dt class="s-num">4</dt>
+                        <dd class="s-text">退款<s></s><b></b></dd>
+                    </dl>
+                    <dl class="normal last">
+                        <dt class="s-num">5</dt>
+                        <dd class="s-text">完成<s></s><b></b></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-xs-12 listBox returngood" id="returninfo"></div>
+        </div>
+    </div>
+    <footer></footer>
+    </div>
+    <%=includeScripts(view, ["../../js/myreturn_L.js",
+        "@root/bootstrap/js/bootstrap.js",
+        "@root/js/modal.js",
+        "@root/js/fileupload/js/diyUpload.js",
+        "@root/js/fileupload/js/webuploader.min.js"]);%>
+    <script id="returngoodTpl" type="text/html">
+        <div class="main_tabs" id="return_tabs">
+            <ul>
+                <#if(data.cNextStatus == "DELIVERGOODS"){#>
+                    <li class="col-xs-2 tabs  active" data-returnway="returnmoney">我要退款</li>
+                <#}else{#>
+                	<#if(data.cOrderPayType == "FIRSTDELIVER"){#>
+                    	<li class="col-xs-2 tabs active" data-returnway="returngood">我要退货</li>
+						<#if(data.cNextStatus == "ENDORDER"){#>
+							<li class="col-xs-2 tabs" data-returnway="returnmoney">我要退款(无需退货)</li>
+						<#}#>
+                	<#}else{#>
+	                    <li class="col-xs-2 tabs active" data-returnway="returngood">我要退货</li>
+	                    <li class="col-xs-2 tabs" data-returnway="returnmoney">我要退款(无需退货)</li>
+                	<#}#>
+                <#}#>
+            </ul>
+        </div>
+        <div class="col-xs-12 returnlist">
+            <form  class="form-horizontal" onsubmit="return false;">
+                <div class="form-group" id="reason">
+                    <label for="inputEmail3" class="col-sm-2 control-label redstar">退款原因</label>
+                    <div class="col-sm-4">
+                      <select type="select" class="form-control">
+                      </select>
+                    </div>
+                </div>
+                <#if(data.way == 'returngood'){#>
+                    <div class="form-group" id="quantity">
+                        <label for="inputEmail3" class="col-sm-2 control-label  redstar">退货数量</label>
+                        <div class="col-sm-4">
+                          <input type="number" class="form-control">
+                        </div>
+                        <span class="tip">最多<#=data.iQuantity #>件</span>
+                    </div>
+                <#}#>
+                <div class="form-group" id="money">
+                    <label for="inputEmail3" class="col-sm-2 control-label  redstar">退款金额</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control">
+                    </div>
+                    <span class="tip" >本次最多退款<#=data.fCanReturnMoney.toFixed(2) #>元</span>
+                </div>
+                <div class="form-group" id="description">
+                    <label for="inputEmail3" class="col-sm-2 control-label">退款说明</label>
+                    <div class="col-sm-4">
+                      <textarea class="form-control" rows="3" cols="20"/>
+                    </div>
+                    <span class="tip">请填写少于500字符</span>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">上传图片</label>
+                    <div class="col-sm-4">
+                        <div id="uploadpic"></div>
+                    </div>
+                    <span class="tip tip_block">接受 gif, jpg, jpeg, bmp, png格式 (单个文件不超过512kb,总文件不超过2M)</span>
+                </div>
+                <div class="form-group" id="returnPost" >
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-primary myReturnBtn">提交申请</button>
+                      <span class="errorwaning">请正确填写后再提交！</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

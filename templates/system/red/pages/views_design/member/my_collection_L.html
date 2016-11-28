@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "我的收藏");%></title>
+    <%=includeLinks(view, ["../../css/my_collection_L.less"]);%>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="MyCollectionViewController">
+        <header></header>
+        <div class="row">
+            <div class="col-xs-2">
+                <member_nav></member_nav>
+            </div>
+            <div id="collection_main " class="col-xs-10 main collection_main">
+                <div class="main_title">
+                <div class="col-md-6 mymessage">关注的商品</div>
+               <div class="col-md-6">
+                   <div class="extra-r">
+                            <div class="fav-search">
+                                <input type="text" class="itxt" id="fav-search-text" name="kw" value="" placeholder="请输入商品名称">
+                                <a class="fav-search-btn" style="cursor:pointer;">搜索</a>
+                            </div>
+                        </div>
+               </div>
+            </div>
+                <div class="mod-main mod-comm">
+                    
+                    <div class="mc">
+                        <div class="fav-filter-cont">
+                            <div class="dl fav-cate">
+                                <div class="dt">
+                                    分类筛选：
+                                </div>
+                                <div class="dd" id="categoryFilter">
+
+                                </div>
+                            </div>
+                            <div class="dl fore2" id="productLabel">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-main mod-comm">
+                    <div class="mc">
+                        <div class="collection_product-main">
+                            <div class="collection_product-thead">
+                                <div class="column collection_checkbox">
+                                    <div class="product_checkbox">
+                                        <input type="checkbox" checked="checked" id="toggle-checkboxes_up" name="toggle-checkboxes" class="jdcheckbox">
+                                    </div>
+                                    全选
+                                </div>
+                                <div class="column collection_goods">商品信息</div>
+                                <div class="column collection-sum">价格(元)</div>
+                                <div class="column collection_action">操作</div>
+                            </div>
+                            <div id="collection_list">
+                                <div class="collection-item-list">
+                                    <div class="collection-tbody">
+                                        <div class="collection_item_list" id="productFavoritesList">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb mt20">
+                            <div class="ui-page-wrap clearfix">
+                                <div id="clearAll" style="text-align:center;">取消关注</div>
+                                <div class="ui-page" id="paginationBottom">
+                                        <a class="ui-pager-prev" id="prevBottom" style="cursor:pointer;"><span><</span>上一页</a>
+                                    <a class="ui-page-curr" id="currentPage"></a>
+                                        <a class="ui-pager-next" id="nextBottom" style="cursor:pointer;">下一页<span>></span></a>
+                                        <span class="ui-page-skip">
+                                            <span>共<em id="totalPage"></em>页</span>
+                                            <span>到第</span>
+                                            <span><input name="pageNo" id="pageNo" class="itxt" type="text">&nbsp;页</span>
+                                            <a name="submitBtn" class="btn-skipsearch" id="btnSubmit">确定</a>
+                                        </span>
+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+        <script id="productFavoritesTpl" type="text/html">
+            <#if(list&&list.length){#>
+                <#for(var i=0,len =list.length;i<len;i++){#>
+                        <#var value=list[i];#>
+                            <#if(!value.iStatus){#>
+                            <div class="collection-item-single  collection-item-item" style="cursor:not-allowed;">
+                                <div class="collection-item-form">
+                                    <div class="cell collection-p-checkbox">
+                                        <div class="product_checkbox">
+                                            <input type="checkbox" name="checkItem" checked="checked" class="jdcheckbox" style="cursor:pointer;">
+                                        </div>
+                                    </div>
+                                    <div class="cell collection-p-goods">
+                                        <div class="collection-goods-item">
+                                            <div class="collection-p-img">
+                                                <a style="cursor:not-allowed;"><img style="width: 80px; height: 80px;" alt="收藏商品图片" src="<#=adjustImgSrc(value.defaultAlbum)#>"></a>
+                                            </div>
+                                            <div class="item-msg">
+                                                <div class="collection-p-name">
+                                                    <a style="cursor:not-allowed;text-decoration:none;"><#=value.pName#></a>
+                                                    <input type="hidden" id="pid" name="pid" value="<#=value.id#>">
+                                                    <input type="hidden" id="iStatus" name="iStatus" value="<#=value.iStatus#>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell collection-p-sum">
+                                        <#if(value.productAttribute=="1"){#>
+                                        <#if(value.isDisplayPrice){#>
+                                        <div class="price"><strong><#=value.fSalePrice#></strong></div>
+                                        <#if(value.reducedPriceFlag==true){#><div class="price-less"><strong>降价<#=value.reducedPrice#></strong></div><#}#>
+                                        
+                                            <#}else{#>
+                                            <div class="price"><strong><#=value.priceAreaMessage#></strong></div>
+                                            <#}#>
+
+                                                <#}else if(value.productAttribute=="2"){#>
+                                                    <#if(value.isDisplayPrice){#>
+                                                    <div class="price"><strong><#=value.salePoints#>&nbsp;积分</strong></div>
+                                                    <#}else{#>
+                                                        <div class="price"><strong><#=value.priceAreaMessage#></strong></div>
+                                                    <#}#>
+                                                    <#}#>
+                                                <div class="price-less" style="margin-top:5px;"><strong>已下架</strong></div>
+                                    </div>
+                                    <div class="cell collection-p-ops" style="float: right; margin-right: 10px;">
+                                        <a class="collection_cancel_cart" style="cursor:pointer;text-decoration:none;">取消关注</a>
+                                    </div>
+                                </div>
+                            </div>
+                                <#}else{#>
+                                    <div class="collection-item-single  collection-item-item">
+                                        <div class="collection-item-form">
+                                            <div class="cell collection-p-checkbox">
+                                                <div class="product_checkbox">
+                                                    <input type="checkbox" name="checkItem" checked="checked" class="jdcheckbox">
+                                                </div>
+                                            </div>
+                                            <div class="cell collection-p-goods">
+                                                <div class="collection-goods-item">
+                                                    <div class="collection-p-img" style="width:80px;height:80px;">
+                                                        <a href="/detail?goods_id=<#=value.pid#>" target="_blank" ><img style="width:80px;height:80px;" alt="收藏商品图片" src="<#=adjustImgSrc(value.defaultAlbum)#>"></a>
+                                                    </div>
+                                                    <div class="item-msg" style="margin-left:90px;"> 
+                                                        <div class="collection-p-name">
+                                                            <a href="/detail?goods_id=<#=value.pid#>" target="_blank"><#=value.pName#></a>
+                                                            <input type="hidden" id="pid" name="pid" value="<#=value.id#>">
+                                                            <input type="hidden" id="iStatus" name="iStatus" value="<#=value.iStatus#>">
+                                                        </div>
+                                                        <#if(value.productAttribute=="1"){#>
+                                                        <!--促销优惠信息展示开始-->
+                                                        <div class="privilegeInfomation">
+                                                          <ul class="goods-info-list clearfix">
+                            <li class="curr-price" style="position:relative;">
+                               
+                                <#if(value.promotion){#>
+                                    <span class="promotion-tag"><#=value.promotion.sDesName#></span>
+                                <#}#>
+                                        <#if(value.preferentialMap){#>
+											<#if(value.preferentialMap.postlistMap.length>0 || value.preferentialMap.pricepreferentialList.length>0||value.preferentialMap.giftpreferentialList.length>0){#>
+                                            <div class="our-activity" style="color: #f29003;">
+                                                <p class="our-activityName">
+                                                    <span></span>
+                                                    <#if(value.preferentialMap.pricepreferentialList){#>
+                                                        <#for(var n=0;n<value.preferentialMap.pricepreferentialList.length;n++){#>
+                                                    <#var values=value.preferentialMap.pricepreferentialList[n]#>
+                                                    <#for(var m=0;m<values.pricePreferentialItemList.length;m++){#>
+                                                        <# var newvalue=values.pricePreferentialItemList[m]#>
+                                                        <span>满<#=newvalue.consumerSpending#><#if(newvalue.discountNum){#><span>打<#=newvalue.discountNum#>折</span><#}else{#><span>减<#=newvalue.fireNum#><#if(newvalue.isCapping){#><span>上不封顶</span><#}#></span><#}#>
+                                                        </span>
+                                                    <#}#>
+                                                <#}#>
+                                            <#}#>
+                                        	<!--<#if(value.preferentialMap.giftpreferentialList[0]){#>
+                                            	<#for(var k=0;k<value.preferentialMap.giftpreferentialList[0].giftpreferentialItemList.length;k++){#>
+                                                	<#var values=value.preferentialMap.giftpreferentialList[0].giftpreferentialItemList[k]#>
+                                                	<span><#=values.description#></span>
+                                            	<#}#>
+                                        	<#}#>-->
+                                            <#if(value.preferentialMap.postlistMap){#>
+                                                <#for(var k=0;k<value.preferentialMap.postlistMap.length;k++){#>
+                                                    <span><#=value.preferentialMap.postlistMap[k].postActivityName#></span>
+                                                <#}#>
+                                            <#}#>
+                                                <span style="float:right;cursor:pointer;" class="morePrivilege">更多优惠 v</span>
+                                                </p>
+                                                
+                                            </div>
+                                            <div class="activity-detail" style="display: none; z-index: 1000; position: absolute; background: #fafafa; width: 100%;">
+                                                <a class="unmore" style="float: right; ">收起 v</a>
+                                                <ul style="width: 100%;">
+                                                    <#if(value.preferentialMap.pricepreferentialList){#>
+                                                        <#for(var n=0;n<value.preferentialMap.pricepreferentialList.length;n++){#>
+                                            <#var values=value.preferentialMap.pricepreferentialList[n]#>
+                                            <li>
+                                            <div>整单促销：<#=values.pricePreferentialName#><span class='endDate'>截止日期：<#=values.endDate#></span></div>
+                                            <#for(var m=0;m<values.pricePreferentialItemList.length;m++){#>
+                                                <# var newvalue=values.pricePreferentialItemList[m]#>
+                                                <p>满
+                                                <#=newvalue.consumerSpending#>
+                                                    <#if(newvalue.discountNum){#>
+                                                        <span>打<#=newvalue.discountNum#>折</span>
+                                                    <#}else{#>
+                                                        <span>
+                                                                                                                                                                                             减<#=newvalue.fireNum#>
+                                                        <#if(newvalue.isCapping){#>
+                                                            <span>上不封顶</span>
+                                                        <#}#>
+                                                        </span>
+                                                    <#}#>
+                                                <#}#>
+                                            </li>
+                                        <#}#>
+                                    <#}#>
+                                    <#if(value.preferentialMap.giftpreferentialList){#>
+                                        <#for(var k=0;k<value.preferentialMap.giftpreferentialList.length;k++){#>
+                                          <#var values=value.preferentialMap.giftpreferentialList[k]#>
+                                            <li>
+                                                <div>
+                                                	<#=values.iGiftType#>：
+                                                	<#=values.giftPreferentialName#>
+                                                	<span class='endDate'>截止日期：<#=values.endDate#></span>
+                                                	<#for(var m=0;m<values.giftpreferentialItemList.length;m++){#>
+                                                    <p><#=values.giftpreferentialItemList[m].description#></p>
+                                                    <#}#>
+                                                    	<#if(values.mutuallyDescription){#>
+                                                    		<p class='incompatible-activities'>与<#=values.mutuallyDescription #>互斥</p>
+                                                		<#}#>
+                                                </div>
+                                            </li>
+                                        <#}#>
+                                    <#}#>
+                                    <#if(value.preferentialMap.postlistMap){#>
+                                        <#for(var k=0;k<value.preferentialMap.postlistMap.length;k++){#>
+                                            <li>
+                                                <div>包邮活动：<#=value.preferentialMap.postlistMap[k].postActivityName#></div>
+                                                <#if(value.preferentialMap.postlistMap[k].postActivityAddress){#>
+                                                    <#var notAdress=value.preferentialMap.postlistMap[k].postActivityAddress#>
+                                                    <p>不包邮地区：
+                                                    <#for(var s=0;s<notAdress.length;s++){#>
+                                                        <span>
+                                                            <#=notAdress[s].cProvince#>
+                                                            <#=notAdress[s].cCity#>
+                                                            <#=notAdress[s].cArea#>
+                                                        </span>
+                                                        <#if(s!=(notAdress.length-1)){#>
+                                                            <span> || </span>
+                                                        <#}#>
+                                                    <#}#>
+                                                    </p>
+                                                    <#}#>
+                                            </li>
+                                        <#}#>
+                                    <#}#>
+                                        </ul>
+                                    </div>
+                                    <#}#>
+									<#}#>
+</li>
+                        </ul>
+                                                        </div>
+                                                            <#}#>
+                                                        <!--促销优惠信息展示结束-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cell collection-p-sum">
+                                                <#if(value.productAttribute=="1"){#>
+                                                <#if(value.isDisplayPrice){#>
+                                                <div class="price"><strong><#=value.fSalePrice#></strong></div>
+                                                <#if(value.reducedPriceFlag==true){#><div class="price-less"><strong>降价<#=value.reducedPrice#></strong></div><#}#>
+                                                <#}else{#>
+                                                    <div class="price"><strong><#=value.priceAreaMessage#></strong></div>
+                                                <#}#>
+                                                <#}else if(value.productAttribute=="2"){#>
+                                                    <#if(value.isDisplayPrice){#>
+                                                  <div class="price"><strong><#=value.salePoints#>&nbsp;积分</strong></div>
+                                                    <#}else{#>
+                                                        <div class="price"><strong><#=value.priceAreaMessage#></strong></div>
+                                                    <#}#>
+                                                 <#}#>
+                                            </div>
+                                            <div class="cell collection-p-ops" style="float: right; margin-right: 10px;">
+                                                <a class="collection_cancel_cart">取消关注</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <#}#>
+                            <#}#>
+                                <#}else{#>
+                                    <div class="item-single  item-item" style="height:100px;text-align:center;">
+                                        <span style="margin-top:30px;" id="searchResult">啊偶，没有符合条件商品</span>
+                                    </div>
+                                    <#}#>
+        
+        
+        </script>
+        <script id="productClassTpl" type="text/html">
+            <#if(productClass.length){#>
+                <a id="allProductClassfied" style="cursor:pointer;" class="curr">全部</a>
+            <#for(var i=0,len =productClass.length;i<len;i++){#>
+                    <#var value=productClass[i];#>
+                        <a class="productClassfied" style="cursor:pointer;">
+                            <#=value[0].cName#>
+                                <em>(<#=value[1]#>)</em>
+                                <input type="hidden" id="classId" name="classId" value="<#=value[0].id#>">
+                        </a>
+                        <#}#>
+                            <#}#>
+        </script>
+        <script id="productLabelTpl" type="text/html">
+            <div class="dt">
+                全部商品<!--<span>(</span><em id="totalProductNum"></em><span>)</span>-->：
+            </div>
+            <#if(productLabel.length){#>
+            <div class="dd" id="stateFilter">
+                <a id="allProductTag" style="cursor:pointer;" class="curr">全部</a>
+                <#for(var i=0,len =productLabel.length;i<len;i++){#>
+                        <#var value=productLabel[i];#>
+                            <a class="productTag" style="cursor:pointer;">
+                                <#=value.tag_name#>
+                                    <input type="hidden" id="tagId" name="tagId" value="<#=value.id#>">
+                            </a>
+
+                            <#}#>
+            </div>
+                <#}#>
+        </script>
+    </div>
+    <%=includeScripts(view, ["../../js/my_collection_L.js"]);%>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

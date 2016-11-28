@@ -1,0 +1,787 @@
+﻿.container > .row {
+    margin-bottom: 10px;
+}
+
+/*.stepflex {
+    display: block;
+    border-top: 5px solid #ccc;
+    text-align: center;
+    margin: 30px 0 0;
+    float: right;
+}
+
+    .stepflex dl.done {
+        border-top-color: #caecb6;
+    }
+
+    .stepflex dl.doing {
+        border-top-color: #7abd54;
+    }
+
+    .stepflex dl {
+        float: left;
+        position: relative;
+        width: 160px;
+        top: -5px;
+        border-top: 5px solid #ccc;
+    }
+
+        .stepflex dl.done .s-num {
+            background-position: -46px 0;
+        }
+
+    .stepflex .s-text {
+        color: #ccc;
+    }
+
+    .stepflex .s-num {
+        position: relative;
+        margin: -15px auto 0;
+        color: #fff;
+        font-weight: 700;
+        width: 23px;
+        height: 23px;
+        background-image: url(http://misc.360buyimg.com/user/purchase/2.0.0/css/i/step2013.png);
+        line-height: 23px;
+    }
+
+    .stepflex dl.done .s-text {
+        color: #caecb6;
+    }
+
+    .stepflex dl.doing .s-num {
+        background-position: -23px 0;
+    }
+
+    .stepflex .s-num {
+        position: relative;
+        margin: -15px auto 0;
+        color: #fff;
+        font-weight: 700;
+        width: 23px;
+        height: 23px;
+        background-image: url(http://misc.360buyimg.com/user/purchase/2.0.0/css/i/step2013.png);
+        line-height: 23px;
+    }
+
+    .stepflex dl.doing .s-text {
+        color: #7abd54;
+    }
+
+    .stepflex s {
+        left: 0;
+    }
+
+    .stepflex .last b {
+        background-position: -5px -24px;
+        background-color: #fff;
+    }*/
+
+.order_main {
+    /*border: 1px solid #cdcdcd;*/
+    overflow: hidden;
+    padding: 15px;
+}
+
+    .order_main > div {
+        float: left;
+        width: 100%;
+    }
+
+    .order_main .steptit {
+        line-height: 40px;
+        height: 40px;
+        color: #999;
+    }
+    .order_main .steptit .extra-r,
+    .order_main .steptit .extra-r a{
+        float: right;
+        color: #f1726e;
+    }
+
+.order_item_header {
+    color: #666;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    font-family: "microsoft yahei";
+    overflow: hidden;
+}
+
+.address_box > h3,
+.pay_list h3,
+.OrderDetails h3,
+.steptit h3{
+    float: left;
+    line-height: 40px;
+    height: 40px;
+    color: #494848;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.address_box h3:before,
+.pay_list h3:before,
+.OrderDetails h3:before,
+.steptit h3:before{
+    content: "";
+    width: 3px;
+    background: #f00;
+    height: 14px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.address_box > a {
+    float: right;
+    color: #005ea7;
+    cursor: pointer;
+}
+
+.address_box > div {
+    overflow: hidden;
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.address_box .address_list_opts ul,
+.pay_list ul{
+    overflow: hidden;
+}
+.pay_list ul {
+padding-left:10px;
+}
+.address_box .address_list_opts{
+    
+}
+.address_box .address_list_opts .newaddress{
+     width: 30%;
+    margin: 10px;
+    float: left;
+    height: 160px;
+    min-width: 160px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 100px;
+    text-align: center;
+    color: #8c8b8b;
+    border:1px solid #e1dfdf;
+    background: url(../images/pc/newaddr-bg.png) no-repeat center center #fcfcfc; 
+}
+.address_box .address_list_opts .newaddress:hover{
+    border-color: #ef524d;
+}
+.address_box .address_list_opts li{
+    width: 32%;
+    margin: 10px;
+    float: left;
+    position: relative;
+    height: 160px;
+    min-width: 160px;
+    background: url(../images/pc/addr-border.png) repeat-x left top;
+    border-left:1px solid #dcdbdb; 
+    border-right:1px solid #dcdbdb; 
+    padding: 20px;
+}
+.address_box .address_list_opts li:after{
+    content: "";
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(../images/pc/addr-border.png) repeat-x left top
+}
+.address_box .address_list_opts li .add_header{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 48px;
+        height: 37px;
+        
+}
+.address_box .address_list_opts li .add_header > span{
+    width: 48px;
+    height: 37px;
+    white-space:nowrap;
+     overflow: hidden;
+     text-indent: 9999999px;
+     position: absolute;
+     bottom: 0px;
+    right: -1px;
+    z-index: 3 ;
+    background: url(../images/pc/addr-default-bg.png) no-repeat right bottom;
+}
+.address_box .address_list_opts li .add_header > span.isdefault{
+    background-position: right top;
+    
+}
+
+.address_box .address_list_opts li .add_list{
+    background: url(../images/pc/add_list_bg.png) no-repeat 5px 10px;
+    padding-left: 25px;
+}
+.address_box .address_list_opts li .add_list > span{
+    height: 44px;
+    line-height: 44px;
+    padding-left: 5px;
+}
+.address_box .address_list_opts li .add_name,
+.address_box .address_list_opts li .add_mobile{
+    display: block;
+    background: url(../images/pc/add_bg.png) repeat-x left bottom;
+}
+.address_box .address_list_opts li .opts{
+    position: absolute;
+    display: none;
+    right: 5px;
+    top: 5px;
+}
+.address_box .address_list_opts li:hover .opts{
+    display: block;
+}
+.address_box .address_list_opts li .opts .edit,
+.address_box .address_list_opts li .opts .setdefault
+.address_box .address_list_opts li .opts .delete{
+    display: inline-block;
+    margin-right: 20px;
+
+}
+.address_box .address_list_opts li .opts .delete{
+
+}
+.address_box .address_list_opts li .add_mobile{
+    /*display: block;*/
+}
+.address_box .address_list_opts .more_list {
+    clear: both;
+    height: 18px;
+  line-height: 18px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.add_header > span {
+    width: 120px;
+}
+
+.more_list b {
+    display: inline-block;
+    vertical-align: middle;
+    height: 10px;
+    line-height: 10px;
+    width: 9px;
+    margin-left: 5px;
+}
+
+.order_main > div.hr {
+    /*border-bottom: 1px solid #cdcdcd;*/
+    width: 97%;
+    margin: 10px 0 10px 16px;
+}
+
+.pay_list {
+}
+
+    .pay_list ul > li {
+        display: block;
+        width: 80px;
+        float: left;
+        margin: 6px;
+    }
+
+        .pay_list ul > li > span {
+            display: block;
+            padding: 6px 4px;
+            border: 1px solid #cdcdcd;
+            text-align: center;
+            cursor: pointer;
+        }
+
+            .pay_list ul > li > span:hover {
+                border: 1px solid red;
+            }
+
+            .pay_list ul > li > span.isdefault {
+                border: 2px solid red;
+            }
+
+.orderdetail {
+    width: 806px;
+    float: left;
+    background-color: #f3fbfe;
+    padding: 15px;
+}
+
+.OrderDetails > h3 {
+    float: left;
+}
+
+.OrderDetails > a {
+    float: right;
+    color: #005ea7;
+}
+
+.OrderDetails ul > li {
+    float: left;
+    width: 100%;
+    background-color: #F7F7F7;
+}
+
+    .OrderDetails ul > li > div.send_type {
+        width: 300px;
+        float: left;
+        padding: 15px;
+    }
+
+        .OrderDetails ul > li > div.send_type > span {
+            text-align: center;
+            margin: 15px;
+        }
+
+            .OrderDetails ul > li > div.send_type > span.isdefault {
+                border: 2px solid red;
+                padding: 6px;
+                display: block;
+                width: 150px;
+                margin: 20px;
+            }
+
+.OrderDetails div.odetail {
+    padding: 10px;
+}
+
+    .OrderDetails div.odetail > img {
+        height: 80px;
+        width: 80px;
+        float: left;
+        padding: 0 10px 0 0;
+    }
+
+.orderdetail .obrand, .orderdetail .otitle {
+    font-weight: 900;
+    padding: 6px 0;
+}
+
+.OrderDetails div.odetail > div {
+    display: block;
+    min-width: 40px;
+    padding: 0 10px 0 0;
+    float: left;
+}
+
+    .OrderDetails div.odetail > div.price {
+        color: red;
+        font-weight: 900;
+        margin: 0 20px;
+    }
+
+    .OrderDetails div.odetail > div.num {
+        margin: 0 10px;
+    }
+
+    .OrderDetails div.odetail > div.ishas {
+        margin: 0 10px;
+    }
+
+    .OrderDetails div.odetail > div.freetoseven {
+        margin: 10px 200px 0 0;
+        color: red;
+    }
+
+.order_summary {
+    padding: 15px;
+    overflow: hidden;
+    border-bottom: 1px dashed #dddddd;
+}
+
+    .order_summary ul {
+        float: right;
+    }
+
+        .order_summary ul > li > span {
+            text-align: right;
+            display: inline-block;
+            line-height: 26px;
+        }
+
+            .order_summary ul > li > span:nth-child(1) {
+                width: 150px;
+            }
+
+            .order_summary ul > li > span:nth-child(2) {
+                width: 100px;
+            }
+             .order_summary ul > li:last-child > span,
+             .order_summary ul > li:last-child > span  {
+                color: #ef524d;
+                font-size: 20px;
+            }
+
+.osubmit {
+    padding: 15px;
+    overflow: hidden;
+}
+
+    .osubmit > div {
+        float: right;
+    }
+
+        .osubmit > div > div {
+            display: block;
+            min-width: 150px;
+            float: left;
+            padding: 10px;
+        }
+
+            .osubmit > div > div > span {
+                color: red;
+            }
+
+        .osubmit > div > a {
+            display: block;
+            float: right;
+            padding: 10px 15px;
+            background-color: #ef524d;
+            /*border-radius: 4px;*/
+            color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+.address select {
+    margin: 10px 0;
+}
+
+.OrderActivities > span {
+    background-color: #fcfcfc;
+    display: block;
+    padding: 10px 27px;
+    cursor: pointer;
+    border: 1px solid #e6e6e6;
+}
+
+    .OrderActivities > span.showradiusbottom {
+        /*border-radius: 16px 16px 0px 0px;*/
+    }
+
+.OrderActivities {
+    margin: 5px 0;
+}
+.OrderActivities > div{
+    padding: 15px;
+    border: 1px solid #e6e6e6;
+    border-top: none;
+}
+
+    .OrderActivities .tab {
+        height: 25px;
+        list-style: none;
+        
+    }
+
+        .OrderActivities .tab li {
+            background: #fafafa;
+            float: left;
+            border: 1px solid #e6e6e6;
+            border-bottom: none;
+            cursor: pointer;
+            height: 25px;
+            line-height: 26px;
+            margin-right: 5px;
+            margin-top: 0px;
+            text-align: center;
+            white-space: nowrap;
+            padding: 0 15px;
+            color: #a3a3a3;
+        }
+
+            .OrderActivities .tab li.curr {
+                background: #fbecec;
+                border: 1px solid #ead4d4;
+                border-bottom: none;
+                color: #ee6969;
+                height: 26px;
+                line-height: 26px;
+                /*margin-top: 0;*/
+            }
+ .OrderActivities .tab li em{
+    font-style: normal; 
+ }
+    .OrderActivities .coupon-tab-con {
+        display: none;
+    }
+
+        .OrderActivities .coupon-tab-con.active {
+            display: block;
+            background: #fbecec;
+            border: 1px solid #ead4d4;
+        }
+
+        .OrderActivities .coupon-tab-con .inner {
+            padding: 5px 18px;
+        }
+
+            .OrderActivities .coupon-tab-con .inner .tips {
+                color: #999;
+            }
+
+            .OrderActivities .coupon-tab-con .inner h4 {
+                padding: 10px 0;
+                font-size: 10px;
+                line-height: 22px;
+            }
+
+            .OrderActivities .coupon-tab-con .inner .virtual-table {
+                max-height: 450px;
+                line-height: 25px;
+                overflow-y: auto;
+            }
+
+        .OrderActivities .coupon-tab-con .virtual-table .virtual-table-body {
+            max-height: 450px;
+            _height: expression(this.scrollHeight > 450 ? "450px" : "auto");
+            overflow-y: auto;
+        }
+
+    .OrderActivities .virtual-table .virtual-table-body .virtual-action {
+        float: left;
+        width: 30px;
+        text-align: center;
+    }
+
+    .OrderActivities .virtual-table .virtual-table-body .virtual-sum {
+        float: left;
+        width: 130px;
+    }
+
+    .OrderActivities .virtual-table .virtual-table-body .virtual-type {
+        float: left;
+        width: 150px;
+        color: #999;
+        white-space: nowrap;
+        text-overflow: ellipsis; /* for internet explorer */
+        overflow: hidden;
+        display: block;
+    }
+
+    .OrderActivities .virtual-table .virtual-table-body .virtual-vtime {
+        float: left;
+        width: 200px;
+        color: #999;
+    }
+
+    .OrderActivities .virtual-table .virtual-table-body .virtual-desc {
+        float: left;
+        color: #e4393c;
+        width: 300px;
+    }
+
+    .OrderActivities .virtual-table .quan-line {
+        border-top: 1px dashed #a3d1ec;
+        padding: 3px 0;
+        height: 2px;
+    }
+
+.order-remarks {
+    /*margin: 15px 0;*/
+    border: 1px solid #e6e6e6;
+    border-top: none;
+    padding: 15px;
+}
+
+    .order-remarks .remark-tit {
+        color: #494848;
+        line-height: 25px;
+        margin-bottom: 5px;
+        float: left;
+        width: 100px;
+        text-align: right;
+    }
+
+    .order-remarks .remark-cont {
+        padding: 0 20px;
+        float: left;
+    }
+
+        .order-remarks .remark-cont input {
+            width: 510px;
+            height: 30px;
+            padding: 3px 5px 2px;
+            border: 1px solid #e6e6e6;
+            color: #9c9a9a;
+        }
+
+        .order-remarks .remark-cont .tips {
+            color: #999;
+            margin-left: 10px;
+        }
+.shopping-list {
+    position: relative;
+    float: left;
+    width: 100%;
+    /*margin-bottom: 10px;*/
+    background-color: #fcfcfc;
+}
+
+    .shopping-list .good-list {
+        float: right;
+        width: 100%;
+        border: 1px solid #e6e6e6;
+        padding: 10px 0;
+        /*background-color: #f3fbfe;*/
+    }
+
+
+        .shopping-list .good-list .good-tit {
+            height: 24px;
+            padding: 0 20px;
+            display: none;
+        }
+
+            .shopping-list .good-list .good-tit h4 {
+                float: left;
+                width: 49%;
+                line-height: 24px;
+                color: #666;
+                font-size: 12px;
+                font-weight: 600;
+
+            }
+
+        .shopping-list .good-list .goods-items {
+            padding: 0 20px;
+        }
+
+        .shopping-list .good-list .goods-item {
+            /*border-bottom: 1px solid #fff;*/
+            padding: 10px 0;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+            .shopping-list .good-list .goods-item .p-img {
+                float: left;
+                width: 80px;
+                height: 80px;
+                border: 1px solid #ddd;
+                margin-right: 10px;
+                background-color: #fff;
+            }
+
+                .shopping-list .good-list .goods-item .p-img img {
+                    width: 80px;
+                    height: 80px;
+                }
+
+            .shopping-list .good-list .goods-item .goods-msg {
+                float: left;
+                width: 640px;
+            }
+
+            .shopping-list .good-list .goods-item .p-name {
+                float: left;
+                width: 49.8%;
+                height: 3em;
+                line-height: 1.5em;
+                overflow: hidden;
+                margin-bottom: 10px;
+            }
+
+            .shopping-list .good-list .goods-item .p-price {
+                float: right;
+                width: 48.8%;
+                margin: 0 0 5px;
+                overflow: hidden;
+            }
+
+                .shopping-list .good-list .goods-item .p-price .j-price {
+                    width: 100px;
+                    text-align: right;
+                }
+
+                .shopping-list .good-list .goods-item .p-price strong {
+                    font-family: verdana;
+                    color: #e4393c;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                .shopping-list .good-list .goods-item .p-price .p-num {
+                    width: 70px;
+                    text-align: right;
+                }
+
+                .shopping-list .good-list .goods-item .p-price .p-state {
+                    width: 58px;
+                    text-align: right;
+                }
+
+                .shopping-list .good-list .goods-item .p-price span {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+        .shopping-list .good-list .goods-items .goods-item-extra {
+            border: none;
+            margin-bottom: 0;
+            display: inline-block;  
+            width: 100%;
+            border-bottom: 1px solid #e6e6e6;          
+        }
+        .shopping-list .good-list .goods-items .goods-item-extra:last-child{
+                border-bottom: none;
+            }
+
+
+    .shopping-list .dis-models {
+        float: left;
+        width: 30%;
+        padding: 10px 10px 10px 20px;
+        display: none;
+    }
+
+        .shopping-list .dis-models .mode-item {
+            margin-bottom: 50px;
+        }
+
+            .shopping-list .dis-models .mode-item .mode-item-tit {
+                height: 20px;
+                line-height: 20px;
+                padding: 2px 0;
+            }
+
+                .shopping-list .dis-models .mode-item .mode-item-tit h4 {
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+
+            .shopping-list .dis-models .mode-item .mode-tab-nav {
+                margin: 10px 0 20px;
+            }
+
+    .shopping-list .mode-item .mode-tab-nav ul {
+        display: block;
+        width: 310px;
+        height: 30px;
+    }
+
+    .shopping-list .mode-item .mode-tab-nav li {
+        float: left;
+        height: 30px;
+        line-height: 19px;
+        padding: 5px 0;
+        width: 143px;
+        text-align: center;
+        border: 1px solid #ddd;
+        margin-right: 10px;
+        position: relative;
+        cursor: pointer;
+    }
+
+        .shopping-list .mode-item .mode-tab-nav li.curr,
+        .shopping-list .mode-item .mode-tab-nav li:hover {
+            border: 2px solid #e4393c;
+            padding: 4px 0;
+            width: 141px;
+        }

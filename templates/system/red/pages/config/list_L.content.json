@@ -1,0 +1,67 @@
+{
+	"view": {
+		"$": {
+			"name": "listView",
+			"title": "U商城",
+			"controller": "ListViewController"
+		},
+		"widget": [
+			{
+				"$": {
+					"name": "path_mapping",
+					"type": "path_mapping"
+				}
+			}, {
+				"$": {
+					"name": "search_detail",
+					"type": "search_detail"
+				}
+			}, {
+				"$": {
+					"name": "myhistory",
+					"type": "myhistory"
+				}
+			}, {
+				"$": {
+					"name": "sales_charts",
+					"type": "index_goods"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "displayMode",
+							"value": "rank"
+						}
+					}, {
+						"$": {
+							"key": "cols",
+							"value": "1"
+						}
+					}, {
+						"$": {
+							"key": "rows",
+							"value": "6"
+						}
+					}, {
+						"$": {
+							"key": "order"
+						},
+						"item": [
+							{
+								"$": {
+									"fieldname": "iSales30",
+									"direction": "desc"
+								}
+							}
+						]
+					}
+				]
+			}, {
+				"$": {
+					"name": "product_list",
+					"type": "product_list"
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,244 @@
+﻿.main-body {
+    padding-top: 20px;
+}
+
+.main_tabs {
+    width: 100%;
+    background-color: #fff;
+}
+
+.main_top {
+    margin-top: 20px;
+    border-bottom: 1px solid #eee;
+    padding-right: 0;
+}
+
+.myaddress {
+    font-size: 18px;
+    height: 35px;
+    line-height: 30px;
+}
+
+.main_addaddr {
+    text-align: right;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid @styleColors;
+    background-color: @styleColors;
+    color: #fff;
+    cursor: pointer;
+}
+
+    .main_addaddr:hover {
+        color: #fff;
+    }
+
+#myAddress .modal-title {
+    font-size: 14px;
+}
+
+#myAddress .modal-body {
+    font-size: 12px;
+    padding-right: 25px;
+}
+
+.main_middle {
+    padding: 0;
+}
+
+.addr_item {
+    border: 1px solid #e6e6e6;
+    padding: 0;
+    margin-top: 11px;
+    height: 152px;
+    font-size: 12px;
+}
+
+.middle_often {
+    float: left;
+    z-index: 20;
+    background-color: lighten(@styleColors, 35%);
+    color: @styleColors;
+    width: 40px;
+    height: 150px;
+    padding-top: 40px;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.middle_l {
+    height: 152px;
+    padding: 12px 0 0 60px;
+    float: left;
+    line-height: 24px;
+}
+
+.middle_r {
+    height: 151px;
+    border-left: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    float: right;
+    background-color: #f6f6f6;
+    width: 158px;
+    display: table;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.item_name {
+    margin-bottom: 10px;
+}
+
+.ftx-01 {
+    /*font-weight: bold;*/
+    font-size: 12px;
+    color: #494848;
+}
+
+.middle_r_d {
+    display: table-row;
+}
+
+.f3 {
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.middle_r a {
+    display: block;
+    text-align: center;
+    color: #333;
+}
+
+.main_bottom {
+    border: 1px dashed #e6e6e6;
+    margin: 10px 0px;
+    height: 72px;
+    line-height: 72px;
+    text-align: center;
+}
+
+    .main_bottom a, .main_bottom span {
+        color: #c2c0c0;
+        text-decoration: none;
+    }
+
+.addaddr-btn {
+    font-size: 15px;
+    padding: 5px 10px;
+    color: #c2c0c0;
+}
+
+    .addaddr-btn:hover {
+        color: #c2c0c0;
+    }
+
+.ftx-02 {
+    color: @styleColors !important;
+}
+
+a.common-address {
+    color: @styleColors;
+    cursor: pointer;
+}
+
+.edit-btn {
+    cursor: pointer;
+}
+
+.delete-btn {
+    cursor: pointer;
+}
+
+/**
+ * Checkbox One
+ */
+.checkboxOne {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    vertical-align: -12%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+/*------------modal------------*/
+
+.modal-content {
+    border-radius: 0;
+    margin-top: 300px;
+    border: 1px solid #e6e6e6;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+}
+
+.modal-backdrop.in {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+.address .control-label {
+    color: #8b8989;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.address .form-control {
+    border-radius: 0;
+    border: 1px solid #e6e6e6;
+    color: #2f2f2f;
+    box-shadow: none;
+    font-size: 12px;
+}
+
+    .address .form-control.provice,
+    .address .form-control.city,
+    .address .form-control.area {
+        float: left;
+        width: 30%;
+        margin-right: 5%;
+    }
+
+    .address .form-control.area {
+        margin-right: 0;
+    }
+
+.modal-footer {
+    text-align: center;
+    border-top: none;
+}
+
+    .modal-footer .btn {
+        height: 36px;
+        line-height: 36px;
+        border: 1px solid #e6e6e6;
+        padding: 0 15px;
+        border-radius: 0;
+    }
+
+        .modal-footer .btn.btn-default {
+            color: #706e6e;
+            background-color: #f6f5f5;
+            border-color: #e8e7e7;
+            padding: 0 40px;
+        }
+
+        .modal-footer .btn.btn-primary {           
+            background: fadeout(@styleColors,90%);
+            border: 1px solid fadeout(@styleColors,80%);
+            color: @styleColors;
+            padding: 0 40px;
+        }
+
+.modal-header {
+    border-bottom: 1px solid #e6e6e6;
+}

@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div class="toolbar tabbar tabbar-labels homeNavBar">
+        <div class="toolbar-inner">
+            <%=includeWidget(view.widgets["toolbar"]);%>
+            <%if(view.mode==='wechat'&&view.corp.distribution){%>
+            <a href="<%=getYiLianServerUrl()%>/app/shop.php/Shop/Distributor/index.php" class="tab-link external">
+                <i class="icon footer-icon-5"></i>
+                <span class="tabbar-label">易分销</span>
+            </a>
+            <%}%>
+        </div>
+    </div>
+</body>
+</html>

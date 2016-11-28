@@ -1,0 +1,88 @@
+﻿.toast-container {
+    position: fixed;
+    width: 130px;
+    left: 50%;
+    top: 50%;
+    margin-top: -75px;
+    margin-left: -65px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    z-index: 11800;
+    color: #fff;
+    font-size: 17px;
+    font-weight: normal;
+    font-family: 'Helvetica-Neue', 'HelveticaNeue', arial, sans-serif;
+    display: none;
+    opacity: 0;
+    -moz-transition: opacity 0.8s;
+    -o-transition: opacity 0.8s;
+    -webkit-transition: opacity 0.8s;
+    transition: opacity 0.8s;
+    padding: 10px;
+}
+
+    .toast-container.show {
+        display: block;
+    }
+
+    .toast-container.fadein {
+        opacity: 1;
+    }
+
+.toast-icon {
+    margin: 0 auto;
+    padding-top: 10px;
+    /*font-size: 85px;*/
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position:  center center;
+    
+}
+
+    .toast-icon .icon-error {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        background-image: url(../img/icon/icon-error.png);
+        background-size: 100% auto;
+    }
+
+    .toast-icon .icon-success {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        background-image: url(../img/icon/icon-success.png);
+        background-size: 100% auto;
+    }
+
+    .toast-icon .icon-tips {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        background-image: url(../img/icon/icon-tips.png);
+        background-size: 100% auto;
+    }
+
+.toast-msg {
+    text-align: center;
+    font-weight: normal;
+    font-size: 13px;
+	color: #FFFFFF;
+	margin-top: 10px;
+}
+/*收藏成功取消提示*/
+.collect.toast-container{
+	width: 120px;
+	height: 90px;
+	margin-left: -60px;
+	margin-top: -45px;
+}
+.collect.toast-icon{
+	width: 30px;
+	height: 30px;
+	background-image: url(../img/icon/icon-collect.png);
+}
+.collect.toast-msg{
+	font-size: 13px;
+	color: #FFFFFF;
+}

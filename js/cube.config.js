@@ -1,0 +1,3 @@
+cb.config = {
+    fromWechat: true
+};

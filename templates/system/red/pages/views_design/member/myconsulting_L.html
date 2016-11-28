@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "我的咨询");%></title>
+    <%=includeLinks(view, ["../../css/myconsulting_L.css"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="MyConsultingController">
+    <header></header>
+    <div class="row">
+    <div class="col-md-2">
+    <member_nav></member_nav>
+    </div>
+    <div class="col-md-10  main myconsulting">
+    <div class="main_title">
+            <div class="col-md-12 mymessage">我的咨询</div>
+        </div>
+        <div class="myconsulting_content col-md-12">
+                <!-- <div class="myconsulting_contentTitle col-md-12">购买咨询</div> -->
+                <table class="col-md-12">
+                </table>
+        </div>
+        <div class="consultingPagesBtn pagenation"></div>
+    </div>
+    </div>
+    <footer></footer>
+    </div>
+    <%=includeScripts(view, ["@root/jquery/jquery.page.js","../../js/myconsulting_L.js"]);%>
+        <script  id="consultingTable" type="text/html">
+            <tr>
+                <th class="col-md-2">咨询商品</th>
+                <th class="col-md-3">商品名称</th>
+                <th class="col-md-7">咨询回复</th>
+            </tr>
+        <#for (var i=0;i<data.length;i++) {#>
+            <tr>
+                <td class="imageBox">
+                    <a href="/detail?goods_id=<#=data[i].iProduct_Id#>">
+                        <img src="<#=adjustImgSrc(data[i].cProductDefaultImg)#>" />
+                    </a>
+                </td>
+                <td class="text-left">
+                    <a href="/detail?goods_id=<#=data[i].iProduct_Id#>">
+                        <#=data[i].cProductName#>
+                    </a>
+                </td>
+                <td>
+                    <p class="tableConsulting">
+                            <span class="col-md-8">我的咨询：<#=data[i].cComment#></span>
+                            <span class="consultingTime col-md-4"><#=data[i].dTime#></span>
+                    </p>
+                    <p class="tableConsultingBack">
+                        <#if(data[i].cCommentReply==null||data[i].cCommentReply =='' ){#>
+                            <span class="consultingbackbox col-md-6">暂无回复</span>
+                            <# }else{ #>
+                                <span class="consultingbackbox col-md-6">商家回复：<span><#=data[i].cCommentReply#></span></span>
+                                <span class="consultingbacktime col-md-6"><#=data[i].dTimeReply#></span>
+                                <#}#>
+</p>
+                </td>
+            </tr>
+            <# } #>
+    </script>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>
+
+

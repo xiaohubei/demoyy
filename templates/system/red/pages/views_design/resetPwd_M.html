@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>U商城</title>
+	</head>
+
+	<body>
+		<div class="pages">
+			<div data-page="resetPwd" class="page no-tabbar" data-controller="resetPwdViewController">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="left">
+							<a href="#" class="link back"><i class="icon icon-backgray"></i></a>
+						</div>
+						<div class="center">重置密码</div>
+						<div class="right"></div>
+					</div>
+				</div>
+				<div class="page-content" id="infomation_ul">
+					<div class="list-block all-order  m-b-0">
+						<form id="form-changePwd">
+							<ul>
+								<li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">
+                                            <span class="required">*</span>用户名
+                                        </div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="请输入用户名" name="username" value="">
+                                        </div>
+                                    </div>
+                                </li>
+								<li class="item-content">
+									<div class="item-inner">
+										<div class="item-title label">
+											<span class="required">*</span>新密码
+										</div>
+										<div class="item-input">
+											<input type="password" placeholder="请输入新密码" name="newPwd" id="newPwd">
+												
+										</div>
+									</div>
+								</li>
+								<li class="item-content">
+									<div class="item-inner">
+										<div class="item-title label">
+											<span class="required">*</span>确认密码
+										</div>
+										<div class="item-input">
+											<input type="password" placeholder="请重新输入新密码" name="renewPwd" id="renewPwd">												
+										</div>
+									</div>
+								</li>
+							</ul>
+						</form>
+					</div>
+					<div class="content-block-title color-red m-t-10 changePwd-Validatelog"></div>
+				</div>
+				<div class="toolbar">
+					<div class="toolbar-inner">
+						<a class="button button-fill bg-green-u p-lr-25 only-one-btn changePwd-btn-save" id="saveData">保存</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%=includeScripts(view, ["../js/resetPwd_M.js"]);%>
+	</body>
+
+</html>

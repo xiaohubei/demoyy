@@ -1,0 +1,29 @@
+{
+	"view": {
+		"$": {
+			"title": "尾部公共区域",
+			"controller": "CommonViewController",
+			"width": "auto"
+		},
+		"widget": [
+			{
+				"$": {
+					"name": "help_center",
+					"type": "help_center"
+				}
+			},
+			{
+				"$": {
+					"name": "friend_links",
+					"type": "friend_links"
+				}
+			},
+			{
+				"$": {
+					"name": "site_info",
+					"type": "site_info"
+				}
+			}
+		]
+	}
+}

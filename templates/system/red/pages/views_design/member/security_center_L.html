@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "安全中心");%></title>
+    <%=includeLinks(view, ["../../css/security_center_L.less"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="SecurityCenterViewController">
+        <header></header>
+        <div class="row">
+            <div class="col-md-2">
+                <member_nav></member_nav>
+            </div>
+            <div class="security_center_main col-md-10 main">
+            <div class="main_title">
+                <div class="col-md-12 mymessage">安全中心</div>
+            </div>
+               
+                <div class="u-safe warn-box col-md-12">
+                    <div style="float:left;width: 90px;"><img id="cPortrait" alt="用户头像" src="" width="90"></div>
+                    <div style="margin-left: 120px; height: 30px; padding-top: 10px;">用户名&nbsp;&nbsp;<span id="cName"></span></div>
+                    <!--<strong style="margin-left: 16px;">安全级别：</strong>
+                    <i id="cla" class="safe-rank01"></i><strong class="rank-text ftx-01">很危险</strong>-->
+                </div>
+                <div class="safe-item col-md-12">
+                    <div class="fore1"><s class="icon-01"></s><strong>登录密码</strong></div>
+                    <div class="fore2"><span class="ftx-03"></span><span class="ftx-01">互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。</span></div>
+                    <div class="fore3"><span id="updatePassword" class="btn btn-7">修改</span></div>
+                </div>
+                <div class="safe-item col-md-12">
+                    <div class="fore1"><s id="emailIcon" class="icon-02"></s><strong>邮箱绑定</strong></div>
+                    <div class="fore2"><span class="ftx-03"></span><span class="ftx-01" id="maliValContent">验证后，可用于快速找回登录密码，接收账户余额变动提醒。</span></div>
+                    <div class="fore3"><span id="valMail" class="btn btn-7">立即验证</span></div>
+                </div>
+                <div class="safe-item col-md-12">
+                    <div class="fore1"><s id="phoneIcon" class="icon-02"></s><strong>手机绑定</strong></div>
+                    <div class="fore2"><span class="ftx-03"></span><span class="ftx-01" id="phoneValContent">验证后，可用于快速找回登录密码及支付密码，接收账户余额变动提醒。</span></div>
+                    <div class="fore3"><span id="valPhone" class="btn btn-7">立即验证</span></div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+
+    </div>
+    <%=includeScripts(view, ["../../js/security_center_L.js"]);%>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

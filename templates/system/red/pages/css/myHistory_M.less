@@ -1,0 +1,89 @@
+﻿.del-price{
+	text-decoration: line-through;
+	font-weight: normal;
+	color: #999;
+	font-size: 13px;
+	margin-left: 5px;
+}
+
+.history-label{
+  padding-left: 0 !important;
+  padding-right: 10px;
+}
+.list-block.media-list{
+    width: 100%;
+}
+div[data-page="myHistory"] .toolbar-inner {
+  .cancel,
+  .delete{
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+    border-radius: 3px;
+    }  
+    .cancel{
+    background-color: #f6c762;
+    }
+    .delete{
+    background-color: #ef524d;
+    }
+}
+div[data-page="myHistory"] .list-block li{
+    margin-left: 10px;
+}
+div[data-page="myHistory"] .list-block ul li.myHistoryItem{
+    position: relative;
+    &:after{
+       position: absolute;
+        content: "";
+        height: 1px;
+        left: -10px;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        background: #eee;  
+    }
+}
+div[data-page="myHistory"] .list-block.media-list .item-link .item-inner{
+    padding-right: 1px;
+}
+.dateClass{
+    padding: 15px;
+    padding-top:8px;
+    padding-left: 0;
+    padding-bottom:0px;
+    color: #999999;
+    font-size: 13px;
+}
+.dateClass label.item-content,.toolbar label.item-content{
+    display: inline-block;
+    min-height:auto;
+    .item-media{
+        padding-top:0;
+        padding-bottom:0;
+        position:relative;
+        top:3px;
+
+    }
+}
+.toolbar label.label-checkbox i.icon-form-checkbox{
+    display: inline-block;
+    
+}
+div[data-page="myHistory"] .toolbar label.label-checkbox span{
+    color:#666;
+    position:relative;
+    top: 2px;
+    font-size: 15px;
+}
+.delete-icon{
+    float: right;
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    background-image: url(../img/icon/del-coll.png);
+    background-size: 23px 23px;
+}

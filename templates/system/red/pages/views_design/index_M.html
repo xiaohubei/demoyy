@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title></title>
+    <%=includeLinks(view, ["../css/index_M.css","../css/base.css","../css/icon.css","../css/index.css","../css/search.css","../css/lib.less","../css/member_M.less","../css/toast.css"]);%>
+     <script type="text/javascript">
+        //全局变量，动态的文章ID
+        var ShareId = "";
+        function SetShareUrl(cmd, config) {
+            var linkUrl = location.href;;
+            config.bdUrl = linkUrl;
+            return config;
+        }
+
+        //插件的配置部分，注意要记得设置onBeforeClick事件，主要用于获取动态的文章ID
+        window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdMiniList": false,
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "sqq", "tqq", "weixin"],
+            "viewText": "分享到：",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "sqq", "tqq", "weixin"]
+        }
+    };
+        //插件的JS加载部分
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+</head>
+
+<body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="popup popup-prodSUK"></div>
+     <!--分享-->
+    <div class="popup popupShare" >
+        <div class="qsc-modal modal-share share-min in" style="display: block;height:100%;">
+            <div class="modal-dialog bottom" style="height:100%;">
+                <div class="modal-content clearfix" style="height:100%;">
+                    <div class="modal-header" >
+                        分享
+                       <a href="#" class="close-popup"> <i class="icon icon-colse-popup"></i></a>
+                    </div>
+                    <div class="modal-body shareBox">
+                    	<div class="bdsharebuttonbox">
+                        <a href="#" class="bds_copy" data-cmd="copy" title="复制链接">复制链接</a>
+                        <a href="#" class="bds_QRcode" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+                        <a href=""></a>
+                        <a href=""></a>
+                        <a href=""></a>
+                       </div>
+                        <div class="bdsharebuttonbox">
+                        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+                        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+                        <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">QQ</a>
+                        <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+                        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+                    	</div>
+                    </div>
+                    <div class="modal-footer" >
+                        <a href="#" class="cancelShare">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="popup popup-map">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                </div>
+                <div class="center">
+                    选择提货门店
+                </div>
+                <div class="right">
+                    <i class="icon close-white"></i>
+                </div>
+                <div class="subnavbar">
+                    <p>地址详情</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="mapArea">
+                <div id="popupMap-mapArea"></div>
+            </div>
+            <div class="list-block map-list">
+                <ul class="storeDetail-container"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="popup popup-chooseStore">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                </div>
+                <div class="center">选择自提点</div>
+                <div class="right">
+                    <i class="icon close-white"></i>
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="row dai-search">
+                <div class="col-auto active" data-type="province">请选择</div>
+                <div class="col-auto" data-type="city">请选择</div>
+                <div class="col-auto" data-type="area">请选择</div>
+                <div class="col-15 btn-search"><i class="icon search-gray-2"></i></div>
+            </div>
+            <div class="list-block media-list m-t-0 storeList">
+                <ul>
+                    <li class="search hide">
+                        <form action="">
+                            <input type="search" placeholder="输入路名\地标" />
+                        </form>
+                        <span>取消</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="popup popup-network">
+        <div class="noDataTip">
+            <i class="icon icon-no-network"></i>
+            <p>世界上最遥远的距离就是断网</p>
+            <a href="#" class="button">再试试</a>
+        </div>
+    </div>
+    <div class="popup popup-cancelreason" >
+        <div class="content-block-title">请选择取消订单原因</div>
+        <div class="list-block media-list m-b-5" >
+            <ul></ul>
+        </div>
+        <div class="modal-buttons " style="">
+            <span class="modal-button close-popup">取消</span>
+            <span class="modal-button modal-button-bold confirm-popup">确认</span>
+        </div>
+    </div>
+
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left panel content goes here</p>
+        </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+        <div class="content-block">
+            <p>Right Panel content here</p>
+            <!-- Click on link with "close-panel" class will close panel -->
+            <p><a href="#" class="close-panel">Close me</a></p>
+            <!-- Click on link with "open-panel" and data-panel="left" attribute will open Left panel -->
+            <p><a href="#" data-panel="left" class="open-panel">Open Left Panel</a></p>
+        </div>
+    </div>
+    <div class="views tabs">
+        <div id="homeView" class="view tab" data-url="home">
+            <div class="pages navbar-fixed navbar-through tabbar-labels-fixed  fixed-through">
+                <div data-page="home" class="page">
+                    <div class="page-content p-t-0">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="categoryView" class="view tab" data-url="category">
+            <!-- We can make with view with navigation, let's add Top Navbar-->
+            <div class="pages navbar-through">
+                <div data-page="category" class="page">
+                    <div class="page-content"></div>
+                </div>
+            </div>
+        </div>
+        <div id="cartView" class="view tab" data-url="member/cart">
+            <!-- We can make with view with navigation, let's add Top Navbar-->
+            <!-- Pages-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, data-page contains page name-->
+                <div data-page="cart" class="page">
+                    <!-- Scrollable page content-->
+                    <div class="page-content"></div>
+                </div>
+            </div>
+        </div>
+        <div id="memberView" class="view tab" data-url="member/index">
+            <div class="pages navbar-through">
+                <div data-page="user" class="page">
+                    <div class="page-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+    <div class="login-screen">
+        <div class="view">
+            <div class="page" data-controller="LoginViewController">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <!--<a class="link" >-->
+                            <i class="icon close-white" id="cancel_login"></i>
+                            <!--</a>-->
+                        </div>
+                        <div class="right">
+                            <a class="forgetPwd" href="forgetPwd">忘记密码</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content login-screen-content">
+                    <div class="text-right">
+                        <i class="icon icon-help hidden"></i>
+                    </div>
+                    <div class="login-avatar">
+                        <img src="" class="lazy" />
+                    </div>
+                    <form id="mylogin">
+                        <div class="list-block">
+                            <ul>
+                                <li class="item-content">
+                                    <div class="item-media">
+                                        <i class="icon login-phone"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="text" name="username" value="" placeholder="用户名/手机号/邮箱" id="login_uname" />
+                                        </div>
+                                        <span class="list-onOff"><i class="icon icon-dropdown" id="iconstatus"></i></span>
+                                        <div class="list-login">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-media">
+                                        <i class="icon login-pwd"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input">
+                                            <input type="password" name="password" value="" placeholder="请输入密码" id="login_pwd" />
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="login-btuuon">
+                            <p>
+                                <a href="#" class="button button-big button-fill bg-green-u submit" id="indexLogin">登 录</a>
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <a href="#" class="link registerBtn" style="float: left;">立即注册</a>
+                            <a style="display: none;">手机号快捷登录</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%if(view.mode==='wechat'){%>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <%}else if(view.mode!=='package'){%>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=Da2GUB3raZGa2XnLnmYT1KUwvaT9FYPw" type="text/javascript"></script>
+    <%}%>
+    <%=includeScripts(view, ["@root/js/toast.js","../js/updateIcon_M.js","../js/login_M.js","../js/index_M.js","../js/InitBack_M.js"]);%>
+    <script type="text/javascript">
+        cb.rest.ContextBuilder.construct(init, isAndroid, isIos);
+    </script>
+</body>
+
+</html>

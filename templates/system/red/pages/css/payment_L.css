@@ -1,0 +1,286 @@
+#payment_mainbody_box {
+  width: 990px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.clearfix {
+  display: block;
+}
+.CartWrap {
+  clear: both;
+}
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+.payment_AllWrapInside {
+  font-family: Verdana, Geneva, sans-serif, "宋体";
+  font-size: 12px;
+  color: #666;
+}
+/*最上面导航*/
+.stepbj1, .stepbj2, .stepbj3 {
+  background: url(../images/pc/cart-stepbj.gif) #f6f6f6 no-repeat;
+}
+.cart-nav {
+  position: relative;
+  font-family: "Microsoft YaHei",Verdana,Arial,Helvetica;
+  font-size: 14px;
+  margin: 0 0 10px 0;
+  color: white;
+  height: 38px;
+  line-height: 38px;
+}
+.step1 {
+  left: 41px;
+}
+.step2 {
+  left: 146px;
+}
+.step3 {
+  left: 192px;
+}
+.step1, .step2, .step3 {
+  padding: 0 1px;
+  height: 38px;
+  line-height: 38px;
+  float: left;
+  display: block;
+  position: relative;
+  font-weight: bold;
+}
+.my-cart {
+  padding: 0 35px 0 5px;
+  float: right;
+  height: 38px;
+  background: url(../images/pc/mycart_icon.gif) no-repeat center right;
+  line-height: 38px;
+  display: block;
+  font-size: 16px;
+  color: #333;
+  position: relative;
+  right: 15px;
+  font-weight: bold;
+}
+/*订单信息*/
+.CartWrap .division {
+  padding: 0;
+  border: 1px solid #E5E5E5;
+  margin: 0;
+}
+.order-suces-wrap {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.order-sucs {
+  /* background: url(../images/pc/order-sucs.gif) no-repeat center; */
+  width: 13%;
+  height: 100px;
+}
+div.floatLeft, .flt {
+  float: left;
+  display: inline;
+}
+.mt25 {
+  margin-top: 25px;
+  margin-left:10px;
+}
+.fontbold {
+  font-weight: bold;
+}
+.font16px {
+  font-size: 16px;
+}
+.membermain .point, .division .point {
+  color: #f60;
+  font-size: 13px;
+  font-family: tahoma;
+  font-weight: bold;
+}
+.price-normal, .point {
+  color: #f60;
+}
+.font14px {
+  font-size: 14px;
+}
+address, caption, em, th, i {
+  font-style: normal;
+  font-weight: 400;
+}
+.pt10 {
+  padding-top: 10px;
+}
+.db {
+  display: block;
+}
+.font-blue {
+  color: #369;
+}
+/*支付方式*/
+#body1 {
+  font-family: Verdana, Geneva, sans-serif, "宋体";
+  font-size: 12px;
+  color: #666;
+}
+.content {
+  margin-top: 5px;
+}
+.content dt {
+  width: 100px;
+  display: inline-block;
+  text-align: right;
+  float: left;
+}
+.content dd {
+  margin-left: 100px;
+  margin-bottom: 5px;
+}
+.null-star {
+  color: #fff;
+}
+.bank-list {
+  overflow: hidden;
+  margin-top: 5px;
+}
+.bank-list li {
+  float: left;
+  width: 153px;
+  margin-bottom: 5px;
+}
+
+ul, ol {
+  list-style: none;
+}
+.btnPayment-sp {
+  border: 1px solid #D74C00;
+  padding: 1px;
+  display: inline-block;
+  margin-top: 30px;
+}
+.btnPayment {
+  background-position: 0 -198px;
+  width: 82px;
+  color: #FFFFFF;
+  font-weight: bold;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 10px 3px;
+  text-align:center;
+}
+.btnPayment {
+  background-color: transparent;
+  background-image: url(../images/pc/new-btn-fixed.png);
+  border: medium none;
+}
+.clear {
+  clear: both;
+  line-height: 0;
+  font-size: 0;
+  height: 0;
+}
+/*弹出层*/
+#main { 
+height:1800px; 
+padding-top:90px; 
+text-align:center; 
+} 
+#fullbg { 
+background-color:gray; 
+left:0; 
+opacity:0.5; 
+position:absolute; 
+top:0; 
+z-index:3; 
+filter:alpha(opacity=50); 
+-moz-opacity:0.5; 
+-khtml-opacity:0.5; 
+} 
+
+#dialog { 
+display:none; 
+}
+.close_mayer {
+   float:right;
+   cursor:pointer;
+}
+
+.up-box {
+background: #fff;
+border-radius: 0 0 5px 5px;
+line-height: 25px;
+}
+.up-box-hd {
+height: 37px;
+line-height: 35px;
+position: relative;
+background-color: blue;
+color: #fff;
+padding: 0 20px;
+font-size: 16px;
+text-align: left;
+}
+.up-box-bd {
+background: #EFEEF2;
+border-radius: 0 0 5px 5px;
+padding: 20px 60px;
+line-height: 25px;
+height: 180px;
+}
+.up-box-bd .mayer_icon {
+float: left;
+margin-right: 25px;
+background-image:url("../images/pc/working.gif");
+width: 66px;
+height:66px;
+}
+.up-box-bd .r-txt {
+width: 360px;
+margin-top: 10px;
+float: left;
+color: #666;
+}
+.ft14 {
+font-size: 14px;
+}
+.ft14 p {
+line-height: 20px;
+}
+.up-box-bd .lay-btn {
+padding: 0;
+padding-top: 20px;
+}
+.lay-btn {
+height: 30px;
+padding: 10px 0;
+text-align: center;
+}
+lay-btn span {
+margin: 0 10px;
+}
+.btnPaymentFailed, .btnPaymentSuccess {
+text-align: center;
+background-color:rgb(143, 165, 42);
+color: #FFFFFF;
+font-weight: bold;
+}
+.clearfixx {
+display: inline-block;
+}
+.alipay {
+  background: url(../images/pc/baxx.jpg) no-repeat center;
+  display: inline-block;
+  background-size:80px,35px;
+  height: 35px;
+  width: 105px;
+}
+.chanpay {
+  background: url(../images/pc/chanpay.png) no-repeat center;
+  display: inline-block;
+  background-size:80px,35px;
+  height: 35px;
+  width: 105px;
+}

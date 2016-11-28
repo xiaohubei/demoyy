@@ -1,0 +1,38 @@
+﻿.main.messageSetting{
+padding-top:20px;
+}
+
+.linkBackToMyMessage {
+text-align:right;
+padding:0px;
+padding-right:28px;
+float: right;
+color: #b3b3b3;
+position: relative;
+top: 8px;
+}
+input[type=checkbox] {
+position:relative;
+top:2px;
+}
+.row.main  input {
+background-color:red;
+}
+.main_content {
+border:1px solid #e6e6e6;
+margin: 10px auto;
+padding:0px;
+height:75px;
+}
+.blockTitle {
+font-size:14px;
+margin-top:25px;
+padding-right:0px;
+}
+.blockContent {
+margin-top:26px;
+padding-left:0px;
+}
+.settingListBox{
+	padding-bottom: 20px;
+}

@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U商城</title>
+</head>
+<body>
+    <div class="pages">
+        <div data-page="myorder" class="page navbar-fixed toolbar-fixed no-tabbar" data-controller="MyOrderController">
+            <div class="navbar" id="navabar">
+                <div class="navbar-inner" id="barNoSearch">
+                    <div class="left">
+                        <a href="#" class="back link"><i class="icon icon-back"></i></a>
+                    </div>
+                    <div class="center">
+                        我的全部订单
+                    </div>
+                    <div class="right">
+                        <a href="/member/searchOrder" class="link" id="btnSearchOrder"><i class="icon icon-search"></i></a>
+                    </div>
+                </div>
+                <div class="subnavbar">
+                    <div id="tabSwitch" class="buttons-row row  myOrderTabNav">
+                        <a href="#" data-filter="all" class="button nav-bar tab-link active">全部<span></span></a>
+                        <a href="#" data-filter="PAYMONEY" class="button nav-bar tab-link">待付款<span></span></a>
+                        <a href="#" data-filter="DELIVERGOODS" class="button nav-bar tab-link">待发货<span></span></a>
+                        <a href="#" data-filter="TAKEDELIVERY" class="button nav-bar tab-link">待收货<span></span></a>
+                        <a href="#" data-filter="UNREMARK" class="button nav-bar tab-link">待评价<span></span></a>
+                    </div>
+                </div>
+            </div>
+			<div class="page-content infinite-scroll pull-to-refresh-content orderList-container" data-distance="50" data-ptr-distance="55" id="orderList-container">
+			    <div class="pull-to-refresh-layer">
+			      	<div class="pull-to-refresh-arrow"></div>
+			    </div>
+				<div class="col-100" id="orderList"></div>
+				<script id="orderListTpl" type="text/template7">
+                {{#js_compare "this.orderList !== null"}}
+			        {{#each orderList}}
+    				    <div class="list-wrap">
+    						<ul class="order-list">
+    							<li>
+    								<h4 class="clear"><strong ><span>订单号：</span><a href="/member/orderdetail?orderId={{cOrderNo}}">{{cOrderNo}}</a></strong><em > {{cNextStatusName}}</em></h4>
+    							</li>
+    							<li>
+    								<ul class="order-details">
+    								{{#each this.oOrderDetails}}
+    									<li>
+    			     						<a href="/member/orderdetail?orderId={{cOrderNo}}">
+    											<div class="row">
+    												<div class="col-20">
+                                                        <img alt="" height="75px" width="75px" src="{{adjustImgSrc DefaultImage}}">
+    												</div>
+    												<div class="col-60">
+    													<div class="title">{{cProductName}}</div>
+    													<div class="text">{{cSpecDescription}}</div>
+    												</div>
+    												<div class="col-20 pirce">
+    												    {{#js_compare "this.productAttribute == 2"}}
+    														<div class="red-color">{{salePoints}}积分</div>
+    					                                {{else}}
+    														<div class="red-color">￥{{fSalePrice}}</div>
+    					                                {{/js_compare}}
+    													<del>￥{{fMarketPricie}}</del>
+    													<div>x{{iQuantity}}</div>
+    												</div>
+    											</div>
+    										</a>
+    										<!--{{#js_compare "this.cNextStatus != 'PAYMONEY'"}}
+    											{{#js_compare "this.cNextStatus == 'DELIVERGOODS'"}}
+    											<div class="order-btn clear">
+    												<div class="fr" data-oid="{{cOrderNo}}">
+    												{{#js_compare "this.cSaleReturnStatus && this.cSaleReturnStatus != ''"}}
+    													{{#js_compare "this.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'"}}
+    														<a href="" class="btn btn-theme returngood" data-detailid="{{id}}"  data-corderno="{{cOrderNo}}">请退货</a>
+    													{{else}}
+    														<a href="" class="btn btn-theme " >详情</a>
+    													{{/js_compare}}
+    												{{else}}
+    													{{#js_compare "this.cOrderPayType != 'FIRSTDELIVER'"}}
+    														<a href="member/myreturn?detailid={{id}}" class="btn btn-theme " >退款申请</a>
+    													{{/js_compare}}
+    												{{/js_compare}}
+    												</div>
+    												<span class="fr" style="line-height:25px; height: 25px;">{{cSaleReturnStatusName}}</span>
+    											</div>
+    											{{/js_compare}}
+
+    											{{#js_compare "this.cNextStatus == 'TAKEDELIVERY'"}}
+    											<div class="order-btn clear">
+    												<div class="fr" data-oid="{{cOrderNo}}">
+    												{{#js_compare "this.cSaleReturnStatus && this.cSaleReturnStatus != ''"}}
+    													{{#js_compare "this.cSaleReturnStatus == 'CONFIRMSALERETURNORDER'"}}
+    														<a href="" class="btn btn-theme returngood"  data-corderno="{{cOrderNo}}" data-detailid="{{id}}" >请退货</a>
+    													{{else}}
+    														<a href="" class="btn btn-theme " >详情</a>
+    													{{/js_compare}}
+    												{{else}}
+    													{{#js_compare "!this.isGiftCard && this.cOrderPayType == 'FIRSTPAY'"}}
+    														<a href="member/myreturn?detailid={{id}}" class="btn btn-theme " >退款申请</a>
+    													{{/js_compare}}
+    												{{/js_compare}}
+    												</div>
+    												<span class="fr" style="line-height:25px; height: 25px;">{{cSaleReturnStatusName}}</span>
+    											</div>
+    											{{/js_compare}}
+
+    											{{#js_compare "this.cNextStatus == 'UNREMARK'"}}
+    											<div class="order-btn clear">
+    												<div class="fr" data-oid="{{cOrderNo}}">
+    												{{#js_compare "this.cSaleReturnStatus && this.cSaleReturnStatus != ''"}}
+    													{{#js_compare "this.cSaleReturnStatus != 'CONFIRMSALERETURNORDER'"}}
+    														<a href="" class="btn btn-theme returngood"  data-corderno="{{cOrderNo}}" data-detailid="{{id}}" >请退货</a>
+    													{{else}}
+    														<a href="" class="btn btn-theme " >详情</a>
+    													{{/js_compare}}
+    												{{else}}
+    													{{#js_compare "!this.isGiftCard && this.cOrderPayType == 'FIRSTPAY'"}}
+    														<a href="member/myreturn?detailid={{id}}" class="btn btn-theme " >退款申请</a>
+    													{{/js_compare}}
+    												{{/js_compare}}
+    												</div>
+    												<span class="fr" style="line-height:25px; height: 25px;">{{cSaleReturnStatusName}}</span>
+    											</div>
+    											{{/js_compare}}
+
+    											{{#js_compare "this.cNextStatus == 'ENDORDER'"}}
+    											<div class="order-btn clear">
+    												<div class="fr" data-oid="{{cOrderNo}}">
+    												{{#js_compare "this.cSaleReturnStatus && this.cSaleReturnStatus != ''"}}
+    													{{#js_compare "this.cSaleReturnStatus != 'CONFIRMSALERETURNORDER'"}}
+    														<a href="" class="btn btn-theme returngood"  data-corderno="{{cOrderNo}}" data-detailid="{{id}}" >请退货</a>
+    													{{else}}
+    														<a href="" class="btn btn-theme " >详情</a>
+    													{{/js_compare}}
+    												{{else}}
+    													{{#js_compare "!this.isGiftCard && this.cOrderPayType == 'FIRSTPAY'"}}
+    														<a href="member/myreturn?detailid={{id}}" class="btn btn-theme " >退款申请</a>
+    													{{/js_compare}}
+    												{{/js_compare}}
+    												{{#js_compare "this.iCommentId ==0"}}
+    													<a href="member/myEvaluation?order_id={{cOrderNo}}" class="btn btn-theme  evaluate" >评价</a>
+    												{{else}}
+    													<div><span style="color:#ADAAAA;">已评论</span></div>
+    												{{/js_compare}}
+    												</div>
+    												<span class="fr" style="line-height:25px; height: 25px;">{{cSaleReturnStatusName}}</span>
+    											</div>
+    											{{/js_compare}}
+    										{{/js_compare}}-->
+    									</li>
+    								{{/each}}
+    								</ul>
+    							</li>
+    							<li class="order-bom">
+    							    <span>共{{oOrderDetails.length}}件商品<span>
+    							    {{#js_compare "this.oOrderDetails[0].productAttribute == 2"}}
+                                        <span>合计: {{pointNum}}积分</span>
+                                    {{else}}
+    									<span>合计: ￥{{fPayMoney}}</span>
+                                        <span>(含运费￥{{iPostage}})</span>
+                                    {{/js_compare}}
+    							</li>
+    							<div class="order-btn clear">
+    								<div class="fr" data-corderno="{{cOrderNo}}">
+    								{{#js_compare "this.cNextStatus == 'PAYMONEY'"}}
+    									<a href="#" class="btn btn-theme payfor" >付款</a>
+    									<a href="#" class="btn cancel" >取消订单</a>
+    								{{/js_compare}}
+                                    {{#js_compare "this.cNextStatus == 'DELIVERGOODS'"}}
+                                        {{#js_compare "this.cOrderPayType == 'FIRSTDELIVER'"}}
+                                            <a href="#" class="btn cancel" >取消订单</a>
+                                        {{/js_compare}}
+                                    {{/js_compare}}
+    								{{#js_compare "this.cNextStatus == 'TAKEDELIVERY'"}}
+    									<a href="#" class="btn btn-theme confirm" >确认收货</a>
+    									{{#js_compare "!this.isGiftCard && this.cDeliverType !=='PICKUP'"}}
+    										<a href="member/searchexpress?oid={{cOrderNo}}&cNextStatus={{cNextStatus}}" class="btn logistics" >查看物流</a>
+    									{{/js_compare}}
+    								{{/js_compare}}
+    								{{#js_compare "this.cNextStatus == 'ENDORDER'"}}
+    									{{#js_compare "!this.isGiftCard  && this.cDeliverType !=='PICKUP'"}}
+    										<a href="member/searchexpress?oid={{cOrderNo}}&cNextStatus={{cNextStatus}}" class="btn logistics" >查看物流</a>
+    									{{/js_compare}}
+    								{{/js_compare}}
+    								</div>
+    							</div>
+    						</ul>
+    				    </div>
+                    {{/each}}
+				{{else}}
+				    <div class="noDataTip">
+                    	<i class="icon icon-no-order"></i>
+                    	<p>您还没有相关订单</p>
+                    	<a href=""  class="gohome button">随便逛逛</a>
+                    </div>
+                {{/js_compare}}
+			    </script>
+            </div>
+        </div>
+    </div>
+    <%=includeScripts(view, ["../../js/myorder_M.js"]);%>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>登录页面</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/login_L.css">
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/cube.js" type="text/javascript"></script>
+<script src="../js/template-native-debug.js" type="text/javascript"></script>
+<script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="" data-controller="LoginViewController">
+		<div class="content">
+			<!-- <h1>享受你的购物之旅</h1> -->
+			<div class="main">
+					<div class="profile-left">
+						<h2>login</h2>
+						<form action="">
+							<div class="login">
+								<input type="text" class="email-icon" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your Email';}" required="">
+								<input type="password" class="key-icon"  value="密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}" required="">
+								<input type="text" class="key-icon"  value="验证码"  required="">
+							</div>
+							<input type="submit" value="登录" >
+							<!-- <a href="#" >注册</a> -->
+						</form>
+						<div class="login-left">
+							<ul>
+								<li><a class="fb" href="register"><i></i>注册</a></li>
+								<!-- <li><a class="goog" href="#"><i></i>推特</a></li> -->
+							</ul>
+						</div>
+					</div>
+					<div class="profile-middle">
+						<div class="profile-img">
+							<div class="login-pic"><img src="../images/pic2.jpg" alt=" " /></div>
+							<h3>小湖北</h3>
+							<p>xiaohubei</p>
+						</div>
+						<div class="twitt-left">
+							<h5></h5>
+							<p></p>
+						</div>
+						<div class="twitt-right">
+							<h5></h5>
+							<p></p>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"> </div>
+			</div>
+			<p class="footer">&copy; 2016 版权所有，翻着必究 | Design by <a href="#"> 华美建业</a></p>
+		</div>
+	</div>
+	<script src="../js/pages/login_L.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	    cb.init();
+	</script>
+</body>
+</html>

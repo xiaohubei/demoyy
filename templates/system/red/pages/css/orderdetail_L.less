@@ -1,0 +1,457 @@
+.stepflex.sflex05 {
+    position: relative;
+    margin-top: 80px;
+    width: 95%;
+    margin-left: 2%;
+}
+
+    .stepflex.sflex05 dl {
+        width: 20%;
+    }
+
+        .stepflex.sflex05 dl .s-title {
+            position: absolute;
+            font-size: 14px;
+            top: -60px;
+            width: 100%;
+        }
+
+    .stepflex.sflex05 .s-text {
+        color: #a29e9e;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+.orderDetail-warp {
+    margin: 15px auto;
+    height: 260px;
+}
+    .orderDetail-warp > div {
+        float: left;
+        height: 100%;
+        border: 1px solid #e6e6e6;
+    }
+
+        .orderDetail-warp > div:first-child,
+        .orderDetail-warp > .wrap-left{
+            width: 40%;
+            margin-right: 1%;
+        }
+        .orderDetail-warp > .wrap-right{
+            width: 59%;
+        }
+
+    .orderDetail-warp .warp-left {
+        float: left;
+    }
+
+    .orderDetail-warp .warp-left-top {
+        float: left;
+        width: 100%;
+        line-height: 40px;
+        height: 40px;
+        background-color: #fafafa;
+        padding-left: 15px;
+        color: #262626;
+    }
+
+    .orderDetail-warp .warp-left-center {
+        float: left;
+        width: 100%;
+        padding: 10px 10px;
+        border-bottom: 1px dashed #e6e6e6;
+    }
+
+    .orderDetail-warp .warp-left-bottom {
+        float: left;
+        width: 100%;
+        padding: 10px 10px;
+        height: 100px;
+    }
+
+        .orderDetail-warp .warp-left-bottom .field-item {
+            margin: 5px 0px;
+        }
+
+.field-item > div {
+    float: left;
+    width: 100%;
+}
+
+.field-item .field-title {
+    width: 20%;
+    color: #a29e9e;
+    line-height: 25px;
+}
+
+.field-item .field-text {
+    width: 75%;
+}
+
+    .field-item .field-text .field-line {
+        line-height: 25px;
+        font-size: 12px;
+        word-break:break-all;
+    }
+
+        .field-item .field-text .field-line.small {
+            font-size: 12px;
+            color: #a29e9e;
+        }
+
+.wrap-right .wrap-right-top {
+    padding-left: 80px;
+    padding-top: 30px;
+    height: 130px;
+}
+
+    .wrap-right .wrap-right-top > div {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+
+    .wrap-right .wrap-right-top .order-tips .timeSpan,
+    .wrap-right .wrap-right-bottom .tips .timeSpan {
+        color: @styleColors;
+        margin: 0 5px;
+    }
+
+    .wrap-right .wrap-right-top .order-manage {
+        font-size: 12px;
+        height: 50px;
+    }
+
+        .wrap-right .wrap-right-top .order-manage > span {
+            cursor: pointer;
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            width: 70px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+            .wrap-right .wrap-right-top .order-manage > span:hover {
+                color: #fff;
+                background-color: @styleColors;
+            }
+
+        .wrap-right .wrap-right-top .order-manage span.active {
+            color: #fff;
+            background-color: @styleColors;
+            margin-left: 10px;
+        }
+        .wrap-right .wrap-right-top .order-manage span.remind,
+        .wrap-right .wrap-right-top .order-manage span.returnGoods {
+            width:100px;
+            margin-right:10px;
+        }
+
+.wrap-right .wrap-right-bottom {
+    padding: 10px 0 0 80px;
+    font-size: 12px;
+    border-top: 1px dashed #e6e6e6;
+}
+
+.wrap-right .wrap-right-bottom .logistics.logisticsContainer{
+    position:relative;
+}
+
+    .wrap-right .wrap-right-bottom .tips,
+    .wrap-right .wrap-right-bottom .logistics .logisticsInfo {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .wrap-right .wrap-right-bottom .logistics .logisticsInfoList {
+        position:absolute;
+        list-style: none;
+        padding: 0;
+        height:30px;
+        overflow:hidden;
+        font-size: 12px;
+        color: @styleColors;
+        background:#fff;
+        cursor:pointer;
+    }
+        .wrap-right .wrap-right-bottom .logistics .logisticsInfoList:hover {
+            height:auto;
+        }
+
+        .wrap-right .wrap-right-bottom .logistics .logisticsInfoList li {
+            font-size: 12px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .wrap-right .wrap-right-bottom .logistics .logisticsInfoList .info {
+            margin-left:10px;
+        }
+
+    .wrap-right .wrap-right-bottom .logisticsInfoList .time {
+        color: black;
+    }
+
+.orderDetail-container {
+    width: 100%;
+    border: 1px solid #e6e6e6;
+}
+
+    .orderDetail-container .container-main,
+    .orderDetail-container .container-main .item-block {
+        width: 100%;
+    }
+
+    .orderDetail-container .container-header {
+        border-bottom: 1px solid #e6e6e6;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        overflow: hidden;
+        padding-left: 10px;
+    }
+
+        .orderDetail-container .container-header .column,
+        .orderDetail-container .container-main .item-title .column {
+            float: left;
+            text-align: center;
+        }
+
+        .orderDetail-container .container-header .t-goods,
+        .orderDetail-container .item-block .item-list .t-goods {
+            width: 30%;
+        }
+
+        .orderDetail-container .container-header .t-price,
+        .orderDetail-container .item-block .item-list .t-price {
+            width: 11%;
+        }
+
+        .orderDetail-container .container-header .t-quantity,
+        .orderDetail-container .item-block .item-list .t-quantity {
+            width: 11%;
+        }
+
+        .orderDetail-container .container-header .t-discount,
+        .orderDetail-container .item-block .item-list .t-discount {
+            width: 15%;
+        }
+
+        .orderDetail-container .container-header .t-sum,
+        .orderDetail-container .item-block .item-list .t-sum {
+            width: 11%;
+        }
+
+        .orderDetail-container .container-header .t-static,
+        .orderDetail-container .item-block .item-list .t-static {
+            width: 20%;
+        }
+
+    .orderDetail-container .container-main .item-title {
+        background-color: #FEEAE9;
+        height: 35px;
+        line-height: 35px;
+    }
+
+        .orderDetail-container .container-main .item-title .t-package {
+            width: 10%;
+            height:100%;
+        }
+
+        .orderDetail-container .container-main .item-title .t-express {
+            width: 12%;
+            height:100%;
+            text-align: left;
+        }
+
+        .orderDetail-container .container-main .item-title .t-expressNo {
+            width: 18%;
+            height:100%;
+            text-align: left;
+        }
+
+        .orderDetail-container .container-main .item-title .t-logisticsInfo {
+            width: 30%;
+            text-align: left;
+            color:#ef524d;
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+
+        .orderDetail-container .container-main .item-title .t-more {
+            width: 10%;
+            padding-left:10px;
+            text-align: left;
+        }
+
+    .orderDetail-container .container-main .item-block .item-list {
+        width: 100%;
+    }
+
+    .orderDetail-container .container-main .item-block .item-single {
+        height: 80px;
+        padding: 0 10px;
+        line-height: 80px;
+        text-align: center;
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    .orderDetail-container .item-block .item-list .cell {
+        float: left;
+        border-left: 1px solid #e6e6e6;
+    }
+
+        .orderDetail-container .item-block .item-list .cell:first-child {
+            border-left: none;
+        }
+
+    .orderDetail-container .item-block .item-list .t-sum {
+        color: @styleColors;
+    }
+
+    .orderDetail-container .item-block .item-list .t-static {
+        color: #DE7F01;
+    }
+
+    .orderDetail-container .item-block .item-list .t-goods .p-img {
+        float: left;
+        width: 60px;
+        max-width:30%;
+        height: 60px;
+        line-height:54px;
+        border: 1px solid #e6e6e6;
+        margin-right: 10px;
+        margin-top: 8px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+        .orderDetail-container .item-block .item-list .t-goods .p-img img {
+            width: 80px;
+            height: 58px;
+            cursor: pointer;
+            vertical-align: initial;
+        }
+
+    .orderDetail-container .item-block .item-list .t-goods .p-title,
+    .orderDetail-container .item-block .item-list .t-goods .p-desc {
+        float: left;
+        height: 35px;
+        width:79%;
+        line-height: 40px;
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+    }
+
+        .orderDetail-container .item-block .item-list .t-goods .p-title:hover {
+            color: #ff7400;
+            cursor: pointer;
+        }
+
+    .orderDetail-container .container-footer {
+        float: left;
+        width: 100%;
+        background-color: #fafafa;
+    }
+
+        .orderDetail-container .container-footer .detail-desc {
+            float: left;
+            width: 100%;
+            padding: 10px;
+            border-bottom: 1px dashed #a29e9e;
+        }
+
+            .orderDetail-container .container-footer .detail-desc .left {
+                float: left;
+                width: 40%;
+            }
+
+            .orderDetail-container .container-footer .detail-desc .right {
+                float: right;
+                width: 25%;
+                text-align: right;
+            }
+
+                .orderDetail-container .container-footer .detail-desc .left .field-content,
+                .orderDetail-container .container-footer .detail-desc .right .field-content {
+                    height: 30px;
+                    line-height: 30px;
+                }
+
+                .orderDetail-container .container-footer .detail-desc .right .field-content {
+                    float: right;
+                }
+
+                    .orderDetail-container .container-footer .detail-desc .right .field-content.curr {
+                        font-size: 16px;
+                    }
+
+                    .orderDetail-container .container-footer .detail-desc .left .field-content > div,
+                    .orderDetail-container .container-footer .detail-desc .right .field-content > div {
+                        float: left;
+                    }
+
+        .orderDetail-container .container-footer .left .field-content .field-title,
+        .orderDetail-container .container-footer .right .field-content .field-title {
+            width: 100px;
+            text-align: center;
+            color: #a9a9a9;
+        }
+
+        .orderDetail-container .container-footer .right .field-content .field-title {
+            width: 190px;
+            text-align: right;
+        }
+
+        .orderDetail-container .container-footer .right .field-content .field-text {
+            width: 90px;
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+
+        .orderDetail-container .container-footer .detail-line {
+            float: left;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+        }
+
+            .orderDetail-container .container-footer .detail-line .integral {
+                float: left;
+                margin-left: 30px;
+                line-height: 40px;
+                color: #a9a9a9;
+            }
+
+            .orderDetail-container .container-footer .detail-line .payfor {
+                float: right;
+                color:@styleColors;
+                font-size:16px;
+            }
+.orderDetail-warp{
+
+    .user-definedinfo {
+        padding: 14px 0 14px 80px;
+        height: 130px;
+        width:100% !important;
+        height:auto;
+        .field-item {
+            width: 30%;
+            display: inline-block;
+            .field-title{
+                width:50%;
+                text-align:right;
+                padding-right: 6px;
+            }
+            .field-text{
+                width:50%;
+                text-align:left;
+            }
+        }
+    }    
+}

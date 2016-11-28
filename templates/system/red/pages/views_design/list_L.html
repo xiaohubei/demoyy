@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <seo></seo>
+    <%=includeLinks(view);%>
+    <script src="./bootstrap/js/respond.src.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="container" data-controller="ListViewController" style="background:#fafafa">
+        <header></header>
+        <content></content>
+        <footer></footer>
+    </div>
+    <%=includeScripts(view, ["@root/jquery/jquery.page.js","../js/list_L.js"]);%>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+     
+</body>
+
+</html>

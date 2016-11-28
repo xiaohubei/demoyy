@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>          
+    <link href="../css/editor_L.css" rel="Stylesheet" type="text/css" />
+    <script src="../js/editor_L.js" type="text/javascript"></script>
+    <resource path="../resource/editor_L.json"></resource>
+</head>
+<body>
+    <div data-name="<%=name%>" data-config="<%=config%>" data-type="Editor">
+        <div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="<%=individualsUrl%>" role="button" aria-haspopup="true" aria-expanded="false"><%=individuals%>
+            <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li>
+                <div>
+                    <div> <a href="<%=individualsUrl%>"><img style="width:60px;height:60px;" class="img-circle" src="<%=imageSrc%>" /><span style="margin-left:20px;"><%=individuals%></span></a></div>
+                        <div style="margin-top:15px;">
+                            <%for(var i=0,len=list.length;i<len;i++){%> 
+                             <div><a href="<%=urlList[i]%"><%=list[i]%</a></div>
+                            <%}%>
+                        </div>
+                    </div>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

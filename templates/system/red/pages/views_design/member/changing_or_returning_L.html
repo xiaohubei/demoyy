@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%=resetTitle(view, "我的退换货");%></title>
+    <%=includeLinks(view, ["../../css/changing_or_returning_L.less","@root/js/date/need/laydate.css","@root/js/date/skins/default/laydate.css"]);%>
+    <script src="../bootstrap/js/respond.src.js" type="text/javascript"></script>
+    <style>
+        .wordbreak span, .wordbreak a{
+            word-break: break-all;
+            width:80px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container bg-fa" data-controller="ChangingOrReturningViewController">
+        <header></header>
+        <div class="row">
+            <div class="col-xs-2">
+                <member_nav></member_nav>
+            </div>
+            <div class="changing_or_refunding col-md-10 main">
+                <div class="main_title">
+                    <div class="col-md-6 mymessage">我的退换货</div>
+                </div>
+                <div class="returnStateSearch main_tabs col-xs-12" >
+                    <ul id="tabSwitch">
+                        <li data-status="" class="tabactive">全部</li>
+                        <li data-status="SUBMITSALERETURN" >待审批</li>
+                        <li data-status="CONFIRMSALERETURNORDER" >待退货</li>
+                        <li data-status="SALERETURNING" >退货中</li>
+                        <li data-status="ENDSALERETURN" >已完成</li>
+                        <li data-status="OPPOSESALERETURN" >已驳回</li>
+                    </ul>
+                </div>
+                <div class="prodcutSearch col-xs-12">
+                    <div class="input-group" >
+                        <span>申请时间</span>
+                        <div ><input class="form-control ordernum laydate-icon" id="startTimes" onClick="laydate({istime:true,elem:'#startTimes',format:'YYYY-MM-DD'})"></div>
+                        <span class="fenge">-</span>
+                        <div ><input class="form-control ordernum laydate-icon" id="endTimes" onClick="laydate({istime:true,elem:'#endTimes',format:'YYYY-MM-DD'})"></div>
+                    </div>
+                    <div class="input-group" >
+                        <span>退货单编号</span>
+                        <div>
+                            <input type="text" id="returnPrice"  placeholder="退货单编号">
+                        </div>
+                    </div>
+                    <div class="input-group" >
+                    	<span>订单编号</span>
+                        <div><input type="text" id="orderNo"  placeholder="订单编号"></div>
+                    </div>
+                    <button id="fat-btn" class="btn btn-primary" type="button" >查询</button>
+                </div>
+                <div class="product_data col-xs-12">
+                    <div id="returnDataLists">
+
+                    </div>
+                    <div style="margin-top:0px;">
+                        <div class="pagenation" id="pagenation"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+        <script id="returnDataTpl" type="text/html">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th style="width:60px">退换货编号</th>
+                        <th style="width:60px">订单编号</th>
+                        <th style="width:60px">商品名称</th>
+                        <th style="width:70px">订单金额</th>
+                        <th style="width:65px">退款金额</th>
+                        <th style="width:80px">申请时间</th>
+                        <th style="width:55px">状态</th>
+                        <th style="width:60px">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <#for(var i=0,len=returnList.length;i<len;i++){#>
+                        <#var value=returnList[i];#>
+                            <tr>
+                                <td class="p-t-30 wordbreak " ><span><#=value.cSaleReturnNo#></span></td>
+                                <td class="p-t-30 wordbreak" ><a href="orderdetail?orderId=<#=value.cOrderNo#>"><#=value.cOrderNo#></a></td>
+                                <td>
+                                    <#for(var j=0,len1=value.oSaleReturnDetails.length;j<len1;j++){#>
+                                    <div class="row" style="margin-left:0;">	
+                                    <div class="col-lg-5 p-0">
+                                        <a href="/detail?goods_id=<#=value.oSaleReturnDetails[j].iProductId#>">
+                                            <img src="<#=adjustImgSrc(value.oSaleReturnDetails[j].productImg)#>" />
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <a href="/detail?goods_id=<#=value.oSaleReturnDetails[j].iProductId#>">
+                                            <#=value.oSaleReturnDetails[j].cProductName#>
+                                        </a><br />
+                                        <#=value.oSaleReturnDetails[j].cSpecDescription#>
+                                    </div>
+                                    </div>
+                                    <#}#>
+                                </td>
+                                <td class="p-t-30" ><#=value.orderTotalPrice#></td>
+                                <td class="p-t-30" ><#=value.returnTotalPrice#></td>
+                                <td class="p-t-30" ><#=value.oSaleReturnDetails[0].dCreatedTime#></td>
+                                <td class="p-t-30" ><#=value.cStatusName#></td>
+                                <td class="p-t-30" >
+                                    <span><a href="return_detail?cSaleReturnNo=<#=value.cSaleReturnNo#>">查看</a></span><br/>
+                                    <#if(value.isCanEvaluate==1){#>
+                                        <span><a href="return_detail?cSaleReturnNo=<#=value.cSaleReturnNo#>">评价</a></span>
+                                    <#}#>
+                                </td>
+                            </tr>
+                        <#}#>
+                </tbody>
+            </table>
+        </script>
+    </div>
+    <%=includeScripts(view, ["@root/jquery/jquery.page.js","@root/bootstrap/js/bootstrap.js","../../js/changing_or_returning_L.js","@root/js/date/laydate.min.js"]);%>
+    <script type="text/javascript">
+        cb.init();
+    </script>
+</body>
+</html>

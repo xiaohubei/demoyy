@@ -1,0 +1,67 @@
+{
+	"view": {
+		"$": {
+			"title": "头部公共区域",
+			"controller": "CommonViewController",
+			"width": "auto"
+		},
+		"widget": [
+			{
+				"$": {
+					"name": "topbar_member",
+					"type": "topbar_member"
+				},
+				"config": [
+					{
+						"$": {
+							"key": "welcome",
+							"value": "欢迎光临 "
+						}
+					}
+				]
+			},
+			{
+				"$": {
+					"name": "topbar_subnav",
+					"type": "topbar_subnav"
+				}
+			},
+			{
+				"$": {
+					"name": "logo",
+					"type": "logo"
+				}
+			},
+			{
+				"$": {
+					"name": "search",
+					"type": "search"
+				}
+			},
+			{
+				"$": {
+					"name": "navigation",
+					"type": "navigation"
+				}
+			},
+			{
+				"$": {
+					"name": "cart_box",
+					"type": "cart_box"
+				}
+			},
+			{
+				"$": {
+					"name": "online_customer",
+					"type": "online_customer"
+				}
+			},
+			{
+				"$": {
+					"name": "category",
+					"type": "category"
+				}
+			}
+		]
+	}
+}

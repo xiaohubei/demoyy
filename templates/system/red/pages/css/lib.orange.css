@@ -1,0 +1,83 @@
+.clearfix {
+  display: block;
+}
+.clearfix:after {
+  clear: both;
+  zoom: 0;
+  display: block;
+  content: "";
+}
+/*输入框未输入时文字颜色*/
+.detail-wrap {
+  margin: 10px 0;
+  padding-bottom: 1px;
+  position: relative;
+  display: block;
+}
+.detail-wrap:before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #dedddb;
+  left: 0;
+  top: 0;
+  z-index: 15;
+}
+.detail-wrap:first-child:before {
+  display: none;
+}
+.detail-wrap:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #dedddb;
+  left: 0;
+  bottom: 0;
+  z-index: 15;
+}
+.detail-wrap:last-child:after {
+  display: none;
+}
+.detail-wrap:after {
+  clear: both;
+  zoom: 0;
+  display: block;
+  content: "";
+}
+.detail-wrap li {
+  margin: 0 4px;
+  position: relative;
+}
+.detail-wrap li:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #eeeeee;
+  left: 0;
+  bottom: 0;
+  z-index: 15;
+}
+.detail-wrap li:last-child:after {
+  display: none;
+}
+.detail-wrap .item-inner:after {
+  height: 0;
+}
+.detail-wrap .item-text {
+  font-size: 13px;
+  color: #666666;
+}
+.detail-wrap .item-text + .item-after {
+  color: #393838;
+  font-size: 13px;
+}
+.detail-wrap .item-subtitle {
+  font-size: 13px;
+  color: #999999;
+}
+.detail-wrap .item-subtitle + .item-after {
+  color: #999999;
+}
